@@ -1,0 +1,177 @@
+{
+  "Navigation": {
+    "home": "Mwanzo",
+    "about": "Kuhusu",
+    "services": "Huduma",
+    "portfolio": "Kazi Zetu",
+    "studioAcademy": "Studio na Chuo",
+    "contact": "Mawasiliano",
+    "cta": "Wasiliana kwa WhatsApp"
+  },
+  "Footer": {
+    "privacy": "Sera ya Faragha",
+    "terms": "Masharti ya Huduma",
+    "copyright": "© 2026 Tripod Creative Agency. Haki zote zimehifadhiwa.",
+    "instagram": "Tufuate kwenye Instagram"
+  },
+  "Common": {
+    "viewPortfolio": "Angalia Kazi Zetu",
+    "bookWhatsApp": "Weka Nafasi kwa WhatsApp",
+    "contactEmail": "[Barua Pepe ya Mawasiliano]",
+    "contactPhone": "[Nambari ya Simu ya Mawasiliano]",
+    "officeLocation": "Maelezo ya mahali yanakuja hivi karibuni"
+  },
+  "Home": {
+    "Hero": {
+      "title": "Uzalishaji wa Cinematic Prism",
+      "subtitle": "Ubora wa picha ulioundwa na teknolojia ya kisasa. Tunabadilisha mawazo thabiti kuwa uzoefu wa kisasa wa kidijitali na picha za sinema.",
+      "cta": "Anza Sasa"
+    },
+    "Showreel": {
+      "tag": "Video Maalum",
+      "title": "Muhtasari wa Kazi Zetu",
+      "description": "Mtazamo wa haraka wa usimulizi wetu wa hadithi za picha. Pata uzoefu wa uzalishaji bora wa kamera na ufundi wa kuhariri."
+    },
+    "Services": {
+      "tag": "Utaalamu Wetu",
+      "title": "Mfumo wetu wa Huduma",
+      "description": "Chunguza taaluma zetu za ubunifu zilizoundwa ili kukuza uwepo wa chapa yako.",
+      "pillars": {
+        "branding": {
+          "title": "Mkakati wa Chapa",
+          "desc": "Kupanga miongozo ya kisasa ya utambulisho wa chapa, nembo, na nyenzo za kidijitali."
+        },
+        "production": {
+          "title": "Ubunifu wa Kisanii",
+          "desc": "Michoro ya mwendo wa hali ya juu, vekta, na dhana bora za UI za kisasa."
+        },
+        "marketing": {
+          "title": "Masoko ya Kidijitali",
+          "desc": "Usimamizi wa kimkakati wa mitandao ya kijamii na kampeni za ukuzaji wa utendaji."
+        },
+        "photography": {
+          "title": "Picha na Filamu",
+          "desc": "Upigaji picha za kibiashara za sinema, uhariri, na uzalishaji."
+        },
+        "drone": {
+          "title": "Uendeshaji wa Drone",
+          "desc": "Upigaji picha za juu kwa ajili ya miradi ya ushirika na biashara."
+        },
+        "music": {
+          "title": "Muziki na Sauti",
+          "desc": "Utunzi wa sauti wa kitaalamu, kurekodi sauti, na ubunifu wa sauti."
+        }
+      }
+    },
+    "Portfolio": {
+      "tag": "Kazi Zetu",
+      "title": "Kazi Bora za Picha",
+      "description": "Mkusanyiko ulioratibiwa wa chapa, ubunifu, na uzalishaji wa vyombo vya habari.",
+      "project1": "Kampeni ya Utambulisho wa Picha",
+      "project2": "Video ya Kibiashara ya Sinema",
+      "project3": "Kiolesura cha Kidijitali cha SaaS",
+      "project4": "Mkusanyiko wa Kipekee wa Chapa"
+    },
+    "WhyChoose": {
+      "tag": "Kwanini Utuchague",
+      "title": "Imeundwa kwa Ajili ya Matokeo",
+      "description": "Tunachanganya mwelekeo wa ubunifu na mifumo ya kuaminika ya uwasilishaji wa mradi.",
+      "metrics": {
+        "precision": {
+          "title": "Usahihi wa Hali ya Juu",
+          "desc": "Kila fremu, fonti, na tokeni imeundwa ili kuendana na maelezo ya muundo bora."
+        },
+        "speed": {
+          "title": "Uwasilishaji Ulioboreshwa",
+          "desc": "Kazi za haraka bila kupoteza ubora wa kiufundi au wa kuona."
+        },
+        "stack": {
+          "title": "Teknolojia ya Kisasa",
+          "desc": "Tovuti zilizoundwa na Next.js, Framer Motion, na michoro mepesi."
+        },
+        "partnership": {
+          "title": "Ushirikiano wa Karibu",
+          "desc": "Mawasiliano ya moja kwa moja ya mradi na taarifa za wazi za hatua zilizofikiwa."
+        }
+      }
+    },
+    "Teaser": {
+      "tag": "Studio na Chuo",
+      "title": "Ubunifu na Umahiri wa Sauti",
+      "description": "Ingia kwenye nafasi yetu ya sauti. Kuchanganya nyimbo za sauti za kitaalamu, kurekodi, na kozi za chuo cha sauti.",
+      "cta": "Chunguza Studio"
+    },
+    "CTA": {
+      "title": "Uko Tayari Kuanza Safari Yako?",
+      "subtitle": "Wasiliana nasi kupitia WhatsApp ili kujadili miongozo ya mradi wako, ratiba, na bajeti.",
+      "cta": "Wasiliana Sasa Hivi"
+    }
+  },
+  "ServicesPage": {
+    "Hero": {
+      "tag": "Utaalamu Wetu",
+      "title": "Huduma za Ubunifu na Kidijitali",
+      "subtitle": "Tunatumia mifumo ya kisasa, usahihi wa hali ya juu, na utaalamu wa kubuni ili kujenga uwepo wako wa kidijitali."
+    },
+    "Pillars": {
+      "brand": {
+        "title": "Mkakati wa Chapa na Utambulisho",
+        "desc": "Weka chapa yako katika nafasi nzuri ukitumia miongozo ya utambulisho wa kampuni na mifumo ya nembo za kuvutia."
+      },
+      "design": {
+        "title": "Ubunifu wa Kisanii",
+        "desc": "Picha za ubora wa juu za vekta, muundo wa kijarida, na rasilimali za chapa zinazovutia haraka."
+      },
+      "printing": {
+        "title": "Uchapishaji na Uzalishaji",
+        "desc": "Nyenzo za kiwango cha juu za masoko ya kimwili, vipeperushi, mabango, na uchapishaji wa bidhaa maalum."
+      },
+      "marketing": {
+        "title": "Masoko ya Kidijitali",
+        "desc": "Mijadala ya kimkakati ya mitandao ya kijamii, uchambuzi wa utendaji, na mikakati ya kukuza biashara kidijitali."
+      },
+      "photography": {
+        "title": "Picha na Video",
+        "desc": "Usimulizi wa hadithi wa kuvutia wa video, uzalishaji wa video za kibiashara, na huduma ya picha za matukio."
+      },
+      "music": {
+        "title": "Studio ya Muziki na Chuo",
+        "desc": "Eneo la kurekodia sauti, uzalishaji wa uhandisi wa sauti, na masomo ya muziki yenye ubunifu."
+      }
+    },
+    "Bento": {
+      "tag": "Huduma Maalum za Maendeleo",
+      "title": "Uundaji wa Tovuti na Programu",
+      "desc": "Tunatengeneza majukwaa ya tovuti yenye kasi, ya kuitikia kwa urahisi, na salama kwa kutumia teknolojia ya Next.js, Tailwind CSS, na Framer Motion. Tunatoa nambari salama, nambari zilizoboreshwa, na muundo wa hali ya juu.",
+      "cta": "Jadili Kuhusu Teknolojia"
+    },
+    "Process": {
+      "tag": "Njia Yetu",
+      "title": "Ramani ya Ubunifu",
+      "desc": "Jinsi tunavyoshirikiana ili kubadilisha wazo lako kuwa bidhaa iliyokamilika.",
+      "steps": {
+        "step1": {
+          "title": "1. Ugunduzi",
+          "desc": "Kuweka sawa malengo ya mradi, mitindo ya marejeleo, chaguzi za bajeti, na changamoto za kiufundi."
+        },
+        "step2": {
+          "title": "2. Rasimu ya Kwanza",
+          "desc": "Kutengeneza rasimu za kwanza za ubunifu, ubao wa mitindo, na muhtasari wa UI kwa ajili ya maoni."
+        },
+        "step3": {
+          "title": "3. Uzalishaji",
+          "desc": "Utekelezaji wa uandishi wa nambari, upigaji picha/video, au uundaji wa rasilimali za chapa."
+        },
+        "step4": {
+          "title": "4. Kabidhi",
+          "desc": "Upelekaji wa mwisho wa mifumo, utoaji wa faili za ubora wa juu, na usaidizi wakati wa kuzindua."
+        }
+      }
+    },
+    "CTA": {
+      "title": "Shirikiana na Tripod",
+      "subtitle": "Wasiliana nasi kupitia WhatsApp ili kutuambia kuhusu ukubwa wa mradi wako na kuomba makadirio.",
+      "cta": "Anzisha Uhifadhi"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "studioAcademy": "Studio & Academy",
+    "contact": "Contact",
+    "cta": "Book on WhatsApp"
+  },
+  "Footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2026 Tripod Creative Agency. All rights reserved.",
+    "instagram": "Follow on Instagram"
+  },
+  "Common": {
+    "viewPortfolio": "View Portfolio",
+    "bookWhatsApp": "Book on WhatsApp",
+    "contactEmail": "[Contact Email Placeholder]",
+    "contactPhone": "[Contact Phone Placeholder]",
+    "officeLocation": "Location details coming soon"
+  },
+  "Home": {
+    "Hero": {
+      "title": "Cinematic Prism Productions",
+      "subtitle": "Visual excellence built with future-proof tech. We shape bold ideas into premium digital and cinematic experiences.",
+      "cta": "Get Started"
+    },
+    "Showreel": {
+      "tag": "Featured Video",
+      "title": "Cinematic Showreel",
+      "description": "A glimpse into our visual storytelling. Experience premium camera production and editing craft."
+    },
+    "Services": {
+      "tag": "Our Expertise",
+      "title": "Services Ecosystem",
+      "description": "Explore our creative disciplines designed to elevate your brand presence.",
+      "pillars": {
+        "branding": {
+          "title": "Brand Strategy",
+          "desc": "Structuring modern identity guidelines, logos, and digital collateral."
+        },
+        "production": {
+          "title": "Creative Design",
+          "desc": "High-fidelity motion graphics, vectors, and premium UI concepts."
+        },
+        "marketing": {
+          "title": "Digital Marketing",
+          "desc": "Strategic social media management and performance growth campaigns."
+        },
+        "photography": {
+          "title": "Photography & Film",
+          "desc": "Cinematic commercial capture, editing, and production."
+        },
+        "drone": {
+          "title": "Drone Operations",
+          "desc": "High-altitude visual capture for corporate and commercial projects."
+        },
+        "music": {
+          "title": "Music & Audio",
+          "desc": "Professional audio composition, vocal recording, and sound design."
+        }
+      }
+    },
+    "Portfolio": {
+      "tag": "Our Work",
+      "title": "Featured Visuals",
+      "description": "A curated collection of branding, design, and media productions.",
+      "project1": "Visual Branding Campaign",
+      "project2": "Cinematic Commercial Video",
+      "project3": "SaaS Digital Interface",
+      "project4": "Creative Print Collection"
+    },
+    "WhyChoose": {
+      "tag": "Why Choose Us",
+      "title": "Designed for Impact",
+      "description": "We blend creative direction with reliable project delivery pipelines.",
+      "metrics": {
+        "precision": {
+          "title": "Sartorial Precision",
+          "desc": "Every frame, font, and token is structured to match premium design details."
+        },
+        "speed": {
+          "title": "Optimized Delivery",
+          "desc": "Rapid turnarounds without sacrificing technical or visual fidelity."
+        },
+        "stack": {
+          "title": "Modern Stack",
+          "desc": "Websites built with Next.js, Framer Motion, and lightweight animations."
+        },
+        "partnership": {
+          "title": "Collaborative Focus",
+          "desc": "Direct project communication and clear milestone updates."
+        }
+      }
+    },
+    "Teaser": {
+      "tag": "Studio & Academy",
+      "title": "Sonic Innovation & Mastery",
+      "description": "Step into our audio workspace. Combining professional vocal tracks, audio mixing setups, and sound academy courses.",
+      "cta": "Explore the Studio"
+    },
+    "CTA": {
+      "title": "Ready to Start Your Journey?",
+      "subtitle": "Get in touch on WhatsApp to discuss your project guidelines, timelines, and budget ranges.",
+      "cta": "Connect Instantly"
+    }
+  },
+  "ServicesPage": {
+    "Hero": {
+      "tag": "Our Expertise",
+      "title": "Creative & Digital Services",
+      "subtitle": "We deploy modern workflows, cinematic precision, and design excellence to build your digital presence."
+    },
+    "Pillars": {
+      "brand": {
+        "title": "Brand Strategy & Identity",
+        "desc": "Position your brand with custom corporate identity guidelines, premium logo systems, and visual guidelines."
+      },
+      "design": {
+        "title": "Creative Design",
+        "desc": "High-fidelity vectors, editorial design, and visual brand assets that capture attention instantly."
+      },
+      "printing": {
+        "title": "Printing & Production",
+        "desc": "Top-tier physical marketing materials, flyers, banners, and bespoke merchandise printing."
+      },
+      "marketing": {
+        "title": "Digital Marketing",
+        "desc": "Strategic social campaigns, performance analysis, and focused digital growth strategies."
+      },
+      "photography": {
+        "title": "Photography & Videography",
+        "desc": "Cinematic visual storytelling, commercial video production, and event media coverage."
+      },
+      "music": {
+        "title": "Music Studio & Academy",
+        "desc": "Vocal recording workspace, audio engineering production, and creative music lessons."
+      }
+    },
+    "Bento": {
+      "tag": "Featured Development Services",
+      "title": "Web & App Development",
+      "desc": "We build fast, responsive, and secure custom web platforms using the modern Next.js stack, Tailwind CSS, and Framer Motion. Zero unverified claims, purely optimized code and high-performance design workflows.",
+      "cta": "Discuss Tech Stack"
+    },
+    "Process": {
+      "tag": "Our Method",
+      "title": "The Creative Blueprint",
+      "desc": "How we collaborate to transform your concept into production-ready output.",
+      "steps": {
+        "step1": {
+          "title": "1. Discovery",
+          "desc": "Aligning project goals, reference styles, budget options, and technical constraints."
+        },
+        "step2": {
+          "title": "2. Visual Draft",
+          "desc": "Creating initial design drafts, styleboards, and UI outlines for feedback."
+        },
+        "step3": {
+          "title": "3. Crafting",
+          "desc": "Execution of coding, photo/video capturing, or branding asset generation."
+        },
+        "step4": {
+          "title": "4. Handover",
+          "desc": "Final system deployments, high-res file delivery, and launch support."
+        }
+      }
+    },
+    "CTA": {
+      "title": "Collaborate With Tripod",
+      "subtitle": "Get in touch via WhatsApp to tell us about your project scale and request an estimate.",
+      "cta": "Initiate Booking"
+    }
+  }
+}
