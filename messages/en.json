@@ -11,6 +11,7 @@
   "Footer": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
+    "policyNote": "Policy pages coming soon",
     "copyright": "© 2026 Tripod Creative Agency. All rights reserved.",
     "instagram": "Follow on Instagram"
   },
@@ -22,156 +23,1008 @@
     "officeLocation": "Location details coming soon"
   },
   "Home": {
-    "Hero": {
-      "title": "Cinematic Prism Productions",
-      "subtitle": "Visual excellence built with future-proof tech. We shape bold ideas into premium digital and cinematic experiences.",
-      "cta": "Get Started"
+    "coldOpen": {
+      "kicker": "New Project",
+      "ready": "Studio Ready",
+      "cta": "Start Project",
+      "fields": {
+        "client": {
+          "label": "Client",
+          "value": "Your next bold idea"
+        },
+        "format": {
+          "label": "Format",
+          "value": "Anything worth creating"
+        },
+        "status": {
+          "label": "Status",
+          "value": "Ready"
+        }
+      }
     },
-    "Showreel": {
-      "tag": "Featured Video",
-      "title": "Cinematic Showreel",
-      "description": "A glimpse into our visual storytelling. Experience premium camera production and editing craft."
+    "canvas": {
+      "title": "We design what people remember.",
+      "subtitle": "Multimedia, branding, graphic design, film, photography, music, and digital experiences built to hold attention and move audiences.",
+      "panelEyebrow": "Studio Canvas",
+      "live": "Living Layout",
+      "centerLabel": "Creative Core",
+      "cursorLabel": "Playhead Active",
+      "frameLabel": "Active Composition",
+      "focused": "Focused",
+      "noteLabel": "Director Note",
+      "tracksLabel": "Timeline Motion",
+      "boardLabel": "Creative Wall",
+      "boardCopy": "Brand storytelling, production planning, and digital growth are arranged as one connected studio workflow."
     },
-    "Services": {
-      "tag": "Our Expertise",
-      "title": "Services Ecosystem",
-      "description": "Explore our creative disciplines designed to elevate your brand presence.",
-      "pillars": {
+    "heroPanels": {
+      "videoProduction": {
+        "label": "Video Production",
+        "meta": "Coverage, edits, and cinematic rollout frames"
+      },
+      "brandIdentity": {
+        "label": "Brand Identity",
+        "meta": "Systems, voice, and launch-ready visual direction"
+      },
+      "printDesign": {
+        "label": "Print Design",
+        "meta": "Posters, packaging, and physical brand surfaces"
+      },
+      "musicStudio": {
+        "label": "Music Studio",
+        "meta": "Recording support, production notes, and artist development"
+      },
+      "digitalCampaigns": {
+        "label": "Digital Campaigns",
+        "meta": "Content systems, landing flows, and social momentum"
+      },
+      "liveStreaming": {
+        "label": "Live Streaming",
+        "meta": "Event signal paths, scene planning, and audience delivery"
+      }
+    },
+    "showreel": {
+      "eyebrow": "The Showreel",
+      "title": "A cinematic reel of work in progress, directions, and formats.",
+      "description": "These frames are clean placeholders for upcoming case studies, campaign visuals, edits, and studio outputs. Real client media can replace them without changing the layout system.",
+      "preview": "Open Showreel",
+      "previewAria": "Open showreel preview",
+      "close": "Close",
+      "clientPlaceholder": "Client: To be added",
+      "modalEyebrow": "Showreel Preview",
+      "modalTitle": "Placeholder reel, ready for final media.",
+      "modalDescription": "This modal is intentionally lightweight. It previews how Tripod can present film frames, campaign edits, print sequences, and studio visuals before final media is added.",
+      "modalNotes": {
+        "one": "Compressed poster placeholders keep the homepage fast while real video assets are still being prepared.",
+        "two": "The final reel can mix branding clips, photography sequences, motion snippets, and studio footage.",
+        "three": "No fake client names or project results are shown here. Everything stays clearly replaceable."
+      },
+      "disciplines": {
+        "branding": "Branding",
+        "video": "Video",
+        "digital": "Digital",
+        "music": "Music"
+      },
+      "mediaTypes": {
+        "branding": "Artboard",
+        "video": "Timeline Clip",
+        "digital": "Interface Reel",
+        "music": "Studio Take"
+      },
+      "items": {
+        "frameA": {
+          "title": "Identity Launch Frames",
+          "meta": "Poster direction, brand layout, and rollout placeholders"
+        },
+        "frameB": {
+          "title": "Edit Timeline Sequence",
+          "meta": "Storyboard cuts, motion pacing, and recap placeholders"
+        },
+        "frameC": {
+          "title": "Campaign Screen System",
+          "meta": "Digital touchpoints, landing sections, and content rhythm"
+        },
+        "frameD": {
+          "title": "Studio Session Notes",
+          "meta": "Music visuals, cover directions, and recording placeholders"
+        }
+      }
+    },
+    "timeline": {
+      "eyebrow": "Creative Timeline",
+      "title": "Services arranged like an edit, not a brochure.",
+      "description": "Every track reveals how Tripod moves from concept to production without breaking the story between disciplines.",
+      "activeLabel": "Selected Track",
+      "tracks": {
+        "video": {
+          "label": "Video",
+          "title": "Videography, drone coverage, and live capture",
+          "micro": "Coverage, cutdowns, recaps",
+          "description": "Plan visual coverage for campaigns, launches, events, and branded stories with a workflow that supports filming, edits, and platform-ready delivery.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Cinematic coverage, interviews, short-form edits, drone support, and live streaming pathways can be mapped in one timeline."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Event organizers, brands, artists, and institutions can shape coverage packages without needing separate creative vendors."
+            }
+          }
+        },
         "branding": {
-          "title": "Brand Strategy",
-          "desc": "Structuring modern identity guidelines, logos, and digital collateral."
+          "label": "Branding",
+          "title": "Brand strategy and identity direction",
+          "micro": "Position, system, rollout",
+          "description": "Build the brand story first, then carry it into visual systems, launch assets, printed pieces, and campaign touchpoints.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Naming support, identity planning, presentation decks, and launch kits can all live on the same production board."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Useful for businesses, startups, organizations, and personal brands that need stronger structure before scaling content."
+            }
+          }
         },
-        "production": {
-          "title": "Creative Design",
-          "desc": "High-fidelity motion graphics, vectors, and premium UI concepts."
+        "design": {
+          "label": "Design",
+          "title": "Graphic design, print direction, and layout systems",
+          "micro": "Posters, decks, packaging",
+          "description": "Shape campaign graphics, print assets, social content, and presentation surfaces with a visual language that stays consistent across formats.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Tripod can move from concept boards to posters, flyers, social kits, signage, and print-ready layouts with fast execution."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Designed for promotions, events, launches, public campaigns, and creative communication that needs a stronger visual backbone."
+            }
+          }
         },
-        "marketing": {
-          "title": "Digital Marketing",
-          "desc": "Strategic social media management and performance growth campaigns."
+        "photo": {
+          "label": "Photo",
+          "title": "Photography for brands, events, and products",
+          "micro": "Stills, selects, coverage",
+          "description": "Use photography as part of a broader storytelling system, from campaign stills and event coverage to product frames and behind-the-scenes visuals.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Photo direction can support social campaigns, web launches, media kits, brand lookbooks, and editorial content."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Strong for institutions, artists, campaign teams, personal brands, and businesses that need clean reusable visual assets."
+            }
+          }
         },
-        "photography": {
-          "title": "Photography & Film",
-          "desc": "Cinematic commercial capture, editing, and production."
-        },
-        "drone": {
-          "title": "Drone Operations",
-          "desc": "High-altitude visual capture for corporate and commercial projects."
+        "motion": {
+          "label": "Motion",
+          "title": "Motion graphics and animated visual layers",
+          "micro": "Transitions, titles, rhythm",
+          "description": "Add movement where it matters: title systems, social assets, campaign transitions, explainer visuals, and digital presentation energy.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Motion graphics can bridge branding, video, digital marketing, and presentation design without introducing heavy production overhead."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Useful for product launches, recap videos, online campaigns, reels, presentation moments, and audience-facing explainers."
+            }
+          }
         },
         "music": {
-          "title": "Music & Audio",
-          "desc": "Professional audio composition, vocal recording, and sound design."
+          "label": "Music",
+          "title": "Music production, recording support, and training",
+          "micro": "Sessions, beats, coaching",
+          "description": "Support artists and learners through music production, vocal recording, beat making, instrument training, and creative coaching pathways.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "The studio pathway can connect lessons, practice sessions, recording support, and artist development without overcomplicating the offer."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Built for artists, young creatives, institutions, and anyone looking for beginner-friendly learning with practical studio energy."
+            }
+          }
+        },
+        "digital": {
+          "label": "Digital",
+          "title": "Digital marketing, websites, and app experiences",
+          "micro": "Campaigns, websites, funnels",
+          "description": "Carry the same art direction into websites, landing pages, digital campaigns, and product surfaces that help creative work convert.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Digital growth work can pair messaging, design systems, campaign visuals, and modern web builds inside one workflow."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Helpful for businesses, startups, organizations, and campaign teams that need stronger online presentation and lead capture."
+            }
+          }
         }
       }
     },
-    "Portfolio": {
-      "tag": "Our Work",
-      "title": "Featured Visuals",
-      "description": "A curated collection of branding, design, and media productions.",
-      "project1": "Visual Branding Campaign",
-      "project2": "Cinematic Commercial Video",
-      "project3": "SaaS Digital Interface",
-      "project4": "Creative Print Collection"
-    },
-    "WhyChoose": {
-      "tag": "Why Choose Us",
-      "title": "Designed for Impact",
-      "description": "We blend creative direction with reliable project delivery pipelines.",
-      "metrics": {
-        "precision": {
-          "title": "Sartorial Precision",
-          "desc": "Every frame, font, and token is structured to match premium design details."
+    "layers": {
+      "eyebrow": "Layer Stack",
+      "title": "Creative work gets stronger as the right layers come into focus.",
+      "description": "Select a layer to see how strategy, colour, typography, campaign thinking, and motion shape the final composition.",
+      "compositionLabel": "Central Composition",
+      "activeLabel": "Layer Focus",
+      "effectLabel": "What This Layer Changes",
+      "items": {
+        "strategy": {
+          "label": "Layer {number} Strategy",
+          "shortLabel": "Strategy",
+          "title": "Strategy gives the work direction.",
+          "description": "Goals, audience, message, and format decisions help every later choice feel intentional instead of decorative.",
+          "effect": "This layer sharpens the brief, the story angle, and the decisions that guide production support, design, and digital services.",
+          "mobileSummary": "Strategy keeps the project clear before visual layers are added."
         },
-        "speed": {
-          "title": "Optimized Delivery",
-          "desc": "Rapid turnarounds without sacrificing technical or visual fidelity."
+        "colour": {
+          "label": "Layer {number} Colour",
+          "shortLabel": "Colour",
+          "title": "Colour sets the emotional temperature.",
+          "description": "Warm contrast, visual hierarchy, and controlled accents help the work feel youthful, premium, and easy to follow.",
+          "effect": "This layer changes mood, energy, readability, and how brand storytelling holds attention across print and screens.",
+          "mobileSummary": "Colour shapes mood, contrast, and recognition across the system."
         },
-        "stack": {
-          "title": "Modern Stack",
-          "desc": "Websites built with Next.js, Framer Motion, and lightweight animations."
+        "typography": {
+          "label": "Layer {number} Typography",
+          "shortLabel": "Type",
+          "title": "Typography carries the voice.",
+          "description": "Headlines, captions, labels, and presentation rhythm translate creative direction into readable communication.",
+          "effect": "This layer affects clarity, personality, campaign hierarchy, and how fast people understand what the work is saying.",
+          "mobileSummary": "Typography turns the idea into a voice people can read and remember."
         },
-        "partnership": {
-          "title": "Collaborative Focus",
-          "desc": "Direct project communication and clear milestone updates."
+        "campaign": {
+          "label": "Layer {number} Campaign",
+          "shortLabel": "Campaign",
+          "title": "Campaign thinking connects every output.",
+          "description": "It turns separate assets into one coordinated release across social, print, web, events, and supporting media.",
+          "effect": "This layer aligns posters, rollout moments, launch content, and digital growth goals so the whole studio output feels connected.",
+          "mobileSummary": "Campaign logic keeps separate assets working as one release."
+        },
+        "motion": {
+          "label": "Layer {number} Motion",
+          "shortLabel": "Motion",
+          "title": "Motion gives the composition life.",
+          "description": "Transitions, reveals, waveform cues, and presentation shifts help static visuals feel active without becoming noisy.",
+          "effect": "This layer adds pace, emphasis, and a living-studio feel across showreels, campaign visuals, interfaces, and content teasers.",
+          "mobileSummary": "Motion adds energy and emphasis without overloading the page."
         }
       }
     },
-    "Teaser": {
-      "tag": "Studio & Academy",
-      "title": "Sonic Innovation & Mastery",
-      "description": "Step into our audio workspace. Combining professional vocal tracks, audio mixing setups, and sound academy courses.",
-      "cta": "Explore the Studio"
+    "wall": {
+      "eyebrow": "Studio Wall",
+      "title": "A controlled wall of formats, references, and production surfaces.",
+      "description": "Poster placeholders, print samples, colour swatches, contact sheets, and behind-the-scenes layouts create a studio atmosphere without pretending unfinished work is final.",
+      "placeholder": "Placeholder",
+      "items": {
+        "poster": {
+          "type": "Poster",
+          "title": "Poster direction",
+          "description": "Layout placeholders for campaigns, launches, event art, or visual announcements."
+        },
+        "contactSheet": {
+          "type": "Contact Sheet",
+          "title": "Frame selections",
+          "description": "A film-style overview of stills, storyboard moments, and edit references waiting for final media."
+        },
+        "printSample": {
+          "type": "Print Sample",
+          "title": "Print material studies",
+          "description": "Structured samples for flyers, packaging, branded collateral, and other physical production surfaces."
+        },
+        "storyboard": {
+          "type": "Storyboard",
+          "title": "Storyboard pacing",
+          "description": "A simple sequence for motion planning, recaps, ad edits, and presentation story flow."
+        },
+        "swatches": {
+          "type": "Swatches",
+          "title": "Colour language",
+          "description": "Warm orange, gold, and cream accents that keep the art direction recognizable across themes."
+        },
+        "bts": {
+          "type": "BTS",
+          "title": "Production atmosphere",
+          "description": "Behind-the-scenes placeholders that hint at process without inventing locations, people, or equipment."
+        }
+      }
     },
-    "CTA": {
-      "title": "Ready to Start Your Journey?",
-      "subtitle": "Get in touch on WhatsApp to discuss your project guidelines, timelines, and budget ranges.",
-      "cta": "Connect Instantly"
+    "cta": {
+      "eyebrow": "Final CTA",
+      "title": "Bring your next project into the studio.",
+      "description": "Whether you need branding, production support, digital growth, music work, or a campaign-ready website, Tripod can shape the next step with you."
     }
   },
   "ServicesPage": {
-    "Hero": {
-      "tag": "Our Expertise",
-      "title": "Creative & Digital Services",
-      "subtitle": "We deploy modern workflows, cinematic precision, and design excellence to build your digital presence."
+    "hero": {
+      "eyebrow": "Our Expertise",
+      "title": "Creative services built for brand storytelling and digital growth.",
+      "subtitle": "Tripod brings creative direction, production quality, and fast execution together in one multi-service studio.",
+      "highlightLabel": "Modern Digital Workflow",
+      "highlightText": "From strategy to launch assets, we keep the process focused, collaborative, and ready for real campaigns.",
+      "cta": "Start on WhatsApp"
     },
-    "Pillars": {
-      "brand": {
-        "title": "Brand Strategy & Identity",
-        "desc": "Position your brand with custom corporate identity guidelines, premium logo systems, and visual guidelines."
-      },
-      "design": {
-        "title": "Creative Design",
-        "desc": "High-fidelity vectors, editorial design, and visual brand assets that capture attention instantly."
-      },
-      "printing": {
-        "title": "Printing & Production",
-        "desc": "Top-tier physical marketing materials, flyers, banners, and bespoke merchandise printing."
-      },
-      "marketing": {
-        "title": "Digital Marketing",
-        "desc": "Strategic social campaigns, performance analysis, and focused digital growth strategies."
-      },
-      "photography": {
-        "title": "Photography & Videography",
-        "desc": "Cinematic visual storytelling, commercial video production, and event media coverage."
-      },
-      "music": {
-        "title": "Music Studio & Academy",
-        "desc": "Vocal recording workspace, audio engineering production, and creative music lessons."
-      }
-    },
-    "Bento": {
-      "tag": "Featured Development Services",
-      "title": "Web & App Development",
-      "desc": "We build fast, responsive, and secure custom web platforms using the modern Next.js stack, Tailwind CSS, and Framer Motion. Zero unverified claims, purely optimized code and high-performance design workflows.",
-      "cta": "Discuss Tech Stack"
-    },
-    "Process": {
-      "tag": "Our Method",
-      "title": "The Creative Blueprint",
-      "desc": "How we collaborate to transform your concept into production-ready output.",
-      "steps": {
-        "step1": {
-          "title": "1. Discovery",
-          "desc": "Aligning project goals, reference styles, budget options, and technical constraints."
+    "coreServices": {
+      "eyebrow": "Core Services",
+      "title": "Seven pillars, one connected studio workflow.",
+      "subtitle": "Each service is designed to work on its own or as part of a larger campaign, rollout, or content system.",
+      "items": {
+        "brandStrategy": {
+          "title": "Brand Strategy & Identity",
+          "description": "Shape a clearer position, sharper voice, and more consistent identity system for your business.",
+          "bullets": [
+            "Naming support, messaging direction, and visual identity planning",
+            "Logo systems, brand guidelines, and launch-ready asset sets"
+          ]
         },
-        "step2": {
-          "title": "2. Visual Draft",
-          "desc": "Creating initial design drafts, styleboards, and UI outlines for feedback."
+        "creativeDesign": {
+          "title": "Creative Design",
+          "description": "Create bold visuals for campaigns, presentations, social media, packaging, and branded communications.",
+          "bullets": [
+            "Campaign graphics, editorial layouts, and social content design",
+            "Art direction that keeps every touchpoint aligned and polished"
+          ]
         },
-        "step3": {
-          "title": "3. Crafting",
-          "desc": "Execution of coding, photo/video capturing, or branding asset generation."
+        "printingProduction": {
+          "title": "Printing & Production",
+          "description": "Move from approved concepts to well-produced physical materials with clean execution and reliable coordination.",
+          "bullets": [
+            "Flyers, banners, signage, packaging, and event collateral",
+            "Production planning focused on finish, consistency, and timing"
+          ]
         },
-        "step4": {
-          "title": "4. Handover",
-          "desc": "Final system deployments, high-res file delivery, and launch support."
+        "digitalMarketing": {
+          "title": "Digital Marketing",
+          "description": "Build digital growth with campaign planning, content direction, and practical performance tracking.",
+          "bullets": [
+            "Content calendars, launch support, and campaign creative alignment",
+            "Audience-focused messaging and reporting that supports better decisions"
+          ]
+        },
+        "photographyVideography": {
+          "title": "Photography & Videography",
+          "description": "Produce visuals that carry your message clearly across brand, product, event, and social use cases.",
+          "bullets": [
+            "Brand shoots, product visuals, interviews, reels, and event coverage",
+            "Production quality built for edits, short-form content, and launch assets"
+          ]
+        },
+        "musicStudioAcademy": {
+          "title": "Music Studio & Academy",
+          "description": "Support artists, creators, and learners with recording sessions, music content, and guided development.",
+          "bullets": [
+            "Recording support, music content creation, and artist-facing visuals",
+            "Learning pathways for creators who want practical studio experience"
+          ]
         }
       }
     },
-    "CTA": {
-      "title": "Collaborate With Tripod",
-      "subtitle": "Get in touch via WhatsApp to tell us about your project scale and request an estimate.",
-      "cta": "Initiate Booking"
+    "featuredDevelopment": {
+      "eyebrow": "Featured Service",
+      "title": "Web & App Development",
+      "description": "We design and build websites, landing pages, internal tools, and product experiences that connect strong visuals with modern digital workflow.",
+      "capabilities": [
+        "Responsive marketing sites and focused landing pages",
+        "Product design systems with premium glass-card presentation",
+        "Fast iteration from content structure to launch-ready UI",
+        "Builds that support campaigns, lead capture, and brand presence"
+      ],
+      "workflowLabel": "How this service fits in",
+      "workflow": [
+        {
+          "title": "Strategy First",
+          "description": "We align page goals, audience needs, and conversion paths before screens start taking shape."
+        },
+        {
+          "title": "Design With Context",
+          "description": "Layout, motion, and content work together so the product feels intentional from the first scroll."
+        },
+        {
+          "title": "Launch With Momentum",
+          "description": "The final build is prepared for handoff, growth updates, and future content expansion."
+        }
+      ],
+      "cta": "Discuss a Web or App Project"
+    },
+    "process": {
+      "eyebrow": "How Tripod Works",
+      "title": "A compact process built for clarity and momentum.",
+      "subtitle": "We keep collaboration practical so ideas move from brief to delivery without losing focus.",
+      "steps": {
+        "discover": {
+          "title": "Discover",
+          "description": "We map goals, audience, references, timeline, and the service mix that fits the project."
+        },
+        "shape": {
+          "title": "Shape",
+          "description": "We turn direction into a working concept with content structure, style choices, and execution priorities."
+        },
+        "produce": {
+          "title": "Produce",
+          "description": "Design, content, production, and build work move in a coordinated sequence with clear feedback points."
+        },
+        "deliver": {
+          "title": "Deliver",
+          "description": "Final assets are prepared for launch, rollout, publishing, or the next stage of your campaign."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "WhatsApp Booking",
+      "title": "Choose the service you want to discuss.",
+      "subtitle": "Start with the service that matches your current need and we will shape the next steps from there.",
+      "serviceButtonHint": "Opens WhatsApp with a service-specific message",
+      "serviceButtons": {
+        "brandStrategy": "Ask about Brand Strategy",
+        "creativeDesign": "Ask about Creative Design",
+        "printingProduction": "Ask about Printing & Production",
+        "digitalMarketing": "Ask about Digital Marketing",
+        "photographyVideography": "Ask about Photography & Videography",
+        "musicStudioAcademy": "Ask about Music Studio & Academy",
+        "webAppDevelopment": "Ask about Web & App Development"
+      },
+      "primaryButton": "Open Web & App Development Chat"
+    }
+  },
+  "PortfolioPage": {
+    "hero": {
+      "eyebrow": "Selected Work",
+      "title": "Portfolio built across branding, visuals, content, and campaigns.",
+      "subtitle": "A filtered view of placeholder-ready portfolio cards for the work Tripod can shape across print, motion, events, and digital storytelling."
+    },
+    "filters": {
+      "ariaLabel": "Filter portfolio by category",
+      "items": {
+        "all": "All",
+        "branding": "Branding",
+        "graphics": "Graphics",
+        "printing": "Printing",
+        "photography": "Photography",
+        "video": "Video",
+        "events": "Events",
+        "music": "Music",
+        "digitalCampaigns": "Digital Campaigns"
+      }
+    },
+    "grid": {
+      "eyebrow": "Portfolio Grid",
+      "title": "Browse the portfolio by format or campaign type.",
+      "resultCount": "{count, plural, =0 {No projects shown} one {# project shown} other {# projects shown}}",
+      "empty": "No portfolio items match this filter yet.",
+      "cardCta": "View placeholder details",
+      "imagePlaceholder": "Image Placeholder",
+      "videoPlaceholder": "Video Placeholder"
+    },
+    "featured": {
+      "eyebrow": "Featured Direction",
+      "title": "Use the portfolio as a starting point for your next brief.",
+      "subtitle": "If a style, format, or campaign direction stands out, we can use it to shape the next conversation.",
+      "note": "Portfolio entries on this page use clean placeholder project naming so future real work can be swapped in without redesigning the experience.",
+      "cta": "Discuss a Similar Project"
+    },
+    "cta": {
+      "eyebrow": "Project Booking",
+      "title": "Ready to turn references into a project plan?",
+      "subtitle": "Share the kind of work you need and we can map the best combination of creative, production, and digital services.",
+      "button": "Book on WhatsApp"
+    },
+    "tags": {
+      "identity": "Identity",
+      "artDirection": "Art Direction",
+      "videoEdit": "Video Edit",
+      "storyboard": "Storyboard",
+      "launchAssets": "Launch Assets",
+      "contentSystem": "Content System",
+      "printLayout": "Print Layout",
+      "productionPrep": "Production Prep",
+      "socialDesign": "Social Design",
+      "campaignGraphics": "Campaign Graphics",
+      "brandShoot": "Brand Shoot",
+      "productFrames": "Product Frames",
+      "eventCoverage": "Event Coverage",
+      "recapAssets": "Recap Assets",
+      "coverArt": "Cover Art",
+      "studioVisuals": "Studio Visuals",
+      "brandSystem": "Brand System",
+      "launchDeck": "Launch Deck"
+    },
+    "projects": {
+      "project1": {
+        "title": "Placeholder Brand Identity System",
+        "description": "A replaceable placeholder for a future identity rollout, visual direction set, and branded touchpoints."
+      },
+      "project2": {
+        "title": "Placeholder Campaign Video Frames",
+        "description": "A clean stand-in for future motion work, reels, edit sequences, or launch-video storytelling."
+      },
+      "project3": {
+        "title": "Placeholder Digital Campaign Kit",
+        "description": "A flexible placeholder for campaign launch visuals, paid-social assets, and digital content systems."
+      },
+      "project4": {
+        "title": "Placeholder Print Production Set",
+        "description": "A ready-to-replace print placeholder for posters, flyers, packaging layouts, or event collateral."
+      },
+      "project5": {
+        "title": "Placeholder Graphic Content Series",
+        "description": "A generic visual set for social graphics, campaign panels, or branded creative layouts."
+      },
+      "project6": {
+        "title": "Placeholder Photography Collection",
+        "description": "A portfolio placeholder for future brand shoots, product stills, and editorial image selections."
+      },
+      "project7": {
+        "title": "Placeholder Event Coverage Story",
+        "description": "A future-facing card for event capture, highlight edits, and recap content deliverables."
+      },
+      "project8": {
+        "title": "Placeholder Music Visual Pack",
+        "description": "A generic music-facing placeholder for cover art, promo visuals, and studio session content."
+      },
+      "project9": {
+        "title": "Placeholder Brand Launch Presentation",
+        "description": "A placeholder for future launch decks, brand showcases, and campaign presentation assets."
+      }
+    }
+  },
+  "StudioAcademyPage": {
+    "hero": {
+      "eyebrow": "Studio & Academy",
+      "title": "Recording support, music production, and instrument training in one creative space.",
+      "subtitle": "Tripod brings beginner-friendly learning, practical studio support, and artist development into a focused music journey.",
+      "tags": {
+        "recordingSupport": "Recording support",
+        "musicProduction": "Music production",
+        "instrumentTraining": "Instrument training"
+      },
+      "panelLabel": "Creative Sound Flow",
+      "panelItems": {
+        "recording": {
+          "title": "Recording Support",
+          "description": "Guided recording sessions for vocals, demos, and creative project development."
+        },
+        "production": {
+          "title": "Beat Making",
+          "description": "Production sessions shaped around song direction, arrangement, and sound choices."
+        },
+        "training": {
+          "title": "Instrument Training",
+          "description": "Practical learning sessions for piano, guitar, drums, and vocals."
+        },
+        "coaching": {
+          "title": "Creative Coaching",
+          "description": "Support for confidence, consistency, and next-step artist growth."
+        }
+      }
+    },
+    "recording": {
+      "eyebrow": "Recording Studio",
+      "title": "Recording sessions built around clarity and confidence.",
+      "subtitle": "We support vocal recording, practice takes, creative direction, and session flow in a way that feels approachable for both new and returning artists.",
+      "items": [
+        {
+          "title": "Vocal Recording",
+          "description": "Focused session support for songs, demos, spoken pieces, and creative ideas."
+        },
+        {
+          "title": "Practice Sessions",
+          "description": "Repeat, refine, and build comfort before moving into your next recording step."
+        },
+        {
+          "title": "Session Guidance",
+          "description": "Creative direction that helps shape takes, pacing, and delivery without pressure."
+        }
+      ],
+      "cta": "Book a Recording Session"
+    },
+    "production": {
+      "eyebrow": "Music Production",
+      "title": "Production support for ideas that need structure and momentum.",
+      "subtitle": "From beat making to vocal arrangement, we help artists and learners move their ideas into songs, drafts, and stronger creative direction.",
+      "items": [
+        {
+          "title": "Beat Making",
+          "description": "Build rhythm, mood, and song foundations that fit your creative direction."
+        },
+        {
+          "title": "Song Development",
+          "description": "Shape arrangement, sections, and flow so rough ideas become clearer tracks."
+        },
+        {
+          "title": "Vocal Direction",
+          "description": "Work on performance choices, layering ideas, and recording preparation."
+        },
+        {
+          "title": "Artist Development",
+          "description": "Use each session to strengthen process, confidence, and long-term growth."
+        }
+      ],
+      "cta": "Discuss Music Production"
+    },
+    "training": {
+      "eyebrow": "Instrument Training",
+      "title": "Learn with structure, practice with support, and grow at your pace.",
+      "subtitle": "Training is designed to be beginner-friendly while still helping returning learners build stronger habits and technique.",
+      "items": {
+        "piano": {
+          "title": "Piano",
+          "level": "Beginner Friendly",
+          "description": "Build hand coordination, rhythm, and melody with guided lessons and repeatable practice sessions.",
+          "bullets": [
+            "Intro-friendly exercises and simple progress paths",
+            "Creative coaching for confidence and consistency"
+          ],
+          "cta": "Ask about Piano Training"
+        },
+        "guitar": {
+          "title": "Guitar",
+          "level": "Practice Led",
+          "description": "Develop chords, timing, and song-based practice in a way that keeps learning practical and motivating.",
+          "bullets": [
+            "Hands-on learning with clear weekly focus areas",
+            "Sessions shaped around real playing confidence"
+          ],
+          "cta": "Ask about Guitar Training"
+        },
+        "drums": {
+          "title": "Drums",
+          "level": "Rhythm Focused",
+          "description": "Work on timing, groove, coordination, and performance discipline through guided rhythm sessions.",
+          "bullets": [
+            "Practice sessions that improve control and feel",
+            "Beginner-friendly pathways with room to advance"
+          ],
+          "cta": "Ask about Drum Training"
+        },
+        "vocals": {
+          "title": "Vocals",
+          "level": "Performance Ready",
+          "description": "Build vocal confidence, control, and recording readiness through supportive coaching and repetition.",
+          "bullets": [
+            "Warm-up, delivery, and vocal practice support",
+            "Coaching that helps connect voice and expression"
+          ],
+          "cta": "Ask about Vocal Training"
+        }
+      }
+    },
+    "benefits": {
+      "eyebrow": "Why Train With Tripod",
+      "title": "A learning environment built for real creative progress.",
+      "items": [
+        {
+          "title": "Beginner-Friendly Learning",
+          "description": "Sessions are structured to feel approachable while still building useful creative habits."
+        },
+        {
+          "title": "Practice With Purpose",
+          "description": "Learners move through guided practice sessions instead of guessing the next step."
+        },
+        {
+          "title": "Creative Coaching",
+          "description": "Support goes beyond technique so confidence, consistency, and expression can grow too."
+        },
+        {
+          "title": "Studio Connection",
+          "description": "Training and recording support can connect naturally when learners are ready to create more."
+        }
+      ]
+    },
+    "pathway": {
+      "eyebrow": "Creative Pathway",
+      "title": "A simple path from learning to performance.",
+      "steps": {
+        "learn": {
+          "title": "Learn",
+          "description": "Start with clear foundations, guided lessons, and practical creative coaching."
+        },
+        "practice": {
+          "title": "Practice",
+          "description": "Reinforce rhythm, timing, confidence, and control through repeatable sessions."
+        },
+        "record": {
+          "title": "Record",
+          "description": "Move into recording support when ideas, songs, or performances are ready to capture."
+        },
+        "perform": {
+          "title": "Perform",
+          "description": "Use the progress you have built to express, share, and keep growing as an artist."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Enrollment & Booking",
+      "title": "Choose the studio or training path you want to explore.",
+      "subtitle": "Start with a focused WhatsApp message and we can guide you toward the right session, learning plan, or creative next step.",
+      "buttonHint": "Opens WhatsApp with a studio-specific message",
+      "buttons": {
+        "recordingSession": "Recording Session",
+        "musicProduction": "Music Production",
+        "pianoTraining": "Piano Training",
+        "guitarTraining": "Guitar Training",
+        "drumTraining": "Drum Training",
+        "vocalTraining": "Vocal Training",
+        "generalInquiry": "General Studio Inquiry"
+      }
+    }
+  },
+  "AboutPage": {
+    "hero": {
+      "eyebrow": "About Tripod",
+      "title": "A creative agency shaped around multimedia production and practical creative execution.",
+      "subtitle": "Tripod brings brand storytelling, visual communication, production support, design and digital services, and music and creative training into one connected creative flow.",
+      "tags": {
+        "creativeAgency": "Creative agency",
+        "multimediaProduction": "Multimedia production",
+        "brandStorytelling": "Brand storytelling"
+      },
+      "panelLabel": "Creative Prism",
+      "motif": {
+        "lens": "Lens and direction",
+        "description": "We shape ideas through clear framing, collaborative thinking, and a modern digital workflow."
+      },
+      "panelItems": {
+        "prism": {
+          "title": "Creative focus"
+        },
+        "grid": {
+          "title": "Structured flow"
+        },
+        "visualCommunication": {
+          "title": "Visual Communication",
+          "description": "Clear design language for messages, campaigns, and brand presence."
+        },
+        "productionSupport": {
+          "title": "Production Support",
+          "description": "Practical coordination that helps ideas move from concept to finished output."
+        },
+        "digitalServices": {
+          "title": "Design and Digital Services",
+          "description": "Creative systems that work across screens, content, and launch assets."
+        },
+        "creativeTraining": {
+          "title": "Music and Creative Training",
+          "description": "Learning and studio-facing support for creators who want to keep growing."
+        }
+      }
+    },
+    "intro": {
+      "eyebrow": "Company Introduction",
+      "title": "Tripod is built to connect creative thinking with useful delivery.",
+      "description": "We work as a creative agency focused on multimedia production, visual communication, and practical execution that helps ideas become real brand and content outcomes.",
+      "points": [
+        {
+          "title": "Connected Services",
+          "description": "Brand, design, production, digital work, and studio support can move together instead of feeling disconnected."
+        },
+        {
+          "title": "Clear Communication",
+          "description": "Every project is shaped through direction that stays understandable, collaborative, and focused."
+        },
+        {
+          "title": "Practical Creative Execution",
+          "description": "We care about strong ideas, but also about how those ideas get finished and used well."
+        }
+      ]
+    },
+    "missionVision": {
+      "mission": {
+        "eyebrow": "Mission",
+        "title": "Help brands and creators communicate with more clarity and expression.",
+        "description": "Our mission is to turn ideas into thoughtful visuals, useful content, and production-ready outcomes that support real communication."
+      },
+      "vision": {
+        "eyebrow": "Vision",
+        "title": "Build a creative environment where storytelling and execution stay closely connected.",
+        "description": "We want Tripod to remain a space where design, multimedia production, and creative learning support each other in practical ways."
+      }
+    },
+    "beliefs": {
+      "eyebrow": "What Tripod Believes",
+      "title": "Creative work is stronger when it stays human, structured, and useful.",
+      "subtitle": "Our beliefs guide how we shape ideas, collaborate, and deliver outcomes across different kinds of creative work.",
+      "items": {
+        "storytelling": {
+          "title": "Story Before Noise",
+          "description": "Good visuals and campaigns work best when they carry a clear message and emotional direction."
+        },
+        "collaboration": {
+          "title": "Shared Creative Process",
+          "description": "We believe the best outcomes come from active collaboration, useful feedback, and aligned expectations."
+        },
+        "execution": {
+          "title": "Ideas Need Delivery",
+          "description": "Concepts matter, but real value shows up when creative work is organized well and delivered with care."
+        }
+      }
+    },
+    "approach": {
+      "eyebrow": "Creative Approach",
+      "title": "A simple approach that keeps creativity moving with purpose.",
+      "steps": {
+        "discover": {
+          "title": "Discover",
+          "description": "We begin by understanding goals, audience, context, and the kind of story the work needs to carry."
+        },
+        "strategy": {
+          "title": "Strategy",
+          "description": "Direction is shaped into a practical plan for visuals, messaging, production support, and digital output."
+        },
+        "create": {
+          "title": "Create",
+          "description": "Design, content, media, and studio-facing work are developed with consistency and room for feedback."
+        },
+        "deliver": {
+          "title": "Deliver",
+          "description": "Final outputs are prepared clearly so they can be launched, shared, printed, published, or built on further."
+        }
+      }
+    },
+    "culture": {
+      "eyebrow": "Creative Team Culture",
+      "title": "A culture shaped by curiosity, support, and steady creative momentum.",
+      "description": "Where real team photos are not yet available, we describe the environment through the kind of collaboration and energy the work is built around.",
+      "points": [
+        {
+          "title": "Youthful but Professional",
+          "description": "We aim for energy, relevance, and strong taste while keeping work reliable and well organized."
+        },
+        {
+          "title": "Learning Mindset",
+          "description": "Creative growth matters to us, whether the work is for a client project, internal development, or studio training."
+        },
+        {
+          "title": "Supportive Execution",
+          "description": "The culture is built around helping ideas move forward with less friction and more confidence."
+        }
+      ],
+      "tiles": [
+        {
+          "eyebrow": "Creative Grid",
+          "title": "Team Flow",
+          "description": "Ideas, reviews, and production tasks move in a rhythm that keeps momentum visible."
+        },
+        {
+          "eyebrow": "Lens Motif",
+          "title": "Shared Perspective",
+          "description": "Different creative disciplines stay aligned through common direction and practical check-ins."
+        },
+        {
+          "eyebrow": "Prism Motion",
+          "title": "Flexible Thinking",
+          "description": "We like room for exploration, but we keep that exploration connected to useful outcomes."
+        },
+        {
+          "eyebrow": "Studio Energy",
+          "title": "Creative Presence",
+          "description": "The atmosphere supports brand work, production support, and learning without pretending to be something unconfirmed."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Work With Tripod",
+      "title": "If the creative direction fits, let’s start the conversation.",
+      "subtitle": "Reach out on WhatsApp if you want to discuss a project, explore multimedia production support, or learn more about how Tripod works.",
+      "button": "Start on WhatsApp"
+    }
+  },
+  "ContactPage": {
+    "hero": {
+      "eyebrow": "Contact & Booking",
+      "title": "Book creative work, studio support, and digital services in one practical flow.",
+      "subtitle": "Use the form for a structured brief or jump straight into WhatsApp if you already know what you need."
+    },
+    "form": {
+      "eyebrow": "Booking Form",
+      "title": "Share your project details.",
+      "subtitle": "This form stays client-side and prepares your request for WhatsApp with the key information already filled in.",
+      "fields": {
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "service": "Service needed",
+        "budget": "Project size or budget",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your name",
+        "phone": "Your phone number",
+        "email": "your@email.com",
+        "service": "Select a service",
+        "budget": "Select project size",
+        "message": "Tell Tripod about your project, goal, or booking need."
+      },
+      "services": {
+        "brandingDesign": "Branding & Design",
+        "printingCreativeProduction": "Printing & Creative Production",
+        "digitalMarketing": "Digital Marketing",
+        "photography": "Photography",
+        "videoDroneLiveStreaming": "Video, Drone & Live Streaming",
+        "musicProduction": "Music Production",
+        "recordingSession": "Recording Session",
+        "instrumentTraining": "Instrument Training",
+        "webAppDevelopment": "Web & App Development",
+        "generalInquiry": "General Inquiry"
+      },
+      "budgets": {
+        "smallProject": "Small Project",
+        "mediumProject": "Medium Project",
+        "largeProject": "Large Project",
+        "notSureYet": "Not Sure Yet"
+      },
+      "errors": {
+        "name": "Please enter your name.",
+        "phone": "Please enter your phone number.",
+        "email": "Please enter your email address.",
+        "emailInvalid": "Please enter a valid email address.",
+        "service": "Please choose the service you need.",
+        "budget": "Please choose a project size.",
+        "message": "Please enter a short message."
+      },
+      "submit": "Continue to WhatsApp"
+    },
+    "whatsapp": {
+      "eyebrow": "Instant WhatsApp Booking",
+      "title": "Prefer a direct message instead?",
+      "subtitle": "Open WhatsApp with a ready-made contact prompt and continue the conversation there.",
+      "button": "Open WhatsApp Booking"
+    },
+    "quickContacts": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "value": "Start a direct booking conversation"
+      },
+      "phone": {
+        "title": "Phone"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "instagram": {
+        "title": "Instagram"
+      }
+    },
+    "location": {
+      "eyebrow": "Location",
+      "title": "Find Tripod details here when they are ready.",
+      "placeholderTitle": "Location details coming soon",
+      "placeholderText": "A confirmed address has not been added yet, so this section stays clearly marked as a placeholder."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions before you book?",
+      "items": [
+        {
+          "question": "How does the booking form work?",
+          "answer": "The form stays client-side only. When you submit valid details, it generates a WhatsApp message with your information and opens that chat."
+        },
+        {
+          "question": "Can I use WhatsApp without filling the whole form?",
+          "answer": "Yes. The Instant WhatsApp card and final CTA both let you start a direct conversation without completing the full brief first."
+        },
+        {
+          "question": "What if I am not sure which service fits my project?",
+          "answer": "Choose General Inquiry in the form or start a WhatsApp chat and describe the outcome you want. Tripod can help map the right service mix."
+        },
+        {
+          "question": "Does this page send my details to a backend?",
+          "answer": "No. This phase uses a client-side flow only and does not create a database, API route, or email sending system."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Ready to Book",
+      "title": "When you are ready, Tripod is one message away.",
+      "subtitle": "Send a project brief, ask a booking question, or start with a general creative inquiry.",
+      "button": "Start the Conversation"
     }
   }
 }

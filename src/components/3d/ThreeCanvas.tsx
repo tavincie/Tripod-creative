@@ -49,6 +49,7 @@ export function ThreeCanvas() {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
+
     window.addEventListener('resize', checkMobile);
     
     return () => {
@@ -57,9 +58,17 @@ export function ThreeCanvas() {
     };
   }, []);
 
+  const canUseWebgl =
+    mounted && typeof document !== 'undefined'
+      ? Boolean(
+          document.createElement('canvas').getContext('webgl') ||
+            document.createElement('canvas').getContext('experimental-webgl'),
+        )
+      : false;
+
   // If not mounted yet (SSR) or user prefers reduced motion or is on mobile,
   // show the fallback vector graphics immediately.
-  if (!mounted || shouldReduceMotion || isMobile) {
+  if (!mounted || shouldReduceMotion || isMobile || !canUseWebgl) {
     return <FallbackLogo />;
   }
 
@@ -76,4 +85,3 @@ export function ThreeCanvas() {
     </div>
   );
 }
-

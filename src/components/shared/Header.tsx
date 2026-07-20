@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Link } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { LocaleSwitcher } from './LocaleSwitcher';
+import { ThemeToggle } from './ThemeToggle';
 import { Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
@@ -30,7 +31,7 @@ export function Header() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-outline-variant/10 bg-background/70 backdrop-blur-xl transition-all duration-300">
+    <header className="theme-header sticky top-0 z-40 w-full border-b border-outline-variant/10 bg-background/70 backdrop-blur-xl transition-all duration-300">
       <div className="mx-auto max-w-7xl px-5 md:px-16 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group focus-ring rounded-md">
@@ -54,6 +55,7 @@ export function Header() {
 
         {/* Action Controls */}
         <div className="hidden lg:flex items-center gap-4">
+          <ThemeToggle />
           <LocaleSwitcher />
           <a
             href={whatsappUrl}
@@ -69,7 +71,8 @@ export function Header() {
         </div>
 
         {/* Mobile menu trigger */}
-        <div className="flex lg:hidden items-center gap-3">
+        <div className="flex lg:hidden items-center gap-2">
+          <ThemeToggle />
           <LocaleSwitcher />
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -84,7 +87,7 @@ export function Header() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-background/95 border-b border-outline-variant/15 py-8 px-6 flex flex-col gap-6 shadow-2xl backdrop-blur-2xl">
+        <div className="theme-header lg:hidden absolute top-20 left-0 w-full bg-background/95 border-b border-outline-variant/15 py-8 px-6 flex flex-col gap-6 shadow-2xl backdrop-blur-2xl">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link

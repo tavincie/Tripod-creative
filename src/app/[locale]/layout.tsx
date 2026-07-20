@@ -7,6 +7,27 @@ import { routing } from '@/i18n/routing';
 import { AppProviders } from './providers';
 import '@/app/globals.css';
 import { Metadata } from 'next';
+import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
+import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
+import { ThemeSync } from '@/components/shared/ThemeSync';
+
+const themeInitScript = `
+(() => {
+  try {
+    const savedTheme = localStorage.getItem('tripod-theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const theme = savedTheme === 'light' || savedTheme === 'dark'
+      ? savedTheme
+      : (systemPrefersLight ? 'light' : 'dark');
+    const root = document.documentElement;
+    root.classList.remove('dark', 'light');
+    root.classList.add(theme);
+  } catch (_) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+`;
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,8 +62,8 @@ export async function generateMetadata({
       : 'Tripod Creative Agency - Cinematic & Digital Excellence';
   const descText =
     locale === 'sw'
-      ? 'Tripod ni studio ya kisasa inayotoa huduma za kurekodi picha na filamu, chapa, masoko ya kidijitali, na chuo cha sauti.'
-      : 'Tripod is a boutique creative production studio specializing in cinema-grade video, corporate branding, digital marketing, and audio craft.';
+      ? 'Tripod ni creative studio inayotoa huduma za picha na video, chapa, masoko ya kidijitali, na studio pamoja na mafunzo ya ubunifu.'
+      : 'Tripod is a creative studio offering photography and video, branding, digital marketing, studio services, and creative training.';
 
   return {
     title: {
@@ -99,11 +120,23 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      suppressHydrationWarning
       className={`${inter.variable} ${montserrat.variable} ${geistMono.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="bg-background text-on-surface antialiased">
         <NextIntlClientProvider messages={messages}>
-          <AppProviders>{children}</AppProviders>
+          <AppProviders>
+            <div className="min-h-screen bg-background text-on-surface">
+              <ThemeSync />
+              <Header />
+              {children}
+              <Footer />
+              <WhatsAppButton />
+            </div>
+          </AppProviders>
         </NextIntlClientProvider>
       </body>
     </html>

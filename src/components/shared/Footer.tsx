@@ -11,7 +11,7 @@ export function Footer() {
   const tCommon = useTranslations('Common');
 
   return (
-    <footer className="w-full bg-surface-container-lowest border-t border-outline-variant/10 py-12 md:py-20">
+    <footer className="theme-footer w-full bg-surface-container-lowest border-t border-outline-variant/10 py-12 md:py-20">
       <div className="mx-auto max-w-7xl px-5 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16">
         
         {/* Brand section */}
@@ -98,9 +98,12 @@ export function Footer() {
       {/* Footer Bottom copyright and policies */}
       <div className="mx-auto max-w-7xl px-5 md:px-16 mt-12 pt-8 border-t border-outline-variant/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-on-surface-variant/60">
         <span>{tFoot('copyright')}</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors focus-ring">{tFoot('privacy')}</a>
-          <a href="#" className="hover:text-white transition-colors focus-ring">{tFoot('terms')}</a>
+        <div className="flex flex-wrap items-center justify-center gap-3 text-center">
+          <span>{tFoot('privacy')}</span>
+          <span aria-hidden="true">•</span>
+          <span>{tFoot('terms')}</span>
+          <span aria-hidden="true">•</span>
+          <span>{tFoot('policyNote')}</span>
         </div>
       </div>
     </footer>

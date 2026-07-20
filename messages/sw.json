@@ -11,6 +11,7 @@
   "Footer": {
     "privacy": "Sera ya Faragha",
     "terms": "Masharti ya Huduma",
+    "policyNote": "Kurasa za sera zinakuja hivi karibuni",
     "copyright": "© 2026 Tripod Creative Agency. Haki zote zimehifadhiwa.",
     "instagram": "Tufuate kwenye Instagram"
   },
@@ -22,156 +23,1008 @@
     "officeLocation": "Maelezo ya mahali yanakuja hivi karibuni"
   },
   "Home": {
-    "Hero": {
-      "title": "Uzalishaji wa Cinematic Prism",
-      "subtitle": "Ubora wa picha ulioundwa na teknolojia ya kisasa. Tunabadilisha mawazo thabiti kuwa uzoefu wa kisasa wa kidijitali na picha za sinema.",
-      "cta": "Anza Sasa"
+    "coldOpen": {
+      "kicker": "Mradi Mpya",
+      "ready": "Studio Iko Tayari",
+      "cta": "Anza Mradi",
+      "fields": {
+        "client": {
+          "label": "Mteja",
+          "value": "Wazo lako lijalo lenye nguvu"
+        },
+        "format": {
+          "label": "Muundo",
+          "value": "Kitu chochote chenye thamani ya kutengenezwa"
+        },
+        "status": {
+          "label": "Hali",
+          "value": "Tayari"
+        }
+      }
     },
-    "Showreel": {
-      "tag": "Video Maalum",
-      "title": "Muhtasari wa Kazi Zetu",
-      "description": "Mtazamo wa haraka wa usimulizi wetu wa hadithi za picha. Pata uzoefu wa uzalishaji bora wa kamera na ufundi wa kuhariri."
+    "canvas": {
+      "title": "Tunabuni kile watu wanakikumbuka.",
+      "subtitle": "Multimedia, branding, graphic design, film, photography, music, na uzoefu wa kidijitali ulioundwa kushika umakini na kusogeza hadhira.",
+      "panelEyebrow": "Studio Canvas",
+      "live": "Muundo Hai",
+      "centerLabel": "Creative Core",
+      "cursorLabel": "Playhead Inafanya Kazi",
+      "frameLabel": "Composition Inayoendelea",
+      "focused": "Imelenga",
+      "noteLabel": "Dokezo la Director",
+      "tracksLabel": "Timeline Motion",
+      "boardLabel": "Ukuta wa Ubunifu",
+      "boardCopy": "Brand storytelling, production planning, na digital growth vinawekwa pamoja kama mfumo mmoja wa studio."
     },
-    "Services": {
-      "tag": "Utaalamu Wetu",
-      "title": "Mfumo wetu wa Huduma",
-      "description": "Chunguza taaluma zetu za ubunifu zilizoundwa ili kukuza uwepo wa chapa yako.",
-      "pillars": {
+    "heroPanels": {
+      "videoProduction": {
+        "label": "Video Production",
+        "meta": "Coverage, edits, na cinematic rollout frames"
+      },
+      "brandIdentity": {
+        "label": "Brand Identity",
+        "meta": "Systems, voice, na visual direction tayari kwa launch"
+      },
+      "printDesign": {
+        "label": "Print Design",
+        "meta": "Posters, packaging, na physical brand surfaces"
+      },
+      "musicStudio": {
+        "label": "Music Studio",
+        "meta": "Recording support, production notes, na artist development"
+      },
+      "digitalCampaigns": {
+        "label": "Digital Campaigns",
+        "meta": "Content systems, landing flows, na social momentum"
+      },
+      "liveStreaming": {
+        "label": "Live Streaming",
+        "meta": "Event signal paths, scene planning, na audience delivery"
+      }
+    },
+    "showreel": {
+      "eyebrow": "The Showreel",
+      "title": "Reel ya cinematic ya mwelekeo wa kazi, format, na nafasi zinazofuata.",
+      "description": "Hizi ni placeholder safi kwa case studies, visual za kampeni, edits, na studio outputs zijazo. Media halisi ya wateja inaweza kuwekwa hapa bila kubadili mfumo wa layout.",
+      "preview": "Fungua Showreel",
+      "previewAria": "Fungua preview ya showreel",
+      "close": "Funga",
+      "clientPlaceholder": "Mteja: Itaongezwa baadaye",
+      "modalEyebrow": "Preview ya Showreel",
+      "modalTitle": "Reel ya placeholder, tayari kwa media ya mwisho.",
+      "modalDescription": "Modal hii imewekwa nyepesi kwa makusudi. Inaonyesha jinsi Tripod inaweza kuwasilisha film frames, campaign edits, print sequences, na studio visuals kabla ya media ya mwisho kuongezwa.",
+      "modalNotes": {
+        "one": "Compressed poster placeholders zinaweka homepage ikiwa nyepesi wakati video halisi bado zinaandaliwa.",
+        "two": "Reel ya mwisho inaweza kuchanganya branding clips, photography sequences, motion snippets, na studio footage.",
+        "three": "Hakuna majina ya wateja ya kubuni au matokeo ya kubuni yanayoonyeshwa hapa. Kila kitu kinabaki wazi kuwa kinaweza kubadilishwa."
+      },
+      "disciplines": {
+        "branding": "Branding",
+        "video": "Video",
+        "digital": "Digital",
+        "music": "Music"
+      },
+      "mediaTypes": {
+        "branding": "Artboard",
+        "video": "Timeline Clip",
+        "digital": "Interface Reel",
+        "music": "Studio Take"
+      },
+      "items": {
+        "frameA": {
+          "title": "Frames za Uzinduzi wa Identity",
+          "meta": "Poster direction, brand layout, na rollout placeholders"
+        },
+        "frameB": {
+          "title": "Mfuatano wa Edit Timeline",
+          "meta": "Storyboard cuts, motion pacing, na recap placeholders"
+        },
+        "frameC": {
+          "title": "Mfumo wa Campaign Screens",
+          "meta": "Digital touchpoints, landing sections, na content rhythm"
+        },
+        "frameD": {
+          "title": "Dokezo za Studio Session",
+          "meta": "Music visuals, cover directions, na recording placeholders"
+        }
+      }
+    },
+    "timeline": {
+      "eyebrow": "Creative Timeline",
+      "title": "Huduma zimepangwa kama edit, si brochure.",
+      "description": "Kila track inaonyesha jinsi Tripod inavyosogeza idea kutoka concept hadi production bila kuvunja story kati ya disciplines.",
+      "activeLabel": "Track Iliyachaguliwa",
+      "tracks": {
+        "video": {
+          "label": "Video",
+          "title": "Videography, drone coverage, na live capture",
+          "micro": "Coverage, cutdowns, recaps",
+          "description": "Panga visual coverage kwa kampeni, launches, events, na branded stories kwa workflow inayosaidia filming, edits, na delivery tayari kwa platforms.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Cinematic coverage, interviews, short-form edits, drone support, na live streaming vinaweza kupangwa kwenye timeline moja."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Inafaa kwa event organizers, brands, artists, na institutions wanaohitaji packages za coverage bila kutafuta vendors wengi."
+            }
+          }
+        },
         "branding": {
-          "title": "Mkakati wa Chapa",
-          "desc": "Kupanga miongozo ya kisasa ya utambulisho wa chapa, nembo, na nyenzo za kidijitali."
+          "label": "Branding",
+          "title": "Brand strategy na identity direction",
+          "micro": "Position, system, rollout",
+          "description": "Jenga brand story kwanza, kisha ibebe kwenye visual systems, launch assets, printed pieces, na campaign touchpoints.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Naming support, identity planning, presentation decks, na launch kits vinaweza kuishi pamoja kwenye production board moja."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Ni muhimu kwa businesses, startups, organizations, na personal brands zinazohitaji structure imara kabla ya kusambaza content."
+            }
+          }
         },
-        "production": {
-          "title": "Ubunifu wa Kisanii",
-          "desc": "Michoro ya mwendo wa hali ya juu, vekta, na dhana bora za UI za kisasa."
+        "design": {
+          "label": "Design",
+          "title": "Graphic design, print direction, na layout systems",
+          "micro": "Posters, decks, packaging",
+          "description": "Unda campaign graphics, print assets, social content, na presentation surfaces kwa visual language inayobaki imara kwenye formats tofauti.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Tripod inaweza kusonga kutoka concept boards hadi posters, flyers, social kits, signage, na print-ready layouts kwa fast execution."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Imejengwa kwa promotions, events, launches, public campaigns, na creative communication inayohitaji backbone ya visual yenye nguvu."
+            }
+          }
         },
-        "marketing": {
-          "title": "Masoko ya Kidijitali",
-          "desc": "Usimamizi wa kimkakati wa mitandao ya kijamii na kampeni za ukuzaji wa utendaji."
+        "photo": {
+          "label": "Photo",
+          "title": "Photography kwa brands, events, na products",
+          "micro": "Stills, selects, coverage",
+          "description": "Tumia photography kama sehemu ya mfumo mpana wa storytelling, kutoka campaign stills na event coverage hadi product frames na behind-the-scenes visuals.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Photo direction inaweza kusaidia social campaigns, web launches, media kits, brand lookbooks, na editorial content."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Inafaa kwa institutions, artists, campaign teams, personal brands, na businesses zinazohitaji visual assets safi zinazoweza kutumika tena."
+            }
+          }
         },
-        "photography": {
-          "title": "Picha na Filamu",
-          "desc": "Upigaji picha za kibiashara za sinema, uhariri, na uzalishaji."
-        },
-        "drone": {
-          "title": "Uendeshaji wa Drone",
-          "desc": "Upigaji picha za juu kwa ajili ya miradi ya ushirika na biashara."
+        "motion": {
+          "label": "Motion",
+          "title": "Motion graphics na animated visual layers",
+          "micro": "Transitions, titles, rhythm",
+          "description": "Ongeza movement pale inapohitajika: title systems, social assets, campaign transitions, explainer visuals, na nguvu ya digital presentation.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Motion graphics zinaweza kuunganisha branding, video, digital marketing, na presentation design bila kuongeza uzito mkubwa wa production."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Ni muhimu kwa product launches, recap videos, online campaigns, reels, presentation moments, na explainers zinazolenga audience."
+            }
+          }
         },
         "music": {
-          "title": "Muziki na Sauti",
-          "desc": "Utunzi wa sauti wa kitaalamu, kurekodi sauti, na ubunifu wa sauti."
+          "label": "Music",
+          "title": "Music production, recording support, na training",
+          "micro": "Sessions, beats, coaching",
+          "description": "Saidia artists na learners kupitia music production, vocal recording, beat making, instrument training, na creative coaching.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Studio pathway inaweza kuunganisha lessons, practice sessions, recording support, na artist development bila kufanya offer iwe nzito."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Imejengwa kwa artists, young creatives, institutions, na yeyote anayetafuta beginner-friendly learning yenye studio energy ya vitendo."
+            }
+          }
+        },
+        "digital": {
+          "label": "Digital",
+          "title": "Digital marketing, websites, na app experiences",
+          "micro": "Campaigns, websites, funnels",
+          "description": "Beba art direction ile ile kwenye websites, landing pages, digital campaigns, na product surfaces zinazosaidia creative work kubadilika kuwa matokeo.",
+          "details": {
+            "1": {
+              "label": "Track Note",
+              "text": "Digital growth work inaweza kuunganisha messaging, design systems, campaign visuals, na modern web builds ndani ya workflow moja."
+            },
+            "2": {
+              "label": "Use Cases",
+              "text": "Inafaa kwa businesses, startups, organizations, na campaign teams zinazohitaji uwepo bora mtandaoni na lead capture iliyo wazi."
+            }
+          }
         }
       }
     },
-    "Portfolio": {
-      "tag": "Kazi Zetu",
-      "title": "Kazi Bora za Picha",
-      "description": "Mkusanyiko ulioratibiwa wa chapa, ubunifu, na uzalishaji wa vyombo vya habari.",
-      "project1": "Kampeni ya Utambulisho wa Picha",
-      "project2": "Video ya Kibiashara ya Sinema",
-      "project3": "Kiolesura cha Kidijitali cha SaaS",
-      "project4": "Mkusanyiko wa Kipekee wa Chapa"
-    },
-    "WhyChoose": {
-      "tag": "Kwanini Utuchague",
-      "title": "Imeundwa kwa Ajili ya Matokeo",
-      "description": "Tunachanganya mwelekeo wa ubunifu na mifumo ya kuaminika ya uwasilishaji wa mradi.",
-      "metrics": {
-        "precision": {
-          "title": "Usahihi wa Hali ya Juu",
-          "desc": "Kila fremu, fonti, na tokeni imeundwa ili kuendana na maelezo ya muundo bora."
+    "layers": {
+      "eyebrow": "Layer Stack",
+      "title": "Kazi ya ubunifu inakuwa imara zaidi pale layer sahihi zinapokuwa wazi.",
+      "description": "Chagua layer ili kuona jinsi strategy, colour, typography, campaign thinking, na motion vinavyounda composition ya mwisho.",
+      "compositionLabel": "Central Composition",
+      "activeLabel": "Layer Focus",
+      "effectLabel": "Layer Hii Inabadilisha Nini",
+      "items": {
+        "strategy": {
+          "label": "Layer {number} Strategy",
+          "shortLabel": "Strategy",
+          "title": "Strategy huipa kazi mwelekeo.",
+          "description": "Goals, audience, message, na format decisions husaidia kila uchaguzi unaofuata kuwa wa makusudi badala ya mapambo tu.",
+          "effect": "Layer hii inafafanua brief, story angle, na maamuzi yanayoongoza production support, design, na digital services.",
+          "mobileSummary": "Strategy huweka mradi wazi kabla ya visual layers kuongezwa."
         },
-        "speed": {
-          "title": "Uwasilishaji Ulioboreshwa",
-          "desc": "Kazi za haraka bila kupoteza ubora wa kiufundi au wa kuona."
+        "colour": {
+          "label": "Layer {number} Colour",
+          "shortLabel": "Colour",
+          "title": "Colour huweka hali ya hisia.",
+          "description": "Warm contrast, visual hierarchy, na accents zilizodhibitiwa hufanya kazi ionekane ya youthful, premium, na rahisi kufuatilia.",
+          "effect": "Layer hii inabadilisha mood, energy, readability, na namna brand storytelling inavyoshika umakini kwenye print na screens.",
+          "mobileSummary": "Colour huunda mood, contrast, na recognition kwenye mfumo mzima."
         },
-        "stack": {
-          "title": "Teknolojia ya Kisasa",
-          "desc": "Tovuti zilizoundwa na Next.js, Framer Motion, na michoro mepesi."
+        "typography": {
+          "label": "Layer {number} Typography",
+          "shortLabel": "Type",
+          "title": "Typography hubeba sauti ya kazi.",
+          "description": "Headlines, captions, labels, na presentation rhythm hutafsiri creative direction kuwa mawasiliano yanayosomeka.",
+          "effect": "Layer hii inaathiri clarity, personality, campaign hierarchy, na kasi ambayo watu wanaelewa ujumbe wa kazi.",
+          "mobileSummary": "Typography hugeuza idea kuwa sauti ambayo watu wanaweza kusoma na kukumbuka."
         },
-        "partnership": {
-          "title": "Ushirikiano wa Karibu",
-          "desc": "Mawasiliano ya moja kwa moja ya mradi na taarifa za wazi za hatua zilizofikiwa."
+        "campaign": {
+          "label": "Layer {number} Campaign",
+          "shortLabel": "Campaign",
+          "title": "Campaign thinking huunganisha kila output.",
+          "description": "Hugeuza assets tofauti kuwa release moja iliyoratibiwa kwenye social, print, web, events, na media nyingine za kusaidia.",
+          "effect": "Layer hii inaweka posters, rollout moments, launch content, na digital growth goals zikiwa zimeunganishwa kama output moja ya studio.",
+          "mobileSummary": "Campaign logic huweka assets tofauti zifanye kazi kama release moja."
+        },
+        "motion": {
+          "label": "Layer {number} Motion",
+          "shortLabel": "Motion",
+          "title": "Motion huipa composition uhai.",
+          "description": "Transitions, reveals, waveform cues, na presentation shifts hufanya visual zilizotulia zihisi hai bila kuwa na kelele nyingi.",
+          "effect": "Layer hii inaongeza pace, emphasis, na living-studio feel kwenye showreels, campaign visuals, interfaces, na content teasers.",
+          "mobileSummary": "Motion huongeza energy na emphasis bila kuulemea ukurasa."
         }
       }
     },
-    "Teaser": {
-      "tag": "Studio na Chuo",
-      "title": "Ubunifu na Umahiri wa Sauti",
-      "description": "Ingia kwenye nafasi yetu ya sauti. Kuchanganya nyimbo za sauti za kitaalamu, kurekodi, na kozi za chuo cha sauti.",
-      "cta": "Chunguza Studio"
+    "wall": {
+      "eyebrow": "Studio Wall",
+      "title": "Ukuta uliodhibitiwa wa formats, references, na production surfaces.",
+      "description": "Poster placeholders, print samples, colour swatches, contact sheets, na behind-the-scenes layouts hujenga studio atmosphere bila kujifanya kazi zisizokamilika ni final.",
+      "placeholder": "Placeholder",
+      "items": {
+        "poster": {
+          "type": "Poster",
+          "title": "Mwelekeo wa poster",
+          "description": "Layout placeholders kwa campaigns, launches, event art, au visual announcements."
+        },
+        "contactSheet": {
+          "type": "Contact Sheet",
+          "title": "Uchaguzi wa frames",
+          "description": "Muonekano wa film-style wa stills, storyboard moments, na edit references zinazosubiri media ya mwisho."
+        },
+        "printSample": {
+          "type": "Print Sample",
+          "title": "Masomo ya vifaa vya print",
+          "description": "Samples zilizopangwa kwa flyers, packaging, branded collateral, na physical production surfaces nyingine."
+        },
+        "storyboard": {
+          "type": "Storyboard",
+          "title": "Pacing ya storyboard",
+          "description": "Mfuatano rahisi kwa motion planning, recaps, ad edits, na mtiririko wa hadithi ya presentation."
+        },
+        "swatches": {
+          "type": "Swatches",
+          "title": "Lugha ya colour",
+          "description": "Warm orange, gold, na cream accents zinazofanya art direction ibaki kutambulika kwenye themes zote."
+        },
+        "bts": {
+          "type": "BTS",
+          "title": "Atmosphere ya production",
+          "description": "Behind-the-scenes placeholders zinazoonyesha process bila kubuni locations, watu, au equipment."
+        }
+      }
     },
-    "CTA": {
-      "title": "Uko Tayari Kuanza Safari Yako?",
-      "subtitle": "Wasiliana nasi kupitia WhatsApp ili kujadili miongozo ya mradi wako, ratiba, na bajeti.",
-      "cta": "Wasiliana Sasa Hivi"
+    "cta": {
+      "eyebrow": "Final CTA",
+      "title": "Leta mradi wako unaofuata ndani ya studio.",
+      "description": "Iwe unahitaji branding, production support, digital growth, music work, au website iliyo tayari kwa campaign, Tripod inaweza kuunda hatua inayofuata pamoja nawe."
     }
   },
   "ServicesPage": {
-    "Hero": {
-      "tag": "Utaalamu Wetu",
-      "title": "Huduma za Ubunifu na Kidijitali",
-      "subtitle": "Tunatumia mifumo ya kisasa, usahihi wa hali ya juu, na utaalamu wa kubuni ili kujenga uwepo wako wa kidijitali."
+    "hero": {
+      "eyebrow": "Utaalamu Wetu",
+      "title": "Huduma za ubunifu zilizojengwa kwa usimulizi wa chapa na ukuaji wa kidijitali.",
+      "subtitle": "Tripod inaunganisha mwelekeo wa ubunifu, ubora wa uzalishaji, na utekelezaji wa haraka katika studio moja ya huduma nyingi.",
+      "highlightLabel": "Mfumo wa Kisasa wa Kidijitali",
+      "highlightText": "Kuanzia mkakati hadi vifaa vya uzinduzi, tunaweka mchakato ukiwa wazi, wa ushirikiano, na tayari kwa kampeni halisi.",
+      "cta": "Anza kwa WhatsApp"
     },
-    "Pillars": {
-      "brand": {
-        "title": "Mkakati wa Chapa na Utambulisho",
-        "desc": "Weka chapa yako katika nafasi nzuri ukitumia miongozo ya utambulisho wa kampuni na mifumo ya nembo za kuvutia."
-      },
-      "design": {
-        "title": "Ubunifu wa Kisanii",
-        "desc": "Picha za ubora wa juu za vekta, muundo wa kijarida, na rasilimali za chapa zinazovutia haraka."
-      },
-      "printing": {
-        "title": "Uchapishaji na Uzalishaji",
-        "desc": "Nyenzo za kiwango cha juu za masoko ya kimwili, vipeperushi, mabango, na uchapishaji wa bidhaa maalum."
-      },
-      "marketing": {
-        "title": "Masoko ya Kidijitali",
-        "desc": "Mijadala ya kimkakati ya mitandao ya kijamii, uchambuzi wa utendaji, na mikakati ya kukuza biashara kidijitali."
-      },
-      "photography": {
-        "title": "Picha na Video",
-        "desc": "Usimulizi wa hadithi wa kuvutia wa video, uzalishaji wa video za kibiashara, na huduma ya picha za matukio."
-      },
-      "music": {
-        "title": "Studio ya Muziki na Chuo",
-        "desc": "Eneo la kurekodia sauti, uzalishaji wa uhandisi wa sauti, na masomo ya muziki yenye ubunifu."
-      }
-    },
-    "Bento": {
-      "tag": "Huduma Maalum za Maendeleo",
-      "title": "Uundaji wa Tovuti na Programu",
-      "desc": "Tunatengeneza majukwaa ya tovuti yenye kasi, ya kuitikia kwa urahisi, na salama kwa kutumia teknolojia ya Next.js, Tailwind CSS, na Framer Motion. Tunatoa nambari salama, nambari zilizoboreshwa, na muundo wa hali ya juu.",
-      "cta": "Jadili Kuhusu Teknolojia"
-    },
-    "Process": {
-      "tag": "Njia Yetu",
-      "title": "Ramani ya Ubunifu",
-      "desc": "Jinsi tunavyoshirikiana ili kubadilisha wazo lako kuwa bidhaa iliyokamilika.",
-      "steps": {
-        "step1": {
-          "title": "1. Ugunduzi",
-          "desc": "Kuweka sawa malengo ya mradi, mitindo ya marejeleo, chaguzi za bajeti, na changamoto za kiufundi."
+    "coreServices": {
+      "eyebrow": "Huduma Kuu",
+      "title": "Nguzo saba, mfumo mmoja wa studio unaounganisha kila kitu.",
+      "subtitle": "Kila huduma imeundwa kufanya kazi yenyewe au kama sehemu ya kampeni, uzinduzi, au mfumo mkubwa wa maudhui.",
+      "items": {
+        "brandStrategy": {
+          "title": "Mkakati wa Chapa na Utambulisho",
+          "description": "Tengeneza nafasi iliyo wazi zaidi, sauti iliyo makini, na mfumo thabiti wa utambulisho wa biashara yako.",
+          "bullets": [
+            "Mwelekeo wa majina, ujumbe wa chapa, na upangaji wa utambulisho wa kuona",
+            "Mifumo ya nembo, mwongozo wa chapa, na seti za nyenzo tayari kwa uzinduzi"
+          ]
         },
-        "step2": {
-          "title": "2. Rasimu ya Kwanza",
-          "desc": "Kutengeneza rasimu za kwanza za ubunifu, ubao wa mitindo, na muhtasari wa UI kwa ajili ya maoni."
+        "creativeDesign": {
+          "title": "Ubunifu wa Kisanii",
+          "description": "Unda taswira za kuvutia kwa kampeni, mawasilisho, mitandao ya kijamii, vifungashio, na mawasiliano ya chapa.",
+          "bullets": [
+            "Michoro ya kampeni, mpangilio wa kurasa, na ubunifu wa maudhui ya mitandao",
+            "Mwelekeo wa kisanii unaoweka kila sehemu ya chapa ikiwa imepangwa vizuri"
+          ]
         },
-        "step3": {
-          "title": "3. Uzalishaji",
-          "desc": "Utekelezaji wa uandishi wa nambari, upigaji picha/video, au uundaji wa rasilimali za chapa."
+        "printingProduction": {
+          "title": "Uchapishaji na Uzalishaji",
+          "description": "Badilisha mawazo yaliyoidhinishwa kuwa nyenzo za kimwili zilizotengenezwa vizuri kwa uratibu safi na wa kuaminika.",
+          "bullets": [
+            "Vipeperushi, mabango, alama, vifungashio, na vifaa vya matukio",
+            "Mipango ya uzalishaji inayolenga umaliziaji, uthabiti, na muda"
+          ]
         },
-        "step4": {
-          "title": "4. Kabidhi",
-          "desc": "Upelekaji wa mwisho wa mifumo, utoaji wa faili za ubora wa juu, na usaidizi wakati wa kuzindua."
+        "digitalMarketing": {
+          "title": "Masoko ya Kidijitali",
+          "description": "Jenga ukuaji wa kidijitali kwa upangaji wa kampeni, mwelekeo wa maudhui, na ufuatiliaji wa utendaji unaotumika.",
+          "bullets": [
+            "Kalenda za maudhui, usaidizi wa uzinduzi, na ulinganifu wa ubunifu wa kampeni",
+            "Ujumbe unaolenga hadhira na taarifa zinazosaidia maamuzi bora"
+          ]
+        },
+        "photographyVideography": {
+          "title": "Upigaji Picha na Video",
+          "description": "Tengeneza taswira zinazobeba ujumbe wako kwa uwazi katika chapa, bidhaa, matukio, na matumizi ya mitandao ya kijamii.",
+          "bullets": [
+            "Upigaji wa chapa, picha za bidhaa, mahojiano, reels, na huduma za matukio",
+            "Ubora wa uzalishaji unaojengwa kwa uhariri, maudhui mafupi, na vifaa vya uzinduzi"
+          ]
+        },
+        "musicStudioAcademy": {
+          "title": "Studio ya Muziki na Chuo",
+          "description": "Saidia wasanii, wabunifu, na wanaojifunza kwa vipindi vya kurekodi, maudhui ya muziki, na maendeleo ya vitendo.",
+          "bullets": [
+            "Usaidizi wa kurekodi, utengenezaji wa maudhui ya muziki, na taswira za wasanii",
+            "Njia za kujifunza kwa wabunifu wanaotaka uzoefu wa studio unaotumika"
+          ]
         }
       }
     },
-    "CTA": {
-      "title": "Shirikiana na Tripod",
-      "subtitle": "Wasiliana nasi kupitia WhatsApp ili kutuambia kuhusu ukubwa wa mradi wako na kuomba makadirio.",
-      "cta": "Anzisha Uhifadhi"
+    "featuredDevelopment": {
+      "eyebrow": "Huduma Iliyoangaziwa",
+      "title": "Utengenezaji wa Tovuti na Programu",
+      "description": "Tunabuni na kutengeneza tovuti, landing pages, zana za ndani, na uzoefu wa bidhaa unaounganisha taswira imara na mfumo wa kisasa wa kidijitali.",
+      "capabilities": [
+        "Tovuti za masoko zenye mwitikio na landing pages zilizoelekezwa vizuri",
+        "Mifumo ya ubunifu wa bidhaa yenye mwonekano wa premium wa glass card",
+        "Mizunguko ya haraka kutoka mpangilio wa maudhui hadi UI iliyo tayari kuzinduliwa",
+        "Builds zinazosaidia kampeni, ukusanyaji wa leads, na uwepo wa chapa"
+      ],
+      "workflowLabel": "Huduma hii inafitije",
+      "workflow": [
+        {
+          "title": "Mkakati Kwanza",
+          "description": "Tunaanza kwa kulinganisha malengo ya ukurasa, mahitaji ya hadhira, na njia za ubadilishaji kabla ya skrini kutengenezwa."
+        },
+        {
+          "title": "Ubunifu Wenye Muktadha",
+          "description": "Mpangilio, mwendo, na maudhui hufanya kazi pamoja ili bidhaa ionekane imekusudiwa tangu scroll ya kwanza."
+        },
+        {
+          "title": "Uzinduzi Wenye Kasi",
+          "description": "Build ya mwisho huandaliwa kwa handoff, maboresho ya ukuaji, na upanuzi wa maudhui ya baadaye."
+        }
+      ],
+      "cta": "Jadili Mradi wa Tovuti au Programu"
+    },
+    "process": {
+      "eyebrow": "Jinsi Tripod Inavyofanya Kazi",
+      "title": "Mchakato mfupi unaojengwa kwa uwazi na kasi.",
+      "subtitle": "Tunafanya ushirikiano uwe wa vitendo ili mawazo yasogee kutoka brief hadi delivery bila kupoteza mwelekeo.",
+      "steps": {
+        "discover": {
+          "title": "Gundua",
+          "description": "Tunapanga malengo, hadhira, marejeleo, muda, na mchanganyiko wa huduma unaofaa mradi."
+        },
+        "shape": {
+          "title": "Unda Mwelekeo",
+          "description": "Tunageuza mwongozo kuwa concept inayofanya kazi kwa muundo wa maudhui, chaguo za mtindo, na vipaumbele vya utekelezaji."
+        },
+        "produce": {
+          "title": "Tekeleza",
+          "description": "Ubunifu, maudhui, uzalishaji, na build husonga kwa mpangilio mmoja wenye sehemu wazi za maoni."
+        },
+        "deliver": {
+          "title": "Kabidhi",
+          "description": "Nyenzo za mwisho huandaliwa kwa uzinduzi, uchapishaji, uchapishaji wa mtandaoni, au hatua inayofuata ya kampeni yako."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Booking ya WhatsApp",
+      "title": "Chagua huduma unayotaka kujadili.",
+      "subtitle": "Anza na huduma inayolingana na hitaji lako la sasa na tutajenga hatua zinazofuata pamoja.",
+      "serviceButtonHint": "Inafungua WhatsApp ikiwa na ujumbe wa huduma husika",
+      "serviceButtons": {
+        "brandStrategy": "Uliza kuhusu Mkakati wa Chapa",
+        "creativeDesign": "Uliza kuhusu Ubunifu wa Kisanii",
+        "printingProduction": "Uliza kuhusu Uchapishaji na Uzalishaji",
+        "digitalMarketing": "Uliza kuhusu Masoko ya Kidijitali",
+        "photographyVideography": "Uliza kuhusu Picha na Video",
+        "musicStudioAcademy": "Uliza kuhusu Studio ya Muziki na Chuo",
+        "webAppDevelopment": "Uliza kuhusu Tovuti na Programu"
+      },
+      "primaryButton": "Fungua Mazungumzo ya Tovuti na Programu"
+    }
+  },
+  "PortfolioPage": {
+    "hero": {
+      "eyebrow": "Kazi Teule",
+      "title": "Portfolio inayojengwa kupitia branding, visuals, maudhui, na kampeni.",
+      "subtitle": "Mwonekano wenye vichujio wa kadi za portfolio zilizo tayari kubadilishwa baadaye kwa kazi halisi katika print, motion, matukio, na usimulizi wa kidijitali."
+    },
+    "filters": {
+      "ariaLabel": "Chuja portfolio kwa kategoria",
+      "items": {
+        "all": "Zote",
+        "branding": "Branding",
+        "graphics": "Graphics",
+        "printing": "Printing",
+        "photography": "Picha",
+        "video": "Video",
+        "events": "Matukio",
+        "music": "Muziki",
+        "digitalCampaigns": "Kampeni za Kidijitali"
+      }
+    },
+    "grid": {
+      "eyebrow": "Grid ya Portfolio",
+      "title": "Chunguza portfolio kwa aina ya kazi au aina ya kampeni.",
+      "resultCount": "{count, plural, =0 {Hakuna kazi zinazoonekana} one {Kazi # inaonekana} other {Kazi # zinaonekana}}",
+      "empty": "Bado hakuna kazi ya portfolio inayolingana na kichujio hiki.",
+      "cardCta": "Tazama maelezo ya placeholder",
+      "imagePlaceholder": "Placeholder ya Picha",
+      "videoPlaceholder": "Placeholder ya Video"
+    },
+    "featured": {
+      "eyebrow": "Mwelekeo Ulioangaziwa",
+      "title": "Tumia portfolio kama mwanzo wa brief yako inayofuata.",
+      "subtitle": "Ikiwa mtindo, aina ya kazi, au mwelekeo wa kampeni unakuvutia, tunaweza kuutumia kuongoza mazungumzo yanayofuata.",
+      "note": "Vipengele vya portfolio katika ukurasa huu vinatumia majina ya generic placeholder ili kazi halisi ya baadaye iweze kuongezwa bila kubadilisha muundo wa uzoefu.",
+      "cta": "Jadili Mradi Unaofanana"
+    },
+    "cta": {
+      "eyebrow": "Booking ya Mradi",
+      "title": "Uko tayari kubadilisha marejeleo kuwa mpango wa mradi?",
+      "subtitle": "Tueleze aina ya kazi unayohitaji na tutajenga mchanganyiko bora wa huduma za ubunifu, production, na digital.",
+      "button": "Weka Nafasi kwa WhatsApp"
+    },
+    "tags": {
+      "identity": "Utambulisho",
+      "artDirection": "Art Direction",
+      "videoEdit": "Uhariri wa Video",
+      "storyboard": "Storyboard",
+      "launchAssets": "Vifaa vya Uzinduzi",
+      "contentSystem": "Mfumo wa Maudhui",
+      "printLayout": "Mpangilio wa Print",
+      "productionPrep": "Maandalizi ya Production",
+      "socialDesign": "Ubunifu wa Social",
+      "campaignGraphics": "Graphics za Kampeni",
+      "brandShoot": "Brand Shoot",
+      "productFrames": "Product Frames",
+      "eventCoverage": "Coverage ya Tukio",
+      "recapAssets": "Vifaa vya Recap",
+      "coverArt": "Cover Art",
+      "studioVisuals": "Visuals za Studio",
+      "brandSystem": "Mfumo wa Chapa",
+      "launchDeck": "Deck ya Uzinduzi"
+    },
+    "projects": {
+      "project1": {
+        "title": "Placeholder ya Mfumo wa Utambulisho wa Chapa",
+        "description": "Placeholder inayoweza kubadilishwa kwa rollout ya utambulisho, seti ya mwelekeo wa kuona, na touchpoints za chapa za baadaye."
+      },
+      "project2": {
+        "title": "Placeholder ya Fremu za Video ya Kampeni",
+        "description": "Nafasi safi ya kazi za baadaye za motion, reels, mfululizo wa edits, au usimulizi wa video ya uzinduzi."
+      },
+      "project3": {
+        "title": "Placeholder ya Kifurushi cha Kampeni ya Kidijitali",
+        "description": "Placeholder inayonyumbulika kwa visuals za uzinduzi wa kampeni, assets za paid social, na mifumo ya maudhui ya kidijitali."
+      },
+      "project4": {
+        "title": "Placeholder ya Seti ya Print Production",
+        "description": "Placeholder ya print iliyo tayari kubadilishwa kwa posters, flyers, packaging layouts, au vifaa vya matukio."
+      },
+      "project5": {
+        "title": "Placeholder ya Mfululizo wa Graphic Content",
+        "description": "Seti ya generic visuals kwa social graphics, paneli za kampeni, au creative layouts za chapa."
+      },
+      "project6": {
+        "title": "Placeholder ya Mkusanyiko wa Picha",
+        "description": "Placeholder ya portfolio kwa brand shoots za baadaye, product stills, na uteuzi wa picha za editorial."
+      },
+      "project7": {
+        "title": "Placeholder ya Hadithi ya Event Coverage",
+        "description": "Kadi ya baadaye kwa event capture, highlight edits, na deliverables za recap content."
+      },
+      "project8": {
+        "title": "Placeholder ya Kifurushi cha Visuals za Muziki",
+        "description": "Placeholder ya generic kwa cover art, promo visuals, na maudhui ya studio session."
+      },
+      "project9": {
+        "title": "Placeholder ya Presentation ya Uzinduzi wa Chapa",
+        "description": "Placeholder kwa launch decks za baadaye, maonyesho ya chapa, na presentation assets za kampeni."
+      }
+    }
+  },
+  "StudioAcademyPage": {
+    "hero": {
+      "eyebrow": "Studio na Chuo",
+      "title": "Recording support, music production, na mafunzo ya ala ndani ya nafasi moja ya ubunifu.",
+      "subtitle": "Tripod inaunganisha beginner-friendly learning, studio support ya vitendo, na artist development katika safari moja ya muziki iliyo wazi.",
+      "tags": {
+        "recordingSupport": "Recording support",
+        "musicProduction": "Music production",
+        "instrumentTraining": "Instrument training"
+      },
+      "panelLabel": "Mtiririko wa Sauti ya Ubunifu",
+      "panelItems": {
+        "recording": {
+          "title": "Recording Support",
+          "description": "Vipindi vya kurekodi vilivyoongozwa kwa vocals, demos, na maendeleo ya miradi ya ubunifu."
+        },
+        "production": {
+          "title": "Beat Making",
+          "description": "Vipindi vya production vinavyojengwa kulingana na mwelekeo wa wimbo, arrangement, na uchaguzi wa sauti."
+        },
+        "training": {
+          "title": "Instrument Training",
+          "description": "Vipindi vya kujifunza kwa vitendo kwa piano, guitar, drums, na vocals."
+        },
+        "coaching": {
+          "title": "Creative Coaching",
+          "description": "Msaada wa confidence, consistency, na hatua zinazofuata za ukuaji wa msanii."
+        }
+      }
+    },
+    "recording": {
+      "eyebrow": "Recording Studio",
+      "title": "Vipindi vya recording vinavyojengwa kwa uwazi na confidence.",
+      "subtitle": "Tunasaidia vocal recording, practice takes, creative direction, na session flow kwa namna inayokaribisha wasanii wapya na wale wanaorudi tena.",
+      "items": [
+        {
+          "title": "Vocal Recording",
+          "description": "Session support yenye umakini kwa nyimbo, demos, spoken pieces, na mawazo ya ubunifu."
+        },
+        {
+          "title": "Practice Sessions",
+          "description": "Rudia, boresha, na jenga confidence kabla ya kuingia hatua inayofuata ya recording."
+        },
+        {
+          "title": "Session Guidance",
+          "description": "Creative direction inayosaidia shaping ya takes, pacing, na delivery bila pressure."
+        }
+      ],
+      "cta": "Weka Nafasi ya Recording Session"
+    },
+    "production": {
+      "eyebrow": "Music Production",
+      "title": "Production support kwa mawazo yanayohitaji structure na momentum.",
+      "subtitle": "Kuanzia beat making hadi vocal arrangement, tunasaidia wasanii na wanaojifunza kusogeza mawazo yao kwenda kwenye nyimbo, drafts, na creative direction iliyo wazi zaidi.",
+      "items": [
+        {
+          "title": "Beat Making",
+          "description": "Jenga rhythm, mood, na msingi wa wimbo unaolingana na creative direction yako."
+        },
+        {
+          "title": "Song Development",
+          "description": "Shape arrangement, sections, na flow ili rough ideas ziwe nyimbo zilizo wazi zaidi."
+        },
+        {
+          "title": "Vocal Direction",
+          "description": "Fanyia kazi uchaguzi wa performance, layering ideas, na maandalizi ya recording."
+        },
+        {
+          "title": "Artist Development",
+          "description": "Tumia kila session kuimarisha process, confidence, na ukuaji wa muda mrefu."
+        }
+      ],
+      "cta": "Jadili Music Production"
+    },
+    "training": {
+      "eyebrow": "Mafunzo ya Ala",
+      "title": "Jifunze kwa mpangilio, fanya practice kwa msaada, na ukue kwa kasi yako.",
+      "subtitle": "Mafunzo yameundwa kuwa beginner-friendly huku yakisaidia wanaorejea kujenga habits na technique bora zaidi.",
+      "items": {
+        "piano": {
+          "title": "Piano",
+          "level": "Beginner Friendly",
+          "description": "Jenga hand coordination, rhythm, na melody kwa lessons zilizoongozwa na practice sessions zinazoweza kurudiwa.",
+          "bullets": [
+            "Mazoezi ya kuanzia na progress paths zilizo rahisi kufuata",
+            "Creative coaching kwa confidence na consistency"
+          ],
+          "cta": "Uliza kuhusu Mafunzo ya Piano"
+        },
+        "guitar": {
+          "title": "Guitar",
+          "level": "Practice Led",
+          "description": "Endeleza chords, timing, na practice ya nyimbo kwa namna inayofanya kujifunza kuwa practical na motivating.",
+          "bullets": [
+            "Hands-on learning yenye weekly focus areas zilizo wazi",
+            "Sessions zinazojengwa kwa playing confidence ya kweli"
+          ],
+          "cta": "Uliza kuhusu Mafunzo ya Guitar"
+        },
+        "drums": {
+          "title": "Drums",
+          "level": "Rhythm Focused",
+          "description": "Fanyia kazi timing, groove, coordination, na performance discipline kupitia rhythm sessions zilizoongozwa.",
+          "bullets": [
+            "Practice sessions zinazoboresha control na feel",
+            "Njia za beginner-friendly zenye nafasi ya kuendelea juu"
+          ],
+          "cta": "Uliza kuhusu Mafunzo ya Drums"
+        },
+        "vocals": {
+          "title": "Vocals",
+          "level": "Performance Ready",
+          "description": "Jenga vocal confidence, control, na recording readiness kupitia coaching ya msaada na repetition.",
+          "bullets": [
+            "Warm-up, delivery, na vocal practice support",
+            "Coaching inayosaidia kuunganisha sauti na expression"
+          ],
+          "cta": "Uliza kuhusu Mafunzo ya Vocals"
+        }
+      }
+    },
+    "benefits": {
+      "eyebrow": "Kwa Nini Ujifunze na Tripod",
+      "title": "Mazingira ya kujifunza yaliyojengwa kwa creative progress ya kweli.",
+      "items": [
+        {
+          "title": "Beginner-Friendly Learning",
+          "description": "Sessions zimepangwa ziwe rahisi kuingia huku zikijenga habits muhimu za ubunifu."
+        },
+        {
+          "title": "Practice With Purpose",
+          "description": "Wanaojifunza husonga kwa guided practice sessions badala ya kubahatisha hatua inayofuata."
+        },
+        {
+          "title": "Creative Coaching",
+          "description": "Msaada hauishii kwenye technique pekee bali pia confidence, consistency, na expression."
+        },
+        {
+          "title": "Studio Connection",
+          "description": "Mafunzo na recording support vinaweza kuungana kwa urahisi wakati mwanafunzi yuko tayari kuunda zaidi."
+        }
+      ]
+    },
+    "pathway": {
+      "eyebrow": "Njia ya Ubunifu",
+      "title": "Njia rahisi kutoka kujifunza hadi performance.",
+      "steps": {
+        "learn": {
+          "title": "Jifunze",
+          "description": "Anza na foundations zilizo wazi, lessons zilizoongozwa, na creative coaching ya vitendo."
+        },
+        "practice": {
+          "title": "Fanya Practice",
+          "description": "Imarisha rhythm, timing, confidence, na control kupitia sessions zinazoweza kurudiwa."
+        },
+        "record": {
+          "title": "Rekodi",
+          "description": "Ingia kwenye recording support wakati mawazo, nyimbo, au performances ziko tayari kurekodiwa."
+        },
+        "perform": {
+          "title": "Performa",
+          "description": "Tumia progress uliyojenga kujieleza, kushare, na kuendelea kukua kama msanii."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Enrollment na Booking",
+      "title": "Chagua studio au njia ya mafunzo unayotaka kuchunguza.",
+      "subtitle": "Anza na WhatsApp message iliyoelekezwa vizuri na tutakuongoza kwenye session, learning plan, au creative next step inayofaa.",
+      "buttonHint": "Inafungua WhatsApp ikiwa na ujumbe wa studio husika",
+      "buttons": {
+        "recordingSession": "Recording Session",
+        "musicProduction": "Music Production",
+        "pianoTraining": "Piano Training",
+        "guitarTraining": "Guitar Training",
+        "drumTraining": "Drum Training",
+        "vocalTraining": "Vocal Training",
+        "generalInquiry": "Studio Inquiry ya Jumla"
+      }
+    }
+  },
+  "AboutPage": {
+    "hero": {
+      "eyebrow": "Kuhusu Tripod",
+      "title": "Creative agency inayojengwa kuzunguka multimedia production na practical creative execution.",
+      "subtitle": "Tripod inaunganisha brand storytelling, visual communication, production support, design and digital services, pamoja na music and creative training katika mtiririko mmoja wa ubunifu.",
+      "tags": {
+        "creativeAgency": "Creative agency",
+        "multimediaProduction": "Multimedia production",
+        "brandStorytelling": "Brand storytelling"
+      },
+      "panelLabel": "Creative Prism",
+      "motif": {
+        "lens": "Lens na direction",
+        "description": "Tunaunda mawazo kupitia framing iliyo wazi, collaborative thinking, na modern digital workflow."
+      },
+      "panelItems": {
+        "prism": {
+          "title": "Creative focus"
+        },
+        "grid": {
+          "title": "Structured flow"
+        },
+        "visualCommunication": {
+          "title": "Visual Communication",
+          "description": "Lugha ya ubunifu iliyo wazi kwa ujumbe, kampeni, na uwepo wa chapa."
+        },
+        "productionSupport": {
+          "title": "Production Support",
+          "description": "Uratibu wa vitendo unaosaidia mawazo kusonga kutoka concept hadi output iliyokamilika."
+        },
+        "digitalServices": {
+          "title": "Design and Digital Services",
+          "description": "Mifumo ya ubunifu inayofanya kazi kwenye skrini, maudhui, na launch assets."
+        },
+        "creativeTraining": {
+          "title": "Music and Creative Training",
+          "description": "Mafunzo na studio-facing support kwa wabunifu wanaotaka kuendelea kukua."
+        }
+      }
+    },
+    "intro": {
+      "eyebrow": "Utambulisho wa Kampuni",
+      "title": "Tripod imejengwa kuunganisha creative thinking na delivery inayotumika.",
+      "description": "Tunafanya kazi kama creative agency inayolenga multimedia production, visual communication, na practical execution inayosaidia mawazo kuwa matokeo halisi ya chapa na maudhui.",
+      "points": [
+        {
+          "title": "Huduma Zinazoungana",
+          "description": "Brand, design, production, digital work, na studio support vinaweza kusonga pamoja bila kuhisi vimetengana."
+        },
+        {
+          "title": "Mawasiliano Yaliyo Wazi",
+          "description": "Kila mradi hujengwa kupitia mwelekeo unaobaki kuwa rahisi kueleweka, wa ushirikiano, na wenye focus."
+        },
+        {
+          "title": "Practical Creative Execution",
+          "description": "Tunajali mawazo mazuri, lakini pia namna mawazo hayo yanavyokamilishwa na kutumika vizuri."
+        }
+      ]
+    },
+    "missionVision": {
+      "mission": {
+        "eyebrow": "Mission",
+        "title": "Kusaidia chapa na wabunifu kuwasiliana kwa uwazi zaidi na expression iliyo bora.",
+        "description": "Mission yetu ni kubadilisha mawazo kuwa visuals zenye fikra, maudhui yanayotumika, na matokeo yaliyo tayari kwa production yanayosaidia mawasiliano halisi."
+      },
+      "vision": {
+        "eyebrow": "Vision",
+        "title": "Kujenga mazingira ya ubunifu ambako storytelling na execution vinabaki karibu kila wakati.",
+        "description": "Tunataka Tripod ibaki kuwa nafasi ambayo design, multimedia production, na creative learning vinaunga mkono kila kimoja kwa njia za vitendo."
+      }
+    },
+    "beliefs": {
+      "eyebrow": "Tripod Inaamini Nini",
+      "title": "Kazi ya ubunifu huwa imara zaidi inapobaki ya kibinadamu, yenye mpangilio, na yenye matumizi.",
+      "subtitle": "Imani hizi zinaongoza jinsi tunavyounda mawazo, kushirikiana, na kutoa matokeo katika aina tofauti za kazi ya ubunifu.",
+      "items": {
+        "storytelling": {
+          "title": "Story Kabla ya Noise",
+          "description": "Visuals na kampeni hufanya kazi vizuri zaidi zinapobeba ujumbe ulio wazi na mwelekeo wa kihisia."
+        },
+        "collaboration": {
+          "title": "Mchakato wa Pamoja wa Ubunifu",
+          "description": "Tunaamini matokeo bora hutokana na ushirikiano wa kweli, feedback inayotumika, na matarajio yaliyolingana."
+        },
+        "execution": {
+          "title": "Ideas Zinahitaji Delivery",
+          "description": "Concepts ni muhimu, lakini thamani halisi huonekana pale kazi ya ubunifu inapopangwa vizuri na kuwasilishwa kwa umakini."
+        }
+      }
+    },
+    "approach": {
+      "eyebrow": "Creative Approach",
+      "title": "Njia rahisi inayoweka ubunifu ukiendelea kwa kusudi.",
+      "steps": {
+        "discover": {
+          "title": "Discover",
+          "description": "Tunaanza kwa kuelewa malengo, hadhira, mazingira, na aina ya story ambayo kazi inahitaji kubeba."
+        },
+        "strategy": {
+          "title": "Strategy",
+          "description": "Direction huundwa kuwa mpango wa vitendo kwa visuals, messaging, production support, na digital output."
+        },
+        "create": {
+          "title": "Create",
+          "description": "Design, content, media, na studio-facing work huendelezwa kwa consistency na nafasi ya feedback."
+        },
+        "deliver": {
+          "title": "Deliver",
+          "description": "Outputs za mwisho huandaliwa kwa uwazi ili ziweze kuzinduliwa, kushirikishwa, kuchapishwa, kupostiwa, au kuendelezwa zaidi."
+        }
+      }
+    },
+    "culture": {
+      "eyebrow": "Creative Team Culture",
+      "title": "Utamaduni unaojengwa na udadisi, msaada, na creative momentum ya uhakika.",
+      "description": "Ambapo picha halisi za timu bado hazijapatikana, tunaeleza mazingira kupitia aina ya ushirikiano na nguvu ambayo kazi inajengwa juu yake.",
+      "points": [
+        {
+          "title": "Youthful lakini Professional",
+          "description": "Tunalenga nguvu, relevance, na taste nzuri huku tukidumisha kazi kuwa ya kuaminika na iliyopangwa vizuri."
+        },
+        {
+          "title": "Mindset ya Kujifunza",
+          "description": "Ukuaji wa ubunifu ni muhimu kwetu iwe kazi ni ya mteja, maendeleo ya ndani, au studio training."
+        },
+        {
+          "title": "Supportive Execution",
+          "description": "Utamaduni huu umejengwa kusaidia mawazo yasogee mbele kwa msuguano mdogo na confidence kubwa zaidi."
+        }
+      ],
+      "tiles": [
+        {
+          "eyebrow": "Creative Grid",
+          "title": "Team Flow",
+          "description": "Mawazo, reviews, na production tasks husonga kwa rhythm inayoonyesha momentum."
+        },
+        {
+          "eyebrow": "Lens Motif",
+          "title": "Shared Perspective",
+          "description": "Creative disciplines tofauti hubaki aligned kupitia direction ya pamoja na practical check-ins."
+        },
+        {
+          "eyebrow": "Prism Motion",
+          "title": "Flexible Thinking",
+          "description": "Tunapenda nafasi ya exploration, lakini exploration hiyo hubaki imeunganishwa na outcomes zinazotumika."
+        },
+        {
+          "eyebrow": "Studio Energy",
+          "title": "Creative Presence",
+          "description": "Atmosphere inaunga mkono brand work, production support, na learning bila kujifanya kuwa kitu ambacho hakijathibitishwa."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Fanya Kazi na Tripod",
+      "title": "Ikiwa creative direction inafaa, tuanze mazungumzo.",
+      "subtitle": "Wasiliana kwa WhatsApp kama unataka kujadili mradi, kuchunguza multimedia production support, au kujifunza zaidi kuhusu jinsi Tripod inavyofanya kazi.",
+      "button": "Anza kwa WhatsApp"
+    }
+  },
+  "ContactPage": {
+    "hero": {
+      "eyebrow": "Mawasiliano na Booking",
+      "title": "Book kazi ya ubunifu, studio support, na digital services ndani ya mtiririko mmoja wa vitendo.",
+      "subtitle": "Tumia form kwa brief iliyo na mpangilio au ingia moja kwa moja WhatsApp kama tayari unajua unachohitaji."
+    },
+    "form": {
+      "eyebrow": "Booking Form",
+      "title": "Shirikisha maelezo ya project yako.",
+      "subtitle": "Form hii hubaki client-side only na huandaa ombi lako kwa WhatsApp ikiwa na taarifa muhimu tayari zimejazwa.",
+      "fields": {
+        "name": "Jina",
+        "phone": "Simu",
+        "email": "Email",
+        "service": "Huduma unayohitaji",
+        "budget": "Ukubwa wa project au budget",
+        "message": "Ujumbe"
+      },
+      "placeholders": {
+        "name": "Jina lako",
+        "phone": "Namba yako ya simu",
+        "email": "your@email.com",
+        "service": "Chagua huduma",
+        "budget": "Chagua ukubwa wa project",
+        "message": "Eleza Tripod kuhusu project, lengo, au booking unayohitaji."
+      },
+      "services": {
+        "brandingDesign": "Branding & Design",
+        "printingCreativeProduction": "Printing & Creative Production",
+        "digitalMarketing": "Digital Marketing",
+        "photography": "Photography",
+        "videoDroneLiveStreaming": "Video, Drone & Live Streaming",
+        "musicProduction": "Music Production",
+        "recordingSession": "Recording Session",
+        "instrumentTraining": "Instrument Training",
+        "webAppDevelopment": "Web & App Development",
+        "generalInquiry": "General Inquiry"
+      },
+      "budgets": {
+        "smallProject": "Small Project",
+        "mediumProject": "Medium Project",
+        "largeProject": "Large Project",
+        "notSureYet": "Not Sure Yet"
+      },
+      "errors": {
+        "name": "Tafadhali andika jina lako.",
+        "phone": "Tafadhali andika namba yako ya simu.",
+        "email": "Tafadhali andika email yako.",
+        "emailInvalid": "Tafadhali andika email sahihi.",
+        "service": "Tafadhali chagua huduma unayohitaji.",
+        "budget": "Tafadhali chagua ukubwa wa project.",
+        "message": "Tafadhali andika ujumbe mfupi."
+      },
+      "submit": "Endelea kwa WhatsApp"
+    },
+    "whatsapp": {
+      "eyebrow": "Instant WhatsApp Booking",
+      "title": "Unapendelea ujumbe wa moja kwa moja?",
+      "subtitle": "Fungua WhatsApp ikiwa na prompt ya mawasiliano iliyo tayari na endelea na mazungumzo huko.",
+      "button": "Fungua WhatsApp Booking"
+    },
+    "quickContacts": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "value": "Anza mazungumzo ya moja kwa moja ya booking"
+      },
+      "phone": {
+        "title": "Simu"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "instagram": {
+        "title": "Instagram"
+      }
+    },
+    "location": {
+      "eyebrow": "Location",
+      "title": "Pata maelezo ya Tripod hapa yatakapokuwa tayari.",
+      "placeholderTitle": "Location details coming soon",
+      "placeholderText": "Anwani iliyothibitishwa bado haijaongezwa, kwa hiyo sehemu hii imeachwa wazi kama placeholder."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Maswali kabla ya booking?",
+      "items": [
+        {
+          "question": "Booking form inafanyaje kazi?",
+          "answer": "Form hii hubaki client-side only. Ukijaza taarifa sahihi na kutuma, huunda WhatsApp message yenye maelezo yako na kufungua chat hiyo."
+        },
+        {
+          "question": "Naweza kutumia WhatsApp bila kujaza form yote?",
+          "answer": "Ndiyo. Instant WhatsApp card na CTA ya mwisho zote zinakuwezesha kuanza mazungumzo ya moja kwa moja bila kumaliza brief yote kwanza."
+        },
+        {
+          "question": "Vipi kama sijui huduma gani inafaa project yangu?",
+          "answer": "Chagua General Inquiry kwenye form au anza WhatsApp chat na eleza matokeo unayotaka. Tripod inaweza kusaidia kupanga mchanganyiko wa huduma unaofaa."
+        },
+        {
+          "question": "Ukurasa huu unatuma taarifa zangu kwenye backend?",
+          "answer": "Hapana. Phase hii inatumia client-side flow tu na haijengi database, API route, wala mfumo wa kutuma email."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Uko Tayari Kuweka Nafasi",
+      "title": "Ukiwa tayari, Tripod iko umbali wa ujumbe mmoja tu.",
+      "subtitle": "Tuma brief ya project, uliza swali la booking, au anza na general creative inquiry.",
+      "button": "Anza Mazungumzo"
     }
   }
 }

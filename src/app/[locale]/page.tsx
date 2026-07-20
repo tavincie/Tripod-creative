@@ -1,487 +1,486 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import React, { useMemo, useState } from 'react';
+import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
-import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
-import { ThreeCanvas } from '@/components/3d/ThreeCanvas';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, Play, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import {
-  Layers,
-  Compass,
-  LineChart,
-  Camera,
-  Wind,
-  Music,
-  Play,
-  ArrowRight,
-  Zap,
-  Cpu,
-  Users,
-  Award,
-  Volume2,
-  CheckCircle,
-  X,
-} from 'lucide-react';
-import { servicesData } from '@/data/services';
-import { portfolioData } from '@/data/portfolio';
+  homepageArchiveMediaKeys,
+  homepageShowreelMediaKeys,
+  sampleMedia,
+} from '@/data/sampleMedia';
+
+const serviceBlocks = [
+  { key: 'video', mediaKey: 'videoProductionSetup' },
+  { key: 'design', mediaKey: 'brandingMockups' },
+  { key: 'photo', mediaKey: 'photographerShooting' },
+  { key: 'print', mediaKey: 'printProduction' },
+  { key: 'digital', mediaKey: 'socialCampaignVisuals' },
+  { key: 'music', mediaKey: 'musicProducerWorkstation' },
+] as const;
+
+const processSteps = ['concept', 'production', 'launch'] as const;
 
 export default function HomePage() {
-  const t = useTranslations('Home');
-  const tCommon = useTranslations('Common');
   const locale = useLocale();
-
+  const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
 
-  // Compile WhatsApp URL
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
   const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
-  const contactMsg =
+  const whatsappMessage =
     locale === 'sw'
-      ? 'Habari Tripod! Ningependa kuweka nafasi ya huduma za ubunifu.'
-      : 'Hello Tripod! I would like to book a creative session.';
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(contactMsg)}`;
+      ? 'Habari Tripod Creative. Nina mradi mpya na ningependa kuupeleka studio.'
+      : 'Hello Tripod Creative. I have a new project and I would like to send it to the studio.';
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  // Service Icon Mapper
-  const renderServiceIcon = (iconName: string) => {
-    const classStyle = 'w-8 h-8 text-primary';
-    switch (iconName) {
-      case 'Layers':
-        return <Layers className={classStyle} />;
-      case 'Compass':
-        return <Compass className={classStyle} />;
-      case 'LineChart':
-        return <LineChart className={classStyle} />;
-      case 'Camera':
-        return <Camera className={classStyle} />;
-      case 'Wind':
-        return <Wind className={classStyle} />;
-      case 'Music':
-        return <Music className={classStyle} />;
-      default:
-        return <Layers className={classStyle} />;
-    }
-  };
+  const copy = useMemo(
+    () =>
+      locale === 'sw'
+        ? {
+            heroEyebrow: 'Tripod Creative',
+            heroTitle: 'Tunabuni kile watu wanakikumbuka.',
+            heroSubtitle:
+              'Branding, design, film, photography, music, na digital campaigns zilizojengwa kwa attention.',
+            startProject: 'Book on WhatsApp',
+            viewPortfolio: 'View Portfolio',
+            coldOpen: {
+              kicker: 'Mradi Mpya',
+              client: 'Wazo lako lijalo lenye nguvu',
+              format: 'Kitu chochote chenye thamani ya kutengenezwa',
+              status: 'Tayari',
+            },
+            showreelEyebrow: 'Showreel Strip',
+            showreelTitle: 'Film frames, campaign cuts, na studio visuals.',
+            showreelSubtitle:
+              'Sample media pekee kwa sasa. Badilisha na visuals halisi za Tripod kabla ya public launch.',
+            showreelItems: [
+              { title: 'Video Production', media: 'Timeline Clip' },
+              { title: 'Event Coverage', media: 'Field Capture' },
+              { title: 'Photography', media: 'Still Frame' },
+              { title: 'Studio Session', media: 'Audio Take' },
+              { title: 'Digital Campaign', media: 'Launch Visual' },
+            ],
+            servicesEyebrow: 'What We Create',
+            servicesTitle: 'Ideas into visuals. Campaigns into motion. Brands into memory.',
+            servicesSubtitle:
+              'Visual blocks kubwa badala ya tiny cards. Kila huduma inaonekana kama sehemu ya studio ya kweli.',
+            serviceLabels: {
+              video: 'Video Production',
+              design: 'Branding & Design',
+              photo: 'Photography',
+              print: 'Printing',
+              digital: 'Digital Campaigns',
+              music: 'Music Studio',
+            },
+            serviceDetails: {
+              video: 'Camera crews, edits, drone angles, na coverage built for screens.',
+              design: 'Identity systems, posters, packaging, na bold visual direction.',
+              photo: 'Brand shoots, portraits, products, na event stills.',
+              print: 'Posters, signage, handouts, na physical campaign materials.',
+              digital: 'Launch visuals, rollout assets, na campaign content built for attention.',
+              music: 'Recording, production sessions, na artist-facing studio work.',
+            },
+            wallEyebrow: 'Studio Wall',
+            wallTitle: 'Production frames, poster notes, cameras, campaigns, na behind-the-scenes energy.',
+            processEyebrow: 'Process',
+            processTitle: 'Concept. Production. Launch.',
+            processDescriptions: {
+              concept: 'Brief, references, na visual direction huwekwa mapema.',
+              production: 'Camera, design, print, na studio work husonga kwa pace moja.',
+              launch: 'Kazi huandaliwa kwa posting, printing, release, au campaign rollout.',
+            },
+            ctaTitle: 'Leta project yako inayofuata ndani ya studio.',
+            ctaButton: 'Book on WhatsApp',
+            ctaAlt: 'Send to Studio',
+            modalTitle: 'Preview ya showreel',
+            modalBody:
+              'Hii ni preview nyepesi ya sample media. Weka video na visuals halisi za Tripod hapa kabla ya launch ya umma.',
+            close: 'Funga',
+          }
+        : {
+            heroEyebrow: 'Tripod Creative',
+            heroTitle: 'We design what people remember.',
+            heroSubtitle:
+              'Branding, design, film, photography, music, and digital campaigns built for attention.',
+            startProject: 'Book on WhatsApp',
+            viewPortfolio: 'View Portfolio',
+            coldOpen: {
+              kicker: 'New Project',
+              client: 'Your next bold idea',
+              format: 'Anything worth creating',
+              status: 'Ready',
+            },
+            showreelEyebrow: 'Showreel Strip',
+            showreelTitle: 'Film frames, campaign cuts, and studio visuals.',
+            showreelSubtitle:
+              'Sample media only for now. Replace with Tripod’s real visuals before public launch.',
+            showreelItems: [
+              { title: 'Video Production', media: 'Timeline Clip' },
+              { title: 'Event Coverage', media: 'Field Capture' },
+              { title: 'Photography', media: 'Still Frame' },
+              { title: 'Studio Session', media: 'Audio Take' },
+              { title: 'Digital Campaign', media: 'Launch Visual' },
+            ],
+            servicesEyebrow: 'What We Create',
+            servicesTitle: 'Ideas into visuals. Campaigns into motion. Brands into memory.',
+            servicesSubtitle:
+              'Bigger visual blocks instead of tiny cards. Each service should feel like part of a real studio.',
+            serviceLabels: {
+              video: 'Video Production',
+              design: 'Branding & Design',
+              photo: 'Photography',
+              print: 'Printing',
+              digital: 'Digital Campaigns',
+              music: 'Music Studio',
+            },
+            serviceDetails: {
+              video: 'Camera crews, edits, drone angles, and coverage built for screens.',
+              design: 'Identity systems, posters, packaging, and bold visual direction.',
+              photo: 'Brand shoots, portraits, products, and event stills.',
+              print: 'Posters, signage, handouts, and physical campaign materials.',
+              digital: 'Launch visuals, rollout assets, and campaign content built for attention.',
+              music: 'Recording, production sessions, and artist-facing studio work.',
+            },
+            wallEyebrow: 'Studio Wall',
+            wallTitle: 'Production frames, poster notes, cameras, campaigns, and behind-the-scenes energy.',
+            processEyebrow: 'Process',
+            processTitle: 'Concept. Production. Launch.',
+            processDescriptions: {
+              concept: 'The brief, references, and visual direction are set early.',
+              production: 'Camera, design, print, and studio work move with one pace.',
+              launch: 'The work is prepared for posting, printing, release, or campaign rollout.',
+            },
+            ctaTitle: 'Bring your next project into the studio.',
+            ctaButton: 'Book on WhatsApp',
+            ctaAlt: 'Send to Studio',
+            modalTitle: 'Showreel preview',
+            modalBody:
+              'This is a lightweight sample-media preview. Replace it with Tripod’s real video and campaign visuals before public launch.',
+            close: 'Close',
+          },
+    [locale]
+  );
+
+  const heroMedia = [
+    sampleMedia.cameraOperator,
+    sampleMedia.photographerShooting,
+    sampleMedia.studioMicrophone,
+    sampleMedia.brandingMockups,
+    sampleMedia.printProduction,
+  ];
+
+  const showreelMedia = homepageShowreelMediaKeys.map((key) => sampleMedia[key]);
+  const wallMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-background selection:bg-primary/30 selection:text-white">
-      {/* Top Navbar */}
-      <Header />
-
-      <main className="flex-grow">
-        {/* Section 1: Hero */}
-        <section className="relative overflow-hidden pt-12 pb-24 md:py-32 flex items-center">
-          <div className="absolute inset-0 hot-spot opacity-75 -z-10" />
-          <div className="mx-auto max-w-7xl px-5 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-              <ScrollReveal direction="up" delay={0.1}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/15 text-xs font-mono tracking-wider text-primary">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span>ONLINE CONSULTATION ACTIVE</span>
+    <main className="relative flex-grow overflow-x-hidden bg-background selection:bg-primary/30 selection:text-white">
+      <section className="relative overflow-hidden border-b border-white/6 pb-16 pt-28 sm:pt-32 lg:pb-24 lg:pt-36">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,126,0,0.28),transparent_24%),radial-gradient(circle_at_82%_26%,rgba(253,208,0,0.1),transparent_22%),linear-gradient(180deg,rgba(8,10,12,0.95),rgba(8,10,12,0.72))]" />
+        <div className="relative mx-auto max-w-7xl px-5 md:px-16">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(420px,1.12fr)] lg:items-center">
+            <div className="space-y-5">
+              <ScrollReveal>
+                <span className="label-sm inline-flex rounded-full border border-primary/20 bg-white/5 px-4 py-2 text-primary">
+                  {copy.heroEyebrow}
+                </span>
+              </ScrollReveal>
+              <ScrollReveal delay={0.08}>
+                <div className="space-y-3">
+                  <p className="text-xs uppercase tracking-[0.22em] text-primary/85">
+                    {copy.coldOpen.kicker}
+                  </p>
+                  <div className="grid max-w-xl gap-3 sm:grid-cols-3">
+                    {[
+                      ['Client', copy.coldOpen.client],
+                      ['Format', copy.coldOpen.format],
+                      ['Status', copy.coldOpen.status],
+                    ].map(([label, value]) => (
+                      <div key={label} className="rounded-[1.4rem] border border-white/10 bg-black/20 px-4 py-4">
+                        <p className="text-[10px] uppercase tracking-[0.18em] text-primary/80">{label}</p>
+                        <p className="mt-2 text-sm font-medium text-white">{value}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </ScrollReveal>
-              
-              <ScrollReveal direction="up" delay={0.2}>
-                <h1 className="display-lg text-white">
-                  {t('Hero.title')}
-                </h1>
+              <ScrollReveal delay={0.14}>
+                <h1 className="display-lg max-w-4xl text-white">{copy.heroTitle}</h1>
               </ScrollReveal>
-
-              <ScrollReveal direction="up" delay={0.3}>
-                <p className="body-lg text-on-surface-variant max-w-2xl">
-                  {t('Hero.subtitle')}
-                </p>
+              <ScrollReveal delay={0.2}>
+                <p className="body-lg max-w-2xl text-on-surface-variant">{copy.heroSubtitle}</p>
               </ScrollReveal>
-
-              <ScrollReveal direction="up" delay={0.4}>
-                <div className="flex flex-wrap gap-4 mt-4">
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="focus-ring rounded-full"
-                  >
-                    <Button variant="primary" className="px-8 py-4">
-                      {tCommon('bookWhatsApp')}
-                    </Button>
+              <ScrollReveal delay={0.26}>
+                <div className="flex flex-wrap gap-3">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rounded-full">
+                    <Button variant="primary" className="px-7 py-3.5">{copy.startProject}</Button>
                   </a>
-                  <Link href="/portfolio" className="focus-ring rounded-full">
-                    <Button variant="outline" className="px-8 py-4">
-                      {tCommon('viewPortfolio')}
+                  <Link href="/portfolio" className="rounded-full">
+                    <Button variant="secondary" className="gap-2 px-7 py-3.5">
+                      {copy.viewPortfolio}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Button>
                   </Link>
                 </div>
               </ScrollReveal>
             </div>
 
-            {/* 3D Animated canvas container */}
-            <div className="lg:col-span-5 w-full flex justify-center items-center">
-              <ScrollReveal direction="none" delay={0.3}>
-                <div className="w-full relative aspect-square max-w-md">
-                  <ThreeCanvas />
+            <ScrollReveal delay={0.12}>
+              <div className="relative grid min-h-[34rem] grid-cols-6 gap-3">
+                <div className="relative col-span-4 row-span-2 overflow-hidden rounded-[2rem] border border-white/10">
+                  <Image
+                    src={heroMedia[0].src}
+                    alt={heroMedia[0].alt}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 38vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,126,0,0.08),rgba(0,0,0,0.72))]" />
                 </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 2: Showreel Preview */}
-        <section className="py-20 bg-surface-container-lowest border-t border-b border-outline-variant/10">
-          <div className="mx-auto max-w-7xl px-5 md:px-16">
-            <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-4">
-              <ScrollReveal direction="up">
-                <span className="label-sm text-primary">{t('Showreel.tag')}</span>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.1}>
-                <h2 className="headline-lg text-white">{t('Showreel.title')}</h2>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.2}>
-                <p className="body-md text-on-surface-variant">
-                  {t('Showreel.description')}
-                </p>
-              </ScrollReveal>
-            </div>
-
-            {/* Video Preview Glass Container */}
-            <ScrollReveal direction="up" delay={0.3}>
-              <div
-                onClick={() => setShowreelOpen(true)}
-                className="relative aspect-video w-full rounded-2xl overflow-hidden cursor-pointer group border border-outline-variant/20 shadow-2xl transition-all duration-500 hover:border-primary/45"
-              >
-                {/* Visual lens reflection layer */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 z-10 transition-opacity duration-300 group-hover:opacity-90" />
-                
-                {/* Animated static backdrop elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary-container/5 z-0" />
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="w-20 h-20 rounded-full bg-white/10 group-hover:bg-primary/20 flex items-center justify-center border border-white/20 group-hover:border-primary/50 transition-all duration-300 transform group-hover:scale-110 shadow-lg">
-                    <Play className="w-8 h-8 text-white group-hover:text-primary transition-colors fill-current ml-1" />
-                  </div>
+                <div className="relative col-span-2 overflow-hidden rounded-[1.6rem] border border-white/10">
+                  <Image src={heroMedia[1].src} alt={heroMedia[1].alt} fill sizes="20vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
                 </div>
-
-                {/* Aesthetic HUD brackets */}
-                <div className="absolute top-6 left-6 border-t-2 border-l-2 border-white/30 w-6 h-6 z-10 pointer-events-none" />
-                <div className="absolute top-6 right-6 border-t-2 border-r-2 border-white/30 w-6 h-6 z-10 pointer-events-none" />
-                <div className="absolute bottom-6 left-6 border-b-2 border-l-2 border-white/30 w-6 h-6 z-10 pointer-events-none" />
-                <div className="absolute bottom-6 right-6 border-b-2 border-r-2 border-white/30 w-6 h-6 z-10 pointer-events-none" />
-
-                <div className="absolute bottom-6 left-16 z-10 hidden sm:flex items-center gap-2 text-xs font-mono text-white/50 tracking-wider">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                  <span>REC 00:00:24</span>
+                <div className="relative col-span-2 overflow-hidden rounded-[1.6rem] border border-white/10">
+                  <Image src={heroMedia[2].src} alt={heroMedia[2].alt} fill sizes="20vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
                 </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* Section 3: Services Preview */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="mx-auto max-w-7xl px-5 md:px-16">
-            <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col gap-4">
-              <ScrollReveal direction="up">
-                <span className="label-sm text-primary">{t('Services.tag')}</span>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.1}>
-                <h2 className="headline-lg text-white">{t('Services.title')}</h2>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.2}>
-                <p className="body-md text-on-surface-variant">
-                  {t('Services.description')}
-                </p>
-              </ScrollReveal>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {servicesData.map((service, index) => (
-                <ScrollReveal
-                  key={service.key}
-                  direction="up"
-                  delay={0.1 * (index % 3)}
-                >
-                  <GlassCard className="p-8 h-full flex flex-col justify-between">
-                    <div className="flex flex-col gap-5">
-                      <div className="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center border border-outline-variant/15">
-                        {renderServiceIcon(service.iconName)}
-                      </div>
-                      <h3 className="headline-md text-white font-bold">
-                        {t(`Services.pillars.${service.key}.title`)}
-                      </h3>
-                      <p className="text-sm text-on-surface-variant/80 leading-relaxed">
-                        {t(`Services.pillars.${service.key}.desc`)}
-                      </p>
-                    </div>
-                  </GlassCard>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 4: Portfolio Preview */}
-        <section className="py-24 bg-surface-container-lowest border-t border-b border-outline-variant/10">
-          <div className="mx-auto max-w-7xl px-5 md:px-16">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-              <div className="flex flex-col gap-4 text-left max-w-2xl">
-                <ScrollReveal direction="up">
-                  <span className="label-sm text-primary">{t('Portfolio.tag')}</span>
-                </ScrollReveal>
-                <ScrollReveal direction="up" delay={0.1}>
-                  <h2 className="headline-lg text-white">{t('Portfolio.title')}</h2>
-                </ScrollReveal>
-                <ScrollReveal direction="up" delay={0.2}>
-                  <p className="body-md text-on-surface-variant">
-                    {t('Portfolio.description')}
-                  </p>
-                </ScrollReveal>
-              </div>
-
-              <ScrollReveal direction="left" delay={0.2}>
-                <Link href="/portfolio" className="focus-ring rounded-full shrink-0">
-                  <Button variant="secondary" className="flex items-center gap-2 group">
-                    <span>{tCommon('viewPortfolio')}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-              </ScrollReveal>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {portfolioData.map((project, index) => (
-                <ScrollReveal
-                  key={project.key}
-                  direction="up"
-                  delay={0.1 * index}
-                >
-                  <GlassCard className="p-0 overflow-hidden h-full flex flex-col justify-between group">
-                    <div className="flex flex-col">
-                      {/* Prism Style Gradient box simulating portfolio items */}
-                      <div className={`w-full ${project.aspectRatio} bg-gradient-to-br ${project.gradient} transition-transform duration-500 group-hover:scale-105 relative`}>
-                        <div className="absolute inset-0 bg-black/40" />
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <span className="text-xs font-mono text-white tracking-widest bg-black/60 px-3 py-1 rounded-full border border-white/20">
-                            VIEW CASE
-                          </span>
-                        </div>
-                      </div>
-                      
-                      <div className="p-6 flex flex-col gap-2">
-                        <span className="text-xs font-mono uppercase text-primary tracking-widest">
-                          {project.categoryKey}
-                        </span>
-                        <h3 className="text-base font-bold text-white group-hover:text-primary transition-colors">
-                          {t(`Portfolio.${project.key}`)}
-                        </h3>
-                      </div>
-                    </div>
-                  </GlassCard>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 5: Why Choose Tripod */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="mx-auto max-w-7xl px-5 md:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-              <div className="lg:col-span-5 flex flex-col gap-6 text-left">
-                <ScrollReveal direction="up">
-                  <span className="label-sm text-primary">{t('WhyChoose.tag')}</span>
-                </ScrollReveal>
-                <ScrollReveal direction="up" delay={0.1}>
-                  <h2 className="headline-lg text-white">{t('WhyChoose.title')}</h2>
-                </ScrollReveal>
-                <ScrollReveal direction="up" delay={0.2}>
-                  <p className="body-md text-on-surface-variant leading-relaxed">
-                    {t('WhyChoose.description')}
-                  </p>
-                </ScrollReveal>
-                <ScrollReveal direction="up" delay={0.3}>
-                  <div className="flex flex-col gap-4 mt-4">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                      <span className="text-sm font-semibold">Tanzania-friendly budget options</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                      <span className="text-sm font-semibold">Flexible design milestones</span>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {(['precision', 'speed', 'stack', 'partnership'] as const).map(
-                  (metricKey, index) => (
-                    <ScrollReveal
-                      key={metricKey}
-                      direction="up"
-                      delay={0.1 * index}
-                    >
-                      <GlassCard className="p-6">
-                        <div className="flex flex-col gap-4">
-                          <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/10 text-primary">
-                            {metricKey === 'precision' && <Award className="w-5 h-5" />}
-                            {metricKey === 'speed' && <Zap className="w-5 h-5" />}
-                            {metricKey === 'stack' && <Cpu className="w-5 h-5" />}
-                            {metricKey === 'partnership' && <Users className="w-5 h-5" />}
-                          </div>
-                          <h3 className="text-base font-bold text-white">
-                            {t(`WhyChoose.metrics.${metricKey}.title`)}
-                          </h3>
-                          <p className="text-xs text-on-surface-variant leading-relaxed">
-                            {t(`WhyChoose.metrics.${metricKey}.desc`)}
-                          </p>
-                        </div>
-                      </GlassCard>
-                    </ScrollReveal>
-                  )
+                <div className="relative col-span-3 overflow-hidden rounded-[1.6rem] border border-white/10">
+                  <Image src={heroMedia[3].src} alt={heroMedia[3].alt} fill sizes="24vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
+                </div>
+                <div className="relative col-span-3 overflow-hidden rounded-[1.6rem] border border-white/10">
+                  <Image src={heroMedia[4].src} alt={heroMedia[4].alt} fill sizes="24vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
+                </div>
+                {!prefersReducedMotion && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, rotate: [0, 2, 0] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                    className="pointer-events-none absolute inset-10 rounded-[50%] border border-white/10"
+                  />
                 )}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 6: Music Studio Teaser */}
-        <section className="py-24 bg-surface-container-lowest border-t border-b border-outline-variant/10 overflow-hidden">
-          <div className="mx-auto max-w-7xl px-5 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Column Text Content */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-              <ScrollReveal direction="up">
-                <span className="label-sm text-primary">{t('Teaser.tag')}</span>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.1}>
-                <h2 className="headline-lg text-white">{t('Teaser.title')}</h2>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.2}>
-                <p className="body-md text-on-surface-variant max-w-xl">
-                  {t('Teaser.description')}
-                </p>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={0.3}>
-                <div className="mt-4">
-                  <Link href="/studio-academy" className="focus-ring rounded-full inline-block">
-                    <Button variant="primary" className="flex items-center gap-2 group">
-                      <span>{t('Teaser.cta')}</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            {/* Right Column Waveform Animation */}
-            <div className="lg:col-span-5 flex justify-center items-center">
-              <ScrollReveal direction="none" delay={0.3}>
-                <div className="w-full max-w-sm p-8 rounded-2xl glass-card flex flex-col gap-6 relative">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Volume2 className="w-5 h-5 text-primary" />
-                      <span className="text-xs font-mono text-primary tracking-widest">
-                        INPUT SIGNAL
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-mono text-green-500">ACTIVE</span>
-                  </div>
-                  
-                  {/* Acoustic Waveform Simulation bars */}
-                  <div className="h-28 flex items-end justify-center gap-1.5 px-4 bg-background/50 rounded-xl border border-outline-variant/10 overflow-hidden">
-                    {Array.from({ length: 18 }).map((_, i) => {
-                      // Staggered heights
-                      const initialHeights = [20, 45, 60, 30, 75, 90, 55, 30, 40, 70, 85, 45, 25, 60, 80, 50, 35, 15];
-                      return (
-                        <div
-                          key={i}
-                          className="w-[6px] bg-gradient-to-t from-primary to-secondary-container rounded-t-full waveform-bar"
-                          style={{
-                            height: `${initialHeights[i] || 40}%`,
-                            animationDelay: `${i * 0.08}s`,
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 7: Final Booking CTA */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 hot-spot opacity-50 -z-10" />
-          <div className="mx-auto max-w-4xl px-5 text-center flex flex-col gap-8">
-            <ScrollReveal direction="up">
-              <h2 className="headline-lg text-white max-w-2xl mx-auto">
-                {t('CTA.title')}
-              </h2>
             </ScrollReveal>
-            <ScrollReveal direction="up" delay={0.1}>
-              <p className="body-md text-on-surface-variant max-w-xl mx-auto">
-                {t('CTA.subtitle')}
-              </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-16">
+          <div className="mb-8 space-y-3">
+            <ScrollReveal>
+              <span className="label-sm text-primary">{copy.showreelEyebrow}</span>
             </ScrollReveal>
-            <ScrollReveal direction="up" delay={0.2}>
-              <div className="flex justify-center mt-2">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring rounded-full"
+            <ScrollReveal delay={0.08}>
+              <h2 className="headline-lg max-w-3xl text-white">{copy.showreelTitle}</h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.12}>
+              <p className="body-md max-w-2xl text-on-surface-variant">{copy.showreelSubtitle}</p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-5">
+            {showreelMedia.map((media, index) => (
+              <ScrollReveal key={media.key} delay={0.06 * index}>
+                <button
+                  type="button"
+                  onClick={() => setShowreelOpen(true)}
+                  aria-label={`${copy.showreelItems[index].title} showreel preview`}
+                  className="block overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20 text-left"
                 >
-                  <Button variant="primary" className="px-10 py-4 text-base">
-                    {t('CTA.cta')}
-                  </Button>
-                </a>
-              </div>
+                  <div className="relative aspect-[4/5]">
+                    <Image
+                      src={media.src}
+                      alt={media.alt}
+                      fill
+                      sizes="(max-width: 1024px) 60vw, 18vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.78))]" />
+                    <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
+                      <span className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/80">
+                        {copy.showreelItems[index].media}
+                      </span>
+                      <Play className="h-4 w-4 text-white" aria-hidden="true" />
+                    </div>
+                    <div className="absolute inset-x-4 bottom-4">
+                      <p className="text-xs uppercase tracking-[0.18em] text-primary/80">2026</p>
+                      <h3 className="mt-2 text-lg font-semibold text-white">{copy.showreelItems[index].title}</h3>
+                    </div>
+                  </div>
+                </button>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-16">
+          <div className="mb-8 space-y-3">
+            <ScrollReveal>
+              <span className="label-sm text-primary">{copy.servicesEyebrow}</span>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <h2 className="headline-lg max-w-3xl text-white">{copy.servicesTitle}</h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.12}>
+              <p className="body-md max-w-2xl text-on-surface-variant">{copy.servicesSubtitle}</p>
             </ScrollReveal>
           </div>
-        </section>
-      </main>
 
-      {/* Global Footer */}
-      <Footer />
+          <div className="grid gap-5 lg:grid-cols-2">
+            {serviceBlocks.map((block, index) => {
+              const media = sampleMedia[block.mediaKey];
+              return (
+                <ScrollReveal key={block.key} delay={0.05 * index}>
+                  <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 md:grid-cols-[1fr_1fr]">
+                    <div className="relative min-h-[16rem]">
+                      <Image
+                        src={media.src}
+                        alt={media.alt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 32vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+                    </div>
+                    <div className="flex items-center p-6">
+                      <div className="space-y-3">
+                        <h3 className="text-2xl font-semibold text-white">{copy.serviceLabels[block.key]}</h3>
+                        <p className="text-sm leading-7 text-on-surface-variant">{copy.serviceDetails[block.key]}</p>
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-      {/* Floating WhatsApp CTA */}
-      <WhatsAppButton />
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-16">
+          <div className="mb-8 space-y-3">
+            <ScrollReveal>
+              <span className="label-sm text-primary">{copy.wallEyebrow}</span>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <h2 className="headline-lg max-w-3xl text-white">{copy.wallTitle}</h2>
+            </ScrollReveal>
+          </div>
 
-      {/* Showreel Video Modal Overlay */}
+          <div className="grid gap-4 md:grid-cols-12 md:grid-rows-2">
+            {wallMedia.map((media, index) => {
+              const spans = [
+                'md:col-span-4 md:row-span-2',
+                'md:col-span-3',
+                'md:col-span-5',
+                'md:col-span-5',
+                'md:col-span-4',
+                'md:col-span-3',
+              ];
+              return (
+                <ScrollReveal key={media.key} delay={0.05 * index}>
+                  <div className={`relative min-h-[14rem] overflow-hidden rounded-[1.8rem] border border-white/10 ${spans[index]}`}>
+                    <Image
+                      src={media.src}
+                      alt={media.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 30vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.74))]" />
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-16">
+          <div className="mb-8 space-y-3">
+            <ScrollReveal>
+              <span className="label-sm text-primary">{copy.processEyebrow}</span>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <h2 className="headline-lg text-white">{copy.processTitle}</h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-3">
+            {processSteps.map((step, index) => (
+              <ScrollReveal key={step} delay={0.08 * index}>
+                <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20 p-6">
+                  <div className="text-xs uppercase tracking-[0.22em] text-primary">0{index + 1}</div>
+                  <h3 className="mt-3 text-2xl font-semibold capitalize text-white">{step}</h3>
+                  <p className="mt-3 text-sm leading-7 text-on-surface-variant">
+                    {copy.processDescriptions[step]}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-5xl px-5 text-center md:px-16">
+          <ScrollReveal>
+            <h2 className="headline-lg text-white">{copy.ctaTitle}</h2>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full">
+                <Button variant="primary" className="px-7 py-3.5">{copy.ctaButton}</Button>
+              </a>
+              <Link href="/contact" className="inline-flex rounded-full">
+                <Button variant="secondary" className="px-7 py-3.5">{copy.ctaAlt}</Button>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {showreelOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4">
-          <div className="relative w-full max-w-4xl aspect-video rounded-xl overflow-hidden border border-outline-variant/30 shadow-2xl bg-black">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md">
+          <div className="relative w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/10 bg-black/20">
             <button
+              type="button"
               onClick={() => setShowreelOpen(false)}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/60 border border-white/20 text-white rounded-full hover:bg-white/15 focus-ring cursor-pointer"
-              aria-label="Close Showreel Video"
+              aria-label={copy.close}
+              className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-black/25 p-2 text-white"
             >
-              <X className="w-5 h-5" />
+              <X className="h-5 w-5" />
             </button>
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                <Play className="w-6 h-6 text-primary" />
+            <div className="grid gap-0 md:grid-cols-[1.1fr_0.9fr]">
+              <div className="relative aspect-video">
+                <Image
+                  src={sampleMedia.videoProductionSetup.src}
+                  alt={sampleMedia.videoProductionSetup.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
               </div>
-              <h3 className="font-display text-lg font-bold text-white">
-                Tripod Creative Showreel Playback
-              </h3>
-              <p className="text-sm text-on-surface-variant max-w-md">
-                This is a simulated video playback overlay. The actual production showreel video files will be integrated in Phase 2.
-              </p>
-              <Button
-                variant="secondary"
-                onClick={() => setShowreelOpen(false)}
-                className="mt-2"
-              >
-                Close Preview
-              </Button>
+              <div className="flex items-center p-6 sm:p-8">
+                <div className="space-y-4">
+                  <p className="label-sm text-primary">{copy.modalTitle}</p>
+                  <p className="text-base leading-7 text-on-surface-variant">{copy.modalBody}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }
