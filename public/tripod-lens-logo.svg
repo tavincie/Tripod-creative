@@ -1,0 +1,16 @@
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="320" rx="160" fill="#040404"/>
+  <circle cx="160" cy="160" r="148" stroke="url(#paint0_linear)" stroke-width="4"/>
+  <path d="M159.5 74L190.5 129H171.5V184H147.5V129H128.5L159.5 74Z" fill="#F3EEE5"/>
+  <path d="M95 191L160 82L225 191H199L179 157V229H141V157L121 191H95Z" fill="#FF5C1B"/>
+  <path d="M82 221H238V232H82V221Z" fill="#F3EEE5"/>
+  <path d="M159 98L175 126H143L159 98Z" fill="#040404"/>
+  <text x="160" y="264" text-anchor="middle" fill="#F3EEE5" font-family="Montserrat, Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="7">TRIPOD</text>
+  <text x="160" y="289" text-anchor="middle" fill="#FF5C1B" font-family="Geist Mono, monospace" font-size="18" font-weight="700" letter-spacing="7">CREATIVES</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="34" y1="32" x2="287" y2="291" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6A1E"/>
+      <stop offset="1" stop-color="#F3EEE5"/>
+    </linearGradient>
+  </defs>
+</svg>

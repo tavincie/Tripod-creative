@@ -10,24 +10,6 @@ import { Metadata } from 'next';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
 import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
-import { ThemeSync } from '@/components/shared/ThemeSync';
-
-const themeInitScript = `
-(() => {
-  try {
-    const savedTheme = localStorage.getItem('tripod-theme');
-    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    const theme = savedTheme === 'light' || savedTheme === 'dark'
-      ? savedTheme
-      : (systemPrefersLight ? 'light' : 'dark');
-    const root = document.documentElement;
-    root.classList.remove('dark', 'light');
-    root.classList.add(theme);
-  } catch (_) {
-    document.documentElement.classList.add('dark');
-  }
-})();
-`;
 
 const inter = Inter({
   subsets: ['latin'],
@@ -121,16 +103,12 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`${inter.variable} ${montserrat.variable} ${geistMono.variable}`}
+      className={`${inter.variable} ${montserrat.variable} ${geistMono.variable} dark`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="bg-background text-on-surface antialiased">
         <NextIntlClientProvider messages={messages}>
           <AppProviders>
             <div className="min-h-screen bg-background text-on-surface">
-              <ThemeSync />
               <Header />
               {children}
               <Footer />
