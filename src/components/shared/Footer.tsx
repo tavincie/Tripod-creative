@@ -2,109 +2,124 @@
 
 import React from 'react';
 import { Link } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { MapPin, MessageCircle } from 'lucide-react';
+import { getWhatsAppNumber, siteConfig } from '@/config/site';
 
 export function Footer() {
+  const locale = useLocale();
   const tNav = useTranslations('Navigation');
-  const tFoot = useTranslations('Footer');
-  const tCommon = useTranslations('Common');
+  const whatsappNumber = getWhatsAppNumber();
+  const whatsappMessage =
+    locale === 'sw'
+      ? 'Habari Tripod Creatives. Ningependa kujadili project mpya.'
+      : 'Hello Tripod Creatives. I would like to discuss a new project.';
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  const navLinks = [
+    { label: tNav('home'), href: '/' },
+    { label: tNav('services'), href: '/services' },
+    { label: tNav('portfolio'), href: '/portfolio' },
+    { label: locale === 'sw' ? 'Studio' : 'Studio', href: '/studio-academy' },
+    { label: tNav('about'), href: '/about' },
+    { label: tNav('contact'), href: '/contact' },
+  ];
+
+  const services =
+    locale === 'sw'
+      ? ['Branding', 'Photography', 'Video Production', 'Audio Studio', 'Printing', 'Digital Campaigns']
+      : ['Branding', 'Photography', 'Video Production', 'Audio Studio', 'Printing', 'Digital Campaigns'];
 
   return (
-    <footer className="theme-footer w-full bg-surface-container-lowest border-t border-outline-variant/10 py-12 md:py-20">
-      <div className="mx-auto max-w-7xl px-5 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16">
-        
-        {/* Brand section */}
-        <div className="flex flex-col gap-4">
-          <Link href="/" className="font-display text-xl font-black tracking-tight text-white focus-ring rounded">
-            TRIPOD<span className="text-primary">.</span>
+    <footer className="film-footer">
+      <div className="mx-auto grid max-w-7xl gap-9 px-5 py-12 md:px-16 lg:grid-cols-[1.15fr_0.8fr_0.9fr_0.9fr]">
+        <div>
+          <Link href="/" className="film-logo-mark focus-ring rounded-sm">
+            TRIP<span className="film-logo-o">O</span>D
+            <small>Creatives</small>
           </Link>
-          <p className="text-sm text-on-surface-variant/80 max-w-xs">
-            We shape digital ecosystems and visual narratives with cinematic precision and engineering craft.
+          <p className="mt-5 max-w-sm text-sm leading-7 text-[rgba(245,241,233,0.72)]">
+            {locale === 'sw'
+              ? 'Graphics. Photography. Video. Audio. Kila kitu chini ya roof moja ya ubunifu.'
+              : 'Graphics. Photography. Video. Audio. All under one creative production roof.'}
+          </p>
+          <p className="mt-6 font-mono text-[0.62rem] font-black uppercase tracking-[0.22em] text-[var(--tripod-orange)]">
+            REC / DAR ES SALAAM / FRAME 006
           </p>
         </div>
 
-        {/* Links section */}
-        <div className="flex flex-col gap-3">
-          <span className="font-display text-sm font-bold uppercase tracking-wider text-white">Navigation</span>
-          <nav className="flex flex-col gap-2">
-            <Link href="/" className="text-sm text-on-surface-variant hover:text-white transition-colors focus-ring">
-              {tNav('home')}
-            </Link>
-            <Link href="/about" className="text-sm text-on-surface-variant hover:text-white transition-colors focus-ring">
-              {tNav('about')}
-            </Link>
-            <Link href="/services" className="text-sm text-on-surface-variant hover:text-white transition-colors focus-ring">
-              {tNav('services')}
-            </Link>
-            <Link href="/portfolio" className="text-sm text-on-surface-variant hover:text-white transition-colors focus-ring">
-              {tNav('portfolio')}
-            </Link>
-            <Link href="/studio-academy" className="text-sm text-on-surface-variant hover:text-white transition-colors focus-ring">
-              {tNav('studioAcademy')}
-            </Link>
-            <Link href="/contact" className="text-sm text-on-surface-variant hover:text-white transition-colors focus-ring">
-              {tNav('contact')}
-            </Link>
+        <div>
+          <h2 className="film-footer-heading">{locale === 'sw' ? 'Navigation' : 'Navigation'}</h2>
+          <nav className="mt-4 grid gap-2">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="film-footer-link focus-ring">
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 
-        {/* Contact details */}
-        <div className="flex flex-col gap-3">
-          <span className="font-display text-sm font-bold uppercase tracking-wider text-white">Contact</span>
-          <div className="flex flex-col gap-2 text-sm text-on-surface-variant">
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-primary" />
-              <span>{tCommon('contactEmail')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-primary" />
-              <span>{tCommon('contactPhone')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span>{tCommon('officeLocation')}</span>
-            </div>
+        <div>
+          <h2 className="film-footer-heading">{locale === 'sw' ? 'Services' : 'Services'}</h2>
+          <div className="mt-4 grid gap-2">
+            {services.map((service) => (
+              <Link key={service} href="/services" className="film-footer-link focus-ring">
+                {service}
+              </Link>
+            ))}
           </div>
         </div>
 
-        {/* Social presence */}
-        <div className="flex flex-col gap-4">
-          <span className="font-display text-sm font-bold uppercase tracking-wider text-white">Socials</span>
-          <a
-            href="https://www.instagram.com/tripodcreative_/?hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-white transition-colors group focus-ring rounded"
-            aria-label="Visit Tripod Creative Instagram profile"
-          >
-            <svg
-              className="w-5 h-5 text-primary group-hover:scale-110 transition-transform fill-none stroke-current"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
-            <span>Instagram</span>
-          </a>
+        <div>
+          <h2 className="film-footer-heading">{locale === 'sw' ? 'Contact' : 'Contact'}</h2>
+          <div className="mt-4 grid gap-3">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              WhatsApp
+            </a>
+            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="4" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17.5 6.5h.01" />
+              </svg>
+              Instagram
+            </a>
+            {siteConfig.youtubeUrl ? (
+              <a href={siteConfig.youtubeUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M4 8.5c0-1.4 1.1-2.5 2.5-2.5h11C18.9 6 20 7.1 20 8.5v7c0 1.4-1.1 2.5-2.5 2.5h-11C5.1 18 4 16.9 4 15.5z" />
+                  <path d="m10 9 5 3-5 3z" />
+                </svg>
+                YouTube
+              </a>
+            ) : (
+              <span className="film-footer-missing">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M4 8.5c0-1.4 1.1-2.5 2.5-2.5h11C18.9 6 20 7.1 20 8.5v7c0 1.4-1.1 2.5-2.5 2.5h-11C5.1 18 4 16.9 4 15.5z" />
+                  <path d="m10 9 5 3-5 3z" />
+                </svg>
+                YouTube not configured
+              </span>
+            )}
+            {siteConfig.location ? (
+              <span className="film-footer-link">
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                {siteConfig.location}
+              </span>
+            ) : (
+              <span className="film-footer-missing">
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                Location not configured
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Footer Bottom copyright and policies */}
-      <div className="mx-auto max-w-7xl px-5 md:px-16 mt-12 pt-8 border-t border-outline-variant/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-on-surface-variant/60">
-        <span>{tFoot('copyright')}</span>
-        <div className="flex flex-wrap items-center justify-center gap-3 text-center">
-          <span>{tFoot('privacy')}</span>
-          <span aria-hidden="true">•</span>
-          <span>{tFoot('terms')}</span>
-          <span aria-hidden="true">•</span>
-          <span>{tFoot('policyNote')}</span>
-        </div>
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-5 py-5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/45 md:flex-row md:items-center md:justify-between md:px-16">
+        <span>© {new Date().getFullYear()} Tripod Creatives</span>
+        <span>Seen. Heard. Remembered.</span>
       </div>
     </footer>
   );

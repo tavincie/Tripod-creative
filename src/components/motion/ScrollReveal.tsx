@@ -19,12 +19,12 @@ export function ScrollReveal({
   className = '',
 }: ScrollRevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  void direction;
 
-  // If user prefers reduced motion, only fade in
-  if (shouldReduceMotion || direction === 'none') {
+  if (shouldReduceMotion) {
     return (
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration, delay }}
@@ -35,16 +35,9 @@ export function ScrollReveal({
     );
   }
 
-  const directions = {
-    up: { y: 24, x: 0 },
-    down: { y: -24, x: 0 },
-    left: { x: 24, y: 0 },
-    right: { x: -24, y: 0 },
-  };
-
   return (
     <motion.div
-      initial={{ opacity: 0, ...directions[direction] }}
+      initial={false}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration, delay, ease: [0.21, 1.02, 0.43, 1.01] }}

@@ -5,25 +5,30 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Play, X } from 'lucide-react';
+import { ArrowRight, Barcode, Circle, MessageCircle, Play, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import {
   homepageArchiveMediaKeys,
-  homepageShowreelMediaKeys,
   sampleMedia,
 } from '@/data/sampleMedia';
 
 const serviceBlocks = [
-  { key: 'video', mediaKey: 'videoProductionSetup' },
   { key: 'design', mediaKey: 'brandingMockups' },
   { key: 'photo', mediaKey: 'photographerShooting' },
-  { key: 'print', mediaKey: 'printProduction' },
-  { key: 'digital', mediaKey: 'socialCampaignVisuals' },
-  { key: 'music', mediaKey: 'musicProducerWorkstation' },
+  { key: 'video', mediaKey: 'videoProductionSetup' },
+  { key: 'audio', mediaKey: 'studioMicrophone' },
 ] as const;
 
-const processSteps = ['concept', 'production', 'launch'] as const;
+const portfolioBlocks = [
+  { key: 'branding', mediaKey: 'brandingMockups' },
+  { key: 'motion', mediaKey: 'videoProductionSetup' },
+  { key: 'product', mediaKey: 'printProduction' },
+  { key: 'sound', mediaKey: 'musicProducerWorkstation' },
+  { key: 'event', mediaKey: 'eventPhotography' },
+] as const;
+
+const capabilities = ['graphic', 'branding', 'printing', 'photo', 'video', 'drone', 'streaming', 'audio', 'music', 'podcast', 'marketing', 'training'] as const;
 
 export default function HomePage() {
   const locale = useLocale();
@@ -34,331 +39,271 @@ export default function HomePage() {
   const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
   const whatsappMessage =
     locale === 'sw'
-      ? 'Habari Tripod Creative. Nina mradi mpya na ningependa kuupeleka studio.'
-      : 'Hello Tripod Creative. I have a new project and I would like to send it to the studio.';
+      ? 'Habari Tripod Creatives. Nina mradi mpya na ningependa kuupeleka studio.'
+      : 'Hello Tripod Creatives. I have a new project and I would like to bring it into the studio.';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   const copy = useMemo(
     () =>
       locale === 'sw'
         ? {
-            heroEyebrow: 'Tripod Creative',
-            heroTitle: 'Tunabuni kile watu wanakikumbuka.',
-            heroSubtitle:
-              'Branding, design, film, photography, music, na digital campaigns zilizojengwa kwa attention.',
-            startProject: 'Book on WhatsApp',
-            viewPortfolio: 'View Portfolio',
-            coldOpen: {
-              kicker: 'Mradi Mpya',
-              client: 'Wazo lako lijalo lenye nguvu',
-              format: 'Kitu chochote chenye thamani ya kutengenezwa',
-              status: 'Tayari',
-            },
-            showreelEyebrow: 'Showreel Strip',
-            showreelTitle: 'Film frames, campaign cuts, na studio visuals.',
-            showreelSubtitle:
-              'Sample media pekee kwa sasa. Badilisha na visuals halisi za Tripod kabla ya public launch.',
-            showreelItems: [
-              { title: 'Video Production', media: 'Timeline Clip' },
-              { title: 'Event Coverage', media: 'Field Capture' },
-              { title: 'Photography', media: 'Still Frame' },
-              { title: 'Studio Session', media: 'Audio Take' },
-              { title: 'Digital Campaign', media: 'Launch Visual' },
-            ],
-            servicesEyebrow: 'What We Create',
-            servicesTitle: 'Ideas into visuals. Campaigns into motion. Brands into memory.',
-            servicesSubtitle:
-              'Visual blocks kubwa badala ya tiny cards. Kila huduma inaonekana kama sehemu ya studio ya kweli.',
+            navCta: 'Start a Project',
+            heroEyebrow: 'We are Tripod Creatives',
+            titleTop: 'Ideas.',
+            titleMid: 'Captured.',
+            titleBottom: 'Made Impact.',
+            subtitle: 'Graphics. Photography. Video. Audio. All under one creative roof.',
+            primary: 'View Our Work',
+            secondary: 'Play Showreel',
+            heroNote:
+              'Kutoka wazo moja hadi campaign nzima, tunatengeneza visuals na sound inayokaa kwenye memory.',
+            servicesEyebrow: 'What We Do',
+            servicesTitle: 'Our Services.',
+            servicesIntro: 'Creative solutions that bring your brand to life.',
+            portfolioEyebrow: 'Featured Work',
+            portfolioTitle: 'Our Work Speaks.',
+            portfolioIntro: 'Real projects. Real impact.',
+            studioTitle: 'Studio energy, archive discipline, launch-ready output.',
+            studioBody:
+              'Tripod Creatives combines design direction, production crews, editing, recording, printing, and rollout assets in one coordinated creative desk.',
+            process: ['Brief lock', 'Shoot / design / record', 'Edit timeline', 'Launch package'],
+            ctaTitle: 'Ready to make something great?',
+            ctaBody: 'Let us create something that gets people talking.',
+            cta: 'Start a Project',
+            close: 'Close',
+            modalTitle: 'Showreel Preview',
+            modalBody:
+              'Sample preview area. Replace this frame with the final Tripod Creatives showreel when the real cut is ready.',
             serviceLabels: {
-              video: 'Video Production',
-              design: 'Branding & Design',
+              design: 'Graphic Design',
               photo: 'Photography',
-              print: 'Printing',
-              digital: 'Digital Campaigns',
-              music: 'Music Studio',
+              video: 'Video Production',
+              audio: 'Audio Studio',
             },
             serviceDetails: {
-              video: 'Camera crews, edits, drone angles, na coverage built for screens.',
-              design: 'Identity systems, posters, packaging, na bold visual direction.',
-              photo: 'Brand shoots, portraits, products, na event stills.',
-              print: 'Posters, signage, handouts, na physical campaign materials.',
-              digital: 'Launch visuals, rollout assets, na campaign content built for attention.',
-              music: 'Recording, production sessions, na artist-facing studio work.',
+              design: 'Logos, branding, social media, print, and campaign visuals.',
+              photo: 'Commercial, product, portraits, and event moments.',
+              video: 'Concept to final cut with drone and event coverage.',
+              audio: 'Recording, podcast, production, mixing, and mastering.',
             },
-            wallEyebrow: 'Studio Wall',
-            wallTitle: 'Production frames, poster notes, cameras, campaigns, na behind-the-scenes energy.',
-            processEyebrow: 'Process',
-            processTitle: 'Concept. Production. Launch.',
-            processDescriptions: {
-              concept: 'Brief, references, na visual direction huwekwa mapema.',
-              production: 'Camera, design, print, na studio work husonga kwa pace moja.',
-              launch: 'Kazi huandaliwa kwa posting, printing, release, au campaign rollout.',
+            portfolioLabels: {
+              branding: ['Branding', 'Bold Brew Identity'],
+              motion: ['Video', 'Urban Motion Campaign'],
+              product: ['Photography', 'Product Shot Collection'],
+              sound: ['Audio', 'Soundtrack Production'],
+              event: ['Event Coverage', 'Live Event Highlights'],
             },
-            ctaTitle: 'Leta project yako inayofuata ndani ya studio.',
-            ctaButton: 'Book on WhatsApp',
-            ctaAlt: 'Send to Studio',
-            modalTitle: 'Preview ya showreel',
-            modalBody:
-              'Hii ni preview nyepesi ya sample media. Weka video na visuals halisi za Tripod hapa kabla ya launch ya umma.',
-            close: 'Funga',
+            capabilities: {
+              graphic: 'Graphic Design',
+              branding: 'Branding',
+              printing: 'Printing',
+              photo: 'Photography',
+              video: 'Videography',
+              drone: 'Drone Coverage',
+              streaming: 'Live Streaming',
+              audio: 'Audio Recording',
+              music: 'Music Production',
+              podcast: 'Podcast Recording',
+              marketing: 'Digital Marketing',
+              training: 'Instrument Training',
+            },
           }
         : {
-            heroEyebrow: 'Tripod Creative',
-            heroTitle: 'We design what people remember.',
-            heroSubtitle:
-              'Branding, design, film, photography, music, and digital campaigns built for attention.',
-            startProject: 'Book on WhatsApp',
-            viewPortfolio: 'View Portfolio',
-            coldOpen: {
-              kicker: 'New Project',
-              client: 'Your next bold idea',
-              format: 'Anything worth creating',
-              status: 'Ready',
-            },
-            showreelEyebrow: 'Showreel Strip',
-            showreelTitle: 'Film frames, campaign cuts, and studio visuals.',
-            showreelSubtitle:
-              'Sample media only for now. Replace with Tripod’s real visuals before public launch.',
-            showreelItems: [
-              { title: 'Video Production', media: 'Timeline Clip' },
-              { title: 'Event Coverage', media: 'Field Capture' },
-              { title: 'Photography', media: 'Still Frame' },
-              { title: 'Studio Session', media: 'Audio Take' },
-              { title: 'Digital Campaign', media: 'Launch Visual' },
-            ],
-            servicesEyebrow: 'What We Create',
-            servicesTitle: 'Ideas into visuals. Campaigns into motion. Brands into memory.',
-            servicesSubtitle:
-              'Bigger visual blocks instead of tiny cards. Each service should feel like part of a real studio.',
+            navCta: 'Start a Project',
+            heroEyebrow: 'We are Tripod Creatives',
+            titleTop: 'Ideas.',
+            titleMid: 'Captured.',
+            titleBottom: 'Made Impact.',
+            subtitle: 'Graphics. Photography. Video. Audio. All under one creative roof.',
+            primary: 'View Our Work',
+            secondary: 'Play Showreel',
+            heroNote:
+              'From a single idea shot to an entire campaign, we turn your vision into powerful imagery and sound.',
+            servicesEyebrow: 'What We Do',
+            servicesTitle: 'Our Services.',
+            servicesIntro: 'Creative solutions that bring your brand to life.',
+            portfolioEyebrow: 'Featured Work',
+            portfolioTitle: 'Our Work Speaks.',
+            portfolioIntro: 'Real projects. Real impact.',
+            studioTitle: 'Studio energy, archive discipline, launch-ready output.',
+            studioBody:
+              'Tripod Creatives combines design direction, production crews, editing, recording, printing, and rollout assets in one coordinated creative desk.',
+            process: ['Brief lock', 'Shoot / design / record', 'Edit timeline', 'Launch package'],
+            ctaTitle: 'Ready to make something great?',
+            ctaBody: 'Let us create something that gets people talking.',
+            cta: 'Start a Project',
+            close: 'Close',
+            modalTitle: 'Showreel Preview',
+            modalBody:
+              'Sample preview area. Replace this frame with the final Tripod Creatives showreel when the real cut is ready.',
             serviceLabels: {
-              video: 'Video Production',
-              design: 'Branding & Design',
+              design: 'Graphic Design',
               photo: 'Photography',
-              print: 'Printing',
-              digital: 'Digital Campaigns',
-              music: 'Music Studio',
+              video: 'Video Production',
+              audio: 'Audio Studio',
             },
             serviceDetails: {
-              video: 'Camera crews, edits, drone angles, and coverage built for screens.',
-              design: 'Identity systems, posters, packaging, and bold visual direction.',
-              photo: 'Brand shoots, portraits, products, and event stills.',
-              print: 'Posters, signage, handouts, and physical campaign materials.',
-              digital: 'Launch visuals, rollout assets, and campaign content built for attention.',
-              music: 'Recording, production sessions, and artist-facing studio work.',
+              design: 'Logos, branding, social media, print, and campaign visuals.',
+              photo: 'Commercial, product, portraits, and event moments.',
+              video: 'Concept to final cut with drone and event coverage.',
+              audio: 'Recording, podcast, production, mixing, and mastering.',
             },
-            wallEyebrow: 'Studio Wall',
-            wallTitle: 'Production frames, poster notes, cameras, campaigns, and behind-the-scenes energy.',
-            processEyebrow: 'Process',
-            processTitle: 'Concept. Production. Launch.',
-            processDescriptions: {
-              concept: 'The brief, references, and visual direction are set early.',
-              production: 'Camera, design, print, and studio work move with one pace.',
-              launch: 'The work is prepared for posting, printing, release, or campaign rollout.',
+            portfolioLabels: {
+              branding: ['Branding', 'Bold Brew Identity'],
+              motion: ['Video', 'Urban Motion Campaign'],
+              product: ['Photography', 'Product Shot Collection'],
+              sound: ['Audio', 'Soundtrack Production'],
+              event: ['Event Coverage', 'Live Event Highlights'],
             },
-            ctaTitle: 'Bring your next project into the studio.',
-            ctaButton: 'Book on WhatsApp',
-            ctaAlt: 'Send to Studio',
-            modalTitle: 'Showreel preview',
-            modalBody:
-              'This is a lightweight sample-media preview. Replace it with Tripod’s real video and campaign visuals before public launch.',
-            close: 'Close',
+            capabilities: {
+              graphic: 'Graphic Design',
+              branding: 'Branding',
+              printing: 'Printing',
+              photo: 'Photography',
+              video: 'Videography',
+              drone: 'Drone Coverage',
+              streaming: 'Live Streaming',
+              audio: 'Audio Recording',
+              music: 'Music Production',
+              podcast: 'Podcast Recording',
+              marketing: 'Digital Marketing',
+              training: 'Instrument Training',
+            },
           },
     [locale]
   );
 
   const heroMedia = [
-    sampleMedia.cameraOperator,
-    sampleMedia.photographerShooting,
-    sampleMedia.studioMicrophone,
     sampleMedia.brandingMockups,
-    sampleMedia.printProduction,
+    sampleMedia.photographerShooting,
+    sampleMedia.videoProductionSetup,
+    sampleMedia.studioMicrophone,
   ];
-
-  const showreelMedia = homepageShowreelMediaKeys.map((key) => sampleMedia[key]);
-  const wallMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
+  const archiveMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
 
   return (
-    <main className="relative flex-grow overflow-x-hidden bg-background selection:bg-primary/30 selection:text-white">
-      <section className="relative overflow-hidden border-b border-white/6 pb-16 pt-28 sm:pt-32 lg:pb-24 lg:pt-36">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,126,0,0.28),transparent_24%),radial-gradient(circle_at_82%_26%,rgba(253,208,0,0.1),transparent_22%),linear-gradient(180deg,rgba(8,10,12,0.95),rgba(8,10,12,0.72))]" />
-        <div className="relative mx-auto max-w-7xl px-5 md:px-16">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(420px,1.12fr)] lg:items-center">
-            <div className="space-y-5">
-              <ScrollReveal>
-                <span className="label-sm inline-flex rounded-full border border-primary/20 bg-white/5 px-4 py-2 text-primary">
-                  {copy.heroEyebrow}
-                </span>
-              </ScrollReveal>
-              <ScrollReveal delay={0.08}>
-                <div className="space-y-3">
-                  <p className="text-xs uppercase tracking-[0.22em] text-primary/85">
-                    {copy.coldOpen.kicker}
-                  </p>
-                  <div className="grid max-w-xl gap-3 sm:grid-cols-3">
-                    {[
-                      ['Client', copy.coldOpen.client],
-                      ['Format', copy.coldOpen.format],
-                      ['Status', copy.coldOpen.status],
-                    ].map(([label, value]) => (
-                      <div key={label} className="rounded-[1.4rem] border border-white/10 bg-black/20 px-4 py-4">
-                        <p className="text-[10px] uppercase tracking-[0.18em] text-primary/80">{label}</p>
-                        <p className="mt-2 text-sm font-medium text-white">{value}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={0.14}>
-                <h1 className="display-lg max-w-4xl text-white">{copy.heroTitle}</h1>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <p className="body-lg max-w-2xl text-on-surface-variant">{copy.heroSubtitle}</p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.26}>
-                <div className="flex flex-wrap gap-3">
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rounded-full">
-                    <Button variant="primary" className="px-7 py-3.5">{copy.startProject}</Button>
-                  </a>
-                  <Link href="/portfolio" className="rounded-full">
-                    <Button variant="secondary" className="gap-2 px-7 py-3.5">
-                      {copy.viewPortfolio}
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Button>
-                  </Link>
-                </div>
-              </ScrollReveal>
+    <main className="film-desk-page relative flex-grow overflow-x-hidden">
+      <section className="film-hero" aria-labelledby="home-hero-title">
+        <div className="film-hero__rail" aria-hidden="true">
+          <span>01</span>
+          <span>02</span>
+          <span>03</span>
+          <span>REC</span>
+        </div>
+
+        <div className="film-hero-grid mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-end gap-8 px-5 pb-10 pt-28 md:px-16 lg:grid-cols-[0.74fr_1.26fr] lg:pt-28">
+          <div className="relative z-10 pb-3">
+            <p className="film-kicker">
+              <span className="film-rec-dot" aria-hidden="true" />
+              {copy.heroEyebrow}
+            </p>
+
+            <h1 id="home-hero-title" className="film-hero-title">
+              <span>{copy.titleTop}</span>
+              <span>{copy.titleMid}</span>
+              <span className="text-[var(--tripod-orange)]">{copy.titleBottom}</span>
+            </h1>
+
+            <p className="mt-5 max-w-md text-base leading-7 text-[var(--tripod-cream)] md:text-lg">{copy.subtitle}</p>
+
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <Link href="/portfolio" className="focus-ring rounded-sm">
+                <Button variant="primary" className="gap-2 px-6 py-3">
+                  {copy.primary}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <button type="button" onClick={() => setShowreelOpen(true)} className="film-play-button">
+                <Play className="h-4 w-4" aria-hidden="true" />
+                {copy.secondary}
+              </button>
+            </div>
+          </div>
+
+          <div className="film-hero-strip">
+            <div className="film-camera-hud" aria-hidden="true">
+              <span>REC 00:12:08</span>
+              <span>ISO 800</span>
+              <span>4K / 25FPS</span>
+              <span>DAR ES SALAAM</span>
+            </div>
+            <div className="film-hero-note">
+              <p>{copy.heroNote}</p>
+              <Link href="/contact" className="film-mini-cta">
+                {copy.navCta}
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </Link>
             </div>
 
-            <ScrollReveal delay={0.12}>
-              <div className="relative grid min-h-[34rem] grid-cols-6 gap-3">
-                <div className="relative col-span-4 row-span-2 overflow-hidden rounded-[2rem] border border-white/10">
-                  <Image
-                    src={heroMedia[0].src}
-                    alt={heroMedia[0].alt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 38vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,126,0,0.08),rgba(0,0,0,0.72))]" />
-                </div>
-                <div className="relative col-span-2 overflow-hidden rounded-[1.6rem] border border-white/10">
-                  <Image src={heroMedia[1].src} alt={heroMedia[1].alt} fill sizes="20vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
-                </div>
-                <div className="relative col-span-2 overflow-hidden rounded-[1.6rem] border border-white/10">
-                  <Image src={heroMedia[2].src} alt={heroMedia[2].alt} fill sizes="20vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
-                </div>
-                <div className="relative col-span-3 overflow-hidden rounded-[1.6rem] border border-white/10">
-                  <Image src={heroMedia[3].src} alt={heroMedia[3].alt} fill sizes="24vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
-                </div>
-                <div className="relative col-span-3 overflow-hidden rounded-[1.6rem] border border-white/10">
-                  <Image src={heroMedia[4].src} alt={heroMedia[4].alt} fill sizes="24vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.68))]" />
-                </div>
-                {!prefersReducedMotion && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1, rotate: [0, 2, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                    className="pointer-events-none absolute inset-10 rounded-[50%] border border-white/10"
-                  />
-                )}
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 space-y-3">
-            <ScrollReveal>
-              <span className="label-sm text-primary">{copy.showreelEyebrow}</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <h2 className="headline-lg max-w-3xl text-white">{copy.showreelTitle}</h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.12}>
-              <p className="body-md max-w-2xl text-on-surface-variant">{copy.showreelSubtitle}</p>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid gap-4 lg:grid-cols-5">
-            {showreelMedia.map((media, index) => (
-              <ScrollReveal key={media.key} delay={0.06 * index}>
+            <div className="film-strip" aria-label="Tripod Creatives production frames">
+              {heroMedia.map((media, index) => (
                 <button
+                  key={media.key}
                   type="button"
                   onClick={() => setShowreelOpen(true)}
-                  aria-label={`${copy.showreelItems[index].title} showreel preview`}
-                  className="block overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20 text-left"
+                  className="film-strip__frame"
+                  aria-label={`Open showreel frame ${index + 1}`}
                 >
-                  <div className="relative aspect-[4/5]">
-                    <Image
-                      src={media.src}
-                      alt={media.alt}
-                      fill
-                      sizes="(max-width: 1024px) 60vw, 18vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.78))]" />
-                    <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
-                      <span className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/80">
-                        {copy.showreelItems[index].media}
-                      </span>
-                      <Play className="h-4 w-4 text-white" aria-hidden="true" />
-                    </div>
-                    <div className="absolute inset-x-4 bottom-4">
-                      <p className="text-xs uppercase tracking-[0.18em] text-primary/80">2026</p>
-                      <h3 className="mt-2 text-lg font-semibold text-white">{copy.showreelItems[index].title}</h3>
-                    </div>
-                  </div>
+                  <Image
+                    src={media.src}
+                    alt={media.alt}
+                    fill
+                    priority={index === 0}
+                    sizes="(max-width: 1024px) 48vw, 16vw"
+                    className="object-cover"
+                  />
+                  <span className="film-strip__number">0{index + 1}</span>
+                  <span className="film-strip__label">
+                    {['Design', 'Photo', 'Video', 'Audio'][index]}
+                  </span>
                 </button>
-              </ScrollReveal>
-            ))}
+              ))}
+            </div>
+
+            <div className="film-barcode" aria-hidden="true">
+              <Barcode className="h-9 w-24" />
+              <span>FRAME 001</span>
+            </div>
+            <div className="film-focus-corners" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 space-y-3">
-            <ScrollReveal>
-              <span className="label-sm text-primary">{copy.servicesEyebrow}</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <h2 className="headline-lg max-w-3xl text-white">{copy.servicesTitle}</h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.12}>
-              <p className="body-md max-w-2xl text-on-surface-variant">{copy.servicesSubtitle}</p>
-            </ScrollReveal>
-          </div>
+      <section className="film-light-section" aria-labelledby="home-services-title">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:px-16 lg:grid-cols-[0.85fr_2.45fr] lg:py-14">
+          <ScrollReveal>
+            <div className="film-section-intro">
+              <p className="film-light-kicker">{copy.servicesEyebrow}</p>
+              <h2 id="home-services-title">{copy.servicesTitle}</h2>
+              <p>{copy.servicesIntro}</p>
+              <Link href="/services" className="film-text-link">
+                Explore All Services
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </ScrollReveal>
 
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {serviceBlocks.map((block, index) => {
               const media = sampleMedia[block.mediaKey];
               return (
                 <ScrollReveal key={block.key} delay={0.05 * index}>
-                  <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 md:grid-cols-[1fr_1fr]">
-                    <div className="relative min-h-[16rem]">
-                      <Image
-                        src={media.src}
-                        alt={media.alt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 32vw"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+                  <article className="film-service-card">
+                    <div className="film-service-card__media">
+                      <Image src={media.src} alt={media.alt} fill sizes="(max-width: 1280px) 50vw, 20vw" className="object-cover" />
                     </div>
-                    <div className="flex items-center p-6">
-                      <div className="space-y-3">
-                        <h3 className="text-2xl font-semibold text-white">{copy.serviceLabels[block.key]}</h3>
-                        <p className="text-sm leading-7 text-on-surface-variant">{copy.serviceDetails[block.key]}</p>
-                      </div>
-                    </div>
-                  </div>
+                    <span className="film-card-number">0{index + 1}</span>
+                    <h3>{copy.serviceLabels[block.key]}</h3>
+                    <p>{copy.serviceDetails[block.key]}</p>
+                    <Link href="/services" aria-label={`${copy.serviceLabels[block.key]} services`} className="film-card-arrow">
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </article>
                 </ScrollReveal>
               );
             })}
@@ -366,116 +311,133 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 space-y-3">
-            <ScrollReveal>
-              <span className="label-sm text-primary">{copy.wallEyebrow}</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <h2 className="headline-lg max-w-3xl text-white">{copy.wallTitle}</h2>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-12 md:grid-rows-2">
-            {wallMedia.map((media, index) => {
-              const spans = [
-                'md:col-span-4 md:row-span-2',
-                'md:col-span-3',
-                'md:col-span-5',
-                'md:col-span-5',
-                'md:col-span-4',
-                'md:col-span-3',
-              ];
-              return (
-                <ScrollReveal key={media.key} delay={0.05 * index}>
-                  <div className={`relative min-h-[14rem] overflow-hidden rounded-[1.8rem] border border-white/10 ${spans[index]}`}>
-                    <Image
-                      src={media.src}
-                      alt={media.alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 30vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.74))]" />
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 space-y-3">
-            <ScrollReveal>
-              <span className="label-sm text-primary">{copy.processEyebrow}</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <h2 className="headline-lg text-white">{copy.processTitle}</h2>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-3">
-            {processSteps.map((step, index) => (
-              <ScrollReveal key={step} delay={0.08 * index}>
-                <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20 p-6">
-                  <div className="text-xs uppercase tracking-[0.22em] text-primary">0{index + 1}</div>
-                  <h3 className="mt-3 text-2xl font-semibold capitalize text-white">{step}</h3>
-                  <p className="mt-3 text-sm leading-7 text-on-surface-variant">
-                    {copy.processDescriptions[step]}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-5xl px-5 text-center md:px-16">
+      <section className="film-portfolio-section" aria-labelledby="home-portfolio-title">
+        <div className="mx-auto grid max-w-7xl gap-7 px-5 py-12 md:px-16 lg:grid-cols-[0.7fr_2.8fr]">
           <ScrollReveal>
-            <h2 className="headline-lg text-white">{copy.ctaTitle}</h2>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full">
-                <Button variant="primary" className="px-7 py-3.5">{copy.ctaButton}</Button>
-              </a>
-              <Link href="/contact" className="inline-flex rounded-full">
-                <Button variant="secondary" className="px-7 py-3.5">{copy.ctaAlt}</Button>
+            <div className="film-section-intro film-section-intro--dark">
+              <p className="film-kicker">{copy.portfolioEyebrow}</p>
+              <h2 id="home-portfolio-title">{copy.portfolioTitle}</h2>
+              <p>{copy.portfolioIntro}</p>
+              <Link href="/portfolio" className="film-text-link film-text-link--light">
+                View Full Portfolio
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
+            </div>
+          </ScrollReveal>
+
+          <div className="film-portfolio-track">
+            {portfolioBlocks.map((block, index) => {
+              const media = sampleMedia[block.mediaKey];
+              const [label, title] = copy.portfolioLabels[block.key];
+              return (
+                <ScrollReveal key={block.key} delay={0.05 * index}>
+                  <article className="film-portfolio-card">
+                    <Image src={media.src} alt={media.alt} fill sizes="(max-width: 1024px) 66vw, 20vw" className="object-cover" />
+                    <div className="film-portfolio-card__overlay">
+                      <p>{label}</p>
+                      <h3>{title}</h3>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="film-studio-section" aria-labelledby="home-studio-title">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 md:px-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <ScrollReveal>
+            <div>
+              <p className="film-light-kicker">Studio Desk</p>
+              <h2 id="home-studio-title" className="film-editorial-heading">{copy.studioTitle}</h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#3a332c]">{copy.studioBody}</p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {copy.process.map((step, index) => (
+                  <div key={step} className="film-timeline-step">
+                    <span>0{index + 1}</span>
+                    {step}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="film-archive-grid">
+              {archiveMedia.slice(0, 4).map((media, index) => (
+                <div key={media.key} className={`film-archive-frame film-archive-frame--${index + 1}`}>
+                  <Image src={media.src} alt={media.alt} fill sizes="(max-width: 1024px) 50vw, 22vw" className="object-cover" />
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
       </section>
 
+      <section className="film-capability-band" aria-label="Tripod Creatives capabilities">
+        <div className="mx-auto flex max-w-7xl flex-wrap gap-2 px-5 py-10 md:px-16">
+          {capabilities.map((key, index) => (
+            <span key={key} className="film-capability-pill">
+              <Circle className="h-2 w-2 fill-current" aria-hidden="true" />
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              {copy.capabilities[key]}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="film-cta-section" aria-labelledby="home-cta-title">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:px-16 lg:grid-cols-[1.1fr_0.7fr_0.6fr] lg:items-center">
+          <ScrollReveal>
+            <h2 id="home-cta-title">{copy.ctaTitle}</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.08}>
+            <p>{copy.ctaBody}</p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.14}>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex focus-ring rounded-full">
+              <Button variant="primary" className="gap-2 px-6 py-3">
+                {copy.cta}
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              </Button>
+            </a>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {showreelOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md">
-          <div className="relative w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/10 bg-black/20">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 p-4 backdrop-blur-md">
+          <div className="film-modal">
             <button
               type="button"
               onClick={() => setShowreelOpen(false)}
               aria-label={copy.close}
-              className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-black/25 p-2 text-white"
+              className="film-modal__close"
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="grid gap-0 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="relative aspect-video">
+            <div className="grid md:grid-cols-[1.2fr_0.8fr]">
+              <div className="relative aspect-video min-h-[18rem]">
                 <Image
                   src={sampleMedia.videoProductionSetup.src}
                   alt={sampleMedia.videoProductionSetup.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 52vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+                {!prefersReducedMotion && (
+                  <motion.div
+                    className="absolute inset-8 border border-white/20"
+                    animate={{ opacity: [0.25, 0.9, 0.25] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                )}
               </div>
-              <div className="flex items-center p-6 sm:p-8">
-                <div className="space-y-4">
-                  <p className="label-sm text-primary">{copy.modalTitle}</p>
-                  <p className="text-base leading-7 text-on-surface-variant">{copy.modalBody}</p>
-                </div>
+              <div className="p-6 sm:p-8">
+                <p className="film-kicker">REC 00:00:12</p>
+                <h2>{copy.modalTitle}</h2>
+                <p>{copy.modalBody}</p>
               </div>
             </div>
           </div>

@@ -2,73 +2,83 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { Link } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
+import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
-import { Button } from '@/components/ui/Button';
 import { sampleMedia } from '@/data/sampleMedia';
 
 const serviceBands = [
   {
     key: 'video',
     media: sampleMedia.videoProductionSetup,
-    title: { en: 'Camera: Video Production', sw: 'Camera: Video Production' },
+    title: { en: 'Video Production', sw: 'Video Production' },
     description: {
-      en: 'Commercial shoots, event coverage, interviews, drone angles, and edit-ready footage built for screens and stories.',
-      sw: 'Commercial shoots, event coverage, interviews, drone angles, na footage tayari kwa edit iliyojengwa kwa screens na stories.',
+      en: 'Commercial shoots, events, interviews, drone angles, and edit-ready footage.',
+      sw: 'Commercial shoots, events, interviews, drone angles, na footage tayari kwa edit.',
     },
   },
   {
     key: 'photo',
     media: sampleMedia.photographerShooting,
-    title: { en: 'Lens: Photography', sw: 'Lens: Photography' },
+    title: { en: 'Photography', sw: 'Photography' },
     description: {
-      en: 'Brand stills, portraits, products, and event captures shaped to look sharp in campaigns and archives.',
-      sw: 'Brand stills, portraits, products, na event captures zinazoundwa kuonekana sharp kwenye campaigns na archives.',
+      en: 'Brand stills, portraits, products, and event moments shaped for campaigns.',
+      sw: 'Brand stills, portraits, products, na event moments kwa campaigns.',
     },
   },
   {
     key: 'design',
     media: sampleMedia.brandingMockups,
-    title: { en: 'Artboard: Branding & Design', sw: 'Artboard: Branding & Design' },
+    title: { en: 'Branding & Design', sw: 'Branding & Design' },
     description: {
-      en: 'Identity systems, posters, packaging, and visual campaigns designed to stay memorable across formats.',
-      sw: 'Identity systems, posters, packaging, na visual campaigns zinazoundwa kubaki memorable kwenye formats tofauti.',
+      en: 'Identity systems, posters, packaging, and visual campaign direction.',
+      sw: 'Identity systems, posters, packaging, na visual campaign direction.',
     },
   },
   {
     key: 'print',
     media: sampleMedia.printProduction,
-    title: { en: 'Print Sheet: Printing', sw: 'Print Sheet: Printing' },
+    title: { en: 'Printing', sw: 'Printing' },
     description: {
-      en: 'Flyers, banners, signage, and branded materials prepared with production quality and visual confidence.',
-      sw: 'Flyers, banners, signage, na branded materials zilizoandaliwa kwa production quality na visual confidence.',
+      en: 'Flyers, banners, signage, and production-ready branded materials.',
+      sw: 'Flyers, banners, signage, na branded materials tayari kwa production.',
     },
   },
   {
     key: 'digital',
     media: sampleMedia.socialCampaignVisuals,
-    title: { en: 'Timeline: Digital Campaigns', sw: 'Timeline: Digital Campaigns' },
+    title: { en: 'Digital Campaigns', sw: 'Digital Campaigns' },
     description: {
-      en: 'Launch visuals, content systems, landing support, and campaign rollout built for attention and motion.',
-      sw: 'Launch visuals, content systems, landing support, na campaign rollout iliyojengwa kwa attention na motion.',
+      en: 'Launch visuals, content systems, and social rollout built for attention.',
+      sw: 'Launch visuals, content systems, na social rollout built for attention.',
     },
   },
   {
     key: 'music',
     media: sampleMedia.musicProducerWorkstation,
-    title: { en: 'Microphone: Music Studio', sw: 'Microphone: Music Studio' },
+    title: { en: 'Music Studio', sw: 'Music Studio' },
     description: {
-      en: 'Recording, production sessions, vocal capture, and artist-facing content with a real studio feel.',
-      sw: 'Recording, production sessions, vocal capture, na artist-facing content yenye studio feel ya kweli.',
+      en: 'Recording, production sessions, vocal capture, mixing, and mastering.',
+      sw: 'Recording, production sessions, vocal capture, mixing, na mastering.',
     },
   },
   {
-    key: 'web',
-    media: sampleMedia.editingTimeline,
-    title: { en: 'Interface: Web & App Development', sw: 'Interface: Web & App Development' },
+    key: 'training',
+    media: sampleMedia.instrumentTraining,
+    title: { en: 'Instrument Training', sw: 'Instrument Training' },
     description: {
-      en: 'Websites, landing pages, and digital experiences that carry the same visual force as the rest of the studio output.',
-      sw: 'Websites, landing pages, na digital experiences zinazobeba nguvu ile ile ya visual kama studio output nyingine.',
+      en: 'Piano, guitar, drums, and vocals with practical studio-minded coaching.',
+      sw: 'Piano, guitar, drums, na vocals kwa practical studio-minded coaching.',
+    },
+  },
+  {
+    key: 'streaming',
+    media: sampleMedia.liveStreamingSetup,
+    title: { en: 'Live Streaming', sw: 'Live Streaming' },
+    description: {
+      en: 'Broadcast-ready coverage for launches, events, shows, and conversations.',
+      sw: 'Broadcast-ready coverage kwa launches, events, shows, na conversations.',
     },
   },
 ] as const;
@@ -78,38 +88,48 @@ export function CoreServicesGrid() {
   const isSw = locale === 'sw';
 
   return (
-    <section className="py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl space-y-5 px-5 md:px-16">
-        {serviceBands.map((band, index) => (
-          <ScrollReveal key={band.key} delay={0.06 * index}>
-            <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 lg:grid-cols-[1.05fr_0.95fr]">
-              <div className={`relative min-h-[19rem] ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <Image
-                  src={band.media.src}
-                  alt={band.media.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,126,0,0.06),rgba(0,0,0,0.7))]" />
-              </div>
-              <div className="flex items-center p-6 sm:p-8 lg:p-10">
-                <div className="max-w-xl space-y-4">
-                  <p className="label-sm text-primary">{isSw ? 'Studio Band' : 'Studio Band'}</p>
-                  <h2 className="headline-lg text-white">
-                    {isSw ? band.title.sw : band.title.en}
-                  </h2>
-                  <p className="body-md text-on-surface-variant">
-                    {isSw ? band.description.sw : band.description.en}
-                  </p>
-                  <Button variant="outline" className="px-5 py-3 text-sm">
-                    {isSw ? 'Send to Studio' : 'Send to Studio'}
-                  </Button>
+    <section className="film-services-page-grid">
+      <div className="mx-auto max-w-7xl px-5 py-16 md:px-16 lg:py-20">
+        <div className="mb-9 grid gap-5 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-4">
+            <p className="film-kicker">
+              <span className="film-rec-dot" aria-hidden="true" />
+              {isSw ? 'Service Contact Sheet' : 'Service Contact Sheet'}
+            </p>
+            <h2 className="headline-lg mt-4 text-white">
+              {isSw ? 'Kila discipline iko kwenye frame.' : 'Every discipline has a frame.'}
+            </h2>
+          </div>
+          <p className="body-md max-w-2xl text-on-surface-variant lg:col-span-5">
+            {isSw
+              ? 'Chagua direction, tuma brief, na Tripod itaunganisha design, production, audio, print, au digital rollout kwenye flow moja.'
+              : 'Choose the direction, send the brief, and Tripod connects design, production, audio, print, or digital rollout into one flow.'}
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {serviceBands.map((band, index) => (
+            <ScrollReveal key={band.key} delay={0.04 * index}>
+              <Link href="/contact" className="film-service-tile focus-ring">
+                <div className="film-service-tile__media">
+                  <Image
+                    src={band.media.src}
+                    alt={band.media.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                    className="object-cover"
+                  />
                 </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        ))}
+                <div className="film-service-tile__body">
+                  <span>0{index + 1}</span>
+                  <h3>{isSw ? band.title.sw : band.title.en}</h3>
+                  <p>{isSw ? band.description.sw : band.description.en}</p>
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </div>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </section>
   );

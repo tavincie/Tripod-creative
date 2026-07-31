@@ -1,29 +1,30 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Link } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import { ThemeToggle } from './ThemeToggle';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Circle, Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { getWhatsAppNumber } from '@/config/site';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
+  const pathname = usePathname();
   const t = useTranslations('Navigation');
 
   const navLinks = [
     { name: t('home'), href: '/' },
-    { name: t('about'), href: '/about' },
     { name: t('services'), href: '/services' },
     { name: t('portfolio'), href: '/portfolio' },
-    { name: t('studioAcademy'), href: '/studio-academy' },
+    { name: locale === 'sw' ? 'Studio' : 'Studio', href: '/studio-academy' },
+    { name: t('about'), href: '/about' },
     { name: t('contact'), href: '/contact' },
   ];
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
-  const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
+  const whatsappNumber = getWhatsAppNumber();
   const message =
     locale === 'sw'
       ? 'Habari Tripod! Ningependa kuweka nafasi ya huduma za ubunifu.'
@@ -31,12 +32,13 @@ export function Header() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <header className="theme-header sticky top-0 z-40 w-full border-b border-outline-variant/10 bg-background/70 backdrop-blur-xl transition-all duration-300">
+    <header className="film-site-header sticky top-0 z-40 w-full transition-all duration-300">
       <div className="mx-auto max-w-7xl px-5 md:px-16 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group focus-ring rounded-md">
-          <span className="font-display text-xl md:text-2xl font-black tracking-tight text-white transition-all duration-300 group-hover:tracking-normal">
-            TRIPOD<span className="text-primary">.</span>
+        <Link href="/" className="flex items-center gap-2 group focus-ring rounded-sm">
+          <span className="film-logo-mark">
+            TRIP<span className="film-logo-o">O<Circle className="absolute h-2.5 w-2.5 fill-[var(--tripod-orange)] text-[var(--tripod-orange)]" aria-hidden="true" /></span>D
+            <small>Creatives</small>
           </span>
         </Link>
 
@@ -46,7 +48,8 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold tracking-wide text-on-surface/85 hover:text-white transition-colors animated-underline focus-ring"
+              aria-current={pathname === link.href ? 'page' : undefined}
+              className="film-nav-link focus-ring"
             >
               {link.name}
             </Link>
@@ -54,7 +57,7 @@ export function Header() {
         </nav>
 
         {/* Action Controls */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
           <LocaleSwitcher />
           <a
@@ -63,9 +66,9 @@ export function Header() {
             rel="noopener noreferrer"
             className="focus-ring rounded-full"
           >
-            <Button variant="primary" className="flex items-center gap-2 py-2 px-5">
+            <Button variant="primary" className="flex items-center gap-2 py-2 px-5 uppercase tracking-[0.14em]">
               <MessageCircle className="w-4 h-4" />
-              <span>{t('cta')}</span>
+              <span>{locale === 'sw' ? 'Start a Project' : 'Start a Project'}</span>
             </Button>
           </a>
         </div>
@@ -76,7 +79,7 @@ export function Header() {
           <LocaleSwitcher />
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-on-surface/90 hover:text-white focus-ring rounded-lg cursor-pointer transition-colors"
+            className="p-2 text-white/90 hover:text-[var(--tripod-orange)] focus-ring rounded-sm cursor-pointer transition-colors"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
           >
@@ -87,14 +90,15 @@ export function Header() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="theme-header lg:hidden absolute top-20 left-0 w-full bg-background/95 border-b border-outline-variant/15 py-8 px-6 flex flex-col gap-6 shadow-2xl backdrop-blur-2xl">
+        <div className="film-mobile-drawer lg:hidden absolute top-20 left-0 w-full py-8 px-6 flex flex-col gap-6 shadow-2xl">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-semibold text-on-surface hover:text-white border-b border-outline-variant/10 pb-2 focus-ring"
+                aria-current={pathname === link.href ? 'page' : undefined}
+                className="text-lg font-black uppercase tracking-[0.08em] text-white hover:text-[var(--tripod-orange)] border-b border-white/10 pb-3 focus-ring"
               >
                 {link.name}
               </Link>

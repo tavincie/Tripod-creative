@@ -18,14 +18,14 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
     locale === 'sw'
       ? {
           eyebrow: 'Equipment Room',
-          title: 'Huduma za studio zilizojengwa kwa camera, canvas, print, na campaign rollout.',
+          title: 'Studio services across camera, canvas, print, and campaign.',
           subtitle:
             'Tripod huweka production, design, digital, na studio work katika system moja yenye visuals kubwa na direction iliyo wazi.',
           cta: 'Book on WhatsApp',
         }
       : {
           eyebrow: 'Equipment Room',
-          title: 'Studio services built across camera, canvas, print, and campaign rollout.',
+          title: 'Studio services across camera, canvas, print, and campaign.',
           subtitle:
             'Tripod brings production, design, digital, and studio work into one system with larger visuals and clearer direction.',
           cta: 'Book on WhatsApp',

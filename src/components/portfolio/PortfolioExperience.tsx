@@ -33,7 +33,7 @@ function FilterButton({
       onClick={onClick}
       aria-pressed={active}
       className={[
-        'focus-ring rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300',
+        'focus-ring rounded-sm border px-4 py-2 font-mono text-[0.68rem] font-black uppercase tracking-[0.12em] transition-all duration-300',
         active
           ? 'border-primary/50 bg-gradient-to-r from-primary to-secondary-container text-black shadow-[0_12px_30px_rgba(255,182,136,0.25)]'
           : 'border-white/10 bg-white/5 text-on-surface-variant hover:border-primary/30 hover:text-white',
@@ -119,7 +119,7 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="sticky top-20 z-20 border-b border-white/6 bg-background/82 py-4 backdrop-blur-2xl">
+      <section className="border-y border-white/6 bg-black py-4">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="flex gap-3 overflow-x-auto pb-1" role="toolbar" aria-label={t('filters.ariaLabel')}>
             {portfolioCategories.map((category) => (
@@ -147,13 +147,13 @@ export function PortfolioExperience({
             </div>
           </div>
 
-          <div className="columns-1 gap-5 md:columns-2 xl:columns-3">
+          <div className="film-project-contact-sheet">
             {filteredItems.map((item, index) => {
               const media = sampleMedia[homepageArchiveMediaKeys[index % homepageArchiveMediaKeys.length]];
               return (
-                <ScrollReveal key={item.key} className="mb-5 break-inside-avoid" delay={0.05 * index}>
-                  <article aria-label={`${t(`projects.${item.key}.title`)} - ${t(`filters.items.${item.categoryKey}`)}`} className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/20">
-                    <div className={`relative ${item.aspectRatio}`}>
+                <ScrollReveal key={item.key} delay={0.05 * index}>
+                  <article aria-label={`${t(`projects.${item.key}.title`)} - ${t(`filters.items.${item.categoryKey}`)}`} className="film-project-card">
+                    <div className="film-project-card__media">
                       <Image
                         src={media.src}
                         alt={media.alt}
@@ -161,18 +161,11 @@ export function PortfolioExperience({
                         sizes="(max-width: 1024px) 100vw, 30vw"
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.78))]" />
-                      <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/80">
-                        {t(`filters.items.${item.categoryKey}`)}
-                      </div>
-                      <div className="absolute inset-x-4 bottom-4">
-                        <h3 className="text-xl font-semibold text-white">
-                          {t(`projects.${item.key}.title`)}
-                        </h3>
-                        <p className="mt-2 text-sm leading-6 text-white/74">
-                          {t(`projects.${item.key}.description`)}
-                        </p>
-                      </div>
+                    </div>
+                    <div className="film-project-card__body">
+                      <p>{t(`filters.items.${item.categoryKey}`)} / {String(index + 1).padStart(3, '0')}</p>
+                      <h3>{t(`projects.${item.key}.title`)}</h3>
+                      <span>{t(`projects.${item.key}.description`)}</span>
                     </div>
                   </article>
                 </ScrollReveal>

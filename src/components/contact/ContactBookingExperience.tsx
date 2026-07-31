@@ -7,6 +7,7 @@ import { Mail, MessageCircle, Phone, Send } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { sampleMedia } from '@/data/sampleMedia';
+import { siteConfig } from '@/config/site';
 
 type FormData = {
   name: string;
@@ -416,8 +417,8 @@ export function ContactBookingExperience({
                 <div className="mt-5 space-y-4">
                   {[
                     { icon: MessageCircle, title: 'WhatsApp', value: locale === 'sw' ? 'Anza mazungumzo ya moja kwa moja' : 'Start a direct conversation' },
-                    { icon: Phone, title: locale === 'sw' ? 'Simu' : 'Phone', value: '[Contact Phone Placeholder]' },
-                    { icon: Mail, title: 'Email', value: '[Contact Email Placeholder]' },
+                    { icon: Phone, title: locale === 'sw' ? 'Simu' : 'Phone', value: siteConfig.phone || (locale === 'sw' ? 'Phone not configured' : 'Phone not configured') },
+                    { icon: Mail, title: 'Email', value: siteConfig.email || (locale === 'sw' ? 'Email not configured' : 'Email not configured') },
                   ].map(({ icon: Icon, title, value }) => (
                     <div key={title} className="flex items-start gap-4">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary">
