@@ -106,7 +106,7 @@ export function CameraBrand() {
             <div className="camera-brand__lens-cover-highlight" />
             <div className="camera-brand__lens-logo">
               <Image
-                src="/tripod-lens-logo.svg"
+                src="/branding/tripod-creative-logo.png"
                 alt="Tripod Creatives logo"
                 fill
                 priority
