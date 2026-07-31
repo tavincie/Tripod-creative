@@ -6,8 +6,6 @@ import { FilmPerforations } from './FilmPerforations';
 import { FilmNavItem } from './FilmNavItem';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { FilmModule } from './FilmModule';
-import { FilmTimeline } from './FilmTimeline';
-import { FilmExitSlot } from './FilmExitSlot';
 
 interface NavItem {
   name: string;
@@ -30,7 +28,6 @@ export function FilmNavigation({
 }: FilmNavigationProps) {
   return (
     <div className="camera-film-header__connection">
-      <FilmExitSlot />
       <div className="film-navigation-shell">
         <FilmPerforations className="film-perforations--top" />
         <div className="film-navigation">
@@ -54,7 +51,6 @@ export function FilmNavigation({
                 <span className="film-project-cta__label">{ctaLabel}</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </span>
-              <span className="film-module__stock-mark">TC-400</span>
             </div>
           </a>
 
@@ -67,7 +63,6 @@ export function FilmNavigation({
           </div>
         </div>
         <FilmPerforations className="film-perforations--bottom" />
-        <FilmTimeline />
       </div>
     </div>
   );

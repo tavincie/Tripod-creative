@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { usePathname } from '@/i18n/routing';
 import { getWhatsAppNumber } from '@/config/site';
@@ -20,6 +21,7 @@ function isActiveRoute(pathname: string, href: string) {
 
 export function CameraFilmHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const locale = useLocale();
   const pathname = usePathname();
   const whatsappNumber = getWhatsAppNumber();
@@ -41,19 +43,55 @@ export function CameraFilmHeader() {
     active: isActiveRoute(pathname, item.href),
   }));
 
+  useEffect(() => {
+    let lastY = window.scrollY;
+
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const delta = currentY - lastY;
+
+      if (currentY <= 24) {
+        setIsVisible(true);
+      } else if (delta > 6) {
+        setIsVisible(false);
+      } else if (delta < -6) {
+        setIsVisible(true);
+      }
+
+      lastY = currentY;
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="camera-film-header">
+    <motion.header
+      className="camera-film-header"
+      data-visible={isVisible}
+      animate={{
+        y: isVisible ? 0 : -180,
+        opacity: isVisible ? 1 : 0,
+      }}
+      transition={{ duration: 0.24, ease: 'easeOut' }}
+    >
       <CameraShutterTransition />
 
       <div className="camera-film-header__inner">
         <div className="camera-film-header__desktop">
-          <CameraBrand />
-          <FilmNavigation
-            items={items}
-            ctaHref={whatsappUrl}
-            ctaLabel={locale === 'sw' ? 'Start a Project' : 'Start a Project'}
-            onNavigate={() => setIsOpen(false)}
-          />
+          <div className="camera-film-assembly">
+            <div className="camera-film-assembly__brand">
+              <CameraBrand />
+            </div>
+            <div className="camera-film-assembly__feed">
+              <FilmNavigation
+                items={items}
+                ctaHref={whatsappUrl}
+                ctaLabel={locale === 'sw' ? 'Start a Project' : 'Start a Project'}
+                onNavigate={() => setIsOpen(false)}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="camera-film-header__mobile">
@@ -70,6 +108,6 @@ export function CameraFilmHeader() {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

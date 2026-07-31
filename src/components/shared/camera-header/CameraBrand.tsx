@@ -11,56 +11,86 @@ export function CameraBrand() {
       <div className="camera-brand__shell">
         <svg
           className="camera-brand__svg"
-          viewBox="0 0 310 178"
+          viewBox="0 0 470 260"
           role="presentation"
           aria-hidden="true"
         >
           <defs>
-            <linearGradient id="cameraBodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#1b1b1b" />
-              <stop offset="34%" stopColor="#0a0a0a" />
-              <stop offset="72%" stopColor="#101010" />
-              <stop offset="100%" stopColor="#181818" />
+            <linearGradient id="cameraBodyGradient" x1="8%" y1="6%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#343434" />
+              <stop offset="30%" stopColor="#151515" />
+              <stop offset="74%" stopColor="#090909" />
+              <stop offset="100%" stopColor="#171717" />
             </linearGradient>
-            <linearGradient id="cameraTopGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#3d3d3d" />
-              <stop offset="100%" stopColor="#111111" />
+            <linearGradient id="cameraTopGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#5b5b5b" />
+              <stop offset="100%" stopColor="#191919" />
             </linearGradient>
-            <radialGradient id="cameraOrangeGlow" cx="77%" cy="20%" r="42%">
-              <stop offset="0%" stopColor="#ff6624" stopOpacity="0.28" />
+            <linearGradient id="cameraSideGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#343434" />
+              <stop offset="100%" stopColor="#0a0a0a" />
+            </linearGradient>
+            <radialGradient id="cameraOrangeGlow" cx="88%" cy="42%" r="52%">
+              <stop offset="0%" stopColor="#ff6b2a" stopOpacity="0.26" />
               <stop offset="1" stopColor="#ff6624" stopOpacity="0" />
             </radialGradient>
             <linearGradient id="cameraGripGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#202020" />
-              <stop offset="100%" stopColor="#080808" />
+              <stop offset="0%" stopColor="#383838" />
+              <stop offset="100%" stopColor="#0b0b0b" />
             </linearGradient>
-            <radialGradient id="lensGlassGradient" cx="42%" cy="36%" r="68%">
-              <stop offset="0%" stopColor="#171717" />
-              <stop offset="42%" stopColor="#050505" />
-              <stop offset="80%" stopColor="#0d0d0d" />
-              <stop offset="100%" stopColor="#191919" />
+            <radialGradient id="cameraLensShadow" cx="50%" cy="50%" r="64%">
+              <stop offset="0%" stopColor="#161616" />
+              <stop offset="75%" stopColor="#070707" />
+              <stop offset="100%" stopColor="#020202" />
+            </radialGradient>
+            <radialGradient id="cameraHighlight" cx="26%" cy="18%" r="60%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
             </radialGradient>
           </defs>
 
-          <rect x="18" y="20" width="168" height="126" rx="22" fill="url(#cameraBodyGradient)" />
-          <rect x="18" y="20" width="168" height="126" rx="22" fill="url(#cameraOrangeGlow)" />
-          <rect x="8" y="38" width="76" height="104" rx="19" fill="url(#cameraGripGradient)" />
-          <rect x="26" y="54" width="34" height="58" rx="10" fill="rgba(255,255,255,0.025)" />
-          <path d="M112 18 L134 3 H177 L193 18 Z" fill="url(#cameraTopGradient)" />
-          <rect x="154" y="16" width="34" height="15" rx="5" fill="url(#cameraTopGradient)" />
-          <rect x="30" y="22" width="24" height="24" rx="12" fill="#161616" stroke="rgba(245,241,233,0.16)" />
-          <rect x="136" y="19" width="22" height="22" rx="11" fill="#1A1A1A" stroke="rgba(245,241,233,0.16)" />
-          <rect x="72" y="64" width="28" height="17" rx="4" fill="#0d0d0d" stroke="rgba(245,241,233,0.08)" />
-          <circle cx="102" cy="65" r="4" fill="#ff5a14" />
-          <rect x="178" y="16" width="10" height="126" rx="5" fill="rgba(255,255,255,0.02)" />
-          <circle cx="204" cy="85" r="65" fill="#090909" stroke="rgba(245,241,233,0.18)" strokeWidth="2" />
-          <circle cx="204" cy="85" r="58" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="5" />
-          <circle cx="204" cy="85" r="52" fill="url(#lensGlassGradient)" />
-          <circle cx="204" cy="85" r="46" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1.8" />
-          <circle cx="204" cy="85" r="40" fill="none" stroke="rgba(255,92,31,0.28)" strokeWidth="1.6" />
-          <circle cx="204" cy="85" r="33" fill="none" stroke="rgba(255,255,255,0.09)" strokeWidth="1.2" />
-          <ellipse cx="188" cy="62" rx="16" ry="8" fill="rgba(255,255,255,0.1)" transform="rotate(-22 188 62)" />
-          <path d="M175 52 C188 39, 220 36, 238 49" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="3.2" strokeLinecap="round" />
+          <path
+            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27v112c0 15-12 27-27 27H63c-14 0-25-11-25-25z"
+            fill="url(#cameraBodyGradient)"
+          />
+          <path
+            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27v112c0 15-12 27-27 27H63c-14 0-25-11-25-25z"
+            fill="url(#cameraOrangeGlow)"
+          />
+          <path
+            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27"
+            fill="none"
+            stroke="rgba(255,255,255,0.18)"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M26 100c0-20 16-36 36-36h54v146H62c-20 0-36-16-36-36z"
+            fill="url(#cameraGripGradient)"
+          />
+          <rect x="54" y="95" width="30" height="84" rx="12" fill="rgba(255,255,255,0.07)" />
+          <path d="M220 53l24-28h92l19 28z" fill="url(#cameraTopGradient)" />
+          <path d="M220 53l24-28h92l19 28" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" />
+          <rect x="285" y="18" width="44" height="18" rx="9" fill="#161616" />
+          <circle cx="303" cy="28" r="10" fill="#2d2d2d" stroke="rgba(245,241,233,0.14)" />
+          <circle cx="338" cy="34" r="14" fill="#1c1c1c" stroke="rgba(245,241,233,0.12)" />
+          <circle cx="338" cy="34" r="9" fill="#111" />
+          <rect x="102" y="90" width="40" height="22" rx="6" fill="#101010" stroke="rgba(245,241,233,0.08)" />
+          <circle cx="150" cy="101" r="5" fill="#ff5a14" />
+          <rect x="359" y="63" width="14" height="152" rx="7" fill="url(#cameraSideGradient)" />
+          <rect x="371" y="99" width="28" height="52" rx="8" fill="#0a0a0a" />
+          <rect x="381" y="118" width="31" height="14" rx="7" fill="#111" />
+          <rect x="381" y="119" width="41" height="4" rx="2" fill="rgba(245,241,233,0.1)" />
+          <circle cx="265" cy="136" r="88" fill="url(#cameraLensShadow)" stroke="rgba(245,241,233,0.2)" strokeWidth="3" />
+          <circle cx="265" cy="136" r="75" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="10" />
+          <circle cx="265" cy="136" r="67" fill="none" stroke="rgba(255,122,57,0.22)" strokeWidth="2.4" />
+          <circle cx="265" cy="136" r="59" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="2.2" />
+          <ellipse cx="228" cy="94" rx="28" ry="12" fill="rgba(255,255,255,0.1)" transform="rotate(-24 228 94)" />
+          <path d="M202 81c18-17 79-21 108 2" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="4" strokeLinecap="round" />
+          <path
+            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27v112c0 15-12 27-27 27H63c-14 0-25-11-25-25z"
+            fill="url(#cameraHighlight)"
+          />
         </svg>
 
         <div className="camera-brand__labels">
@@ -68,17 +98,22 @@ export function CameraBrand() {
         </div>
 
         <div className="camera-brand__lens">
-          <div className="camera-brand__lens-logo">
-            <Image
-              src="/tripod-lens-logo.svg"
-              alt="Tripod Creatives logo"
-              fill
-              priority
-              sizes="120px"
-            />
+          <div className="camera-brand__lens-barrel">
+            <div className="camera-brand__lens-outer-ring" />
+            <div className="camera-brand__lens-inner-ring" />
           </div>
-          <span className="camera-brand__lens-spec camera-brand__lens-spec--top">24-70MM T2.8</span>
-          <span className="camera-brand__lens-spec camera-brand__lens-spec--bottom">82MM</span>
+          <div className="camera-brand__lens-front-cover">
+            <div className="camera-brand__lens-cover-highlight" />
+            <div className="camera-brand__lens-logo">
+              <Image
+                src="/tripod-lens-logo.svg"
+                alt="Tripod Creatives logo"
+                fill
+                priority
+                sizes="220px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Link>

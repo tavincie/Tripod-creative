@@ -1490,26 +1490,40 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 /* Camera and film navigation */
 .camera-film-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 60;
-  border-bottom: 1px solid rgba(245, 241, 233, 0.08);
-  background:
-    radial-gradient(circle at 92% 0%, rgba(255, 61, 0, 0.15), transparent 24%),
-    rgba(0, 0, 0, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
   overflow: visible;
+  pointer-events: none;
 }
 
 .camera-film-header__inner {
   max-width: 92.5rem;
   margin: 0 auto;
-  padding: 0.7rem 1.5rem 0.2rem;
+  padding: 0.2rem 1.5rem 0;
+  pointer-events: auto;
 }
 
 .camera-film-header__desktop {
   display: none;
+}
+
+.camera-film-assembly {
+  display: grid;
+  grid-template-columns: clamp(18.125rem, 23vw, 26.25rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+}
+
+.camera-film-assembly__brand,
+.camera-film-assembly__feed {
+  min-width: 0;
 }
 
 .camera-film-header__mobile {
@@ -1517,6 +1531,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   align-items: center;
   justify-content: space-between;
   gap: 0.45rem;
+  pointer-events: auto;
 }
 
 .camera-film-header__mobile-controls,
@@ -1529,79 +1544,134 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 .camera-brand {
   position: relative;
   display: block;
-  width: min(100%, 14.2rem);
-  padding-left: 0.45rem;
+  flex: 0 0 clamp(18.125rem, 23vw, 26.25rem);
+  width: clamp(18.125rem, 23vw, 26.25rem);
+  padding-left: 0.8rem;
   color: inherit;
-  z-index: 3;
+  z-index: 5;
+  transform-origin: left center;
+  overflow: visible;
 }
 
 .camera-brand__shell {
   position: relative;
   width: 100%;
-  min-height: 7.8rem;
+  min-height: clamp(10.75rem, 13.5vw, 15rem);
 }
 
 .camera-brand__svg {
   display: block;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.4));
+  filter:
+    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.34))
+    drop-shadow(0 0 16px rgba(255, 88, 22, 0.08));
 }
 
 .camera-brand__lens {
   position: absolute;
-  left: 7.55rem;
-  top: 1.7rem;
-  width: 4.65rem;
-  height: 4.65rem;
+  left: 56.38%;
+  top: 52.3%;
+  width: clamp(6.9rem, 8.8vw, 9.1rem);
+  height: clamp(6.9rem, 8.8vw, 9.1rem);
   border-radius: 999px;
-  box-shadow:
-    inset 0 0 0 1px rgba(245, 241, 233, 0.18),
-    inset 0 0 0 0.45rem rgba(18, 18, 18, 0.92),
-    inset 0 0 0 0.78rem rgba(5, 5, 5, 0.88),
-    0 12px 36px rgba(0, 0, 0, 0.52),
-    0 0 22px rgba(255, 61, 0, 0.14);
-}
-
-.camera-brand__lens::before,
-.camera-brand__lens::after {
-  content: '';
   position: absolute;
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.44),
+    0 0 22px rgba(255, 61, 0, 0.1);
+  transform: translate(-50%, -50%);
+}
+
+.camera-brand__lens-barrel,
+.camera-brand__lens-outer-ring,
+.camera-brand__lens-inner-ring,
+.camera-brand__lens-front-cover,
+.camera-brand__lens-cover-highlight {
+  position: absolute;
+  border-radius: 999px;
+}
+
+.camera-brand__lens-barrel {
   inset: 0;
-  border-radius: inherit;
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 67% 72%, rgba(255, 61, 0, 0.1), transparent 34%),
+    linear-gradient(135deg, #2d2d2d 0%, #151515 38%, #060606 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 241, 233, 0.12),
+    inset 0 0 0 0.42rem rgba(18, 18, 18, 0.92),
+    inset 0 0 0 0.92rem rgba(7, 7, 7, 0.9),
+    inset -0.18rem 0.18rem 0.45rem rgba(255, 255, 255, 0.05);
+  z-index: 1;
 }
 
-.camera-brand__lens::before {
-  inset: 0.7rem;
-  border: 1px solid rgba(255, 92, 31, 0.34);
+.camera-brand__lens-outer-ring {
+  inset: 0.72rem;
+  border: 1px solid rgba(245, 241, 233, 0.09);
+  box-shadow:
+    inset 0 0 0 0.34rem rgba(16, 16, 16, 0.82),
+    inset 0 0 0 0.68rem rgba(30, 30, 30, 0.38);
 }
 
-.camera-brand__lens::after {
-  inset: 1.15rem 1.75rem 2rem 1.45rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent);
-  filter: blur(0.18rem);
-  transform: rotate(-24deg);
+.camera-brand__lens-inner-ring {
+  inset: 1.08rem;
+  border: 1px solid rgba(255, 108, 48, 0.09);
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.06), transparent 30%),
+    linear-gradient(145deg, rgba(30, 30, 30, 0.94), rgba(8, 8, 8, 0.98));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 0.12rem 0.24rem rgba(255, 255, 255, 0.02);
+}
+
+.camera-brand__lens-front-cover {
+  position: absolute;
+  inset: 0.24rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 54%, rgba(18, 18, 18, 0.999) 0%, rgba(8, 8, 8, 0.999) 82%, rgba(0, 0, 0, 1) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 -0.24rem 0.42rem rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 120, 62, 0.07),
+    0 0.08rem 0.18rem rgba(0, 0, 0, 0.22);
+  z-index: 3;
+}
+
+.camera-brand__lens-cover-highlight {
+  inset: 0.56rem 0.72rem 3.8rem 0.68rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
+  filter: blur(0.12rem);
+  transform: rotate(-15deg);
 }
 
 .camera-brand__lens-logo {
   position: absolute;
-  inset: 1.05rem;
-  border-radius: inherit;
-  overflow: hidden;
+  inset: 1rem;
+  border-radius: 999px;
+  transform: scale(1);
+  opacity: 0.96;
+}
+
+.camera-brand__lens-logo > span,
+.camera-brand__lens-logo img {
+  position: relative;
+  z-index: 2;
 }
 
 .camera-brand__labels {
   position: absolute;
-  left: 0.95rem;
-  bottom: 0.9rem;
+  left: 1.45rem;
+  bottom: 1rem;
   display: grid;
   gap: 0.25rem;
   font-family: var(--font-mono);
-  font-size: 0.47rem;
+  font-size: 0.42rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(245, 241, 233, 0.54);
+  color: rgba(245, 241, 233, 0.76);
 }
 
 .camera-rec-indicator,
@@ -1620,113 +1690,23 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   box-shadow: 0 0 18px rgba(255, 61, 0, 0.95);
 }
 
-.camera-brand__lens-spec {
-  position: absolute;
-  left: 50%;
-  font-family: var(--font-mono);
-  font-size: 0.44rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: rgba(245, 241, 233, 0.72);
-  transform: translateX(-50%);
-}
-
-.camera-brand__lens-spec--top {
-  top: 0.45rem;
-}
-
-.camera-brand__lens-spec--bottom {
-  bottom: 0.55rem;
-}
-
 .camera-film-header__connection {
   position: relative;
   flex: 1;
   min-width: 0;
   display: flex;
-  align-items: flex-start;
-  margin-left: -1.6rem;
-}
-
-.film-exit-slot {
-  position: relative;
-  flex: 0 0 2.7rem;
-  align-self: center;
-  height: 4.2rem;
-  margin-right: -1.15rem;
-  z-index: 1;
-}
-
-.film-exit-slot__housing {
-  position: absolute;
-  inset: 0 0.12rem 0 0.2rem;
-  border-radius: 0 1rem 1rem 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%),
-    linear-gradient(90deg, #1e1e1e 0%, #090909 52%, #030303 100%);
-  box-shadow:
-    inset 0 0 0 1px rgba(245, 241, 233, 0.06),
-    inset -14px 0 18px rgba(0, 0, 0, 0.62);
-}
-
-.film-exit-slot__roller {
-  position: absolute;
-  left: 0.7rem;
-  right: 0.38rem;
-  height: 0.52rem;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #464646, #111);
-  box-shadow: inset 0 0 0 1px rgba(245, 241, 233, 0.08);
-}
-
-.film-exit-slot__roller--top {
-  top: 0.88rem;
-}
-
-.film-exit-slot__roller--bottom {
-  bottom: 0.88rem;
-}
-
-.film-exit-slot__inner {
-  position: absolute;
-  inset: 1.4rem 0.28rem 1.4rem 0.6rem;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #010101, #141414);
-  box-shadow:
-    inset 0 0 0 1px rgba(245, 241, 233, 0.05),
-    inset 0 0 18px rgba(0, 0, 0, 0.55);
-}
-
-.film-exit-slot__leader {
-  position: absolute;
-  left: 1.05rem;
-  right: -0.75rem;
-  top: 1.64rem;
-  height: 0.86rem;
-  border-radius: 0.18rem;
-  background:
-    linear-gradient(180deg, rgba(245, 241, 233, 0.08), transparent 30%),
-    linear-gradient(90deg, rgba(8, 8, 8, 0.96), rgba(0, 0, 0, 0.98));
-  box-shadow:
-    inset 0 0 0 1px rgba(245, 241, 233, 0.04),
-    0 0 18px rgba(255, 82, 24, 0.12);
-}
-
-.film-exit-slot__glow {
-  position: absolute;
-  right: -0.5rem;
-  top: 1.18rem;
-  bottom: 1.18rem;
-  width: 1.5rem;
-  background: radial-gradient(circle at 0% 50%, rgba(255, 82, 24, 0.7), rgba(255, 82, 24, 0.1) 65%, transparent 100%);
-  filter: blur(0.35rem);
+  align-items: center;
+  margin-left: -4.35rem;
+  padding-top: 0;
+  pointer-events: auto;
 }
 
 .film-navigation-shell {
   position: relative;
   flex: 1;
   min-width: 0;
-  padding: 0.35rem 0 0;
+  padding: 0;
+  z-index: 1;
 }
 
 .film-navigation {
@@ -1735,7 +1715,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   grid-template-columns:
     repeat(6, minmax(0, 1fr))
     minmax(10.5rem, 1.12fr)
-    minmax(6rem, 0.64fr);
+    minmax(7.9rem, 0.82fr);
   align-items: stretch;
   min-height: 4.9rem;
   width: 100%;
@@ -1756,7 +1736,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 1.15rem;
+  width: 0.9rem;
   border-left: 1px solid rgba(0, 0, 0, 0.42);
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(15, 15, 15, 0.98)),
@@ -1767,13 +1747,13 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 .film-navigation::before {
   content: '';
   position: absolute;
-  left: -0.9rem;
+  left: -2rem;
   top: 0;
   bottom: 0;
-  width: 1.8rem;
+  width: 2.25rem;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.35) 62%, transparent),
-    radial-gradient(circle at 0% 50%, rgba(255, 61, 0, 0.2), transparent 70%);
+    linear-gradient(90deg, rgba(10, 10, 10, 0.96), rgba(10, 10, 10, 0.72) 42%, rgba(10, 10, 10, 0.12) 82%, transparent),
+    radial-gradient(circle at 0% 50%, rgba(255, 61, 0, 0.12), transparent 68%);
   pointer-events: none;
 }
 
@@ -1821,15 +1801,15 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   min-height: 4.9rem;
   padding: 0.9rem 0.72rem 0.74rem;
   background:
-    linear-gradient(180deg, rgba(245, 241, 233, 0.98), rgba(236, 229, 216, 0.96)),
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.35), transparent 55%);
+    linear-gradient(180deg, rgba(232, 223, 208, 0.99), rgba(216, 205, 186, 0.98)),
+    radial-gradient(circle at 50% 0%, rgba(255, 246, 232, 0.16), transparent 58%);
   border-left: 1px solid rgba(0, 0, 0, 0.4);
   color: #171717;
   overflow: hidden;
 }
 
 .film-nav-item:first-child .film-module {
-  margin-left: 0.58rem;
+  margin-left: 0.9rem;
 }
 
 .film-module::after {
@@ -1901,8 +1881,8 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 .film-nav-item.is-active .film-module {
   background:
-    linear-gradient(180deg, rgba(255, 248, 241, 0.99), rgba(244, 230, 210, 0.96)),
-    radial-gradient(circle at 50% 0%, rgba(255, 150, 109, 0.22), transparent 58%);
+    linear-gradient(180deg, rgba(236, 226, 211, 0.99), rgba(222, 209, 188, 0.98)),
+    radial-gradient(circle at 50% 0%, rgba(255, 150, 109, 0.12), transparent 60%);
   box-shadow:
     inset 0 -2px 0 var(--tripod-orange),
     inset 0 0 18px rgba(255, 61, 0, 0.06);
@@ -1927,8 +1907,8 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 .film-nav-item:hover .film-module {
   background:
-    linear-gradient(180deg, rgba(248, 243, 236, 0.99), rgba(238, 230, 216, 0.96)),
-    radial-gradient(circle at 50% 0%, rgba(255, 152, 116, 0.16), transparent 56%);
+    linear-gradient(180deg, rgba(234, 226, 213, 0.99), rgba(220, 209, 191, 0.98)),
+    radial-gradient(circle at 50% 0%, rgba(255, 152, 116, 0.1), transparent 58%);
 }
 
 .film-nav-item:hover .film-nav-item__underline,
@@ -1937,44 +1917,54 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 }
 
 .film-module--cta {
-  background: linear-gradient(180deg, var(--tripod-bright-orange), var(--tripod-orange));
-  color: var(--tripod-warm-white);
+  background:
+    linear-gradient(180deg, rgba(232, 223, 208, 0.99), rgba(216, 205, 186, 0.98)),
+    radial-gradient(circle at 50% 0%, rgba(255, 246, 232, 0.16), transparent 58%);
+  color: #171717;
 }
 
 .film-module--cta .film-module__frame {
-  color: rgba(245, 241, 233, 0.72);
+  color: rgba(23, 23, 23, 0.55);
 }
 
 .film-module--utility {
   background:
-    linear-gradient(180deg, rgba(241, 235, 225, 0.98), rgba(231, 223, 210, 0.96));
+    linear-gradient(180deg, rgba(230, 220, 204, 0.99), rgba(214, 202, 183, 0.98));
 }
 
 .film-project-cta .film-module {
   align-items: center;
   justify-content: center;
-  padding: 0.84rem 0.5rem 0.72rem;
+  padding: 0.84rem 1rem 0.72rem;
 }
 
 .film-project-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.15rem;
-  max-width: 100%;
-  padding: 0.42rem 0.72rem;
-  border: 1px solid rgba(255, 255, 255, 0.68);
+  gap: 0.625rem;
+  min-height: 2.625rem;
+  width: auto;
+  max-width: calc(100% - 1.25rem);
+  padding: 0 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 999px;
   color: #fff;
-  background: linear-gradient(90deg, rgba(204, 50, 0, 0.96) 0%, rgba(255, 77, 0, 0.98) 46%, rgba(255, 122, 38, 0.94) 100%);
+  background:
+    linear-gradient(
+      135deg,
+      #c92f00 0%,
+      #ff3d00 48%,
+      #ff6a2b 100%
+    );
   font-weight: 800;
   text-transform: uppercase;
   white-space: nowrap;
   box-shadow:
-    inset 0 1px 0 rgba(255, 214, 189, 0.22),
-    0 8px 18px rgba(138, 34, 0, 0.16);
+    inset 0 1px 0 rgba(255, 214, 189, 0.2),
+    0 8px 22px rgba(255, 61, 0, 0.22);
   transition: background-color 180ms ease, transform 180ms ease, border-color 180ms ease;
+  margin-inline: auto;
 }
 
 .film-project-cta:hover .film-project-button,
@@ -1999,17 +1989,6 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   height: 0.88rem;
 }
 
-.film-module__stock-mark {
-  position: absolute;
-  right: 0.58rem;
-  bottom: 0.38rem;
-  font-family: var(--font-mono);
-  font-size: 0.38rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  color: rgba(245, 241, 233, 0.72);
-}
-
 .film-language-frame {
   min-width: 0;
 }
@@ -2019,16 +1998,17 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   align-items: center;
   justify-content: center;
   margin-top: 0.76rem;
-  padding-right: 0.2rem;
+  padding-right: 1.1rem;
+  padding-left: 0.2rem;
 }
 
 .film-language-switcher {
   display: inline-flex;
   align-items: center;
   gap: 0.22rem;
-  min-width: 4.45rem;
+  min-width: 5.45rem;
   justify-content: space-between;
-  padding: 0.18rem 0.22rem;
+  padding: 0.18rem 0.34rem;
   border-radius: 999px;
   background: rgba(45, 31, 22, 0.09);
   box-shadow: inset 0 0 0 1px rgba(90, 58, 35, 0.12);
@@ -2060,30 +2040,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 }
 
 .film-timeline {
-  display: flex;
-  align-items: center;
-  gap: 1.35rem;
-  min-height: 1.3rem;
-  padding: 0.45rem 0.8rem 0 0.9rem;
-  color: rgba(245, 241, 233, 0.58);
-  font-family: var(--font-mono);
-  font-size: 0.46rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.film-timeline::before {
-  content: '';
-  flex: 1;
-  order: 99;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 61, 0, 0.42), rgba(245, 241, 233, 0.12));
-}
-
-.film-timeline span:first-child,
-.film-timeline span:nth-child(3) {
-  color: var(--tripod-orange);
+  display: none;
 }
 
 .camera-mobile-menu {
@@ -2192,10 +2149,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 @media (min-width: 1180px) {
   .camera-film-header__desktop {
-    display: grid;
-    grid-template-columns: 14.6rem minmax(0, 1fr);
-    align-items: start;
-    gap: 0;
+    display: block;
   }
 
   .camera-film-header__mobile {
@@ -2209,12 +2163,18 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 @media (max-width: 1179px) {
   .camera-brand {
-    width: 8.9rem;
+    flex: 0 0 clamp(15.6rem, 31vw, 18.2rem);
+    width: clamp(15.6rem, 31vw, 18.2rem);
     padding-left: 0.15rem;
   }
 
+  .camera-film-assembly {
+    grid-template-columns: clamp(15.6rem, 31vw, 18.2rem) minmax(0, 1fr);
+    align-items: center;
+  }
+
   .camera-brand__shell {
-    min-height: 4.55rem;
+    min-height: 7.95rem;
   }
 
   .camera-brand__labels {
@@ -2224,26 +2184,18 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   }
 
   .camera-brand__lens {
-    left: 4.74rem;
-    top: 1.02rem;
-    width: 2.92rem;
-    height: 2.92rem;
+    left: 56.38%;
+    top: 52.3%;
+    width: 4.95rem;
+    height: 4.95rem;
   }
 
   .camera-brand__lens-logo {
-    inset: 0.7rem;
-  }
-
-  .camera-brand__lens-spec {
-    font-size: 0.3rem;
-  }
-
-  .film-timeline {
-    display: none;
+    inset: 0.55rem;
   }
 
   .film-language-switcher {
-    min-width: 4rem;
+    min-width: 4.35rem;
   }
 
   .film-language-switcher button {
