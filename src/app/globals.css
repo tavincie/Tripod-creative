@@ -1564,93 +1564,85 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   width: 100%;
   height: auto;
   filter:
-    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.34))
-    drop-shadow(0 0 16px rgba(255, 88, 22, 0.08));
+    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.36))
+    drop-shadow(0 0 20px rgba(255, 88, 22, 0.08));
 }
 
-.camera-brand__lens {
+.camera-brand__lens-assembly {
   position: absolute;
-  left: 56.38%;
-  top: 52.3%;
-  width: clamp(6.9rem, 8.8vw, 9.1rem);
-  height: clamp(6.9rem, 8.8vw, 9.1rem);
+  left: 56.35%;
+  top: 52.1%;
+  width: clamp(6.95rem, 8.9vw, 9.25rem);
+  height: clamp(6.95rem, 8.9vw, 9.25rem);
   border-radius: 999px;
-  position: absolute;
   box-shadow:
     0 16px 38px rgba(0, 0, 0, 0.44),
     0 0 22px rgba(255, 61, 0, 0.1);
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
-.camera-brand__lens-barrel,
-.camera-brand__lens-outer-ring,
-.camera-brand__lens-inner-ring,
-.camera-brand__lens-front-cover,
-.camera-brand__lens-cover-highlight {
+.camera-brand__lens-rim,
+.camera-brand__lens-cap,
+.camera-brand__lens-reflection,
+.camera-brand__lens-shadow {
   position: absolute;
   border-radius: 999px;
 }
 
-.camera-brand__lens-barrel {
+.camera-brand__lens-rim {
   inset: 0;
   background:
-    radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.16), transparent 22%),
-    radial-gradient(circle at 67% 72%, rgba(255, 61, 0, 0.1), transparent 34%),
-    linear-gradient(135deg, #2d2d2d 0%, #151515 38%, #060606 100%);
+    linear-gradient(135deg, #373737 0%, #181818 35%, #060606 100%);
   box-shadow:
-    inset 0 0 0 1px rgba(245, 241, 233, 0.12),
-    inset 0 0 0 0.42rem rgba(18, 18, 18, 0.92),
-    inset 0 0 0 0.92rem rgba(7, 7, 7, 0.9),
-    inset -0.18rem 0.18rem 0.45rem rgba(255, 255, 255, 0.05);
+    inset 0 0 0 1px rgba(245, 241, 233, 0.16),
+    inset 0.2rem -0.24rem 0.42rem rgba(255, 255, 255, 0.05),
+    inset -0.4rem 0.52rem 0.8rem rgba(0, 0, 0, 0.42);
   z-index: 1;
 }
 
-.camera-brand__lens-outer-ring {
+.camera-brand__lens-rim--inner {
   inset: 0.72rem;
-  border: 1px solid rgba(245, 241, 233, 0.09);
-  box-shadow:
-    inset 0 0 0 0.34rem rgba(16, 16, 16, 0.82),
-    inset 0 0 0 0.68rem rgba(30, 30, 30, 0.38);
-}
-
-.camera-brand__lens-inner-ring {
-  inset: 1.08rem;
-  border: 1px solid rgba(255, 108, 48, 0.09);
   background:
-    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.06), transparent 30%),
-    linear-gradient(145deg, rgba(30, 30, 30, 0.94), rgba(8, 8, 8, 0.98));
+    linear-gradient(135deg, rgba(62, 62, 62, 0.92), rgba(10, 10, 10, 0.98));
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    inset 0 0.12rem 0.24rem rgba(255, 255, 255, 0.02);
+    inset 0 0 0 1px rgba(245, 241, 233, 0.08),
+    inset 0 0 0 0.46rem rgba(14, 14, 14, 0.88);
+  z-index: 2;
 }
 
-.camera-brand__lens-front-cover {
-  position: absolute;
-  inset: 0.24rem;
+.camera-brand__lens-cap {
+  inset: 0.42rem;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.18), transparent 24%),
-    radial-gradient(circle at 50% 54%, rgba(18, 18, 18, 0.999) 0%, rgba(8, 8, 8, 0.999) 82%, rgba(0, 0, 0, 1) 100%);
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.16), transparent 22%),
+    linear-gradient(180deg, rgba(20, 20, 20, 0.98), rgba(5, 5, 5, 1));
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
-    inset 0 -0.24rem 0.42rem rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(255, 120, 62, 0.07),
-    0 0.08rem 0.18rem rgba(0, 0, 0, 0.22);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 0.14rem 0.28rem rgba(255, 255, 255, 0.03),
+    inset 0 -0.28rem 0.48rem rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 104, 43, 0.1);
   z-index: 3;
 }
 
-.camera-brand__lens-cover-highlight {
-  inset: 0.56rem 0.72rem 3.8rem 0.68rem;
+.camera-brand__lens-reflection {
+  inset: 0.55rem 0.68rem 4rem 0.78rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
-  filter: blur(0.12rem);
-  transform: rotate(-15deg);
+  filter: blur(0.1rem);
+  transform: rotate(-12deg);
+}
+
+.camera-brand__lens-shadow {
+  inset: auto 0.85rem 0.8rem 0.85rem;
+  height: 2rem;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 61, 0, 0.1), rgba(0, 0, 0, 0) 72%);
+  filter: blur(0.24rem);
 }
 
 .camera-brand__lens-logo {
   position: absolute;
-  inset: 1rem;
+  inset: 1.14rem;
   border-radius: 999px;
-  transform: scale(1);
   opacity: 0.96;
 }
 
@@ -1946,7 +1938,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   min-height: 2.625rem;
   width: auto;
   max-width: calc(100% - 1.25rem);
-  padding: 0 1.15rem;
+  padding: 0 1.4rem;
   border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 999px;
   color: #fff;
@@ -1976,7 +1968,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 .film-project-cta__label {
   margin-top: 0;
-  font-size: 0.52rem;
+  font-size: 0.54rem;
   letter-spacing: 0.05em;
   line-height: 1;
   white-space: nowrap;

@@ -192,7 +192,7 @@ export default function HomePage() {
         </div>
 
         <div className="film-hero-grid mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-end gap-8 px-5 pb-10 pt-16 md:px-16 lg:grid-cols-[0.74fr_1.26fr] lg:pt-18">
-          <div className="relative z-10 pb-3">
+          <div className="relative z-10 pb-3 pt-20 md:pt-24 lg:pt-16">
             <p className="film-kicker">
               <span className="film-rec-dot" aria-hidden="true" />
               {copy.heroEyebrow}

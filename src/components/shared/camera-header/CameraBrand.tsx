@@ -16,80 +16,109 @@ export function CameraBrand() {
           aria-hidden="true"
         >
           <defs>
-            <linearGradient id="cameraBodyGradient" x1="8%" y1="6%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#343434" />
-              <stop offset="30%" stopColor="#151515" />
-              <stop offset="74%" stopColor="#090909" />
-              <stop offset="100%" stopColor="#171717" />
+            <linearGradient id="tripodCameraBody" x1="7%" y1="10%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3a3a3a" />
+              <stop offset="34%" stopColor="#181818" />
+              <stop offset="76%" stopColor="#090909" />
+              <stop offset="100%" stopColor="#141414" />
             </linearGradient>
-            <linearGradient id="cameraTopGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#5b5b5b" />
-              <stop offset="100%" stopColor="#191919" />
+            <linearGradient id="tripodCameraTop" x1="4%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#4d4d4d" />
+              <stop offset="100%" stopColor="#161616" />
             </linearGradient>
-            <linearGradient id="cameraSideGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#343434" />
-              <stop offset="100%" stopColor="#0a0a0a" />
-            </linearGradient>
-            <radialGradient id="cameraOrangeGlow" cx="88%" cy="42%" r="52%">
-              <stop offset="0%" stopColor="#ff6b2a" stopOpacity="0.26" />
-              <stop offset="1" stopColor="#ff6624" stopOpacity="0" />
-            </radialGradient>
-            <linearGradient id="cameraGripGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#383838" />
+            <linearGradient id="tripodCameraGrip" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#414141" />
               <stop offset="100%" stopColor="#0b0b0b" />
             </linearGradient>
-            <radialGradient id="cameraLensShadow" cx="50%" cy="50%" r="64%">
-              <stop offset="0%" stopColor="#161616" />
-              <stop offset="75%" stopColor="#070707" />
-              <stop offset="100%" stopColor="#020202" />
+            <linearGradient id="tripodCameraEdge" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#2d2d2d" />
+              <stop offset="100%" stopColor="#080808" />
+            </linearGradient>
+            <radialGradient id="tripodCameraGlow" cx="88%" cy="46%" r="58%">
+              <stop offset="0%" stopColor="#ff6a2b" stopOpacity="0.24" />
+              <stop offset="100%" stopColor="#ff6a2b" stopOpacity="0" />
             </radialGradient>
-            <radialGradient id="cameraHighlight" cx="26%" cy="18%" r="60%">
+            <radialGradient id="tripodCameraHighlight" cx="24%" cy="18%" r="62%">
               <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
               <stop offset="100%" stopColor="rgba(255,255,255,0)" />
             </radialGradient>
           </defs>
 
           <path
-            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27v112c0 15-12 27-27 27H63c-14 0-25-11-25-25z"
-            fill="url(#cameraBodyGradient)"
+            d="M40 104c0-21 17-38 38-38h114l38-40h104l33 33h25c21 0 38 17 38 38v104c0 19-16 35-35 35H76c-20 0-36-16-36-36z"
+            fill="url(#tripodCameraBody)"
           />
           <path
-            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27v112c0 15-12 27-27 27H63c-14 0-25-11-25-25z"
-            fill="url(#cameraOrangeGlow)"
+            d="M40 104c0-21 17-38 38-38h114l38-40h104l33 33h25c21 0 38 17 38 38v104c0 19-16 35-35 35H76c-20 0-36-16-36-36z"
+            fill="url(#tripodCameraGlow)"
           />
           <path
-            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27"
+            d="M40 104c0-21 17-38 38-38h114l38-40h104l33 33h25c21 0 38 17 38 38"
             fill="none"
             stroke="rgba(255,255,255,0.18)"
-            strokeWidth="2.2"
+            strokeWidth="2.5"
             strokeLinecap="round"
           />
           <path
-            d="M26 100c0-20 16-36 36-36h54v146H62c-20 0-36-16-36-36z"
-            fill="url(#cameraGripGradient)"
+            d="M27 121c0-29 20-52 49-57l35-6v178H74c-26 0-47-21-47-47z"
+            fill="url(#tripodCameraGrip)"
           />
-          <rect x="54" y="95" width="30" height="84" rx="12" fill="rgba(255,255,255,0.07)" />
-          <path d="M220 53l24-28h92l19 28z" fill="url(#cameraTopGradient)" />
-          <path d="M220 53l24-28h92l19 28" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" />
-          <rect x="285" y="18" width="44" height="18" rx="9" fill="#161616" />
-          <circle cx="303" cy="28" r="10" fill="#2d2d2d" stroke="rgba(245,241,233,0.14)" />
-          <circle cx="338" cy="34" r="14" fill="#1c1c1c" stroke="rgba(245,241,233,0.12)" />
-          <circle cx="338" cy="34" r="9" fill="#111" />
-          <rect x="102" y="90" width="40" height="22" rx="6" fill="#101010" stroke="rgba(245,241,233,0.08)" />
-          <circle cx="150" cy="101" r="5" fill="#ff5a14" />
-          <rect x="359" y="63" width="14" height="152" rx="7" fill="url(#cameraSideGradient)" />
-          <rect x="371" y="99" width="28" height="52" rx="8" fill="#0a0a0a" />
-          <rect x="381" y="118" width="31" height="14" rx="7" fill="#111" />
-          <rect x="381" y="119" width="41" height="4" rx="2" fill="rgba(245,241,233,0.1)" />
-          <circle cx="265" cy="136" r="88" fill="url(#cameraLensShadow)" stroke="rgba(245,241,233,0.2)" strokeWidth="3" />
-          <circle cx="265" cy="136" r="75" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="10" />
-          <circle cx="265" cy="136" r="67" fill="none" stroke="rgba(255,122,57,0.22)" strokeWidth="2.4" />
-          <circle cx="265" cy="136" r="59" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="2.2" />
-          <ellipse cx="228" cy="94" rx="28" ry="12" fill="rgba(255,255,255,0.1)" transform="rotate(-24 228 94)" />
-          <path d="M202 81c18-17 79-21 108 2" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="4" strokeLinecap="round" />
           <path
-            d="M38 78c0-14 11-25 25-25h158l28-29h84l23 29h21c15 0 27 12 27 27v112c0 15-12 27-27 27H63c-14 0-25-11-25-25z"
-            fill="url(#cameraHighlight)"
+            d="M47 116c0-16 13-29 29-29h29v128H76c-16 0-29-13-29-29z"
+            fill="rgba(255,255,255,0.06)"
+          />
+          <path d="M213 59l31-35h111l26 32v15H213z" fill="url(#tripodCameraTop)" />
+          <path
+            d="M213 59l31-35h111l26 32"
+            fill="none"
+            stroke="rgba(255,255,255,0.2)"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <rect x="270" y="20" width="51" height="15" rx="7.5" fill="#131313" />
+          <circle cx="291" cy="27.5" r="11" fill="#2c2c2c" stroke="rgba(245,241,233,0.15)" />
+          <circle cx="344" cy="33" r="15" fill="#1a1a1a" stroke="rgba(245,241,233,0.12)" />
+          <circle cx="344" cy="33" r="8.5" fill="#0f0f0f" />
+          <path
+            d="M381 72h11c8 0 14 6 14 14v108c0 8-6 14-14 14h-11z"
+            fill="url(#tripodCameraEdge)"
+          />
+          <path
+            d="M396 110h16c8 0 14 6 14 14v35c0 8-6 14-14 14h-16z"
+            fill="#0a0a0a"
+          />
+          <path
+            d="M396 110h16c8 0 14 6 14 14"
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <path
+            d="M42 112c8-20 28-32 51-32h65"
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <path
+            d="M207 84c23-14 66-18 96-8"
+            fill="none"
+            stroke="rgba(255,255,255,0.12)"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <ellipse
+            cx="248"
+            cy="101"
+            rx="34"
+            ry="13"
+            fill="rgba(255,255,255,0.11)"
+            transform="rotate(-22 248 101)"
+          />
+          <path
+            d="M40 104c0-21 17-38 38-38h114l38-40h104l33 33h25c21 0 38 17 38 38v104c0 19-16 35-35 35H76c-20 0-36-16-36-36z"
+            fill="url(#tripodCameraHighlight)"
           />
         </svg>
 
@@ -97,13 +126,14 @@ export function CameraBrand() {
           <RecordingIndicator />
         </div>
 
-        <div className="camera-brand__lens">
-          <div className="camera-brand__lens-barrel">
-            <div className="camera-brand__lens-outer-ring" />
-            <div className="camera-brand__lens-inner-ring" />
-          </div>
-          <div className="camera-brand__lens-front-cover">
-            <div className="camera-brand__lens-cover-highlight" />
+        <div className="camera-brand__lens-assembly">
+          <div className="camera-brand__lens-rim" aria-hidden="true" />
+          <div className="camera-brand__lens-rim camera-brand__lens-rim--inner" aria-hidden="true" />
+
+          <div className="camera-brand__lens-cap">
+            <div className="camera-brand__lens-reflection" aria-hidden="true" />
+            <div className="camera-brand__lens-shadow" aria-hidden="true" />
+
             <div className="camera-brand__lens-logo">
               <Image
                 src="/branding/tripod-creative-logo.png"
