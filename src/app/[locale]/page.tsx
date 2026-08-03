@@ -64,10 +64,12 @@ export default function HomePage() {
         ? {
             navCta: 'Start a Project',
             heroEyebrow: 'We are Tripod Creatives',
-            titleTop: 'Ideas.',
-            titleMid: 'Captured.',
-            titleBottom: 'Made Impact.',
-            subtitle: 'Graphics. Photography. Video. Audio. All under one creative roof.',
+            titleLineOne: 'We Empower',
+            titleLineTwo: 'Your',
+            titleLineThree: 'Brand',
+            titleLineFour: 'Through',
+            titleLineFive: 'Creativity',
+            subtitle: 'Graphics, photography, video, and audio built to make brands impossible to ignore.',
             primary: 'View Our Work',
             secondary: 'Play Showreel',
             heroNote:
@@ -130,10 +132,12 @@ export default function HomePage() {
         : {
             navCta: 'Start a Project',
             heroEyebrow: 'We are Tripod Creatives',
-            titleTop: 'Ideas.',
-            titleMid: 'Captured.',
-            titleBottom: 'Made Impact.',
-            subtitle: 'Graphics. Photography. Video. Audio. All under one creative roof.',
+            titleLineOne: 'We Empower',
+            titleLineTwo: 'Your',
+            titleLineThree: 'Brand',
+            titleLineFour: 'Through',
+            titleLineFive: 'Creativity',
+            subtitle: 'Graphics, photography, video, and audio built to make brands impossible to ignore.',
             primary: 'View Our Work',
             secondary: 'Play Showreel',
             heroNote:
@@ -242,22 +246,24 @@ export default function HomePage() {
           <span>REC</span>
         </div>
 
-        <div className="film-hero-grid mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-end gap-8 px-5 pb-10 pt-16 md:px-16 lg:grid-cols-[0.74fr_1.26fr] lg:pt-18">
-          <div className="relative z-10 pb-3 pt-20 md:pt-24 lg:pt-16">
+        <div className="film-hero-grid mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-start gap-8 px-5 pb-10 pt-16 md:px-16 lg:grid-cols-[0.74fr_1.26fr] lg:pt-18">
+          <div className="film-hero-copy relative z-10 pb-3">
             <p className="film-kicker">
               <span className="film-rec-dot" aria-hidden="true" />
               {copy.heroEyebrow}
             </p>
 
             <h1 id="home-hero-title" className="film-hero-title">
-              <span>{copy.titleTop}</span>
-              <span>{copy.titleMid}</span>
-              <span className="text-[var(--tripod-orange)]">{copy.titleBottom}</span>
+              <span>{copy.titleLineOne}</span>
+              <span>{copy.titleLineTwo}</span>
+              <span>{copy.titleLineThree}</span>
+              <span className="text-[var(--tripod-orange)]">{copy.titleLineFour}</span>
+              <span className="text-[var(--tripod-orange)]">{copy.titleLineFive}</span>
             </h1>
 
-            <p className="mt-5 max-w-md text-base leading-7 text-[var(--tripod-cream)] md:text-lg">{copy.subtitle}</p>
+            <p className="film-hero-subtitle max-w-md text-base leading-7 text-[var(--tripod-cream)] md:text-lg">{copy.subtitle}</p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-4">
+            <div className="film-hero-actions flex flex-wrap items-center gap-4">
               <Link href="/portfolio" className="focus-ring rounded-sm">
                 <Button variant="primary" className="gap-2 px-6 py-3">
                   {copy.primary}
