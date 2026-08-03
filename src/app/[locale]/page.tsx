@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Barcode, Circle, MessageCircle, Play, X } from 'lucide-react';
+import { ArrowRight, Circle, MessageCircle, Play, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { homepageArchiveMediaKeys, sampleMedia } from '@/data/sampleMedia';
@@ -189,12 +189,6 @@ export default function HomePage() {
     [locale]
   );
 
-  const heroMedia = [
-    sampleMedia.brandingMockups,
-    sampleMedia.photographerShooting,
-    sampleMedia.videoProductionSetup,
-    sampleMedia.studioMicrophone,
-  ];
   const archiveMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
 
   return (
@@ -237,54 +231,47 @@ export default function HomePage() {
           </div>
 
           <div className="film-hero-strip">
-            <div className="film-camera-hud" aria-hidden="true">
-              <span>REC 00:12:08</span>
-              <span>ISO 800</span>
-              <span>4K / 25FPS</span>
-              <span>DAR ES SALAAM</span>
-            </div>
-            <div className="film-hero-note">
-              <p>{copy.heroNote}</p>
-              <Link href="/contact" className="film-mini-cta">
-                {copy.navCta}
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
-            </div>
-
-            <div className="film-strip" aria-label="Tripod Creatives production frames">
-              {heroMedia.map((media, index) => (
+            <div className="film-showreel-stage">
+              <div className="film-showreel-frame">
                 <button
-                  key={media.key}
                   type="button"
                   onClick={() => setShowreelOpen(true)}
-                  className="film-strip__frame"
-                  aria-label={`Open showreel frame ${index + 1}`}
+                  className="film-showreel-monitor"
+                  aria-label="Open Tripod Creative showreel preview"
                 >
-                  <Image
-                    src={media.src}
-                    alt={media.alt}
-                    fill
-                    priority={index === 0}
-                    sizes="(max-width: 1024px) 48vw, 16vw"
-                    className="object-cover"
-                  />
-                  <span className="film-strip__number">0{index + 1}</span>
-                  <span className="film-strip__label">
-                    {['Design', 'Photo', 'Video', 'Audio'][index]}
-                  </span>
+                  <div className="film-showreel-monitor__screen">
+                    <Image
+                      src={sampleMedia.videoProductionSetup.src}
+                      alt={sampleMedia.videoProductionSetup.alt}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 90vw, 42vw"
+                      className="object-cover"
+                    />
+                    <div className="film-showreel-monitor__overlay" aria-hidden="true" />
+                    <div className="film-showreel-monitor__hud" aria-hidden="true">
+                      <span className="film-showreel-monitor__rec">
+                        <span className="film-rec-dot" />
+                        REC
+                      </span>
+                      <span>TC 00:12:08</span>
+                      <span>4K / 25FPS</span>
+                    </div>
+                    <div className="film-showreel-monitor__center">
+                      <span className="film-showreel-monitor__play">
+                        <Play className="h-7 w-7" aria-hidden="true" />
+                      </span>
+                    </div>
+                  </div>
                 </button>
-              ))}
-            </div>
 
-            <div className="film-barcode" aria-hidden="true">
-              <Barcode className="h-9 w-24" />
-              <span>FRAME 001</span>
-            </div>
-            <div className="film-focus-corners" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
+                <div className="film-focus-corners" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
             </div>
           </div>
         </div>
