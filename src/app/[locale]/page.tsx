@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
@@ -42,6 +42,13 @@ export default function HomePage() {
   const locale = useLocale();
   const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
+  const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
+  const showreelEmbedUrl = 'https://www.youtube.com/embed/8xTTVKAJ8b0?autoplay=1&rel=0&modestbranding=1';
+  const heroShowreelLoopSrc = '/assets/showreel/tripod-hero-loop.mp4';
+  const heroShowreelPosterSrc = '/assets/showreel/tripod-hero-poster.webp';
+  const hasHeroShowreelLoop = true;
+  // TODO: Add matching poster at /assets/showreel/tripod-hero-poster.webp
+  const hasHeroShowreelPoster = false;
 
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
   const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
@@ -191,6 +198,40 @@ export default function HomePage() {
 
   const archiveMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
 
+  useEffect(() => {
+    if (!showreelOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowreelOpen(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showreelOpen]);
+
+  useEffect(() => {
+    if (!hasHeroShowreelLoop || prefersReducedMotion || !heroShowreelVideoRef.current) {
+      return;
+    }
+
+    const video = heroShowreelVideoRef.current;
+    video.muted = true;
+
+    void video.play().catch(() => {
+      // Ignore autoplay failures and keep the poster/fallback visible.
+    });
+  }, [hasHeroShowreelLoop, prefersReducedMotion]);
+
   return (
     <main className="film-desk-page relative flex-grow overflow-x-hidden">
       <section className="film-hero" aria-labelledby="home-hero-title">
@@ -237,17 +278,32 @@ export default function HomePage() {
                   type="button"
                   onClick={() => setShowreelOpen(true)}
                   className="film-showreel-monitor"
-                  aria-label="Open Tripod Creative showreel preview"
+                  aria-label="Play Tripod Creative showreel"
                 >
                   <div className="film-showreel-monitor__screen">
-                    <Image
-                      src={sampleMedia.videoProductionSetup.src}
-                      alt={sampleMedia.videoProductionSetup.alt}
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 90vw, 42vw"
-                      className="object-cover"
-                    />
+                    {hasHeroShowreelLoop && !prefersReducedMotion ? (
+                      <video
+                        ref={heroShowreelVideoRef}
+                        className="film-showreel-monitor__video"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        poster={hasHeroShowreelPoster ? heroShowreelPosterSrc : sampleMedia.editingTimeline.src}
+                      >
+                        <source src={heroShowreelLoopSrc} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <Image
+                        src={sampleMedia.editingTimeline.src}
+                        alt={sampleMedia.editingTimeline.alt}
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 90vw, 42vw"
+                        className="object-cover"
+                      />
+                    )}
                     <div className="film-showreel-monitor__overlay" aria-hidden="true" />
                     <div className="film-showreel-monitor__hud" aria-hidden="true">
                       <span className="film-showreel-monitor__rec">
@@ -257,6 +313,7 @@ export default function HomePage() {
                       <span>TC 00:12:08</span>
                       <span>4K / 25FPS</span>
                     </div>
+                    <span className="film-showreel-monitor__label" aria-hidden="true">SHOWREEL</span>
                     <div className="film-showreel-monitor__center">
                       <span className="film-showreel-monitor__play">
                         <Play className="h-7 w-7" aria-hidden="true" />
@@ -444,8 +501,11 @@ export default function HomePage() {
       </section>
 
       {showreelOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 p-4 backdrop-blur-md">
-          <div className="film-modal">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 p-4 backdrop-blur-md"
+          onClick={() => setShowreelOpen(false)}
+        >
+          <div className="film-modal film-showreel-modal" onClick={(event) => event.stopPropagation()}>
             <button
               type="button"
               onClick={() => setShowreelOpen(false)}
@@ -454,27 +514,26 @@ export default function HomePage() {
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="grid md:grid-cols-[1.2fr_0.8fr]">
-              <div className="relative aspect-video min-h-[18rem]">
-                <Image
-                  src={sampleMedia.videoProductionSetup.src}
-                  alt={sampleMedia.videoProductionSetup.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 52vw"
-                  className="object-cover"
+            <div className="film-showreel-modal__player">
+              <div className="film-showreel-modal__header">
+                <p className="film-kicker">REC 00:12:08</p>
+                <span>SHOWREEL</span>
+              </div>
+              <div className="film-showreel-modal__iframe-wrap">
+                <iframe
+                  src={showreelEmbedUrl}
+                  title="Tripod Creative showreel"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
                 />
                 {!prefersReducedMotion && (
                   <motion.div
-                    className="absolute inset-8 border border-white/20"
-                    animate={{ opacity: [0.25, 0.9, 0.25] }}
-                    transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+                    className="film-showreel-modal__pulse"
+                    animate={{ opacity: [0.18, 0.55, 0.18] }}
+                    transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                   />
                 )}
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="film-kicker">REC 00:00:12</p>
-                <h2>{copy.modalTitle}</h2>
-                <p>{copy.modalBody}</p>
               </div>
             </div>
           </div>
