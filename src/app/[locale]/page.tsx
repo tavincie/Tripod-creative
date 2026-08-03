@@ -8,10 +8,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Barcode, Circle, MessageCircle, Play, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
-import {
-  homepageArchiveMediaKeys,
-  sampleMedia,
-} from '@/data/sampleMedia';
+import { homepageArchiveMediaKeys, sampleMedia } from '@/data/sampleMedia';
 
 const serviceBlocks = [
   { key: 'design', mediaKey: 'brandingMockups' },
