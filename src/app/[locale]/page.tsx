@@ -11,11 +11,22 @@ import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { homepageArchiveMediaKeys, sampleMedia } from '@/data/sampleMedia';
 
 const serviceBlocks = [
+  { key: 'video', mediaKey: 'videoProductionSetup' },
   { key: 'design', mediaKey: 'brandingMockups' },
   { key: 'photo', mediaKey: 'photographerShooting' },
-  { key: 'video', mediaKey: 'videoProductionSetup' },
-  { key: 'audio', mediaKey: 'studioMicrophone' },
+  { key: 'printing', mediaKey: 'printProduction' },
+  { key: 'digital', mediaKey: 'socialCampaignVisuals' },
+  { key: 'music', mediaKey: 'studioMicrophone' },
 ] as const;
+
+const serviceTitleLines = {
+  video: ['Video', 'Production'],
+  design: ['Branding', '& Design'],
+  photo: ['Photography'],
+  printing: ['Printing'],
+  digital: ['Digital', 'Campaigns'],
+  music: ['Music', 'Studio'],
+} as const;
 
 const portfolioBlocks = [
   { key: 'branding', mediaKey: 'brandingMockups' },
@@ -55,14 +66,14 @@ export default function HomePage() {
             heroNote:
               'Kutoka wazo moja hadi campaign nzima, tunatengeneza visuals na sound inayokaa kwenye memory.',
             servicesEyebrow: 'What We Do',
-            servicesTitle: 'Our Services.',
-            servicesIntro: 'Creative solutions that bring your brand to life.',
+            servicesTitle: 'What We Create.',
+            servicesIntro: 'Designed for screens, stages, streets, and stories.',
             portfolioEyebrow: 'Featured Work',
             portfolioTitle: 'Our Work Speaks.',
             portfolioIntro: 'Real projects. Real impact.',
             studioTitle: 'Studio energy, archive discipline, launch-ready output.',
             studioBody:
-              'Tripod Creatives combines design direction, production crews, editing, recording, printing, and rollout assets in one coordinated creative desk.',
+              'Direction, capture, edit, print, and rollout handled in one coordinated creative studio.',
             process: ['Brief lock', 'Shoot / design / record', 'Edit timeline', 'Launch package'],
             ctaTitle: 'Ready to make something great?',
             ctaBody: 'Let us create something that gets people talking.',
@@ -72,16 +83,20 @@ export default function HomePage() {
             modalBody:
               'Sample preview area. Replace this frame with the final Tripod Creatives showreel when the real cut is ready.',
             serviceLabels: {
-              design: 'Graphic Design',
-              photo: 'Photography',
               video: 'Video Production',
-              audio: 'Audio Studio',
+              design: 'Branding & Design',
+              photo: 'Photography',
+              printing: 'Printing',
+              digital: 'Digital Campaigns',
+              music: 'Music Studio',
             },
             serviceDetails: {
-              design: 'Logos, branding, social media, print, and campaign visuals.',
-              photo: 'Commercial, product, portraits, and event moments.',
-              video: 'Concept to final cut with drone and event coverage.',
-              audio: 'Recording, podcast, production, mixing, and mastering.',
+              video: 'Concept to camera to final cut.',
+              design: 'Identity, visuals, and campaign systems.',
+              photo: 'Portraits, products, events, and brand shots.',
+              printing: 'Posters, banners, packaging, and print pieces.',
+              digital: 'Content built for social attention.',
+              music: 'Recording, production, and studio sessions.',
             },
             portfolioLabels: {
               branding: ['Branding', 'Bold Brew Identity'],
@@ -117,14 +132,14 @@ export default function HomePage() {
             heroNote:
               'From a single idea shot to an entire campaign, we turn your vision into powerful imagery and sound.',
             servicesEyebrow: 'What We Do',
-            servicesTitle: 'Our Services.',
-            servicesIntro: 'Creative solutions that bring your brand to life.',
+            servicesTitle: 'What We Create.',
+            servicesIntro: 'Designed for screens, stages, streets, and stories.',
             portfolioEyebrow: 'Featured Work',
             portfolioTitle: 'Our Work Speaks.',
             portfolioIntro: 'Real projects. Real impact.',
             studioTitle: 'Studio energy, archive discipline, launch-ready output.',
             studioBody:
-              'Tripod Creatives combines design direction, production crews, editing, recording, printing, and rollout assets in one coordinated creative desk.',
+              'Direction, capture, edit, print, and rollout handled in one coordinated creative studio.',
             process: ['Brief lock', 'Shoot / design / record', 'Edit timeline', 'Launch package'],
             ctaTitle: 'Ready to make something great?',
             ctaBody: 'Let us create something that gets people talking.',
@@ -134,16 +149,20 @@ export default function HomePage() {
             modalBody:
               'Sample preview area. Replace this frame with the final Tripod Creatives showreel when the real cut is ready.',
             serviceLabels: {
-              design: 'Graphic Design',
-              photo: 'Photography',
               video: 'Video Production',
-              audio: 'Audio Studio',
+              design: 'Branding & Design',
+              photo: 'Photography',
+              printing: 'Printing',
+              digital: 'Digital Campaigns',
+              music: 'Music Studio',
             },
             serviceDetails: {
-              design: 'Logos, branding, social media, print, and campaign visuals.',
-              photo: 'Commercial, product, portraits, and event moments.',
-              video: 'Concept to final cut with drone and event coverage.',
-              audio: 'Recording, podcast, production, mixing, and mastering.',
+              video: 'Concept to camera to final cut.',
+              design: 'Identity, visuals, and campaign systems.',
+              photo: 'Portraits, products, events, and brand shots.',
+              printing: 'Posters, banners, packaging, and print pieces.',
+              digital: 'Content built for social attention.',
+              music: 'Recording, production, and studio sessions.',
             },
             portfolioLabels: {
               branding: ['Branding', 'Bold Brew Identity'],
@@ -285,25 +304,40 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {serviceBlocks.map((block, index) => {
-              const media = sampleMedia[block.mediaKey];
-              return (
-                <ScrollReveal key={block.key} delay={0.05 * index}>
-                  <article className="film-service-card">
-                    <div className="film-service-card__media">
-                      <Image src={media.src} alt={media.alt} fill sizes="(max-width: 1280px) 50vw, 20vw" className="object-cover" />
-                    </div>
-                    <span className="film-card-number">0{index + 1}</span>
-                    <h3>{copy.serviceLabels[block.key]}</h3>
-                    <p>{copy.serviceDetails[block.key]}</p>
-                    <Link href="/services" aria-label={`${copy.serviceLabels[block.key]} services`} className="film-card-arrow">
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </article>
-                </ScrollReveal>
-              );
-            })}
+          <div className="film-service-tape" aria-label="Tripod Creative services">
+            <div className={`film-service-tape__viewport${prefersReducedMotion ? ' film-service-tape__viewport--reduced' : ''}`}>
+              <div className="film-service-tape__track">
+                {[0, 1].map((setIndex) => (
+                  <div key={setIndex} className="film-service-tape__set" aria-hidden={setIndex === 1}>
+                    {serviceBlocks.map((block, index) => {
+                      const media = sampleMedia[block.mediaKey];
+                      return (
+                        <article key={`${block.key}-${setIndex}`} className="film-service-tape__item">
+                          <div className="film-service-tape__media">
+                            <Image src={media.src} alt={media.alt} fill sizes="(max-width: 768px) 72vw, 18vw" className="object-cover" />
+                          </div>
+                          <div className="film-service-tape__body">
+                            <p className="film-service-tape__meta">
+                              <span className="film-service-tape__dot" aria-hidden="true" />
+                              <span>{`0${index + 1}`}</span>
+                            </p>
+                            <h3>
+                              {serviceTitleLines[block.key].map((line) => (
+                                <span key={line}>{line}</span>
+                              ))}
+                            </h3>
+                            <p>{copy.serviceDetails[block.key]}</p>
+                            <Link href="/services" aria-label={`${copy.serviceLabels[block.key]} services`} className="film-service-tape__link">
+                              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                            </Link>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -373,14 +407,32 @@ export default function HomePage() {
       </section>
 
       <section className="film-capability-band" aria-label="Tripod Creatives capabilities">
-        <div className="mx-auto flex max-w-7xl flex-wrap gap-2 px-5 py-10 md:px-16">
-          {capabilities.map((key, index) => (
-            <span key={key} className="film-capability-pill">
-              <Circle className="h-2 w-2 fill-current" aria-hidden="true" />
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              {copy.capabilities[key]}
-            </span>
-          ))}
+        <div
+          className={`mx-auto film-capability-tape max-w-7xl px-5 py-10 md:px-16${prefersReducedMotion ? ' film-capability-tape--reduced' : ''}`}
+        >
+          <div className="film-capability-tape__viewport">
+            <div className="film-capability-tape__track" role="list">
+              <div className="film-capability-tape__set">
+                {capabilities.map((key, index) => (
+                  <div key={key} className="film-capability-pill" role="listitem" tabIndex={0}>
+                    <Circle className="h-2 w-2 fill-current" aria-hidden="true" />
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    {copy.capabilities[key]}
+                  </div>
+                ))}
+              </div>
+
+              <div className="film-capability-tape__set" aria-hidden="true">
+                {capabilities.map((key, index) => (
+                  <div key={`${key}-duplicate`} className="film-capability-pill">
+                    <Circle className="h-2 w-2 fill-current" aria-hidden="true" />
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    {copy.capabilities[key]}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
