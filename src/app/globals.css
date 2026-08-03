@@ -1391,45 +1391,68 @@ body {
 .film-editorial-heading {
   max-width: 48rem;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(2.7rem, 5.2vw, 5.35rem);
+  font-size: clamp(2.45rem, 4.8vw, 4.85rem);
   font-weight: 950;
   letter-spacing: 0;
-  line-height: 0.86;
+  line-height: 0.88;
   text-transform: uppercase;
 }
 
 .film-timeline-step {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  border-top: 1px solid rgba(5, 5, 5, 0.28);
+  gap: 0.85rem;
+  border-top: 1px solid rgba(5, 5, 5, 0.22);
   color: #171717;
   font-family: var(--font-mono), monospace;
   font-size: 0.72rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
-  padding-top: 0.9rem;
+  letter-spacing: 0.1em;
+  padding-top: 0.92rem;
   text-transform: uppercase;
 }
 
 .film-timeline-step span {
   color: var(--tripod-orange);
+  min-width: 1.9rem;
 }
 
 .film-archive-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(6, 4.25rem);
-  gap: 0.72rem;
+  grid-template-rows: repeat(6, 4.1rem);
+  gap: 0.62rem;
+  align-self: center;
+  filter: saturate(1.02) contrast(1.04) brightness(1.01);
 }
 
 .film-archive-frame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(5, 5, 5, 0.74);
-  border-radius: 0.75rem;
+  border: 1px solid rgba(5, 5, 5, 0.78);
+  border-radius: 0.7rem;
   background: #050505;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+}
+
+.film-archive-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0.5rem;
+  z-index: 2;
+  border: 1px solid rgba(5, 5, 5, 0.26);
+  border-radius: 0.45rem;
+  pointer-events: none;
+}
+
+.film-archive-frame::after {
+  background: linear-gradient(180deg, rgba(255, 61, 0, 0.05), rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.16));
+}
+
+.film-archive-frame img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.03) contrast(1.04) brightness(1.01);
 }
 
 .film-archive-frame--1 {
@@ -1871,6 +1894,16 @@ body {
     border-top-color: rgba(245, 241, 233, 0.18);
     border-bottom-color: rgba(245, 241, 233, 0.12);
   }
+
+  .film-editorial-heading {
+    font-size: clamp(2.35rem, 5.8vw, 4rem);
+    line-height: 0.9;
+  }
+
+  .film-archive-grid {
+    grid-template-rows: repeat(6, 3.7rem);
+    gap: 0.58rem;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1966,6 +1999,26 @@ body {
 
   .film-service-tape__media {
     aspect-ratio: 4 / 5;
+  }
+
+  .film-editorial-heading {
+    font-size: clamp(2.1rem, 11vw, 3.35rem);
+    line-height: 0.92;
+  }
+
+  .film-timeline-step {
+    gap: 0.68rem;
+    font-size: 0.68rem;
+    padding-top: 0.8rem;
+  }
+
+  .film-archive-grid {
+    grid-template-rows: repeat(6, 3.15rem);
+    gap: 0.5rem;
+  }
+
+  .film-archive-frame::before {
+    inset: 0.38rem;
   }
 }
 
