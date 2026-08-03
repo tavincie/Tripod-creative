@@ -888,13 +888,17 @@ body {
 
 .film-showreel-frame {
   position: relative;
+  --showreel-corner-offset: 1rem;
+  --showreel-corner-size: 3rem;
+  --showreel-corner-stroke: 2px;
   width: min(100%, 48rem);
   margin: 0 auto;
-  padding: 2rem;
+  padding: calc(var(--showreel-corner-offset) + 0.9rem);
 }
 
 .film-showreel-monitor {
   position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   padding: 0.95rem;
@@ -1023,43 +1027,46 @@ body {
 
 .film-focus-corners {
   position: absolute;
-  inset: 0;
+  inset: calc(var(--showreel-corner-offset) * -1);
+  z-index: 1;
   pointer-events: none;
 }
 
 .film-focus-corners span {
   position: absolute;
-  width: 2.55rem;
-  height: 2.55rem;
+  width: var(--showreel-corner-size);
+  height: var(--showreel-corner-size);
+  border-width: var(--showreel-corner-stroke);
+  border-style: solid;
   border-color: rgba(245, 241, 233, 0.95);
 }
 
 .film-focus-corners span:nth-child(1) {
-  left: 0.12rem;
-  top: 0.12rem;
-  border-left: 2px solid;
-  border-top: 2px solid;
+  left: 0;
+  top: 0;
+  border-right: 0;
+  border-bottom: 0;
 }
 
 .film-focus-corners span:nth-child(2) {
-  right: 0.12rem;
-  top: 0.12rem;
-  border-right: 2px solid;
-  border-top: 2px solid;
+  right: 0;
+  top: 0;
+  border-left: 0;
+  border-bottom: 0;
 }
 
 .film-focus-corners span:nth-child(3) {
-  left: 0.12rem;
-  bottom: 0.12rem;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
+  left: 0;
+  bottom: 0;
+  border-right: 0;
+  border-top: 0;
 }
 
 .film-focus-corners span:nth-child(4) {
-  right: 0.12rem;
-  bottom: 0.12rem;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
+  right: 0;
+  bottom: 0;
+  border-left: 0;
+  border-top: 0;
 }
 
 .film-showreel-modal {
@@ -1985,7 +1992,9 @@ body {
 
   .film-showreel-frame {
     width: min(100%, 42rem);
-    padding: 1.6rem;
+    --showreel-corner-offset: 0.9rem;
+    --showreel-corner-size: 2.65rem;
+    padding: calc(var(--showreel-corner-offset) + 0.7rem);
   }
 
   .film-showreel-monitor__screen {
@@ -2110,7 +2119,9 @@ body {
 
   .film-showreel-frame {
     width: 100%;
-    padding: 1.15rem;
+    --showreel-corner-offset: 0.7rem;
+    --showreel-corner-size: 2.15rem;
+    padding: calc(var(--showreel-corner-offset) + 0.45rem);
   }
 
   .film-showreel-monitor {
@@ -3265,13 +3276,13 @@ body:has(main.film-desk-page) .film-hero .film-hero-strip {
   padding-bottom: 1.6rem;
 }
 
+body:has(main.film-desk-page) .film-hero .film-showreel-stage {
+  margin-top: 3rem;
+}
+
 body:has(main.film-desk-page) .film-hero .film-camera-hud,
 body:has(main.film-desk-page) .film-hero .film-hero-note {
   margin-left: auto;
-}
-
-body:has(main.film-desk-page) .film-hero .film-focus-corners {
-  inset: 3.4rem -0.25rem 0.8rem 3.4rem;
 }
 
 body:has(main.film-desk-page) .film-light-section .mx-auto,
@@ -3393,6 +3404,10 @@ body:has(main.film-desk-page) .film-hero .film-focus-corners {
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
   }
+
+  body:has(main.film-desk-page) .film-hero .film-showreel-stage {
+    margin-top: 2.5rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -3449,6 +3464,10 @@ body:has(main.film-desk-page) .film-hero .film-focus-corners {
     padding-bottom: 0.35rem;
   }
 
+  body:has(main.film-desk-page) .film-hero .film-showreel-stage {
+    margin-top: 0.85rem;
+  }
+
   .film-showreel-stage {
     min-height: auto;
     padding-top: 1rem;
@@ -3457,11 +3476,6 @@ body:has(main.film-desk-page) .film-hero .film-focus-corners {
 
   .film-showreel-frame {
     padding: 1.15rem;
-  }
-
-  .film-focus-corners span {
-    width: 2rem;
-    height: 2rem;
   }
 
   .film-showreel-modal {
@@ -3475,10 +3489,6 @@ body:has(main.film-desk-page) .film-hero .film-focus-corners {
 
   .film-showreel-modal__header {
     font-size: 0.56rem;
-  }
-
-  body:has(main.film-desk-page) .film-hero .film-focus-corners {
-    inset: 1.1rem 0.1rem 0.35rem 1rem;
   }
 
   body:has(main.film-desk-page) .film-cta-section .mx-auto {

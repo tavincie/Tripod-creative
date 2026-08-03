@@ -320,14 +320,13 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
+                  <div className="film-focus-corners" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
                 </button>
-
-                <div className="film-focus-corners" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                </div>
               </div>
             </div>
           </div>
