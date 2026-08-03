@@ -126,11 +126,11 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-light py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="grid gap-5 lg:grid-cols-2">
             <ScrollReveal>
-              <GlassCard className="h-full rounded-[30px] p-6 sm:p-8">
+              <GlassCard className="tripod-glass-card--light h-full rounded-[30px] p-6 sm:p-8">
                 <div className="space-y-5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
@@ -179,7 +179,7 @@ export function StudioAcademyExperience({
             </ScrollReveal>
 
             <ScrollReveal delay={0.08}>
-              <GlassCard className="h-full rounded-[30px] p-6 sm:p-8">
+              <GlassCard className="tripod-glass-card--light h-full rounded-[30px] p-6 sm:p-8">
                 <div className="space-y-5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
@@ -230,7 +230,7 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="border-y border-white/6 bg-surface-container-lowest/80 py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="mb-8 space-y-3">
             <ScrollReveal>
@@ -302,11 +302,11 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-light py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)]">
             <ScrollReveal>
-              <GlassCard className="rounded-[30px] p-6 sm:p-8">
+              <GlassCard className="tripod-glass-card--light rounded-[30px] p-6 sm:p-8">
                 <span className="label-sm text-primary">{t('benefits.eyebrow')}</span>
                 <h2 className="headline-lg mt-4 text-white">{t('benefits.title')}</h2>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -328,7 +328,7 @@ export function StudioAcademyExperience({
             </ScrollReveal>
 
             <ScrollReveal delay={0.08}>
-              <GlassCard className="rounded-[30px] p-6 sm:p-8">
+              <GlassCard className="tripod-glass-card--light rounded-[30px] p-6 sm:p-8">
                 <span className="label-sm text-primary">{t('pathway.eyebrow')}</span>
                 <h2 className="headline-lg mt-4 text-white">{t('pathway.title')}</h2>
                 <div className="mt-6 space-y-4">
@@ -365,11 +365,11 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-white/6 py-14 sm:py-16 lg:py-20">
+      <section className="film-cta-section relative overflow-hidden border-t border-white/6 py-14 sm:py-16 lg:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,126,0,0.15),transparent_35%),radial-gradient(circle_at_top_right,rgba(253,208,0,0.08),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl px-5 md:px-16">
           <ScrollReveal>
-            <GlassCard className="rounded-[30px] p-6 text-center sm:p-8 lg:p-10">
+            <GlassCard className="tripod-dark-panel rounded-[30px] p-6 text-center sm:p-8 lg:p-10">
               <span className="label-sm text-primary">{t('cta.eyebrow')}</span>
               <h2 className="headline-lg mx-auto mt-4 max-w-3xl text-white">
                 {t('cta.title')}

@@ -15,17 +15,17 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center px-6 py-3 rounded-sm text-xs font-black uppercase tracking-[0.12em] transition-all duration-300 focus-ring cursor-pointer';
+    'inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[var(--tripod-radius-pill)] px-5 sm:px-6 text-[0.72rem] font-black uppercase tracking-[0.16em] transition-all duration-300 focus-ring cursor-pointer';
   let variantStyles = '';
 
   if (variant === 'primary') {
-    variantStyles = 'primary-button-gradient text-black shadow-md';
+    variantStyles = 'primary-button-gradient';
   } else if (variant === 'secondary') {
     variantStyles =
-      'bg-transparent hover:bg-white/5 text-on-surface border border-white/18 hover:border-primary/60';
+      'border border-[var(--tripod-border-dark)] bg-black/25 text-[var(--tripod-text-light)] hover:border-[rgba(255,61,0,0.35)] hover:bg-black/35';
   } else if (variant === 'outline') {
     variantStyles =
-      'bg-transparent border border-white/18 hover:bg-primary/5 hover:border-primary/60 text-on-surface';
+      'border border-[var(--tripod-border-light)] bg-[rgba(247,242,233,0.18)] text-[var(--tripod-text-dark)] hover:border-[rgba(255,61,0,0.28)] hover:bg-[rgba(247,242,233,0.3)]';
   }
 
   return (

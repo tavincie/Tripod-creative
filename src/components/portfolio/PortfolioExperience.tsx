@@ -36,7 +36,7 @@ function FilterButton({
         'focus-ring rounded-sm border px-4 py-2 font-mono text-[0.68rem] font-black uppercase tracking-[0.12em] transition-all duration-300',
         active
           ? 'border-primary/50 bg-gradient-to-r from-primary to-secondary-container text-black shadow-[0_12px_30px_rgba(255,182,136,0.25)]'
-          : 'border-white/10 bg-white/5 text-on-surface-variant hover:border-primary/30 hover:text-white',
+          : 'border-black/10 bg-black/5 text-[var(--tripod-text-muted-dark)] hover:border-primary/30 hover:text-[var(--tripod-text-dark)]',
       ].join(' ')}
     >
       {label}
@@ -119,7 +119,7 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="border-y border-white/6 bg-black py-4">
+      <section className="tripod-page-light border-y border-black/8 py-4">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="flex gap-3 overflow-x-auto pb-1" role="toolbar" aria-label={t('filters.ariaLabel')}>
             {portfolioCategories.map((category) => (
@@ -134,7 +134,7 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="py-12 lg:py-16">
+      <section className="tripod-page-light py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="mb-8 flex items-end justify-between gap-6">
             <div className="space-y-2">
@@ -142,7 +142,7 @@ export function PortfolioExperience({
                 <span className="label-sm text-primary">{t('grid.eyebrow')}</span>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h2 className="headline-lg text-white">{t('grid.title')}</h2>
+                <h2 className="headline-lg text-[var(--tripod-text-dark)]">{t('grid.title')}</h2>
               </ScrollReveal>
             </div>
           </div>
@@ -175,10 +175,10 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <ScrollReveal>
-            <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="grid overflow-hidden rounded-[2rem] tripod-dark-panel lg:grid-cols-[1.05fr_0.95fr]">
               <div className="relative min-h-[22rem]">
                 <Image
                   src={sampleMedia.editingTimeline.src}
@@ -207,12 +207,12 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="tripod-page-light py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-5 text-center md:px-16">
           <ScrollReveal>
             <span className="label-sm text-primary">{t('cta.eyebrow')}</span>
-            <h2 className="headline-lg mt-4 text-white">{t('cta.title')}</h2>
-            <p className="body-md mx-auto mt-4 max-w-2xl text-on-surface-variant">{t('cta.subtitle')}</p>
+            <h2 className="headline-lg mt-4 text-[var(--tripod-text-dark)]">{t('cta.title')}</h2>
+            <p className="body-md mx-auto mt-4 max-w-2xl text-[var(--tripod-text-muted-dark)]">{t('cta.subtitle')}</p>
             <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex rounded-full">
               <Button variant="primary" className="px-7 py-3.5">
                 {locale === 'sw' ? 'Book on WhatsApp' : 'Book on WhatsApp'}

@@ -32,7 +32,7 @@ export function Footer() {
 
   return (
     <footer className="film-footer">
-      <div className="mx-auto grid max-w-7xl gap-9 px-5 py-12 md:px-16 lg:grid-cols-[1.15fr_0.8fr_0.9fr_0.9fr]">
+      <div className="tripod-shell--wide grid gap-9 py-12 md:grid-cols-[1.15fr_0.8fr_0.9fr_0.9fr] md:py-14">
         <div>
           <Link href="/" className="film-logo-mark focus-ring rounded-sm">
             TRIP<span className="film-logo-o">O</span>D
@@ -93,31 +93,18 @@ export function Footer() {
                 </svg>
                 YouTube
               </a>
-            ) : (
-              <span className="film-footer-missing">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M4 8.5c0-1.4 1.1-2.5 2.5-2.5h11C18.9 6 20 7.1 20 8.5v7c0 1.4-1.1 2.5-2.5 2.5h-11C5.1 18 4 16.9 4 15.5z" />
-                  <path d="m10 9 5 3-5 3z" />
-                </svg>
-                YouTube not configured
-              </span>
-            )}
+            ) : null}
             {siteConfig.location ? (
               <span className="film-footer-link">
                 <MapPin className="h-4 w-4" aria-hidden="true" />
                 {siteConfig.location}
               </span>
-            ) : (
-              <span className="film-footer-missing">
-                <MapPin className="h-4 w-4" aria-hidden="true" />
-                Location not configured
-              </span>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-5 py-5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/45 md:flex-row md:items-center md:justify-between md:px-16">
+      <div className="tripod-shell--wide flex flex-col gap-3 border-t border-white/10 py-5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/45 md:flex-row md:items-center md:justify-between">
         <span>© {new Date().getFullYear()} Tripod Creatives</span>
         <span>Seen. Heard. Remembered.</span>
       </div>

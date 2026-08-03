@@ -19,55 +19,99 @@ export function FeaturedDevelopmentCard({
   const copy =
     locale === 'sw'
       ? {
-          eyebrow: 'Featured Build',
-          title: 'Web & app builds that carry the same studio direction as the campaign work.',
+          eyebrow: 'Integrated Campaign Build',
+          title: 'ONE BRIEF. MULTIPLE DISCIPLINES.',
           description:
-            'Tovuti, landing pages, na interfaces hujengwa kwa typography kali, motion yenye nidhamu, na visuals zinazofanya kazi isiwe rahisi kupuuzwa.',
-          cta: 'Jadili build ya digital',
+            'Campaign moja inaweza kuhitaji design, stills, video, live coverage, audio assets, na rollout materials. Hapa Tripod huifanya production desk nzima ifanye kazi kama system moja.',
+          outputs: ['Brand key visuals', 'Photo and video assets', 'Print rollout', 'Audio and digital content'],
+          cta: 'Build a campaign brief',
         }
       : {
-          eyebrow: 'Featured Build',
-          title: 'Web and app builds that carry the same studio direction as the campaign work.',
+          eyebrow: 'Integrated Campaign Build',
+          title: 'ONE BRIEF. MULTIPLE DISCIPLINES.',
           description:
-            'Websites, landing pages, and interfaces are built with sharper typography, disciplined motion, and visuals that make the work harder to ignore.',
-          cta: 'Discuss a digital build',
+            'One campaign can need design, stills, video, live coverage, audio assets, and rollout materials. This is where Tripod works as one connected production desk instead of separate vendors.',
+          outputs: ['Brand key visuals', 'Photo and video assets', 'Print rollout', 'Audio and digital content'],
+          cta: 'Build a campaign brief',
         };
 
+  const frames = [
+    sampleMedia.videoProductionSetup,
+    sampleMedia.eventPhotography,
+    sampleMedia.studioMicrophone,
+  ];
+
   return (
-    <section className="pb-16 lg:pb-20">
+    <section className="bg-[linear-gradient(180deg,#050505_0%,#050505_74%,#000000_100%)] py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 md:px-16">
-        <ScrollReveal>
-          <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 lg:grid-cols-[1fr_1fr]">
-            <div className="relative min-h-[22rem]">
-              <Image
-                src={sampleMedia.editingTimeline.src}
-                alt={sampleMedia.editingTimeline.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,126,0,0.08),rgba(0,0,0,0.74))]" />
-            </div>
-            <div className="flex items-center p-6 sm:p-8 lg:p-10">
-              <div className="max-w-xl space-y-5">
-                <p className="label-sm text-primary">{copy.eyebrow}</p>
-                <h2 className="headline-lg text-white">{copy.title}</h2>
-                <p className="body-md text-on-surface-variant">{copy.description}</p>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex rounded-full"
-                >
-                  <Button variant="primary" className="gap-2 px-6 py-3.5">
-                    {copy.cta}
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Button>
-                </a>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)] lg:items-center">
+          <ScrollReveal>
+            <div className="grid gap-4 sm:grid-cols-[1.12fr_0.88fr]">
+              <div className="relative min-h-[28rem] overflow-hidden rounded-[2.1rem] border border-white/10 bg-black">
+                <Image
+                  src={sampleMedia.socialCampaignVisuals.src}
+                  alt={sampleMedia.socialCampaignVisuals.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 44vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,61,0,0.1),rgba(0,0,0,0.7))]" />
+              </div>
+
+              <div className="grid gap-4">
+                {frames.map((media, index) => (
+                  <div
+                    key={media.key}
+                    className="relative min-h-[8.25rem] overflow-hidden rounded-[1.25rem] border border-white/10 bg-black"
+                  >
+                    <Image
+                      src={media.src}
+                      alt={media.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 18vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.66))]" />
+                    <span className="absolute left-3 top-3 font-mono text-[0.54rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
+                      0{index + 1}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.08}>
+            <div className="space-y-6">
+              <p className="label-sm text-[var(--tripod-orange)]">{copy.eyebrow}</p>
+              <h2 className="headline-lg max-w-xl text-[var(--tripod-warm-white)]">{copy.title}</h2>
+              <p className="body-md max-w-xl text-[var(--tripod-text-muted-light)]">{copy.description}</p>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {copy.outputs.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-[var(--tripod-warm-white)]"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-sm"
+              >
+                <Button variant="primary" className="gap-2 px-7 py-3.5">
+                  {copy.cta}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Button>
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

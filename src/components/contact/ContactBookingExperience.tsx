@@ -284,10 +284,10 @@ export function ContactBookingExperience({
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="tripod-page-light py-16 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)]">
           <ScrollReveal>
-            <div className="rounded-[2rem] border border-white/10 bg-black/20 p-6 sm:p-8">
+            <div className="rounded-[2rem] tripod-dark-panel p-6 sm:p-8">
               <div className="mb-6">
                 <span className="label-sm text-primary">{copy.formEyebrow}</span>
                 <h2 className="headline-lg mt-4 text-white">{copy.formTitle}</h2>
@@ -387,7 +387,7 @@ export function ContactBookingExperience({
 
           <div className="space-y-5">
             <ScrollReveal delay={0.08}>
-              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/20">
+              <div className="overflow-hidden rounded-[2rem] tripod-editorial-panel">
                 <div className="relative min-h-[14rem]">
                   <Image
                     src={sampleMedia.liveStreamingSetup.src}
@@ -399,8 +399,8 @@ export function ContactBookingExperience({
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
                 </div>
                 <div className="p-6">
-                  <h2 className="headline-md text-white">{copy.instantTitle}</h2>
-                  <p className="body-md mt-3 text-on-surface-variant">{copy.instantBody}</p>
+                  <h2 className="headline-md text-[var(--tripod-text-dark)]">{copy.instantTitle}</h2>
+                  <p className="body-md mt-3 text-[var(--tripod-text-muted-dark)]">{copy.instantBody}</p>
                   <a href={fallbackBookingUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full">
                     <Button variant="primary" className="gap-2 px-6 py-3.5">
                       <MessageCircle className="h-4 w-4" aria-hidden="true" />
@@ -412,7 +412,7 @@ export function ContactBookingExperience({
             </ScrollReveal>
 
             <ScrollReveal delay={0.12}>
-              <div className="rounded-[2rem] border border-white/10 bg-black/20 p-6">
+              <div className="rounded-[2rem] tripod-editorial-panel p-6">
                 <p className="label-sm text-primary">{copy.quickTitle}</p>
                 <div className="mt-5 space-y-4">
                   {[
@@ -425,8 +425,8 @@ export function ContactBookingExperience({
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </div>
                       <div>
-                        <p className="text-base font-semibold text-white">{title}</p>
-                        <p className="mt-1 text-sm leading-6 text-on-surface-variant">{value}</p>
+                        <p className="text-base font-semibold text-[var(--tripod-text-dark)]">{title}</p>
+                        <p className="mt-1 text-sm leading-6 text-[var(--tripod-text-muted-dark)]">{value}</p>
                       </div>
                     </div>
                   ))}
@@ -435,16 +435,16 @@ export function ContactBookingExperience({
             </ScrollReveal>
 
             <ScrollReveal delay={0.16}>
-              <div className="rounded-[2rem] border border-white/10 bg-black/20 p-6">
-                <h3 className="text-lg font-semibold text-white">{copy.locationTitle}</h3>
-                <p className="mt-3 text-sm leading-6 text-on-surface-variant">{copy.locationBody}</p>
+              <div className="rounded-[2rem] tripod-editorial-panel p-6">
+                <h3 className="text-lg font-semibold text-[var(--tripod-text-dark)]">{copy.locationTitle}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--tripod-text-muted-dark)]">{copy.locationBody}</p>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="tripod-page-dark py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-5 text-center md:px-16">
           <ScrollReveal>
             <h2 className="headline-lg text-white">{copy.finalTitle}</h2>

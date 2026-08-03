@@ -169,12 +169,12 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="tripod-page-light py-16 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
           <ScrollReveal>
             <div className="space-y-4">
-              <h2 className="headline-lg text-white">{copy.statementTitle}</h2>
-              <p className="body-md max-w-xl text-on-surface-variant">
+              <h2 className="headline-lg text-[var(--tripod-text-dark)]">{copy.statementTitle}</h2>
+              <p className="body-md max-w-xl text-[var(--tripod-text-muted-dark)]">
                 {copy.statementBody}
               </p>
             </div>
@@ -195,7 +195,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center">
             <ScrollReveal>
@@ -235,17 +235,17 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="tripod-page-light py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="mb-8 space-y-3">
             <ScrollReveal>
               <span className="label-sm text-primary">{copy.cultureEyebrow}</span>
             </ScrollReveal>
             <ScrollReveal delay={0.08}>
-              <h2 className="headline-lg max-w-3xl text-white">{copy.cultureTitle}</h2>
+              <h2 className="headline-lg max-w-3xl text-[var(--tripod-text-dark)]">{copy.cultureTitle}</h2>
             </ScrollReveal>
             <ScrollReveal delay={0.12}>
-              <p className="body-md max-w-2xl text-on-surface-variant">{copy.cultureBody}</p>
+              <p className="body-md max-w-2xl text-[var(--tripod-text-muted-dark)]">{copy.cultureBody}</p>
             </ScrollReveal>
           </div>
 
@@ -272,7 +272,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="border-y border-white/6 bg-surface-container-lowest/70 py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="mb-8 space-y-3">
             <ScrollReveal>
@@ -297,11 +297,11 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="film-cta-section py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-5 text-center md:px-16">
           <ScrollReveal>
-            <h2 className="headline-lg text-white">{copy.ctaTitle}</h2>
-            <p className="body-md mx-auto mt-4 max-w-2xl text-on-surface-variant">{copy.ctaBody}</p>
+            <h2 className="headline-lg text-[var(--tripod-warm-white)]">{copy.ctaTitle}</h2>
+            <p className="body-md mx-auto mt-4 max-w-2xl text-[rgba(245,241,233,0.82)]">{copy.ctaBody}</p>
             <a
               href={ctaUrl}
               target="_blank"
