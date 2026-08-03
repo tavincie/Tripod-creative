@@ -99,11 +99,11 @@ export default function HomePage() {
               music: 'Recording, production, and studio sessions.',
             },
             portfolioLabels: {
-              branding: ['Branding', 'Bold Brew Identity'],
-              motion: ['Video', 'Urban Motion Campaign'],
-              product: ['Photography', 'Product Shot Collection'],
-              sound: ['Audio', 'Soundtrack Production'],
-              event: ['Event Coverage', 'Live Event Highlights'],
+              branding: ['Branding', 'Brand Identity'],
+              motion: ['Video', 'Video Campaign'],
+              product: ['Photography', 'Product Photography'],
+              sound: ['Audio', 'Studio Audio'],
+              event: ['Event Coverage', 'Event Coverage'],
             },
             capabilities: {
               graphic: 'Graphic Design',
@@ -165,11 +165,11 @@ export default function HomePage() {
               music: 'Recording, production, and studio sessions.',
             },
             portfolioLabels: {
-              branding: ['Branding', 'Bold Brew Identity'],
-              motion: ['Video', 'Urban Motion Campaign'],
-              product: ['Photography', 'Product Shot Collection'],
-              sound: ['Audio', 'Soundtrack Production'],
-              event: ['Event Coverage', 'Live Event Highlights'],
+              branding: ['Branding', 'Brand Identity'],
+              motion: ['Video', 'Video Campaign'],
+              product: ['Photography', 'Product Photography'],
+              sound: ['Audio', 'Studio Audio'],
+              event: ['Event Coverage', 'Event Coverage'],
             },
             capabilities: {
               graphic: 'Graphic Design',
@@ -349,9 +349,9 @@ export default function HomePage() {
               <p className="film-kicker">{copy.portfolioEyebrow}</p>
               <h2 id="home-portfolio-title">{copy.portfolioTitle}</h2>
               <p>{copy.portfolioIntro}</p>
-              <Link href="/portfolio" className="film-text-link film-text-link--light">
+              <Link href="/portfolio" className="film-text-link film-text-link--light film-portfolio-link">
                 View Full Portfolio
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <ArrowRight className="film-portfolio-link__arrow h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </ScrollReveal>
@@ -365,6 +365,7 @@ export default function HomePage() {
                   <article className="film-portfolio-card">
                     <Image src={media.src} alt={media.alt} fill sizes="(max-width: 1024px) 66vw, 20vw" className="object-cover" />
                     <div className="film-portfolio-card__overlay">
+                      <span className="film-portfolio-card__frame">FRAME {String(index + 1).padStart(2, '0')}</span>
                       <p>{label}</p>
                       <h3>{title}</h3>
                     </div>
