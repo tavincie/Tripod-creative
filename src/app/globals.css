@@ -2571,3 +2571,246 @@ main.relative.flex-grow [class*='border-white\\/6'] {
     padding-top: 1rem;
   }
 }
+
+body:has(main.film-desk-page) .camera-film-header {
+  --camera-header-safe-desktop: 8.75rem;
+  --camera-header-safe-tablet: 7rem;
+  --camera-header-safe-mobile: 4.85rem;
+}
+
+body:has(main.film-desk-page) .camera-film-header__inner {
+  max-width: 80rem;
+  padding-top: 0.08rem;
+}
+
+body:has(main.film-desk-page) .camera-film-assembly {
+  grid-template-columns: clamp(13.75rem, 16vw, 16.25rem) minmax(0, 1fr);
+  align-items: center;
+}
+
+body:has(main.film-desk-page) .camera-brand {
+  flex: 0 0 clamp(13.75rem, 16vw, 16.25rem);
+  width: clamp(13.75rem, 16vw, 16.25rem);
+  padding-left: 0.25rem;
+}
+
+body:has(main.film-desk-page) .camera-brand__shell {
+  min-height: clamp(6.9rem, 8.2vw, 7.6rem);
+}
+
+body:has(main.film-desk-page) .camera-brand__lens-assembly {
+  width: clamp(5rem, 6vw, 5.6rem);
+  height: clamp(5rem, 6vw, 5.6rem);
+}
+
+body:has(main.film-desk-page) .camera-brand__labels {
+  left: 0.92rem;
+  bottom: 0.56rem;
+  font-size: 0.33rem;
+}
+
+body:has(main.film-desk-page) .camera-film-header__connection {
+  margin-left: -1.1rem;
+  align-items: center;
+}
+
+body:has(main.film-desk-page) .film-navigation {
+  min-height: 4.35rem;
+}
+
+body:has(main.film-desk-page) .film-navigation__frames {
+  min-height: 4.35rem;
+  grid-template-columns:
+    minmax(3.6rem, 0.34fr)
+    repeat(6, minmax(0, 1fr))
+    minmax(10rem, 1.02fr)
+    minmax(6.8rem, 0.74fr);
+}
+
+body:has(main.film-desk-page) .film-module {
+  min-height: 4.35rem;
+  padding: 0.58rem 0.58rem 0.52rem;
+}
+
+body:has(main.film-desk-page) .film-module__frame {
+  top: 0.36rem;
+  left: 0.58rem;
+  font-size: 0.42rem;
+}
+
+body:has(main.film-desk-page) .film-module__mark--top {
+  top: 0.82rem;
+}
+
+body:has(main.film-desk-page) .film-module__mark--bottom {
+  bottom: 0.74rem;
+}
+
+body:has(main.film-desk-page) .film-nav-item__label,
+body:has(main.film-desk-page) .film-project-cta__label {
+  margin-top: 0.52rem;
+  font-size: 0.62rem;
+}
+
+body:has(main.film-desk-page) .film-nav-item__underline {
+  width: 1.7rem;
+}
+
+body:has(main.film-desk-page) .film-nav-item__playhead {
+  left: 0.58rem;
+  bottom: 0.68rem;
+}
+
+body:has(main.film-desk-page) .film-language-frame__content {
+  margin-top: 0.5rem;
+  padding-right: 0.7rem;
+}
+
+body:has(main.film-desk-page) .film-language-switcher {
+  min-width: 4.6rem;
+  padding: 0.15rem 0.28rem;
+}
+
+body:has(main.film-desk-page) .film-language-switcher button {
+  min-width: 1.62rem;
+  min-height: 1.58rem;
+  font-size: 0.52rem;
+}
+
+body:has(main.film-desk-page) .film-project-cta .film-module {
+  padding: 0.72rem 0.9rem 0.58rem;
+}
+
+body:has(main.film-desk-page) .film-project-button {
+  min-height: 2.3rem;
+  padding: 0 1.3rem;
+}
+
+body:has(main.film-desk-page) .film-hero .film-hero-grid {
+  padding-top: calc(var(--camera-header-safe-desktop) + 0.9rem);
+  gap: 2rem;
+}
+
+body:has(main.film-desk-page) .film-hero .film-hero-strip {
+  padding-top: 1.15rem;
+}
+
+body:has(main.film-desk-page) .film-hero .film-camera-hud,
+body:has(main.film-desk-page) .film-hero .film-hero-note,
+body:has(main.film-desk-page) .film-hero .film-strip,
+body:has(main.film-desk-page) .film-hero .film-barcode,
+body:has(main.film-desk-page) .film-hero .film-focus-corners {
+  margin-top: 0;
+}
+
+@media (max-width: 1179px) {
+  body:has(main.film-desk-page) .camera-film-header__inner {
+    max-width: 80rem;
+  }
+
+  body:has(main.film-desk-page) .camera-film-assembly {
+    grid-template-columns: clamp(11rem, 22vw, 13.5rem) minmax(0, 1fr);
+  }
+
+  body:has(main.film-desk-page) .camera-brand {
+    flex: 0 0 clamp(11rem, 22vw, 13.5rem);
+    width: clamp(11rem, 22vw, 13.5rem);
+  }
+
+  body:has(main.film-desk-page) .camera-brand__shell {
+    min-height: 5.5rem;
+  }
+
+  body:has(main.film-desk-page) .camera-brand__labels {
+    left: 0.5rem;
+    bottom: 0.3rem;
+    font-size: 0.25rem;
+  }
+
+  body:has(main.film-desk-page) .camera-film-header__connection {
+    margin-left: -0.55rem;
+  }
+
+  body:has(main.film-desk-page) .film-navigation {
+    min-height: 4.1rem;
+  }
+
+  body:has(main.film-desk-page) .film-navigation__frames {
+    min-height: 4.1rem;
+    grid-template-columns:
+      minmax(2.8rem, 0.28fr)
+      repeat(6, minmax(0, 1fr))
+      minmax(8.4rem, 0.96fr)
+      minmax(6rem, 0.72fr);
+  }
+
+  body:has(main.film-desk-page) .film-module {
+    min-height: 4.1rem;
+    padding: 0.5rem 0.48rem 0.46rem;
+  }
+
+  body:has(main.film-desk-page) .film-nav-item__label,
+  body:has(main.film-desk-page) .film-project-cta__label {
+    font-size: 0.58rem;
+  }
+
+  body:has(main.film-desk-page) .film-hero .film-hero-grid {
+    padding-top: calc(var(--camera-header-safe-tablet) + 0.75rem);
+  }
+
+  body:has(main.film-desk-page) .film-hero .film-hero-strip {
+    padding-top: 0.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  body:has(main.film-desk-page) .camera-film-header__inner {
+    max-width: 100%;
+    padding: 0.4rem 0.8rem 0;
+  }
+
+  body:has(main.film-desk-page) .camera-film-header__mobile {
+    align-items: center;
+    min-height: 3.85rem;
+  }
+
+  body:has(main.film-desk-page) .camera-brand {
+    flex: 0 0 clamp(7.2rem, 25vw, 8.8rem);
+    width: clamp(7.2rem, 25vw, 8.8rem);
+  }
+
+  body:has(main.film-desk-page) .camera-brand__shell {
+    min-height: 3.1rem;
+  }
+
+  body:has(main.film-desk-page) .camera-brand__lens-assembly {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  body:has(main.film-desk-page) .camera-brand__labels {
+    display: none;
+  }
+
+  body:has(main.film-desk-page) .camera-film-header__mobile-controls {
+    padding-top: 0;
+  }
+
+  body:has(main.film-desk-page) .camera-mobile-menu__toggle {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  body:has(main.film-desk-page) .camera-mobile-menu__panel {
+    inset: 3.95rem 0 0;
+  }
+
+  body:has(main.film-desk-page) .film-hero .film-hero-grid {
+    padding-top: calc(var(--camera-header-safe-mobile) + 0.55rem);
+    gap: 1.35rem;
+  }
+
+  body:has(main.film-desk-page) .film-hero .film-hero-strip {
+    padding-top: 0.45rem;
+  }
+}
