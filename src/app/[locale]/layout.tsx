@@ -105,10 +105,10 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${montserrat.variable} ${geistMono.variable} dark`}
     >
-      <body className="bg-background text-on-surface antialiased">
+      <body className="tripod-site-body antialiased">
         <NextIntlClientProvider messages={messages}>
           <AppProviders>
-            <div className="min-h-screen bg-background text-on-surface">
+            <div className="tripod-site-shell">
               <Header />
               {children}
               <Footer />
