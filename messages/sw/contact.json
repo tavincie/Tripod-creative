@@ -145,10 +145,6 @@
         "title": "Instagram",
         "fallback": "Instagram link itakuja baadaye"
       },
-      "youtube": {
-        "title": "YouTube",
-        "fallback": "YouTube link itakuja baadaye"
-      },
       "location": {
         "title": "Service area",
         "fallback": "Location details coming soon"

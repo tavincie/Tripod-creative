@@ -145,10 +145,6 @@
         "title": "Instagram",
         "fallback": "Instagram link coming soon"
       },
-      "youtube": {
-        "title": "YouTube",
-        "fallback": "YouTube link coming soon"
-      },
       "location": {
         "title": "Service area",
         "fallback": "Location details coming soon"

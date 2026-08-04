@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Globe, Mail, MessageCircle, Phone, PlayCircle, Send } from 'lucide-react';
+import { Globe, Mail, MessageCircle, Phone, Send } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
@@ -174,11 +174,6 @@ export function ContactBookingExperience({
       icon: Globe,
       title: tContact('contacts.items.instagram.title'),
       value: tContact('contacts.items.instagram.fallback'),
-    },
-    {
-      icon: PlayCircle,
-      title: tContact('contacts.items.youtube.title'),
-      value: tContact('contacts.items.youtube.fallback'),
     },
     {
       icon: MessageCircle,

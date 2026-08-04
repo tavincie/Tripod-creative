@@ -1096,7 +1096,7 @@ body {
   text-transform: uppercase;
 }
 
-.film-showreel-modal__iframe-wrap {
+.film-showreel-modal__media-wrap {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(245, 241, 233, 0.18);
@@ -1106,7 +1106,7 @@ body {
   max-height: 80vh;
 }
 
-.film-showreel-modal__iframe-wrap iframe {
+.film-showreel-modal__media-wrap video {
   width: 100%;
   height: 100%;
   border: 0;

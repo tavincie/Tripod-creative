@@ -78,15 +78,6 @@ export function Footer() {
               </svg>
               {tCommon('instagram')}
             </a>
-            {siteConfig.youtubeUrl ? (
-              <a href={siteConfig.youtubeUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M4 8.5c0-1.4 1.1-2.5 2.5-2.5h11C18.9 6 20 7.1 20 8.5v7c0 1.4-1.1 2.5-2.5 2.5h-11C5.1 18 4 16.9 4 15.5z" />
-                  <path d="m10 9 5 3-5 3z" />
-                </svg>
-                {tCommon('youtube')}
-              </a>
-            ) : null}
             {siteConfig.location ? (
               <span className="film-footer-link">
                 <MapPin className="h-4 w-4" aria-hidden="true" />

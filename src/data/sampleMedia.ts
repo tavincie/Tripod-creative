@@ -127,14 +127,6 @@ export const homepageHeroMediaKeys = [
   'brandingMockups',
 ] as const;
 
-export const homepageShowreelMediaKeys = [
-  'videoProductionSetup',
-  'eventPhotography',
-  'photographerShooting',
-  'musicProducerWorkstation',
-  'socialCampaignVisuals',
-] as const;
-
 export const homepageServiceMediaKeys = [
   'brandingMockups',
   'graphicDesignerWorkspace',

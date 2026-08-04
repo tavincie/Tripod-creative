@@ -48,12 +48,8 @@ export default function HomePage() {
   const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
   const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
-  const showreelEmbedUrl =
-    'https://www.youtube.com/embed/8xTTVKAJ8b0?autoplay=1&rel=0&modestbranding=1';
+  const showreelModalVideoRef = useRef<HTMLVideoElement | null>(null);
   const heroShowreelLoopSrc = '/assets/showreel/tripod-hero-loop.mp4';
-  const heroShowreelPosterSrc = '/assets/showreel/tripod-hero-poster.webp';
-  const hasHeroShowreelLoop = true;
-  const hasHeroShowreelPoster = false;
 
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
   const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
@@ -86,7 +82,7 @@ export default function HomePage() {
   }, [showreelOpen]);
 
   useEffect(() => {
-    if (!hasHeroShowreelLoop || prefersReducedMotion || !heroShowreelVideoRef.current) {
+    if (prefersReducedMotion || !heroShowreelVideoRef.current) {
       return;
     }
 
@@ -96,7 +92,19 @@ export default function HomePage() {
     void video.play().catch(() => {
       // Ignore autoplay failures and keep the poster/fallback visible.
     });
-  }, [hasHeroShowreelLoop, prefersReducedMotion]);
+  }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    if (!showreelOpen || !showreelModalVideoRef.current) {
+      return;
+    }
+
+    const video = showreelModalVideoRef.current;
+    video.currentTime = 0;
+    void video.play().catch(() => {
+      // Ignore autoplay failures and let the controls handle playback.
+    });
+  }, [showreelOpen]);
 
   return (
     <main className="film-desk-page relative flex-grow overflow-x-hidden">
@@ -159,7 +167,7 @@ export default function HomePage() {
                   aria-label={tHome('showreel.ariaLabel')}
                 >
                   <div className="film-showreel-monitor__screen">
-                    {hasHeroShowreelLoop && !prefersReducedMotion ? (
+                    {!prefersReducedMotion ? (
                       <video
                         ref={heroShowreelVideoRef}
                         className="film-showreel-monitor__video"
@@ -168,11 +176,7 @@ export default function HomePage() {
                         loop
                         playsInline
                         preload="auto"
-                        poster={
-                          hasHeroShowreelPoster
-                            ? heroShowreelPosterSrc
-                            : sampleMedia.editingTimeline.src
-                        }
+                        poster={sampleMedia.editingTimeline.src}
                       >
                         <source src={heroShowreelLoopSrc} type="video/mp4" />
                       </video>
@@ -451,14 +455,17 @@ export default function HomePage() {
                 <p className="film-kicker">{tHome('showreel.modalEyebrow')}</p>
                 <span>{tHome('showreel.modalLabel')}</span>
               </div>
-              <div className="film-showreel-modal__iframe-wrap">
-                <iframe
-                  src={showreelEmbedUrl}
-                  title={tHome('showreel.title')}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  referrerPolicy="strict-origin-when-cross-origin"
-                />
+              <div className="film-showreel-modal__media-wrap">
+                <video
+                  ref={showreelModalVideoRef}
+                  className="h-full w-full object-cover"
+                  controls
+                  playsInline
+                  preload="auto"
+                  poster={sampleMedia.editingTimeline.src}
+                >
+                  <source src={heroShowreelLoopSrc} type="video/mp4" />
+                </video>
                 {!prefersReducedMotion && (
                   <motion.div
                     className="film-showreel-modal__pulse"
