@@ -1,5 +1,6 @@
 import {getRequestConfig} from 'next-intl/server';
 import {routing} from './routing';
+import { getLocaleMessages, type AppLocale } from './messages';
 
 function isValidLocale(locale: string): locale is 'en' | 'sw' {
   return (routing.locales as readonly string[]).includes(locale);
@@ -16,7 +17,6 @@ export default getRequestConfig(async ({requestLocale}) => {
 
   return {
     locale,
-    messages: (await import(`../../messages/${locale}.json`)).default
+    messages: getLocaleMessages(locale as AppLocale)
   };
 });
-

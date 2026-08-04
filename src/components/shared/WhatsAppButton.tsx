@@ -1,17 +1,15 @@
 'use client';
 
 import React from 'react';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 export function WhatsAppButton() {
-  const locale = useLocale();
+  const tCommon = useTranslations('Common');
+  const tContact = useTranslations('ContactPage');
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
   const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
 
-  const message =
-    locale === 'sw'
-      ? 'Habari Tripod! Ningependa kuweka nafasi ya huduma za ubunifu.'
-      : 'Hello Tripod! I would like to book a creative session.';
+  const message = tContact('fallbackMessage');
 
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -21,7 +19,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 focus-ring focus-visible:ring-[#25D366]"
-      aria-label="Contact Tripod Creative on WhatsApp"
+      aria-label={tCommon('bookOnWhatsApp')}
     >
       <svg
         className="w-7 h-7 fill-current"

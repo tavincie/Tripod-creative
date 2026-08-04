@@ -1,0 +1,59 @@
+{
+  "whatsappMessage": "Habari Tripod! Ningependa kujifunza zaidi kuhusu timu na njia yenu ya kazi.",
+  "hero": {
+    "eyebrow": "Kuhusu Tripod",
+    "title": "Tripod ni studio ya ubunifu inayobadilisha ideas kuwa visuals, motion, na campaign assets.",
+    "subtitle": "Tunafanya kazi kwenye branding, design, production, photography, music, print, na digital rollout kwa studio energy inayolenga attention.",
+    "brandLabel": "Tripod Creative",
+    "mediaLabels": [
+      "Branding",
+      "Studio"
+    ]
+  },
+  "statement": {
+    "title": "Studio moja. Disciplines nyingi. Mwelekeo mmoja.",
+    "body": "Kutoka concept hadi camera hadi campaign, Tripod huunganisha creative direction na production execution bila kuonekana kama brochure au NGO profile."
+  },
+  "capabilities": {
+    "title": "Tripod hufanya nini",
+    "body": "Design ya chapa, visual production, studio content, na digital delivery hujengwa pamoja ili kazi ionekane ya kisasa na tayari kwa screens, stages, streets, na stories.",
+    "items": [
+      "Branding na design systems",
+      "Film, photography, na event coverage",
+      "Print production, music studio, na digital campaigns"
+    ]
+  },
+  "culture": {
+    "eyebrow": "Creative Culture",
+    "title": "Behind the scenes, the work stays visual, fast, and collaborative.",
+    "body": "Tunatumia sample media hapa kuonyesha aina ya production atmosphere inayofaa Tripod mpaka media halisi ya timu iwe tayari.",
+    "labels": [
+      "BTS",
+      "Direction",
+      "Design"
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "Concept. Production. Delivery.",
+    "steps": [
+      {
+        "title": "Concept",
+        "description": "Brief, direction, references, na visual angle huwekwa wazi mapema."
+      },
+      {
+        "title": "Production",
+        "description": "Camera, design, print, studio, na campaign assets hutengenezwa kwa pace moja yenye focus."
+      },
+      {
+        "title": "Delivery",
+        "description": "Kazi huandaliwa kwa launch, posting, printing, presentation, au campaign rollout."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Leta project yako inayofuata ndani ya studio.",
+    "body": "Ikiwa direction hii inafaa, tuanze mazungumzo kwa WhatsApp.",
+    "button": "Tuma Studio"
+  }
+}

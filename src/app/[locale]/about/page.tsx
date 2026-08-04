@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { AboutExperience } from '@/components/about/AboutExperience';
 
 function createWhatsAppUrl(number: string, message: string) {
@@ -13,15 +13,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const tSeo = await getTranslations({ locale, namespace: 'Seo.about' });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const title =
-    locale === 'sw'
-      ? 'Kuhusu Tripod Creative | Kampuni ya Multimedia Production na Ubunifu'
-      : 'About Tripod Creative | Multimedia Production & Creative Agency';
-  const description =
-    locale === 'sw'
-      ? 'Fahamu Tripod Creative kama creative agency inayounganisha multimedia production, brand storytelling, visual communication, na practical creative execution.'
-      : 'Learn about Tripod Creative as a creative agency connecting multimedia production, brand storytelling, visual communication, and practical creative execution.';
+  const title = tSeo('title');
+  const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/about`;
 
   return {
@@ -52,18 +47,14 @@ export async function generateMetadata({
 
 export default async function AboutPage() {
   const locale = await getLocale();
+  const tAbout = await getTranslations({ locale, namespace: 'AboutPage' });
   const whatsappNumber = (
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
   ).replace(/[^0-9]/g, '');
 
-  const message =
-    locale === 'sw'
-      ? 'Habari Tripod! Ningependa kujifunza zaidi kuhusu timu na njia yenu ya kazi.'
-      : 'Hello Tripod! I would like to learn more about your team culture and creative approach.';
-
   return (
     <AboutExperience
-      ctaUrl={createWhatsAppUrl(whatsappNumber, message)}
+      ctaUrl={createWhatsAppUrl(whatsappNumber, tAbout('whatsappMessage'))}
     />
   );
 }

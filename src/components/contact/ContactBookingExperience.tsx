@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Mail, MessageCircle, Phone, Send } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
@@ -38,132 +38,10 @@ export function ContactBookingExperience({
   whatsappNumber,
   fallbackBookingUrl,
 }: ContactBookingExperienceProps) {
-  const locale = useLocale();
+  const tContact = useTranslations('ContactPage');
+  const tCommon = useTranslations('Common');
   const [formData, setFormData] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<FormErrors>({});
-
-  const copy =
-    locale === 'sw'
-      ? {
-          heroEyebrow: 'Creative Brief Intake',
-          heroTitle: 'Leta brief yako ndani ya studio.',
-          heroSubtitle:
-            'Tueleze tunatengeneza nini, itaonekana wapi, na ni service gani unahitaji. Kisha tutume moja kwa moja kwenye WhatsApp.',
-          formEyebrow: 'Send to Studio',
-          formTitle: 'Project intake',
-          formSubtitle: 'Form hii hubaki client-side na huandaa WhatsApp message yenye brief yako.',
-          fields: {
-            name: 'Jina lako',
-            phone: 'Namba ya simu',
-            email: 'Email yako',
-            service: 'Tunatengeneza nini?',
-            budget: 'Project size',
-            message: 'Ujumbe wako',
-          },
-          placeholders: {
-            name: 'Jina lako',
-            phone: 'Namba yako ya simu',
-            email: 'your@email.com',
-            service: 'Chagua service',
-            budget: 'Chagua project size',
-            message: 'Eleza idea, platform, au campaign unayotaka.',
-          },
-          services: {
-            brandingDesign: 'Branding & Design',
-            printingCreativeProduction: 'Printing & Creative Production',
-            digitalMarketing: 'Digital Campaigns',
-            photography: 'Photography',
-            videoDroneLiveStreaming: 'Video, Drone & Live Streaming',
-            musicProduction: 'Music Production',
-            recordingSession: 'Recording Session',
-            instrumentTraining: 'Instrument Training',
-            webAppDevelopment: 'Web & App Development',
-            generalInquiry: 'General Inquiry',
-          },
-          budgets: {
-            smallProject: 'Small Project',
-            mediumProject: 'Medium Project',
-            largeProject: 'Large Project',
-            notSureYet: 'Not Sure Yet',
-          },
-          errors: {
-            name: 'Tafadhali andika jina lako.',
-            phone: 'Tafadhali andika namba yako ya simu.',
-            email: 'Tafadhali andika email yako.',
-            emailInvalid: 'Tafadhali andika email sahihi.',
-            service: 'Tafadhali chagua service.',
-            budget: 'Tafadhali chagua project size.',
-            message: 'Tafadhali andika brief fupi.',
-          },
-          submit: 'SEND TO STUDIO',
-          instantTitle: 'Anza moja kwa moja kwenye WhatsApp',
-          instantBody: 'Ikiwa tayari unajua unachotaka, fungua chat ya haraka na utume brief hapo.',
-          quickTitle: 'Quick contact',
-          locationTitle: 'Location details coming soon',
-          locationBody: 'Anwani rasmi bado haijawekwa. Sehemu hii inabaki wazi kama placeholder tu.',
-          finalTitle: 'Bring your next project into the studio.',
-          finalBody: 'Tuma brief, uliza swali, au anza na idea moja kali.',
-        }
-      : {
-          heroEyebrow: 'Creative Brief Intake',
-          heroTitle: 'Bring the brief into the studio.',
-          heroSubtitle:
-            'Tell us what we are creating, where it will appear, and which service you need. Then we send it straight to WhatsApp.',
-          formEyebrow: 'Send to Studio',
-          formTitle: 'Project intake',
-          formSubtitle: 'This form stays client-side and prepares a WhatsApp message with your brief.',
-          fields: {
-            name: 'Your name',
-            phone: 'Phone number',
-            email: 'Your email',
-            service: 'What are we creating?',
-            budget: 'Project size',
-            message: 'Your message',
-          },
-          placeholders: {
-            name: 'Your name',
-            phone: 'Your phone number',
-            email: 'your@email.com',
-            service: 'Select a service',
-            budget: 'Select a project size',
-            message: 'Describe the idea, platform, or campaign you want to build.',
-          },
-          services: {
-            brandingDesign: 'Branding & Design',
-            printingCreativeProduction: 'Printing & Creative Production',
-            digitalMarketing: 'Digital Campaigns',
-            photography: 'Photography',
-            videoDroneLiveStreaming: 'Video, Drone & Live Streaming',
-            musicProduction: 'Music Production',
-            recordingSession: 'Recording Session',
-            instrumentTraining: 'Instrument Training',
-            webAppDevelopment: 'Web & App Development',
-            generalInquiry: 'General Inquiry',
-          },
-          budgets: {
-            smallProject: 'Small Project',
-            mediumProject: 'Medium Project',
-            largeProject: 'Large Project',
-            notSureYet: 'Not Sure Yet',
-          },
-          errors: {
-            name: 'Please enter your name.',
-            phone: 'Please enter your phone number.',
-            email: 'Please enter your email address.',
-            emailInvalid: 'Please enter a valid email address.',
-            service: 'Please choose a service.',
-            budget: 'Please choose a project size.',
-            message: 'Please enter a short brief.',
-          },
-          submit: 'SEND TO STUDIO',
-          instantTitle: 'Jump straight into WhatsApp',
-          instantBody: 'If you already know what you need, open a direct chat and send the brief there.',
-          quickTitle: 'Quick contact',
-          locationTitle: 'Location details coming soon',
-          locationBody: 'A confirmed address has not been added yet. This section stays clearly marked as a placeholder.',
-          finalTitle: 'Bring your next project into the studio.',
-          finalBody: 'Send the brief, ask a question, or start with one sharp idea.',
-        };
 
   const serviceOptions = useMemo(
     () => [
@@ -177,26 +55,26 @@ export function ContactBookingExperience({
       'instrumentTraining',
       'webAppDevelopment',
       'generalInquiry',
-    ],
+    ] as const,
     [],
   );
 
   const budgetOptions = useMemo(
-    () => ['smallProject', 'mediumProject', 'largeProject', 'notSureYet'],
+    () => ['smallProject', 'mediumProject', 'largeProject', 'notSureYet'] as const,
     [],
   );
 
   function validate(values: FormData): FormErrors {
     const nextErrors: FormErrors = {};
-    if (!values.name.trim()) nextErrors.name = copy.errors.name;
-    if (!values.phone.trim()) nextErrors.phone = copy.errors.phone;
-    if (!values.email.trim()) nextErrors.email = copy.errors.email;
+    if (!values.name.trim()) nextErrors.name = tContact('form.errors.name');
+    if (!values.phone.trim()) nextErrors.phone = tContact('form.errors.phone');
+    if (!values.email.trim()) nextErrors.email = tContact('form.errors.email');
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-      nextErrors.email = copy.errors.emailInvalid;
+      nextErrors.email = tContact('form.errors.emailInvalid');
     }
-    if (!values.service) nextErrors.service = copy.errors.service;
-    if (!values.budget) nextErrors.budget = copy.errors.budget;
-    if (!values.message.trim()) nextErrors.message = copy.errors.message;
+    if (!values.service) nextErrors.service = tContact('form.errors.service');
+    if (!values.budget) nextErrors.budget = tContact('form.errors.budget');
+    if (!values.message.trim()) nextErrors.message = tContact('form.errors.message');
     return nextErrors;
   }
 
@@ -209,12 +87,16 @@ export function ContactBookingExperience({
   }
 
   function buildWhatsAppUrl(values: FormData) {
-    const serviceLabel = copy.services[values.service as keyof typeof copy.services];
-    const budgetLabel = copy.budgets[values.budget as keyof typeof copy.budgets];
-    const message =
-      locale === 'sw'
-        ? `Habari Tripod Creative. Jina langu ni ${values.name}. Ningependa kuweka nafasi ya huduma ya ${serviceLabel}. Ukubwa wa project ni ${budgetLabel}. Simu yangu ni ${values.phone}. Email yangu ni ${values.email}. Ujumbe: ${values.message}.`
-        : `Hello Tripod Creative. My name is ${values.name}. I would like to book ${serviceLabel}. My project size is ${budgetLabel}. My phone is ${values.phone}. My email is ${values.email}. Message: ${values.message}.`;
+    const serviceLabel = tContact(`form.services.${values.service}`);
+    const budgetLabel = tContact(`form.budgets.${values.budget}`);
+    const message = tContact('form.whatsappTemplate', {
+      name: values.name,
+      service: serviceLabel,
+      budget: budgetLabel,
+      phone: values.phone,
+      email: values.email,
+      message: values.message,
+    });
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   }
 
@@ -241,14 +123,16 @@ export function ContactBookingExperience({
             <div className="space-y-5">
               <ScrollReveal>
                 <span className="label-sm inline-flex rounded-full border border-primary/20 bg-white/5 px-4 py-2 text-primary">
-                  {copy.heroEyebrow}
+                  {tContact('hero.eyebrow')}
                 </span>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h1 className="display-lg text-white">{copy.heroTitle}</h1>
+                <h1 className="display-lg text-white">{tContact('hero.title')}</h1>
               </ScrollReveal>
               <ScrollReveal delay={0.16}>
-                <p className="body-lg max-w-2xl text-on-surface-variant">{copy.heroSubtitle}</p>
+                <p className="body-lg max-w-2xl text-on-surface-variant">
+                  {tContact('hero.subtitle')}
+                </p>
               </ScrollReveal>
             </div>
             <ScrollReveal delay={0.16}>
@@ -256,7 +140,7 @@ export function ContactBookingExperience({
                 <div className="relative min-h-[26rem] overflow-hidden rounded-[2rem] border border-white/10">
                   <Image
                     src={sampleMedia.creativeTeamBts.src}
-                    alt={sampleMedia.creativeTeamBts.alt}
+                    alt={tCommon(sampleMedia.creativeTeamBts.altKey)}
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 42vw"
@@ -269,7 +153,7 @@ export function ContactBookingExperience({
                     <div key={media.key} className="relative min-h-[12rem] overflow-hidden rounded-[1.6rem] border border-white/10">
                       <Image
                         src={media.src}
-                        alt={media.alt}
+                        alt={tCommon(media.altKey)}
                         fill
                         sizes="(max-width: 1024px) 100vw, 22vw"
                         className="object-cover"
@@ -289,9 +173,9 @@ export function ContactBookingExperience({
           <ScrollReveal>
             <div className="rounded-[2rem] tripod-dark-panel p-6 sm:p-8">
               <div className="mb-6">
-                <span className="label-sm text-primary">{copy.formEyebrow}</span>
-                <h2 className="headline-lg mt-4 text-white">{copy.formTitle}</h2>
-                <p className="body-md mt-3 text-on-surface-variant">{copy.formSubtitle}</p>
+                <span className="label-sm text-primary">{tContact('form.eyebrow')}</span>
+                <h2 className="headline-lg mt-4 text-white">{tContact('form.title')}</h2>
+                <p className="body-md mt-3 text-on-surface-variant">{tContact('form.subtitle')}</p>
               </div>
 
               <form className="space-y-5" onSubmit={handleSubmit} noValidate>
@@ -299,7 +183,7 @@ export function ContactBookingExperience({
                   {(['name', 'phone', 'email'] as const).map((field) => (
                     <div key={field}>
                       <label htmlFor={field} className="mb-2 block text-sm font-medium text-white">
-                        {copy.fields[field]} <span aria-hidden="true">*</span>
+                        {tContact(`form.fields.${field}`)} <span aria-hidden="true">*</span>
                       </label>
                       <input
                         id={field}
@@ -309,14 +193,14 @@ export function ContactBookingExperience({
                         onChange={handleChange}
                         aria-invalid={Boolean(errors[field])}
                         className="theme-input focus-ring w-full rounded-2xl px-4 py-3 text-sm"
-                        placeholder={copy.placeholders[field]}
+                        placeholder={tContact(`form.placeholders.${field}`)}
                       />
                       {errors[field] ? <p className="mt-2 text-sm text-primary" role="alert">{errors[field]}</p> : null}
                     </div>
                   ))}
                   <div>
                     <label htmlFor="service" className="mb-2 block text-sm font-medium text-white">
-                      {copy.fields.service} <span aria-hidden="true">*</span>
+                      {tContact('form.fields.service')} <span aria-hidden="true">*</span>
                     </label>
                     <select
                       id="service"
@@ -326,10 +210,10 @@ export function ContactBookingExperience({
                       aria-invalid={Boolean(errors.service)}
                       className="theme-select focus-ring w-full rounded-2xl px-4 py-3 text-sm"
                     >
-                      <option value="">{copy.placeholders.service}</option>
+                      <option value="">{tContact('form.placeholders.service')}</option>
                       {serviceOptions.map((option) => (
                         <option key={option} value={option}>
-                          {copy.services[option as keyof typeof copy.services]}
+                          {tContact(`form.services.${option}`)}
                         </option>
                       ))}
                     </select>
@@ -340,7 +224,7 @@ export function ContactBookingExperience({
                 <div className="grid gap-5 sm:grid-cols-[0.8fr_1.2fr]">
                   <div>
                     <label htmlFor="budget" className="mb-2 block text-sm font-medium text-white">
-                      {copy.fields.budget} <span aria-hidden="true">*</span>
+                      {tContact('form.fields.budget')} <span aria-hidden="true">*</span>
                     </label>
                     <select
                       id="budget"
@@ -350,10 +234,10 @@ export function ContactBookingExperience({
                       aria-invalid={Boolean(errors.budget)}
                       className="theme-select focus-ring w-full rounded-2xl px-4 py-3 text-sm"
                     >
-                      <option value="">{copy.placeholders.budget}</option>
+                      <option value="">{tContact('form.placeholders.budget')}</option>
                       {budgetOptions.map((option) => (
                         <option key={option} value={option}>
-                          {copy.budgets[option as keyof typeof copy.budgets]}
+                          {tContact(`form.budgets.${option}`)}
                         </option>
                       ))}
                     </select>
@@ -361,7 +245,7 @@ export function ContactBookingExperience({
                   </div>
                   <div>
                     <label htmlFor="message" className="mb-2 block text-sm font-medium text-white">
-                      {copy.fields.message} <span aria-hidden="true">*</span>
+                      {tContact('form.fields.message')} <span aria-hidden="true">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -371,7 +255,7 @@ export function ContactBookingExperience({
                       onChange={handleChange}
                       aria-invalid={Boolean(errors.message)}
                       className="theme-textarea focus-ring w-full rounded-2xl px-4 py-3 text-sm"
-                      placeholder={copy.placeholders.message}
+                      placeholder={tContact('form.placeholders.message')}
                     />
                     {errors.message ? <p className="mt-2 text-sm text-primary" role="alert">{errors.message}</p> : null}
                   </div>
@@ -379,7 +263,7 @@ export function ContactBookingExperience({
 
                 <Button type="submit" variant="primary" className="gap-2 px-7 py-3.5">
                   <Send className="h-4 w-4" aria-hidden="true" />
-                  {copy.submit}
+                  {tContact('form.submit')}
                 </Button>
               </form>
             </div>
@@ -391,7 +275,7 @@ export function ContactBookingExperience({
                 <div className="relative min-h-[14rem]">
                   <Image
                     src={sampleMedia.liveStreamingSetup.src}
-                    alt={sampleMedia.liveStreamingSetup.alt}
+                    alt={tCommon(sampleMedia.liveStreamingSetup.altKey)}
                     fill
                     sizes="(max-width: 1024px) 100vw, 32vw"
                     className="object-cover"
@@ -399,12 +283,12 @@ export function ContactBookingExperience({
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
                 </div>
                 <div className="p-6">
-                  <h2 className="headline-md text-[var(--tripod-text-dark)]">{copy.instantTitle}</h2>
-                  <p className="body-md mt-3 text-[var(--tripod-text-muted-dark)]">{copy.instantBody}</p>
+                  <h2 className="headline-md text-[var(--tripod-text-dark)]">{tContact('instant.title')}</h2>
+                  <p className="body-md mt-3 text-[var(--tripod-text-muted-dark)]">{tContact('instant.body')}</p>
                   <a href={fallbackBookingUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full">
                     <Button variant="primary" className="gap-2 px-6 py-3.5">
                       <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                      WhatsApp
+                      {tContact('instant.button')}
                     </Button>
                   </a>
                 </div>
@@ -413,12 +297,24 @@ export function ContactBookingExperience({
 
             <ScrollReveal delay={0.12}>
               <div className="rounded-[2rem] tripod-editorial-panel p-6">
-                <p className="label-sm text-primary">{copy.quickTitle}</p>
+                <p className="label-sm text-primary">{tContact('quick.title')}</p>
                 <div className="mt-5 space-y-4">
                   {[
-                    { icon: MessageCircle, title: 'WhatsApp', value: locale === 'sw' ? 'Anza mazungumzo ya moja kwa moja' : 'Start a direct conversation' },
-                    { icon: Phone, title: locale === 'sw' ? 'Simu' : 'Phone', value: siteConfig.phone || (locale === 'sw' ? 'Phone not configured' : 'Phone not configured') },
-                    { icon: Mail, title: 'Email', value: siteConfig.email || (locale === 'sw' ? 'Email not configured' : 'Email not configured') },
+                    {
+                      icon: MessageCircle,
+                      title: tContact('quick.whatsappTitle'),
+                      value: tContact('quick.whatsappValue'),
+                    },
+                    {
+                      icon: Phone,
+                      title: tContact('quick.phoneTitle'),
+                      value: siteConfig.phone || tContact('quick.phoneFallback'),
+                    },
+                    {
+                      icon: Mail,
+                      title: tContact('quick.emailTitle'),
+                      value: siteConfig.email || tContact('quick.emailFallback'),
+                    },
                   ].map(({ icon: Icon, title, value }) => (
                     <div key={title} className="flex items-start gap-4">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary">
@@ -436,8 +332,8 @@ export function ContactBookingExperience({
 
             <ScrollReveal delay={0.16}>
               <div className="rounded-[2rem] tripod-editorial-panel p-6">
-                <h3 className="text-lg font-semibold text-[var(--tripod-text-dark)]">{copy.locationTitle}</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--tripod-text-muted-dark)]">{copy.locationBody}</p>
+                <h3 className="text-lg font-semibold text-[var(--tripod-text-dark)]">{tContact('location.title')}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--tripod-text-muted-dark)]">{tContact('location.body')}</p>
               </div>
             </ScrollReveal>
           </div>
@@ -447,11 +343,11 @@ export function ContactBookingExperience({
       <section className="tripod-page-dark py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-5 text-center md:px-16">
           <ScrollReveal>
-            <h2 className="headline-lg text-white">{copy.finalTitle}</h2>
-            <p className="body-md mx-auto mt-4 max-w-2xl text-on-surface-variant">{copy.finalBody}</p>
+            <h2 className="headline-lg text-white">{tContact('final.title')}</h2>
+            <p className="body-md mx-auto mt-4 max-w-2xl text-on-surface-variant">{tContact('final.body')}</p>
             <a href={fallbackBookingUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex rounded-full">
               <Button variant="primary" className="px-7 py-3.5">
-                {copy.submit}
+                {tContact('form.submit')}
               </Button>
             </a>
           </ScrollReveal>

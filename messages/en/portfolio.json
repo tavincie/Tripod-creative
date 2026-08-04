@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "eyebrow": "Selected Work",
+    "title": "Portfolio built across branding, visuals, content, and campaigns.",
+    "subtitle": "A filtered view of placeholder-ready portfolio cards for the work Tripod can shape across print, motion, events, and digital storytelling."
+  },
+  "filters": {
+    "ariaLabel": "Filter portfolio by category",
+    "items": {
+      "all": "All",
+      "branding": "Branding",
+      "graphics": "Graphics",
+      "printing": "Printing",
+      "photography": "Photography",
+      "video": "Video",
+      "events": "Events",
+      "music": "Music",
+      "digitalCampaigns": "Digital Campaigns"
+    }
+  },
+  "grid": {
+    "eyebrow": "Portfolio Grid",
+    "title": "Browse the portfolio by format or campaign type.",
+    "resultCount": "{count, plural, =0 {No projects shown} one {# project shown} other {# projects shown}}",
+    "empty": "No portfolio items match this filter yet.",
+    "cardCta": "View placeholder details",
+    "imagePlaceholder": "Image Placeholder",
+    "videoPlaceholder": "Video Placeholder"
+  },
+  "featured": {
+    "eyebrow": "Featured Direction",
+    "title": "Use the portfolio as a starting point for your next brief.",
+    "subtitle": "If a style, format, or campaign direction stands out, we can use it to shape the next conversation.",
+    "note": "Portfolio entries on this page use clean placeholder project naming so future real work can be swapped in without redesigning the experience.",
+    "cta": "Discuss a Similar Project"
+  },
+  "cta": {
+    "eyebrow": "Project Booking",
+    "title": "Ready to turn references into a project plan?",
+    "subtitle": "Share the kind of work you need and we can map the best combination of creative, production, and digital services.",
+    "button": "Book on WhatsApp"
+  },
+  "tags": {
+    "identity": "Identity",
+    "artDirection": "Art Direction",
+    "videoEdit": "Video Edit",
+    "storyboard": "Storyboard",
+    "launchAssets": "Launch Assets",
+    "contentSystem": "Content System",
+    "printLayout": "Print Layout",
+    "productionPrep": "Production Prep",
+    "socialDesign": "Social Design",
+    "campaignGraphics": "Campaign Graphics",
+    "brandShoot": "Brand Shoot",
+    "productFrames": "Product Frames",
+    "eventCoverage": "Event Coverage",
+    "recapAssets": "Recap Assets",
+    "coverArt": "Cover Art",
+    "studioVisuals": "Studio Visuals",
+    "brandSystem": "Brand System",
+    "launchDeck": "Launch Deck"
+  },
+  "projects": {
+    "project1": {
+      "title": "Placeholder Brand Identity System",
+      "description": "A replaceable placeholder for a future identity rollout, visual direction set, and branded touchpoints."
+    },
+    "project2": {
+      "title": "Placeholder Campaign Video Frames",
+      "description": "A clean stand-in for future motion work, reels, edit sequences, or launch-video storytelling."
+    },
+    "project3": {
+      "title": "Placeholder Digital Campaign Kit",
+      "description": "A flexible placeholder for campaign launch visuals, paid-social assets, and digital content systems."
+    },
+    "project4": {
+      "title": "Placeholder Print Production Set",
+      "description": "A ready-to-replace print placeholder for posters, flyers, packaging layouts, or event collateral."
+    },
+    "project5": {
+      "title": "Placeholder Graphic Content Series",
+      "description": "A generic visual set for social graphics, campaign panels, or branded creative layouts."
+    },
+    "project6": {
+      "title": "Placeholder Photography Collection",
+      "description": "A portfolio placeholder for future brand shoots, product stills, and editorial image selections."
+    },
+    "project7": {
+      "title": "Placeholder Event Coverage Story",
+      "description": "A future-facing card for event capture, highlight edits, and recap content deliverables."
+    },
+    "project8": {
+      "title": "Placeholder Music Visual Pack",
+      "description": "A generic music-facing placeholder for cover art, promo visuals, and studio session content."
+    },
+    "project9": {
+      "title": "Placeholder Brand Launch Presentation",
+      "description": "A placeholder for future launch decks, brand showcases, and campaign presentation assets."
+    }
+  }
+}

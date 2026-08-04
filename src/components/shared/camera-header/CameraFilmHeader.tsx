@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { usePathname } from '@/i18n/routing';
 import { getWhatsAppNumber } from '@/config/site';
 import { CameraBrand } from './CameraBrand';
@@ -22,22 +22,20 @@ function isActiveRoute(pathname: string, href: string) {
 export function CameraFilmHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const locale = useLocale();
+  const tNav = useTranslations('Navigation');
+  const tServices = useTranslations('ServicesPage');
   const pathname = usePathname();
   const whatsappNumber = getWhatsAppNumber();
-  const message =
-    locale === 'sw'
-      ? 'Habari Tripod Creatives. Nina mradi mpya na ningependa kuanza nao.'
-      : 'Hello Tripod Creatives. I have a new project and would like to get started.';
+  const message = tServices('metadataMessages.hero');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   const items = [
-    { name: locale === 'sw' ? 'Home' : 'Home', href: '/' },
-    { name: locale === 'sw' ? 'Services' : 'Services', href: '/services' },
-    { name: locale === 'sw' ? 'Portfolio' : 'Portfolio', href: '/portfolio' },
-    { name: locale === 'sw' ? 'Studio' : 'Studio', href: '/studio-academy' },
-    { name: locale === 'sw' ? 'About' : 'About', href: '/about' },
-    { name: locale === 'sw' ? 'Contact' : 'Contact', href: '/contact' },
+    { name: tNav('home'), href: '/' },
+    { name: tNav('services'), href: '/services' },
+    { name: tNav('portfolio'), href: '/portfolio' },
+    { name: tNav('studioShort'), href: '/studio-academy' },
+    { name: tNav('about'), href: '/about' },
+    { name: tNav('contact'), href: '/contact' },
   ].map((item) => ({
     ...item,
     active: isActiveRoute(pathname, item.href),
@@ -87,7 +85,7 @@ export function CameraFilmHeader() {
               <FilmNavigation
                 items={items}
                 ctaHref={whatsappUrl}
-                ctaLabel={locale === 'sw' ? 'Start a Project' : 'Start a Project'}
+                ctaLabel={tNav('startProject')}
                 onNavigate={() => setIsOpen(false)}
               />
             </div>
@@ -103,7 +101,7 @@ export function CameraFilmHeader() {
               onToggle={() => setIsOpen((prev) => !prev)}
               items={items}
               ctaHref={whatsappUrl}
-              ctaLabel={locale === 'sw' ? 'Start a Project' : 'Start a Project'}
+              ctaLabel={tNav('startProject')}
             />
           </div>
         </div>

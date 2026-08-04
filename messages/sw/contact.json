@@ -1,0 +1,80 @@
+{
+  "fallbackMessage": "Habari Tripod Creative. Ningependa kuweka nafasi ya huduma ya ubunifu.",
+  "hero": {
+    "eyebrow": "Creative Brief Intake",
+    "title": "Leta brief yako ndani ya studio.",
+    "subtitle": "Tueleze tunatengeneza nini, itaonekana wapi, na ni service gani unahitaji. Kisha tutume moja kwa moja kwenye WhatsApp."
+  },
+  "form": {
+    "eyebrow": "Tuma Studio",
+    "title": "Project intake",
+    "subtitle": "Form hii hubaki client-side na huandaa WhatsApp message yenye brief yako.",
+    "fields": {
+      "name": "Jina lako",
+      "phone": "Namba ya simu",
+      "email": "Email yako",
+      "service": "Tunatengeneza nini?",
+      "budget": "Project size",
+      "message": "Ujumbe wako"
+    },
+    "placeholders": {
+      "name": "Jina lako",
+      "phone": "Namba yako ya simu",
+      "email": "your@email.com",
+      "service": "Chagua service",
+      "budget": "Chagua project size",
+      "message": "Eleza idea, platform, au campaign unayotaka."
+    },
+    "services": {
+      "brandingDesign": "Branding & Design",
+      "printingCreativeProduction": "Printing & Creative Production",
+      "digitalMarketing": "Digital Campaigns",
+      "photography": "Photography",
+      "videoDroneLiveStreaming": "Video, Drone & Live Streaming",
+      "musicProduction": "Music Production",
+      "recordingSession": "Recording Session",
+      "instrumentTraining": "Instrument Training",
+      "webAppDevelopment": "Web & App Development",
+      "generalInquiry": "General Inquiry"
+    },
+    "budgets": {
+      "smallProject": "Small Project",
+      "mediumProject": "Medium Project",
+      "largeProject": "Large Project",
+      "notSureYet": "Not Sure Yet"
+    },
+    "errors": {
+      "name": "Tafadhali andika jina lako.",
+      "phone": "Tafadhali andika namba yako ya simu.",
+      "email": "Tafadhali andika email yako.",
+      "emailInvalid": "Tafadhali andika email sahihi.",
+      "service": "Tafadhali chagua service.",
+      "budget": "Tafadhali chagua project size.",
+      "message": "Tafadhali andika brief fupi."
+    },
+    "submit": "SEND TO STUDIO",
+    "whatsappTemplate": "Habari Tripod Creative. Jina langu ni {name}. Ningependa kuweka nafasi ya huduma ya {service}. Ukubwa wa project ni {budget}. Simu yangu ni {phone}. Email yangu ni {email}. Ujumbe: {message}."
+  },
+  "instant": {
+    "title": "Anza moja kwa moja kwenye WhatsApp",
+    "body": "Ikiwa tayari unajua unachotaka, fungua chat ya haraka na utume brief hapo.",
+    "button": "WhatsApp"
+  },
+  "quick": {
+    "title": "Quick contact",
+    "whatsappValue": "Anza mazungumzo ya moja kwa moja",
+    "phoneTitle": "Simu",
+    "emailTitle": "Email",
+    "phoneFallback": "Namba ya simu haijawekwa",
+    "emailFallback": "Email haijawekwa",
+    "whatsappTitle": "WhatsApp"
+  },
+  "location": {
+    "title": "Location details coming soon",
+    "body": "Anwani rasmi bado haijawekwa. Sehemu hii inabaki wazi kama placeholder tu."
+  },
+  "final": {
+    "title": "Leta project yako inayofuata ndani ya studio.",
+    "body": "Tuma brief, uliza swali, au anza na idea moja kali."
+  }
+}

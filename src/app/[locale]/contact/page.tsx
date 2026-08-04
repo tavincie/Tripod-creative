@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ContactBookingExperience } from '@/components/contact/ContactBookingExperience';
 
 function createWhatsAppUrl(number: string, message: string) {
@@ -13,15 +13,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const tSeo = await getTranslations({ locale, namespace: 'Seo.contact' });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const title =
-    locale === 'sw'
-      ? 'Wasiliana na Tripod Creative | Book Design, Production, Marketing na Studio'
-      : 'Contact Tripod Creative | Book Design, Production, Marketing & Studio Services';
-  const description =
-    locale === 'sw'
-      ? 'Wasiliana na Tripod Creative kuweka nafasi ya design, production, marketing, studio, web, na huduma nyingine za ubunifu kupitia form au WhatsApp.'
-      : 'Contact Tripod Creative to book design, production, marketing, studio, web, and other creative services through the booking form or WhatsApp.';
+  const title = tSeo('title');
+  const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/contact`;
 
   return {
@@ -52,19 +47,15 @@ export async function generateMetadata({
 
 export default async function ContactPage() {
   const locale = await getLocale();
+  const tContact = await getTranslations({ locale, namespace: 'ContactPage' });
   const whatsappNumber = (
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
   ).replace(/[^0-9]/g, '');
 
-  const message =
-    locale === 'sw'
-      ? 'Habari Tripod Creative. Ningependa kuweka nafasi ya huduma ya ubunifu.'
-      : 'Hello Tripod Creative. I would like to book a creative service.';
-
   return (
     <ContactBookingExperience
       whatsappNumber={whatsappNumber}
-      fallbackBookingUrl={createWhatsAppUrl(whatsappNumber, message)}
+      fallbackBookingUrl={createWhatsAppUrl(whatsappNumber, tContact('fallbackMessage'))}
     />
   );
 }

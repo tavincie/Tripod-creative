@@ -1,0 +1,128 @@
+{
+  "whatsappMessage": "Habari Tripod Creatives. Nina mradi mpya na ningependa kuupeleka studio.",
+  "hero": {
+    "eyebrow": "We are Tripod Creatives",
+    "titleLines": [
+      "We Empower",
+      "Your",
+      "Brand",
+      "Through",
+      "Creativity"
+    ],
+    "subtitle": "Graphics, photography, video, and audio built to make brands impossible to ignore.",
+    "primary": "Angalia Kazi Zetu",
+    "secondary": "Cheza Showreel"
+  },
+  "services": {
+    "eyebrow": "What We Do",
+    "title": "What We Create.",
+    "intro": "Designed for screens, stages, streets, and stories.",
+    "link": "Chunguza Huduma Zote",
+    "labels": {
+      "video": "Video Production",
+      "design": "Branding & Design",
+      "photo": "Photography",
+      "printing": "Printing",
+      "digital": "Digital Campaigns",
+      "music": "Music Studio"
+    },
+    "details": {
+      "video": "Concept to camera to final cut.",
+      "design": "Identity, visuals, and campaign systems.",
+      "photo": "Portraits, products, events, and brand shots.",
+      "printing": "Posters, banners, packaging, and print pieces.",
+      "digital": "Content built for social attention.",
+      "music": "Recording, production, and studio sessions."
+    },
+    "titleLines": {
+      "video": [
+        "Video",
+        "Production"
+      ],
+      "design": [
+        "Branding",
+        "& Design"
+      ],
+      "photo": [
+        "Photography"
+      ],
+      "printing": [
+        "Printing"
+      ],
+      "digital": [
+        "Digital",
+        "Campaigns"
+      ],
+      "music": [
+        "Music",
+        "Studio"
+      ]
+    }
+  },
+  "portfolio": {
+    "eyebrow": "Featured Work",
+    "title": "Our Work Speaks.",
+    "intro": "Real projects. Real impact.",
+    "link": "Angalia Portfolio Nzima",
+    "labels": {
+      "branding": [
+        "Branding",
+        "Brand Identity"
+      ],
+      "motion": [
+        "Video",
+        "Video Campaign"
+      ],
+      "product": [
+        "Photography",
+        "Product Photography"
+      ],
+      "sound": [
+        "Audio",
+        "Studio Audio"
+      ],
+      "event": [
+        "Event Coverage",
+        "Event Coverage"
+      ]
+    }
+  },
+  "studio": {
+    "eyebrow": "Studio Desk",
+    "title": "Studio energy, archive discipline, launch-ready output.",
+    "body": "Direction, capture, edit, print, and rollout handled in one coordinated creative studio.",
+    "process": [
+      "Brief lock",
+      "Shoot / design / record",
+      "Edit timeline",
+      "Launch package"
+    ]
+  },
+  "capabilities": {
+    "ariaLabel": "Uwezo wa Tripod Creatives",
+    "graphic": "Graphic Design",
+    "branding": "Branding",
+    "printing": "Printing",
+    "photo": "Photography",
+    "video": "Videography",
+    "drone": "Drone Coverage",
+    "streaming": "Live Streaming",
+    "audio": "Audio Recording",
+    "music": "Music Production",
+    "podcast": "Podcast Recording",
+    "marketing": "Digital Marketing",
+    "training": "Instrument Training"
+  },
+  "cta": {
+    "title": "Ready to make something great?",
+    "body": "Let us create something that gets people talking.",
+    "button": "Anza Mradi"
+  },
+  "showreel": {
+    "ariaLabel": "Cheza showreel ya Tripod Creative",
+    "title": "Showreel ya Tripod Creative",
+    "label": "SHOWREEL",
+    "modalEyebrow": "REC 00:12:08",
+    "modalLabel": "SHOWREEL"
+  }
+}

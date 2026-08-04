@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
@@ -49,7 +49,7 @@ export function PortfolioExperience({
   bookingUrl,
 }: PortfolioExperienceProps) {
   const t = useTranslations('PortfolioPage');
-  const locale = useLocale();
+  const tCommon = useTranslations('Common');
   const [activeCategory, setActiveCategory] =
     useState<PortfolioCategoryKey>('all');
 
@@ -91,7 +91,7 @@ export function PortfolioExperience({
                 <div className="relative min-h-[26rem] overflow-hidden rounded-[2rem] border border-white/10">
                   <Image
                     src={heroMedia[0].src}
-                    alt={heroMedia[0].alt}
+                    alt={tCommon(heroMedia[0].altKey)}
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 42vw"
@@ -104,7 +104,7 @@ export function PortfolioExperience({
                     <div key={media.key} className="relative min-h-[12rem] overflow-hidden rounded-[1.6rem] border border-white/10">
                       <Image
                         src={media.src}
-                        alt={media.alt}
+                        alt={tCommon(media.altKey)}
                         fill
                         sizes="(max-width: 1024px) 100vw, 22vw"
                         className="object-cover"
@@ -156,7 +156,7 @@ export function PortfolioExperience({
                     <div className="film-project-card__media">
                       <Image
                         src={media.src}
-                        alt={media.alt}
+                        alt={tCommon(media.altKey)}
                         fill
                         sizes="(max-width: 1024px) 100vw, 30vw"
                         className="object-cover"
@@ -182,7 +182,7 @@ export function PortfolioExperience({
               <div className="relative min-h-[22rem]">
                 <Image
                   src={sampleMedia.editingTimeline.src}
-                  alt={sampleMedia.editingTimeline.alt}
+                  alt={tCommon(sampleMedia.editingTimeline.altKey)}
                   fill
                   sizes="(max-width: 1024px) 100vw, 52vw"
                   className="object-cover"
@@ -215,7 +215,7 @@ export function PortfolioExperience({
             <p className="body-md mx-auto mt-4 max-w-2xl text-[var(--tripod-text-muted-dark)]">{t('cta.subtitle')}</p>
             <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex rounded-full">
               <Button variant="primary" className="px-7 py-3.5">
-                {locale === 'sw' ? 'Book on WhatsApp' : 'Book on WhatsApp'}
+                {t('cta.button')}
               </Button>
             </a>
           </ScrollReveal>

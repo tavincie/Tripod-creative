@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { ServicesHero } from '@/components/services/ServicesHero';
 import { CoreServicesGrid } from '@/components/services/CoreServicesGrid';
@@ -16,15 +16,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const tSeo = await getTranslations({ locale, namespace: 'Seo.services' });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const title =
-    locale === 'sw'
-      ? 'Huduma za Tripod Creative | Ubunifu, Production, Masoko na Studio'
-      : 'Tripod Creative Services | Branding, Production, Digital Marketing & Studio';
-  const description =
-    locale === 'sw'
-      ? 'Chunguza huduma za Tripod Creative kuanzia chapa, production, masoko ya kidijitali, studio, picha, video, na utengenezaji wa tovuti.'
-      : 'Explore Tripod Creative services across branding, production, digital marketing, studio work, photography, videography, and web development.';
+  const title = tSeo('title');
+  const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/services`;
 
   return {
@@ -55,77 +50,17 @@ export async function generateMetadata({
 
 export default async function ServicesPage() {
   const locale = await getLocale();
+  const tServices = await getTranslations({
+    locale,
+    namespace: 'ServicesPage.metadataMessages',
+  });
   const whatsappNumber = (
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
   ).replace(/[^0-9]/g, '');
-
-  const messages =
-    locale === 'sw'
-        ? {
-          hero: 'Habari Tripod! Ningependa kujadili huduma zenu za ubunifu.',
-          serviceMap: {
-            graphicDesign:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Graphic Design.',
-            branding:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Branding.',
-            printing:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Printing.',
-            photography:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Photography.',
-            videography:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Videography.',
-            droneCoverage:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Drone Coverage.',
-            liveStreaming:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Live Streaming.',
-            audioRecording:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Audio Recording.',
-            musicProduction:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Music Production.',
-            podcastRecording:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Podcast Recording.',
-            digitalMarketing:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Digital Marketing.',
-            instrumentTraining:
-              'Habari Tripod! Ninaomba maelezo kuhusu huduma ya Instrument Training.',
-            digitalSupport:
-              'Habari Tripod! Ningependa kujadili digital support ya campaign yangu.',
-          },
-        }
-      : {
-          hero: 'Hello Tripod! I would like to discuss your creative services.',
-          serviceMap: {
-            graphicDesign:
-              'Hello Tripod! I would like to ask about graphic design services.',
-            branding:
-              'Hello Tripod! I would like to ask about branding services.',
-            printing:
-              'Hello Tripod! I would like to ask about printing services.',
-            photography:
-              'Hello Tripod! I would like to ask about photography services.',
-            videography:
-              'Hello Tripod! I would like to ask about videography services.',
-            droneCoverage:
-              'Hello Tripod! I would like to ask about drone coverage services.',
-            liveStreaming:
-              'Hello Tripod! I would like to ask about live streaming services.',
-            audioRecording:
-              'Hello Tripod! I would like to ask about audio recording services.',
-            musicProduction:
-              'Hello Tripod! I would like to ask about music production services.',
-            podcastRecording:
-              'Hello Tripod! I would like to ask about podcast recording services.',
-            digitalMarketing:
-              'Hello Tripod! I would like to ask about digital marketing services.',
-            instrumentTraining:
-              'Hello Tripod! I would like to ask about instrument training services.',
-            digitalSupport:
-              'Hello Tripod! I would like to discuss digital support for my campaign.',
-          },
-        };
+  const serviceMap = tServices.raw('serviceMap') as Record<string, string>;
 
   const serviceUrls = Object.fromEntries(
-    Object.entries(messages.serviceMap).map(([key, message]) => [
+    Object.entries(serviceMap).map(([key, message]) => [
       key,
       createWhatsAppUrl(whatsappNumber, message),
     ]),
@@ -133,7 +68,7 @@ export default async function ServicesPage() {
 
   return (
     <main className="relative overflow-hidden">
-      <ServicesHero whatsappUrl={createWhatsAppUrl(whatsappNumber, messages.hero)} />
+      <ServicesHero whatsappUrl={createWhatsAppUrl(whatsappNumber, tServices('hero'))} />
       <CoreServicesGrid serviceUrls={serviceUrls} />
       <ServicesProcess />
       <ServicesWhatsAppCta serviceUrls={serviceUrls} />

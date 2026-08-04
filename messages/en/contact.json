@@ -1,0 +1,80 @@
+{
+  "fallbackMessage": "Hello Tripod Creative. I would like to book a creative service.",
+  "hero": {
+    "eyebrow": "Creative Brief Intake",
+    "title": "Bring the brief into the studio.",
+    "subtitle": "Tell us what we are creating, where it will appear, and which service you need. Then we send it straight to WhatsApp."
+  },
+  "form": {
+    "eyebrow": "Send to Studio",
+    "title": "Project intake",
+    "subtitle": "This form stays client-side and prepares a WhatsApp message with your brief.",
+    "fields": {
+      "name": "Your name",
+      "phone": "Phone number",
+      "email": "Your email",
+      "service": "What are we creating?",
+      "budget": "Project size",
+      "message": "Your message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "phone": "Your phone number",
+      "email": "your@email.com",
+      "service": "Select a service",
+      "budget": "Select a project size",
+      "message": "Describe the idea, platform, or campaign you want to build."
+    },
+    "services": {
+      "brandingDesign": "Branding & Design",
+      "printingCreativeProduction": "Printing & Creative Production",
+      "digitalMarketing": "Digital Campaigns",
+      "photography": "Photography",
+      "videoDroneLiveStreaming": "Video, Drone & Live Streaming",
+      "musicProduction": "Music Production",
+      "recordingSession": "Recording Session",
+      "instrumentTraining": "Instrument Training",
+      "webAppDevelopment": "Web & App Development",
+      "generalInquiry": "General Inquiry"
+    },
+    "budgets": {
+      "smallProject": "Small Project",
+      "mediumProject": "Medium Project",
+      "largeProject": "Large Project",
+      "notSureYet": "Not Sure Yet"
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "phone": "Please enter your phone number.",
+      "email": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "service": "Please choose a service.",
+      "budget": "Please choose a project size.",
+      "message": "Please enter a short brief."
+    },
+    "submit": "SEND TO STUDIO",
+    "whatsappTemplate": "Hello Tripod Creative. My name is {name}. I would like to book {service}. My project size is {budget}. My phone is {phone}. My email is {email}. Message: {message}."
+  },
+  "instant": {
+    "title": "Jump straight into WhatsApp",
+    "body": "If you already know what you need, open a direct chat and send the brief there.",
+    "button": "WhatsApp"
+  },
+  "quick": {
+    "title": "Quick contact",
+    "whatsappValue": "Start a direct conversation",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "phoneFallback": "Phone not configured",
+    "emailFallback": "Email not configured",
+    "whatsappTitle": "WhatsApp"
+  },
+  "location": {
+    "title": "Location details coming soon",
+    "body": "A confirmed address has not been added yet. This section stays clearly marked as a placeholder."
+  },
+  "final": {
+    "title": "Bring your next project into the studio.",
+    "body": "Send the brief, ask a question, or start with one sharp idea."
+  }
+}

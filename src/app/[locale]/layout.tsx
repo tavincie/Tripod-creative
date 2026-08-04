@@ -1,7 +1,7 @@
 import React from 'react';
 import { Inter, Montserrat, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { AppProviders } from './providers';
@@ -37,15 +37,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-  const titleText =
-    locale === 'sw'
-      ? 'Tripod Creative Agency - Ubora wa Picha na Kidijitali'
-      : 'Tripod Creative Agency - Cinematic & Digital Excellence';
-  const descText =
-    locale === 'sw'
-      ? 'Tripod ni creative studio inayotoa huduma za picha na video, chapa, masoko ya kidijitali, na studio pamoja na mafunzo ya ubunifu.'
-      : 'Tripod is a creative studio offering photography and video, branding, digital marketing, studio services, and creative training.';
+  const tSeo = await getTranslations({ locale, namespace: 'Seo.layout' });
+  const titleText = tSeo('title');
+  const descText = tSeo('description');
 
   return {
     title: {

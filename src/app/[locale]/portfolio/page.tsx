@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { PortfolioExperience } from '@/components/portfolio/PortfolioExperience';
 
 function createWhatsAppUrl(number: string, message: string) {
@@ -13,15 +13,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const tSeo = await getTranslations({ locale, namespace: 'Seo.portfolio' });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const title =
-    locale === 'sw'
-      ? 'Kazi za Tripod Creative | Branding, Picha, Video na Kampeni za Kidijitali'
-      : 'Tripod Creative Portfolio | Branding, Photography, Video & Digital Campaigns';
-  const description =
-    locale === 'sw'
-      ? 'Tazama kazi za Tripod Creative katika branding, graphics, printing, picha, video, matukio, muziki, na kampeni za kidijitali.'
-      : 'Browse Tripod Creative work across branding, graphics, printing, photography, video, events, music, and digital campaigns.';
+  const title = tSeo('title');
+  const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/portfolio`;
 
   return {
@@ -52,23 +47,15 @@ export async function generateMetadata({
 
 export default async function PortfolioPage() {
   const locale = await getLocale();
+  const tContact = await getTranslations({ locale, namespace: 'ContactPage' });
   const whatsappNumber = (
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
   ).replace(/[^0-9]/g, '');
 
-  const featuredMessage =
-    locale === 'sw'
-      ? 'Habari Tripod! Ningependa kujadili mradi wa portfolio unaofanana na kazi zenu za ubunifu.'
-      : 'Hello Tripod! I would like to discuss a project inspired by your portfolio work.';
-  const bookingMessage =
-    locale === 'sw'
-      ? 'Habari Tripod! Ningependa kuweka mazungumzo kuhusu mradi wangu wa ubunifu.'
-      : 'Hello Tripod! I would like to book a conversation about my creative project.';
-
   return (
     <PortfolioExperience
-      featuredUrl={createWhatsAppUrl(whatsappNumber, featuredMessage)}
-      bookingUrl={createWhatsAppUrl(whatsappNumber, bookingMessage)}
+      featuredUrl={createWhatsAppUrl(whatsappNumber, tContact('fallbackMessage'))}
+      bookingUrl={createWhatsAppUrl(whatsappNumber, tContact('fallbackMessage'))}
     />
   );
 }

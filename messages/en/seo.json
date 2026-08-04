@@ -1,0 +1,26 @@
+{
+  "layout": {
+    "title": "Tripod Creative Agency - Cinematic & Digital Excellence",
+    "description": "Tripod is a creative studio offering photography and video, branding, digital marketing, studio services, and creative training."
+  },
+  "services": {
+    "title": "Tripod Creative Services | Branding, Production, Digital Marketing & Studio",
+    "description": "Explore Tripod Creative services across branding, production, digital marketing, studio work, photography, videography, and web development."
+  },
+  "portfolio": {
+    "title": "Tripod Creative Portfolio | Branding, Photography, Video & Digital Campaigns",
+    "description": "Browse Tripod Creative work across branding, graphics, printing, photography, video, events, music, and digital campaigns."
+  },
+  "studioAcademy": {
+    "title": "Tripod Creative Studio & Academy | Music Production, Recording & Instrument Training",
+    "description": "Explore Tripod Creative Studio & Academy for recording support, music production, vocal recording, beat making, and instrument training."
+  },
+  "about": {
+    "title": "About Tripod Creative | Multimedia Production & Creative Agency",
+    "description": "Learn about Tripod Creative as a creative agency connecting multimedia production, brand storytelling, visual communication, and practical creative execution."
+  },
+  "contact": {
+    "title": "Contact Tripod Creative | Book Design, Production, Marketing & Studio Services",
+    "description": "Contact Tripod Creative to book design, production, marketing, studio, web, and other creative services through the booking form or WhatsApp."
+  }
+}

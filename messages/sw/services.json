@@ -1,0 +1,213 @@
+{
+  "metadataMessages": {
+    "hero": "Habari Tripod! Ningependa kujadili huduma zenu za ubunifu.",
+    "serviceMap": {
+      "graphicDesign": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Graphic Design.",
+      "branding": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Branding.",
+      "printing": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Printing.",
+      "photography": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Photography.",
+      "videography": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Videography.",
+      "droneCoverage": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Drone Coverage.",
+      "liveStreaming": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Live Streaming.",
+      "audioRecording": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Audio Recording.",
+      "musicProduction": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Music Production.",
+      "podcastRecording": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Podcast Recording.",
+      "digitalMarketing": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Digital Marketing.",
+      "instrumentTraining": "Habari Tripod! Ninaomba maelezo kuhusu huduma ya Instrument Training.",
+      "digitalSupport": "Habari Tripod! Ningependa kujadili digital support ya campaign yangu."
+    }
+  },
+  "hero": {
+    "eyebrow": "Production Capability Wall",
+    "title": "SERVICES BUILT FOR BRANDS THAT NEED TO BE SEEN, HEARD, AND REMEMBERED.",
+    "subtitle": "Kuanzia design na print hadi film, photography, audio, digital campaigns, na studio training, Tripod hubadilisha ideas kuwa kazi ya ubunifu tayari kwa production.",
+    "primary": "Anza Mradi",
+    "secondary": "Fungua Ukuta wa Huduma",
+    "frameLabel": "CHUMBA CHA HUDUMA",
+    "frameMeta": "huduma 12 tayari kwa studio",
+    "lanes": [
+      "DESIGN",
+      "VISUAL",
+      "SOUND"
+    ]
+  },
+  "intro": {
+    "eyebrow": "Service Film Strip",
+    "title": "Huduma 12 zimepangwa kama production wall moja.",
+    "body": "Kila zone ina media frame, service numbers, na njia ya moja kwa moja ya kuanza brief bila kurudi kwenye cards ndogo nyingi."
+  },
+  "zones": {
+    "designBrand": {
+      "eyebrow": "Zone 01",
+      "title": "DESIGN & BRAND",
+      "body": "Ukuta wa mbele wa studio: identity, visual language, na execution tayari kwa print.",
+      "serviceCount": "HUDUMA 3",
+      "items": [
+        "graphicDesign",
+        "branding",
+        "printing"
+      ]
+    },
+    "visualProduction": {
+      "eyebrow": "Zone 02",
+      "title": "VISUAL PRODUCTION",
+      "body": "Film, stills, aerial coverage, na live delivery vimepangwa kama mfumo mmoja wa capture.",
+      "serviceCount": "HUDUMA 4",
+      "items": [
+        "photography",
+        "videography",
+        "droneCoverage",
+        "liveStreaming"
+      ]
+    },
+    "soundStudio": {
+      "eyebrow": "Zone 03",
+      "title": "SOUND & STUDIO",
+      "body": "Recording, production, podcast sessions, na mafunzo yanakaa juu ya desk moja ya studio.",
+      "serviceCount": "HUDUMA 4",
+      "items": [
+        "audioRecording",
+        "musicProduction",
+        "podcastRecording",
+        "instrumentTraining"
+      ]
+    },
+    "digitalGrowth": {
+      "eyebrow": "Zone 04",
+      "title": "DIGITAL GROWTH",
+      "body": "Digital support inabaki imeunganishwa na campaign, si kitu kilichotengwa na studio.",
+      "serviceCount": "HUDUMA 1",
+      "items": [
+        "digitalMarketing"
+      ]
+    }
+  },
+  "items": {
+    "graphicDesign": {
+      "number": "01",
+      "title": "Graphic Design",
+      "description": "Layouts kali, campaign graphics, na brand surfaces tayari kwa rollout."
+    },
+    "branding": {
+      "number": "02",
+      "title": "Branding",
+      "description": "Identity direction inayofanya brand iwe wazi na ikumbukwe."
+    },
+    "printing": {
+      "number": "03",
+      "title": "Printing",
+      "description": "Posters, packaging, na vipande vya campaign vinavyoandaliwa kwa production."
+    },
+    "photography": {
+      "number": "04",
+      "title": "Photography",
+      "description": "Portrait, product, na event stills zinazorekodiwa kwa campaigns na archives."
+    },
+    "videography": {
+      "number": "05",
+      "title": "Videography",
+      "description": "Cinematic coverage, edits, na branded motion zinazojengwa kwa screens."
+    },
+    "droneCoverage": {
+      "number": "06",
+      "title": "Drone Coverage",
+      "description": "Aerial coverage inayopanua story na scale ya shoot."
+    },
+    "liveStreaming": {
+      "number": "07",
+      "title": "Live Streaming",
+      "description": "Multi-camera signal support kwa launches, events, na live moments."
+    },
+    "audioRecording": {
+      "number": "08",
+      "title": "Audio Recording",
+      "description": "Recording sessions safi kwa voice, music, na creative direction."
+    },
+    "musicProduction": {
+      "number": "09",
+      "title": "Music Production",
+      "description": "Beats, arrangement, na studio shaping vinavyojengwa kuzunguka final sound."
+    },
+    "podcastRecording": {
+      "number": "10",
+      "title": "Podcast Recording",
+      "description": "Voice-led sessions zenye studio setup inayoweka mazungumzo yakiwa safi."
+    },
+    "digitalMarketing": {
+      "number": "11",
+      "title": "Digital Marketing",
+      "description": "Content systems na rollout strategy vinavyoisogeza campaign mbele zaidi."
+    },
+    "instrumentTraining": {
+      "number": "12",
+      "title": "Instrument Training",
+      "description": "Mafunzo ya vitendo yanayounganisha rehearsal, confidence, na nidhamu ya studio."
+    }
+  },
+  "process": {
+    "eyebrow": "Production Board",
+    "title": "Kutoka brief hadi delivery kwa timeline moja ya studio.",
+    "body": "Sehemu hii inakaa kama production board ya Tripod: hatua wazi, numbering thabiti, na handoff isiyovunja direction.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Brief Lock",
+        "description": "Tunafunga message, audience, deliverables, na production priority mapema."
+      },
+      {
+        "number": "02",
+        "title": "Creative Direction",
+        "description": "References, formats, timing, na visual au sound direction vinawekwa sawa."
+      },
+      {
+        "number": "03",
+        "title": "Production / Design / Record",
+        "description": "Cameras, layouts, print prep, au studio sessions husogea kwenye board moja."
+      },
+      {
+        "number": "04",
+        "title": "Edit / Print / Package",
+        "description": "Assets zinaboreshwa, ku-exportiwa, kuchapishwa, au kuandaliwa kwa campaign."
+      },
+      {
+        "number": "05",
+        "title": "Launch / Deliver",
+        "description": "Kazi ya mwisho hukabidhiwa ikiwa tayari kwa posting, screening, printing, au rollout."
+      }
+    ]
+  },
+  "digitalSupport": {
+    "eyebrow": "Digital Support ya Ziada",
+    "title": "DIGITAL SUPPORT INAWEZA KUFUATA CAMPAIGN BILA KUTAWALA UKURASA.",
+    "body": "Ikiwa campaign inahitaji landing page, content system, au launch support, tunaweza kuiunganisha baada ya core production kuwa wazi.",
+    "items": [
+      "Landing support",
+      "Campaign rollout assets",
+      "Content structure",
+      "Launch coordination"
+    ],
+    "cta": "Jadili digital support",
+    "label": "DIGITAL SUPPORT"
+  },
+  "cta": {
+    "eyebrow": "Anza mradi",
+    "title": "BRING YOUR NEXT PROJECT INTO THE STUDIO.",
+    "body": "Anza kwa WhatsApp na service moja, production zone moja, au brief nzima. Tutakusaidia kuiweka kwenye route sahihi.",
+    "primary": "Anza Mradi",
+    "secondary": "WhatsApp Moja kwa Moja",
+    "contact": "Fungua form kamili ya mawasiliano"
+  },
+  "serviceOpenBrief": "Open Brief",
+  "featuredDevelopment": {
+    "eyebrow": "Integrated Campaign Build",
+    "title": "ONE BRIEF. MULTIPLE DISCIPLINES.",
+    "description": "Campaign moja inaweza kuhitaji design, stills, video, live coverage, audio assets, na rollout materials. Hapa Tripod huifanya production desk nzima ifanye kazi kama system moja.",
+    "outputs": [
+      "Brand key visuals",
+      "Photo and video assets",
+      "Print rollout",
+      "Audio and digital content"
+    ],
+    "cta": "Build a campaign brief"
+  }
+}

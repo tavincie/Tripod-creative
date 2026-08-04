@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "eyebrow": "Studio & Academy",
+    "title": "Recording support, music production, and instrument training in one creative space.",
+    "subtitle": "Tripod brings beginner-friendly learning, practical studio support, and artist development into a focused music journey.",
+    "tags": {
+      "recordingSupport": "Recording support",
+      "musicProduction": "Music production",
+      "instrumentTraining": "Instrument training"
+    },
+    "panelLabel": "Creative Sound Flow",
+    "panelItems": {
+      "recording": {
+        "title": "Recording Support",
+        "description": "Guided recording sessions for vocals, demos, and creative project development."
+      },
+      "production": {
+        "title": "Beat Making",
+        "description": "Production sessions shaped around song direction, arrangement, and sound choices."
+      },
+      "training": {
+        "title": "Instrument Training",
+        "description": "Practical learning sessions for piano, guitar, drums, and vocals."
+      },
+      "coaching": {
+        "title": "Creative Coaching",
+        "description": "Support for confidence, consistency, and next-step artist growth."
+      }
+    }
+  },
+  "recording": {
+    "eyebrow": "Recording Studio",
+    "title": "Recording sessions built around clarity and confidence.",
+    "subtitle": "We support vocal recording, practice takes, creative direction, and session flow in a way that feels approachable for both new and returning artists.",
+    "items": [
+      {
+        "title": "Vocal Recording",
+        "description": "Focused session support for songs, demos, spoken pieces, and creative ideas."
+      },
+      {
+        "title": "Practice Sessions",
+        "description": "Repeat, refine, and build comfort before moving into your next recording step."
+      },
+      {
+        "title": "Session Guidance",
+        "description": "Creative direction that helps shape takes, pacing, and delivery without pressure."
+      }
+    ],
+    "cta": "Book a Recording Session"
+  },
+  "production": {
+    "eyebrow": "Music Production",
+    "title": "Production support for ideas that need structure and momentum.",
+    "subtitle": "From beat making to vocal arrangement, we help artists and learners move their ideas into songs, drafts, and stronger creative direction.",
+    "items": [
+      {
+        "title": "Beat Making",
+        "description": "Build rhythm, mood, and song foundations that fit your creative direction."
+      },
+      {
+        "title": "Song Development",
+        "description": "Shape arrangement, sections, and flow so rough ideas become clearer tracks."
+      },
+      {
+        "title": "Vocal Direction",
+        "description": "Work on performance choices, layering ideas, and recording preparation."
+      },
+      {
+        "title": "Artist Development",
+        "description": "Use each session to strengthen process, confidence, and long-term growth."
+      }
+    ],
+    "cta": "Discuss Music Production"
+  },
+  "training": {
+    "eyebrow": "Instrument Training",
+    "title": "Learn with structure, practice with support, and grow at your pace.",
+    "subtitle": "Training is designed to be beginner-friendly while still helping returning learners build stronger habits and technique.",
+    "items": {
+      "piano": {
+        "title": "Piano",
+        "level": "Beginner Friendly",
+        "description": "Build hand coordination, rhythm, and melody with guided lessons and repeatable practice sessions.",
+        "bullets": [
+          "Intro-friendly exercises and simple progress paths",
+          "Creative coaching for confidence and consistency"
+        ],
+        "cta": "Ask about Piano Training"
+      },
+      "guitar": {
+        "title": "Guitar",
+        "level": "Practice Led",
+        "description": "Develop chords, timing, and song-based practice in a way that keeps learning practical and motivating.",
+        "bullets": [
+          "Hands-on learning with clear weekly focus areas",
+          "Sessions shaped around real playing confidence"
+        ],
+        "cta": "Ask about Guitar Training"
+      },
+      "drums": {
+        "title": "Drums",
+        "level": "Rhythm Focused",
+        "description": "Work on timing, groove, coordination, and performance discipline through guided rhythm sessions.",
+        "bullets": [
+          "Practice sessions that improve control and feel",
+          "Beginner-friendly pathways with room to advance"
+        ],
+        "cta": "Ask about Drum Training"
+      },
+      "vocals": {
+        "title": "Vocals",
+        "level": "Performance Ready",
+        "description": "Build vocal confidence, control, and recording readiness through supportive coaching and repetition.",
+        "bullets": [
+          "Warm-up, delivery, and vocal practice support",
+          "Coaching that helps connect voice and expression"
+        ],
+        "cta": "Ask about Vocal Training"
+      }
+    }
+  },
+  "benefits": {
+    "eyebrow": "Why Train With Tripod",
+    "title": "A learning environment built for real creative progress.",
+    "items": [
+      {
+        "title": "Beginner-Friendly Learning",
+        "description": "Sessions are structured to feel approachable while still building useful creative habits."
+      },
+      {
+        "title": "Practice With Purpose",
+        "description": "Learners move through guided practice sessions instead of guessing the next step."
+      },
+      {
+        "title": "Creative Coaching",
+        "description": "Support goes beyond technique so confidence, consistency, and expression can grow too."
+      },
+      {
+        "title": "Studio Connection",
+        "description": "Training and recording support can connect naturally when learners are ready to create more."
+      }
+    ]
+  },
+  "pathway": {
+    "eyebrow": "Creative Pathway",
+    "title": "A simple path from learning to performance.",
+    "steps": {
+      "learn": {
+        "title": "Learn",
+        "description": "Start with clear foundations, guided lessons, and practical creative coaching."
+      },
+      "practice": {
+        "title": "Practice",
+        "description": "Reinforce rhythm, timing, confidence, and control through repeatable sessions."
+      },
+      "record": {
+        "title": "Record",
+        "description": "Move into recording support when ideas, songs, or performances are ready to capture."
+      },
+      "perform": {
+        "title": "Perform",
+        "description": "Use the progress you have built to express, share, and keep growing as an artist."
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Enrollment & Booking",
+    "title": "Choose the studio or training path you want to explore.",
+    "subtitle": "Start with a focused WhatsApp message and we can guide you toward the right session, learning plan, or creative next step.",
+    "buttonHint": "Opens WhatsApp with a studio-specific message",
+    "buttons": {
+      "recordingSession": "Recording Session",
+      "musicProduction": "Music Production",
+      "pianoTraining": "Piano Training",
+      "guitarTraining": "Guitar Training",
+      "drumTraining": "Drum Training",
+      "vocalTraining": "Vocal Training",
+      "generalInquiry": "General Studio Inquiry"
+    }
+  }
+}

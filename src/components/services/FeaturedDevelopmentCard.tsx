@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
@@ -15,25 +15,8 @@ interface FeaturedDevelopmentCardProps {
 export function FeaturedDevelopmentCard({
   whatsappUrl,
 }: FeaturedDevelopmentCardProps) {
-  const locale = useLocale();
-  const copy =
-    locale === 'sw'
-      ? {
-          eyebrow: 'Integrated Campaign Build',
-          title: 'ONE BRIEF. MULTIPLE DISCIPLINES.',
-          description:
-            'Campaign moja inaweza kuhitaji design, stills, video, live coverage, audio assets, na rollout materials. Hapa Tripod huifanya production desk nzima ifanye kazi kama system moja.',
-          outputs: ['Brand key visuals', 'Photo and video assets', 'Print rollout', 'Audio and digital content'],
-          cta: 'Build a campaign brief',
-        }
-      : {
-          eyebrow: 'Integrated Campaign Build',
-          title: 'ONE BRIEF. MULTIPLE DISCIPLINES.',
-          description:
-            'One campaign can need design, stills, video, live coverage, audio assets, and rollout materials. This is where Tripod works as one connected production desk instead of separate vendors.',
-          outputs: ['Brand key visuals', 'Photo and video assets', 'Print rollout', 'Audio and digital content'],
-          cta: 'Build a campaign brief',
-        };
+  const tServices = useTranslations('ServicesPage');
+  const tCommon = useTranslations('Common');
 
   const frames = [
     sampleMedia.videoProductionSetup,
@@ -50,7 +33,7 @@ export function FeaturedDevelopmentCard({
               <div className="relative min-h-[28rem] overflow-hidden rounded-[2.1rem] border border-white/10 bg-black">
                 <Image
                   src={sampleMedia.socialCampaignVisuals.src}
-                  alt={sampleMedia.socialCampaignVisuals.alt}
+                  alt={tCommon(sampleMedia.socialCampaignVisuals.altKey)}
                   fill
                   sizes="(max-width: 1024px) 100vw, 44vw"
                   className="object-cover"
@@ -66,7 +49,7 @@ export function FeaturedDevelopmentCard({
                   >
                     <Image
                       src={media.src}
-                      alt={media.alt}
+                      alt={tCommon(media.altKey)}
                       fill
                       sizes="(max-width: 1024px) 100vw, 18vw"
                       className="object-cover"
@@ -83,12 +66,18 @@ export function FeaturedDevelopmentCard({
 
           <ScrollReveal delay={0.08}>
             <div className="space-y-6">
-              <p className="label-sm text-[var(--tripod-orange)]">{copy.eyebrow}</p>
-              <h2 className="headline-lg max-w-xl text-[var(--tripod-warm-white)]">{copy.title}</h2>
-              <p className="body-md max-w-xl text-[var(--tripod-text-muted-light)]">{copy.description}</p>
+              <p className="label-sm text-[var(--tripod-orange)]">
+                {tServices('featuredDevelopment.eyebrow')}
+              </p>
+              <h2 className="headline-lg max-w-xl text-[var(--tripod-warm-white)]">
+                {tServices('featuredDevelopment.title')}
+              </h2>
+              <p className="body-md max-w-xl text-[var(--tripod-text-muted-light)]">
+                {tServices('featuredDevelopment.description')}
+              </p>
 
               <div className="grid gap-3 sm:grid-cols-2">
-                {copy.outputs.map((item) => (
+                {(tServices.raw('featuredDevelopment.outputs') as string[]).map((item) => (
                   <div
                     key={item}
                     className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-[var(--tripod-warm-white)]"
@@ -105,7 +94,7 @@ export function FeaturedDevelopmentCard({
                 className="inline-flex rounded-sm"
               >
                 <Button variant="primary" className="gap-2 px-7 py-3.5">
-                  {copy.cta}
+                  {tServices('featuredDevelopment.cta')}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </a>

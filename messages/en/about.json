@@ -1,0 +1,59 @@
+{
+  "whatsappMessage": "Hello Tripod! I would like to learn more about your team culture and creative approach.",
+  "hero": {
+    "eyebrow": "About Tripod",
+    "title": "Tripod is a creative studio turning ideas into visuals, motion, and campaign assets.",
+    "subtitle": "We work across branding, design, production, photography, music, print, and digital rollout with studio energy built for attention.",
+    "brandLabel": "Tripod Creative",
+    "mediaLabels": [
+      "Branding",
+      "Studio"
+    ]
+  },
+  "statement": {
+    "title": "One studio. Multiple disciplines. One direction.",
+    "body": "From concept to camera to campaign, Tripod connects creative direction with production execution without feeling like a brochure or NGO profile."
+  },
+  "capabilities": {
+    "title": "What Tripod creates",
+    "body": "Brand design, visual production, studio content, and digital delivery are built together so the work feels current and ready for screens, stages, streets, and stories.",
+    "items": [
+      "Branding and design systems",
+      "Film, photography, and event coverage",
+      "Print production, music studio, and digital campaigns"
+    ]
+  },
+  "culture": {
+    "eyebrow": "Creative Culture",
+    "title": "Behind the scenes, the work stays visual, fast, and collaborative.",
+    "body": "Sample media is used here to show the kind of production atmosphere that fits Tripod until real team media is ready.",
+    "labels": [
+      "BTS",
+      "Direction",
+      "Design"
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "Concept. Production. Delivery.",
+    "steps": [
+      {
+        "title": "Concept",
+        "description": "The brief, direction, references, and visual angle are set early."
+      },
+      {
+        "title": "Production",
+        "description": "Camera, design, print, studio, and campaign assets move with one focused pace."
+      },
+      {
+        "title": "Delivery",
+        "description": "The work is prepared for launch, posting, printing, presentation, or rollout."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Bring your next project into the studio.",
+    "body": "If this direction fits, let’s start the conversation on WhatsApp.",
+    "button": "Send to Studio"
+  }
+}

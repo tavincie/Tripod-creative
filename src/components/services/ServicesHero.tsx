@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
@@ -14,35 +14,10 @@ interface ServicesHeroProps {
 }
 
 export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
-  const locale = useLocale();
-  const copy =
-    locale === 'sw'
-      ? {
-          eyebrow: 'Production Capability Wall',
-          title:
-            'SERVICES BUILT FOR BRANDS THAT NEED TO BE SEEN, HEARD, AND REMEMBERED.',
-          subtitle:
-            'Kuanzia design na print hadi film, photography, audio, digital campaigns, na studio training, Tripod hubadilisha ideas kuwa kazi ya ubunifu tayari kwa production.',
-          primary: 'Anza Mradi',
-          secondary: 'Fungua Ukuta wa Huduma',
-          frameLabel: 'CHUMBA CHA HUDUMA',
-          frameMeta: 'huduma 12 tayari kwa studio',
-          lanes: ['DESIGN', 'VISUAL', 'SOUND'],
-        }
-      : {
-          eyebrow: 'Production Capability Wall',
-          title:
-            'SERVICES BUILT FOR BRANDS THAT NEED TO BE SEEN, HEARD, AND REMEMBERED.',
-          subtitle:
-            'From design and print to film, photography, audio, digital campaigns, and studio training, Tripod turns ideas into production-ready creative work.',
-          primary: 'Start a Project',
-          secondary: 'Open the Service Wall',
-          frameLabel: 'SERVICE ROOM',
-          frameMeta: '12 studio-ready capabilities',
-          lanes: ['DESIGN', 'VISUAL', 'SOUND'],
-        };
-
+  const tServices = useTranslations('ServicesPage');
+  const tCommon = useTranslations('Common');
   const media = sampleMedia.videoProductionSetup;
+  const lanes = tServices.raw('hero.lanes') as string[];
 
   return (
     <section className="relative overflow-hidden border-b border-white/8 pb-14 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
@@ -58,7 +33,7 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
           <ScrollReveal>
             <span className="film-kicker">
               <span className="film-rec-dot" aria-hidden="true" />
-              {copy.eyebrow}
+              {tServices('hero.eyebrow')}
             </span>
           </ScrollReveal>
 
@@ -67,13 +42,13 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
               className="film-hero-title max-w-[8ch] sm:max-w-5xl"
               style={{ fontSize: 'clamp(1.55rem, 12vw, 5.8rem)' }}
             >
-              {copy.title}
+              {tServices('hero.title')}
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.14}>
             <p className="max-w-2xl text-base leading-7 text-[rgba(245,241,233,0.82)] md:text-lg">
-              {copy.subtitle}
+              {tServices('hero.subtitle')}
             </p>
           </ScrollReveal>
 
@@ -87,7 +62,7 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
               >
                 <Button variant="primary" className="gap-2 px-7 py-3.5">
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                  {copy.primary}
+                  {tServices('hero.primary')}
                 </Button>
               </a>
 
@@ -96,7 +71,7 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
                 className="focus-ring inline-flex max-w-full items-center gap-2 rounded-sm border border-white/12 px-4 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.12em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
               >
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                {copy.secondary}
+                {tServices('hero.secondary')}
               </Link>
             </div>
           </ScrollReveal>
@@ -109,15 +84,15 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
               <div className="absolute inset-x-6 top-5 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.72)]">
                 <span className="inline-flex items-center gap-2">
                   <span className="film-rec-dot h-2 w-2" aria-hidden="true" />
-                  {copy.frameLabel}
+                  {tServices('hero.frameLabel')}
                 </span>
-                <span>{copy.frameMeta}</span>
+                <span>{tServices('hero.frameMeta')}</span>
               </div>
 
               <div className="relative min-h-[24rem] overflow-hidden rounded-[1.4rem] border border-white/12 bg-black sm:min-h-[29rem]">
                 <Image
                   src={media.src}
-                  alt={media.alt}
+                  alt={tCommon(`media.${media.key}`)}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 46vw"
@@ -129,7 +104,7 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
                   aria-hidden="true"
                 />
                 <div className="absolute bottom-5 left-5 right-5 grid gap-3 sm:grid-cols-3">
-                  {copy.lanes.map((label, index) => (
+                  {lanes.map((label, index) => (
                     <div
                       key={label}
                       className="border border-white/12 bg-black/45 px-3 py-3 font-mono text-[0.62rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)] backdrop-blur-sm"

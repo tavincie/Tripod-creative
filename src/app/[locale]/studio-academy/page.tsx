@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { StudioAcademyExperience } from '@/components/studio-academy/StudioAcademyExperience';
 
 function createWhatsAppUrl(number: string, message: string) {
@@ -13,15 +13,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const tSeo = await getTranslations({ locale, namespace: 'Seo.studioAcademy' });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const title =
-    locale === 'sw'
-      ? 'Studio na Chuo cha Tripod Creative | Utayarishaji wa Muziki, Recording na Mafunzo'
-      : 'Tripod Creative Studio & Academy | Music Production, Recording & Instrument Training';
-  const description =
-    locale === 'sw'
-      ? 'Chunguza studio na chuo cha Tripod Creative kwa recording support, music production, vocal recording, beat making, na mafunzo ya ala.'
-      : 'Explore Tripod Creative Studio & Academy for recording support, music production, vocal recording, beat making, and instrument training.';
+  const title = tSeo('title');
+  const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/studio-academy`;
 
   return {
@@ -52,49 +47,16 @@ export async function generateMetadata({
 
 export default async function StudioAcademyPage() {
   const locale = await getLocale();
+  const tContact = await getTranslations({ locale, namespace: 'ContactPage' });
   const whatsappNumber = (
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
   ).replace(/[^0-9]/g, '');
-
-  const messages =
-    locale === 'sw'
-      ? {
-          recordingSession:
-            'Habari Tripod! Ningependa kuweka nafasi ya recording session.',
-          musicProduction:
-            'Habari Tripod! Ningependa kujadili huduma za music production.',
-          pianoTraining:
-            'Habari Tripod! Ningependa kupata maelezo kuhusu mafunzo ya piano.',
-          guitarTraining:
-            'Habari Tripod! Ningependa kupata maelezo kuhusu mafunzo ya guitar.',
-          drumTraining:
-            'Habari Tripod! Ningependa kupata maelezo kuhusu mafunzo ya drums.',
-          vocalTraining:
-            'Habari Tripod! Ningependa kupata maelezo kuhusu mafunzo ya vocals.',
-          generalInquiry:
-            'Habari Tripod! Ninaomba maelezo ya jumla kuhusu studio na chuo chenu.',
-        }
-      : {
-          recordingSession:
-            'Hello Tripod! I would like to book a recording session.',
-          musicProduction:
-            'Hello Tripod! I would like to discuss music production services.',
-          pianoTraining:
-            'Hello Tripod! I would like to ask about piano training.',
-          guitarTraining:
-            'Hello Tripod! I would like to ask about guitar training.',
-          drumTraining:
-            'Hello Tripod! I would like to ask about drum training.',
-          vocalTraining:
-            'Hello Tripod! I would like to ask about vocal training.',
-          generalInquiry:
-            'Hello Tripod! I would like to ask about your studio and academy services.',
-        };
+  const fallbackMessage = tContact('fallbackMessage');
 
   const serviceUrls = Object.fromEntries(
-    Object.entries(messages).map(([key, message]) => [
+    ['recordingSession', 'musicProduction', 'pianoTraining', 'guitarTraining', 'drumTraining', 'vocalTraining', 'generalInquiry'].map((key) => [
       key,
-      createWhatsAppUrl(whatsappNumber, message),
+      createWhatsAppUrl(whatsappNumber, fallbackMessage),
     ]),
   ) as Record<string, string>;
 
