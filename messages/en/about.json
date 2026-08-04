@@ -1,59 +1,113 @@
 {
-  "whatsappMessage": "Hello Tripod! I would like to learn more about your team culture and creative approach.",
+  "whatsappMessage": "Hello Tripod! I would like to learn more about your creative studio approach.",
   "hero": {
     "eyebrow": "About Tripod",
-    "title": "Tripod is a creative studio turning ideas into visuals, motion, and campaign assets.",
-    "subtitle": "We work across branding, design, production, photography, music, print, and digital rollout with studio energy built for attention.",
-    "brandLabel": "Tripod Creative",
-    "mediaLabels": [
-      "Branding",
-      "Studio"
+    "title": "WE ARE THE CREATIVE CREW BEHIND THE FRAME.",
+    "subtitle": "Tripod Creative brings design, print, photography, video, audio, and digital storytelling into one production-minded studio.",
+    "frameLabel": "Production Notes",
+    "statusLabel": "Crew Status",
+    "statusValue": "Active / Studio Ready",
+    "laneLabels": [
+      "Design",
+      "Capture",
+      "Sound"
     ]
   },
-  "statement": {
-    "title": "One studio. Multiple disciplines. One direction.",
-    "body": "From concept to camera to campaign, Tripod connects creative direction with production execution without feeling like a brochure or NGO profile."
+  "identity": {
+    "eyebrow": "Studio Identity",
+    "title": "One crew built to make brands seen, heard, and remembered.",
+    "body": "Tripod is not arranged like separate vendors passing work around. The studio holds design, print, stills, video, audio, and digital rollout in one production-minded space so the direction stays intact from the first idea to the final handoff.",
+    "credits": [
+      "We design.",
+      "We shoot.",
+      "We record.",
+      "We print.",
+      "We launch."
+    ]
   },
-  "capabilities": {
-    "title": "What Tripod creates",
-    "body": "Brand design, visual production, studio content, and digital delivery are built together so the work feels current and ready for screens, stages, streets, and stories.",
+  "notes": {
+    "eyebrow": "Production Notes",
+    "title": "The culture stays disciplined, practical, and close to the work.",
+    "body": "These notes behave more like crew credits than company values. They describe how the studio approaches visuals, sound, pace, and delivery without turning into a corporate profile.",
     "items": [
-      "Branding and design systems",
-      "Film, photography, and event coverage",
-      "Print production, music studio, and digital campaigns"
+      {
+        "number": "01",
+        "title": "Visual Discipline",
+        "description": "Every layout, frame, and surface is shaped to feel intentional before it leaves the studio."
+      },
+      {
+        "number": "02",
+        "title": "Sound Clarity",
+        "description": "Recording and audio work stay focused on clean communication, not unnecessary noise."
+      },
+      {
+        "number": "03",
+        "title": "Brand Memory",
+        "description": "The work is built to stay with people after they have seen it, heard it, or held it."
+      },
+      {
+        "number": "04",
+        "title": "Production Speed",
+        "description": "Momentum matters, so the process stays sharp without losing creative control."
+      },
+      {
+        "number": "05",
+        "title": "Street-Level Creativity",
+        "description": "Ideas stay close to real audiences, real environments, and real creative energy."
+      },
+      {
+        "number": "06",
+        "title": "Clean Delivery",
+        "description": "Files, edits, prints, and launch assets leave the studio ready to be used properly."
+      }
     ]
   },
-  "culture": {
-    "eyebrow": "Creative Culture",
-    "title": "Behind the scenes, the work stays visual, fast, and collaborative.",
-    "body": "Sample media is used here to show the kind of production atmosphere that fits Tripod until real team media is ready.",
+  "difference": {
+    "eyebrow": "Why Tripod Feels Different",
+    "title": "The studio moves like one production desk instead of a stack of disconnected services.",
+    "body": "That difference shows up in the handoff. Ideas are not redesigned in one place, captured in another, and diluted by the time they launch. Tripod keeps the creative thread visible from concept through recording, production, print, and release.",
     "labels": [
-      "BTS",
-      "Direction",
-      "Design"
+      "Direction Locked",
+      "Crew Energy",
+      "Launch Ready"
     ]
   },
   "process": {
-    "eyebrow": "Process",
-    "title": "Concept. Production. Delivery.",
+    "eyebrow": "Production Credits",
+    "title": "A credits board that keeps the work moving from idea to launch.",
     "steps": [
       {
-        "title": "Concept",
-        "description": "The brief, direction, references, and visual angle are set early."
+        "number": "01",
+        "title": "Listen to the Idea",
+        "description": "The brief, message, audience, and creative tension are understood before production starts."
       },
       {
-        "title": "Production",
-        "description": "Camera, design, print, studio, and campaign assets move with one focused pace."
+        "number": "02",
+        "title": "Shape the Concept",
+        "description": "References, visual direction, sound direction, and format choices are aligned early."
       },
       {
-        "title": "Delivery",
-        "description": "The work is prepared for launch, posting, printing, presentation, or rollout."
+        "number": "03",
+        "title": "Capture / Design / Record",
+        "description": "The studio moves into camera work, layouts, audio, or print preparation with one shared direction."
+      },
+      {
+        "number": "04",
+        "title": "Edit and Refine",
+        "description": "The work is cleaned up, tightened, and pushed until it feels clear and ready to carry the idea."
+      },
+      {
+        "number": "05",
+        "title": "Package for Launch",
+        "description": "Final assets are prepared for screens, speakers, print, posting, or public rollout."
       }
     ]
   },
   "cta": {
-    "title": "Bring your next project into the studio.",
-    "body": "If this direction fits, let’s start the conversation on WhatsApp.",
-    "button": "Send to Studio"
+    "eyebrow": "Next Frame",
+    "title": "READY TO PUT YOUR BRAND IN THE FRAME?",
+    "body": "Start the conversation, bring the brief into the studio, or head to the work archive and see how the production language comes to life.",
+    "primary": "Start a Project",
+    "secondary": "View Our Work"
   }
 }

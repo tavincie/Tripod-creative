@@ -1,59 +1,113 @@
 {
-  "whatsappMessage": "Habari Tripod! Ningependa kujifunza zaidi kuhusu timu na njia yenu ya kazi.",
+  "whatsappMessage": "Habari Tripod! Ningependa kuelewa zaidi studio approach yenu ya ubunifu.",
   "hero": {
     "eyebrow": "Kuhusu Tripod",
-    "title": "Tripod ni studio ya ubunifu inayobadilisha ideas kuwa visuals, motion, na campaign assets.",
-    "subtitle": "Tunafanya kazi kwenye branding, design, production, photography, music, print, na digital rollout kwa studio energy inayolenga attention.",
-    "brandLabel": "Tripod Creative",
-    "mediaLabels": [
-      "Branding",
-      "Studio"
+    "title": "SISI NDIO CREATIVE CREW ILIYO NYUMA YA FRAME.",
+    "subtitle": "Tripod Creative inaunganisha design, print, photography, video, audio, na digital storytelling ndani ya studio moja yenye production mindset.",
+    "frameLabel": "Production Notes",
+    "statusLabel": "Hali ya Crew",
+    "statusValue": "Active / Studio Ready",
+    "laneLabels": [
+      "Design",
+      "Capture",
+      "Sound"
     ]
   },
-  "statement": {
-    "title": "Studio moja. Disciplines nyingi. Mwelekeo mmoja.",
-    "body": "Kutoka concept hadi camera hadi campaign, Tripod huunganisha creative direction na production execution bila kuonekana kama brochure au NGO profile."
+  "identity": {
+    "eyebrow": "Studio Identity",
+    "title": "Crew moja iliyojengwa kufanya brands zionekane, zisikike, na zikumbukwe.",
+    "body": "Tripod haijapangiliwa kama vendors tofauti wanaorushiana kazi. Studio inashikilia design, print, stills, video, audio, na digital rollout ndani ya production space moja ili direction ibaki imara kuanzia idea ya kwanza hadi handoff ya mwisho.",
+    "credits": [
+      "Tunadesign.",
+      "Tunashoot.",
+      "Tunarekodi.",
+      "Tunaprint.",
+      "Tunalaunch."
+    ]
   },
-  "capabilities": {
-    "title": "Tripod hufanya nini",
-    "body": "Design ya chapa, visual production, studio content, na digital delivery hujengwa pamoja ili kazi ionekane ya kisasa na tayari kwa screens, stages, streets, na stories.",
+  "notes": {
+    "eyebrow": "Production Notes",
+    "title": "Culture inabaki disciplined, practical, na karibu na kazi yenyewe.",
+    "body": "Notes hizi zinafanya kazi zaidi kama crew credits kuliko company values. Zinaeleza namna studio inavyoshughulikia visuals, sound, pace, na delivery bila kugeuka corporate profile.",
     "items": [
-      "Branding na design systems",
-      "Film, photography, na event coverage",
-      "Print production, music studio, na digital campaigns"
+      {
+        "number": "01",
+        "title": "Visual Discipline",
+        "description": "Kila layout, frame, na surface huundwa kwa makusudi kabla haijatoka studio."
+      },
+      {
+        "number": "02",
+        "title": "Sound Clarity",
+        "description": "Recording na audio work hubaki na focus kwenye mawasiliano safi, si kelele zisizo za lazima."
+      },
+      {
+        "number": "03",
+        "title": "Brand Memory",
+        "description": "Kazi hujengwa ibaki na watu baada ya kuiona, kuisikia, au kuishika."
+      },
+      {
+        "number": "04",
+        "title": "Production Speed",
+        "description": "Momentum ni muhimu, hivyo process inabaki sharp bila kupoteza creative control."
+      },
+      {
+        "number": "05",
+        "title": "Street-Level Creativity",
+        "description": "Ideas hubaki karibu na audiences halisi, mazingira halisi, na creative energy ya kweli."
+      },
+      {
+        "number": "06",
+        "title": "Clean Delivery",
+        "description": "Files, edits, prints, na launch assets hutoka studio zikiwa tayari kutumika vizuri."
+      }
     ]
   },
-  "culture": {
-    "eyebrow": "Creative Culture",
-    "title": "Behind the scenes, the work stays visual, fast, and collaborative.",
-    "body": "Tunatumia sample media hapa kuonyesha aina ya production atmosphere inayofaa Tripod mpaka media halisi ya timu iwe tayari.",
+  "difference": {
+    "eyebrow": "Kwa Nini Tripod Inajisikia Tofauti",
+    "title": "Studio inasogea kama production desk moja badala ya mkusanyiko wa services zisizoungana.",
+    "body": "Tofauti hiyo huonekana kwenye handoff. Ideas hazidesign-iwi sehemu moja, zikacapture-iwa sehemu nyingine, halafu zikapoteza nguvu kabla ya launch. Tripod huweka creative thread ionekane kutoka concept hadi recording, production, print, na release.",
     "labels": [
-      "BTS",
-      "Direction",
-      "Design"
+      "Direction Locked",
+      "Crew Energy",
+      "Launch Ready"
     ]
   },
   "process": {
-    "eyebrow": "Process",
-    "title": "Concept. Production. Delivery.",
+    "eyebrow": "Production Credits",
+    "title": "Credits board inayosukuma kazi kutoka idea hadi launch.",
     "steps": [
       {
-        "title": "Concept",
-        "description": "Brief, direction, references, na visual angle huwekwa wazi mapema."
+        "number": "01",
+        "title": "Listen to the Idea",
+        "description": "Brief, message, audience, na creative tension hueleweka kabla production haijaanza."
       },
       {
-        "title": "Production",
-        "description": "Camera, design, print, studio, na campaign assets hutengenezwa kwa pace moja yenye focus."
+        "number": "02",
+        "title": "Shape the Concept",
+        "description": "References, visual direction, sound direction, na uchaguzi wa formats huwekwa sawa mapema."
       },
       {
-        "title": "Delivery",
-        "description": "Kazi huandaliwa kwa launch, posting, printing, presentation, au campaign rollout."
+        "number": "03",
+        "title": "Capture / Design / Record",
+        "description": "Studio huingia kwenye camera work, layouts, audio, au print preparation ikiwa na direction moja iliyoshirikishwa."
+      },
+      {
+        "number": "04",
+        "title": "Edit and Refine",
+        "description": "Kazi husafishwa, kubanwa, na kusukumwa hadi ijisikie wazi na tayari kubeba idea."
+      },
+      {
+        "number": "05",
+        "title": "Package for Launch",
+        "description": "Assets za mwisho huandaliwa kwa screens, speakers, print, posting, au public rollout."
       }
     ]
   },
   "cta": {
-    "title": "Leta project yako inayofuata ndani ya studio.",
-    "body": "Ikiwa direction hii inafaa, tuanze mazungumzo kwa WhatsApp.",
-    "button": "Tuma Studio"
+    "eyebrow": "Frame Inayofuata",
+    "title": "UKO TAYARI KUIWEKA BRAND YAKO NDANI YA FRAME?",
+    "body": "Anza mazungumzo, leta brief ndani ya studio, au nenda kwenye work archive uone namna production language inavyokuwa hai.",
+    "primary": "Anza Mradi",
+    "secondary": "Tazama Kazi Zetu"
   }
 }
