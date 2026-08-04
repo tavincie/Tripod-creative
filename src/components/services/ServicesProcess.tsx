@@ -8,53 +8,55 @@ const processRows = {
   en: [
     {
       number: '01',
-      title: 'Brief and Direction',
-      description: 'We lock the message, audience, deliverables, and campaign priorities.',
-      output: 'Output: approved creative brief',
+      title: 'Brief Lock',
+      description: 'We set the message, audience, deliverables, and production priority.',
     },
     {
       number: '02',
-      title: 'Pre-production',
-      description: 'We map production needs, schedules, references, locations, and talent.',
-      output: 'Output: shot list, design route, and schedule',
+      title: 'Creative Direction',
+      description: 'References, formats, timing, and visual or sound direction are aligned.',
     },
     {
       number: '03',
-      title: 'Production',
-      description: 'Design, cameras, studio sessions, print prep, and coverage move together.',
-      output: 'Output: captured and created production assets',
+      title: 'Production / Design / Record',
+      description: 'Cameras, layouts, print prep, or studio sessions move on one board.',
     },
     {
       number: '04',
-      title: 'Editing and Delivery',
-      description: 'We edit, package, export, and prepare every asset for launch or rollout.',
-      output: 'Output: release-ready campaign package',
+      title: 'Edit / Print / Package',
+      description: 'Assets are refined, exported, printed, or prepared for campaign use.',
+    },
+    {
+      number: '05',
+      title: 'Launch / Deliver',
+      description: 'The final work is handed over ready for posting, screening, printing, or rollout.',
     },
   ],
   sw: [
     {
       number: '01',
-      title: 'Brief na Direction',
-      description: 'Tunafunga message, audience, deliverables, na campaign priorities mapema.',
-      output: 'Output: creative brief iliyokubaliwa',
+      title: 'Brief Lock',
+      description: 'Tunafunga message, audience, deliverables, na production priority mapema.',
     },
     {
       number: '02',
-      title: 'Pre-production',
-      description: 'Tunapanga production needs, schedule, references, locations, na talent.',
-      output: 'Output: shot list, design route, na schedule',
+      title: 'Creative Direction',
+      description: 'References, formats, timing, na visual au sound direction vinawekwa sawa.',
     },
     {
       number: '03',
-      title: 'Production',
-      description: 'Design, cameras, studio sessions, print prep, na coverage husogea pamoja.',
-      output: 'Output: production assets zilizoundwa na kurekodiwa',
+      title: 'Production / Design / Record',
+      description: 'Cameras, layouts, print prep, au studio sessions husogea kwenye board moja.',
     },
     {
       number: '04',
-      title: 'Editing na Delivery',
-      description: 'Tunahariri, kufunga, ku-export, na kuandaa assets kwa launch au rollout.',
-      output: 'Output: campaign package tayari kwa release',
+      title: 'Edit / Print / Package',
+      description: 'Assets zinaboreshwa, ku-exportiwa, kuchapishwa, au kuandaliwa kwa campaign.',
+    },
+    {
+      number: '05',
+      title: 'Launch / Deliver',
+      description: 'Kazi ya mwisho hukabidhiwa ikiwa tayari kwa posting, screening, printing, au rollout.',
     },
   ],
 };
@@ -64,66 +66,49 @@ export function ServicesProcess() {
   const copy = locale === 'sw' ? processRows.sw : processRows.en;
 
   return (
-    <section className="bg-[linear-gradient(180deg,#050505_0%,#050505_76%,#000000_100%)] py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-5 md:px-16">
-        <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <section className="relative overflow-hidden bg-[linear-gradient(135deg,#f5f1e9_0%,#ffb48d_42%,#050505_100%)] py-16 lg:py-20">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_36%,rgba(0,0,0,0.08)_100%)]" />
+
+      <div className="relative mx-auto max-w-7xl px-5 md:px-16">
+        <div className="mb-10 grid gap-5 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
           <ScrollReveal>
             <div className="space-y-3">
-              <p className="label-sm text-[var(--tripod-orange)]">{locale === 'sw' ? 'Production Process' : 'Production Process'}</p>
-              <h2 className="headline-lg max-w-xl text-[var(--tripod-warm-white)]">
-                {locale === 'sw' ? 'Kutoka brief hadi delivery kwa timeline moja yenye nidhamu.' : 'From brief to delivery on one disciplined production timeline.'}
+              <p className="film-light-kicker">{locale === 'sw' ? 'Production Board' : 'Production Board'}</p>
+              <h2 className="film-editorial-heading max-w-xl text-[var(--tripod-text-dark)]">
+                {locale === 'sw'
+                  ? 'Kutoka brief hadi delivery kwa timeline moja ya studio.'
+                  : 'From brief to delivery on one studio timeline.'}
               </h2>
             </div>
           </ScrollReveal>
+
           <ScrollReveal delay={0.08}>
-            <p className="max-w-md text-sm leading-7 text-[var(--tripod-text-muted-light)]">
+            <p className="max-w-2xl text-sm leading-7 text-[rgba(23,21,18,0.72)] sm:text-base">
               {locale === 'sw'
-                ? 'Kila stage ina maamuzi wazi, outputs zinazoonekana, na handoff isiyopoteza direction.'
-                : 'Each stage has clear decisions, visible outputs, and a handoff that does not lose direction.'}
+                ? 'Sehemu hii inakaa kama production board ya Tripod: hatua wazi, numbering thabiti, na handoff isiyovunja direction.'
+                : 'This section stays close to a Tripod production board: clear stages, disciplined numbering, and a handoff that keeps direction intact.'}
             </p>
           </ScrollReveal>
         </div>
 
-        <div className="hidden gap-0 border-t border-white/10 lg:grid lg:grid-cols-4">
-          {copy.map((step, index) => (
-            <ScrollReveal key={step.number} delay={0.06 * index}>
-              <article className="relative border-l border-white/10 px-6 py-8 first:border-l-0">
-                <span className="absolute -top-[0.55rem] left-6 inline-flex bg-[var(--tripod-black)] px-2 font-mono text-[0.62rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-orange)]">
-                  {step.number}
-                </span>
-                <h3 className="text-xl font-black uppercase leading-tight text-[var(--tripod-warm-white)]">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--tripod-text-muted-light)]">
-                  {step.description}
-                </p>
-                <p className="mt-6 font-mono text-[0.62rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-orange)]">
-                  {step.output}
-                </p>
-              </article>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        <div className="grid gap-4 lg:hidden">
-          {copy.map((step, index) => (
-            <ScrollReveal key={step.number} delay={0.06 * index}>
-              <article className="rounded-[1.4rem] border border-white/10 bg-white/5 px-5 py-5">
-                <p className="font-mono text-[0.62rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-orange)]">
-                  {step.number}
-                </p>
-                <h3 className="mt-3 text-lg font-black uppercase leading-tight text-[var(--tripod-warm-white)]">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--tripod-text-muted-light)]">
-                  {step.description}
-                </p>
-                <p className="mt-4 font-mono text-[0.62rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-orange)]">
-                  {step.output}
-                </p>
-              </article>
-            </ScrollReveal>
-          ))}
+        <div className="overflow-hidden rounded-[2rem] border border-[rgba(23,21,18,0.12)] bg-[rgba(245,241,233,0.76)] shadow-[0_22px_60px_rgba(0,0,0,0.12)] backdrop-blur-sm">
+          <div className="grid gap-px bg-[rgba(23,21,18,0.12)] lg:grid-cols-5">
+            {copy.map((step, index) => (
+              <ScrollReveal key={step.number} delay={0.05 * index}>
+                <article className="h-full bg-[linear-gradient(180deg,rgba(245,241,233,0.96),rgba(230,220,205,0.96))] px-5 py-6 sm:px-6">
+                  <p className="font-mono text-[0.64rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
+                    {step.number}
+                  </p>
+                  <h3 className="mt-4 text-[1.1rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-text-dark)]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[rgba(23,21,18,0.72)]">
+                    {step.description}
+                  </p>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

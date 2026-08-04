@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import { MessageCircle, Play } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
@@ -18,58 +18,67 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
   const copy =
     locale === 'sw'
       ? {
-          eyebrow: 'Creative Production Desk',
-          title: 'Design, photo, video, audio, print, na digital production chini ya direction moja.',
+          eyebrow: 'Production Capability Wall',
+          title:
+            'SERVICES BUILT FOR BRANDS THAT NEED TO BE SEEN, HEARD, AND REMEMBERED.',
           subtitle:
-            'Chagua discipline moja au leta campaign nzima. Tripod huunganisha branding, coverage, studio work, printing, na rollout assets kwenye production system moja iliyo wazi.',
-          primary: 'Anza kwa WhatsApp',
-          secondary: 'Tazama Portfolio',
-          labels: ['Design', 'Photo', 'Video / Audio'],
+            'Kuanzia design na print hadi film, photography, audio, digital campaigns, na studio training, Tripod hubadilisha ideas kuwa kazi ya ubunifu tayari kwa production.',
+          primary: 'Anza Mradi',
+          secondary: 'Fungua Ukuta wa Huduma',
+          frameLabel: 'CHUMBA CHA HUDUMA',
+          frameMeta: 'huduma 12 tayari kwa studio',
+          lanes: ['DESIGN', 'VISUAL', 'SOUND'],
         }
       : {
-          eyebrow: 'Creative Production Desk',
-          title: 'Design, photo, video, audio, print, and digital production under one direction.',
+          eyebrow: 'Production Capability Wall',
+          title:
+            'SERVICES BUILT FOR BRANDS THAT NEED TO BE SEEN, HEARD, AND REMEMBERED.',
           subtitle:
-            'Choose one discipline or bring the full campaign brief. Tripod connects branding, coverage, studio work, printing, and rollout assets inside one clear production system.',
-          primary: 'Start on WhatsApp',
-          secondary: 'View Portfolio',
-          labels: ['Design', 'Photo', 'Video / Audio'],
+            'From design and print to film, photography, audio, digital campaigns, and studio training, Tripod turns ideas into production-ready creative work.',
+          primary: 'Start a Project',
+          secondary: 'Open the Service Wall',
+          frameLabel: 'SERVICE ROOM',
+          frameMeta: '12 studio-ready capabilities',
+          lanes: ['DESIGN', 'VISUAL', 'SOUND'],
         };
 
-  const media = [
-    sampleMedia.cameraOperator,
-    sampleMedia.brandingMockups,
-    sampleMedia.studioMicrophone,
-  ];
+  const media = sampleMedia.videoProductionSetup;
 
   return (
     <section className="relative overflow-hidden border-b border-white/8 pb-14 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,61,0,0.24),transparent_20%),radial-gradient(circle_at_82%_28%,rgba(255,106,43,0.12),transparent_22%),linear-gradient(180deg,rgba(5,5,5,0.98),rgba(8,8,8,0.92))]" />
-      <div className="absolute right-[-4rem] top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,61,0,0.28),rgba(255,61,0,0)_70%)] blur-3xl" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(255,61,0,0.24),transparent_18%),radial-gradient(circle_at_86%_28%,rgba(255,152,102,0.14),transparent_24%),linear-gradient(90deg,rgba(0,0,0,0.98)_0%,rgba(5,5,5,0.96)_45%,rgba(245,241,233,0.08)_72%,rgba(0,0,0,0.98)_100%)]" />
+      <div
+        className="absolute inset-y-0 left-[52%] hidden w-px bg-[linear-gradient(180deg,transparent,rgba(245,241,233,0.18),transparent)] lg:block"
+        aria-hidden="true"
+      />
+      <div className="absolute right-[-6rem] top-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,61,0,0.28),rgba(255,61,0,0)_70%)] blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 md:px-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(24rem,1.2fr)] lg:items-center">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 md:px-16 lg:grid-cols-[minmax(0,0.88fr)_minmax(24rem,1.12fr)] lg:items-center">
         <div className="space-y-6">
           <ScrollReveal>
-            <span className="label-sm inline-flex items-center gap-2 text-[var(--tripod-orange)]">
-              <span className="h-2 w-2 rounded-full bg-[var(--tripod-orange)] shadow-[0_0_14px_rgba(255,61,0,0.9)]" />
+            <span className="film-kicker">
+              <span className="film-rec-dot" aria-hidden="true" />
               {copy.eyebrow}
             </span>
           </ScrollReveal>
 
           <ScrollReveal delay={0.08}>
-            <h1 className="display-lg max-w-4xl text-[var(--tripod-warm-white)]">
+            <h1
+              className="film-hero-title max-w-[8ch] sm:max-w-5xl"
+              style={{ fontSize: 'clamp(1.55rem, 12vw, 5.8rem)' }}
+            >
               {copy.title}
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.14}>
-            <p className="body-lg max-w-2xl text-[var(--tripod-text-muted-light)]">
+            <p className="max-w-2xl text-base leading-7 text-[rgba(245,241,233,0.82)] md:text-lg">
               {copy.subtitle}
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -83,10 +92,10 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
               </a>
 
               <Link
-                href="/portfolio"
-                className="focus-ring inline-flex items-center gap-2 rounded-sm border border-white/12 px-4 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.12em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
+                href="#services-zones"
+                className="focus-ring inline-flex max-w-full items-center gap-2 rounded-sm border border-white/12 px-4 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.12em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
               >
-                <Play className="h-4 w-4" aria-hidden="true" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 {copy.secondary}
               </Link>
             </div>
@@ -95,43 +104,41 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
 
         <ScrollReveal delay={0.12}>
           <div className="relative">
-            <div className="absolute inset-[12%_8%_18%_18%] rounded-full bg-[radial-gradient(circle,rgba(255,61,0,0.3),rgba(255,61,0,0)_72%)] blur-3xl" />
-            <div className="grid gap-4 md:grid-cols-[1.22fr_0.78fr]">
-              <div className="relative min-h-[28rem] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black">
-                <Image
-                  src={media[0].src}
-                  alt={media[0].alt}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,61,0,0.08),rgba(0,0,0,0.7))]" />
-                <div className="absolute inset-[0.9rem] border border-white/15" />
-                <span className="absolute left-5 top-5 border border-white/15 bg-black/30 px-3 py-1 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)]">
-                  {copy.labels[0]}
+            <div className="absolute inset-[8%_14%_14%_18%] rounded-full bg-[radial-gradient(circle,rgba(255,61,0,0.3),rgba(255,61,0,0)_72%)] blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2.1rem] border border-white/10 bg-black p-4 sm:p-5">
+              <div className="absolute inset-x-6 top-5 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.72)]">
+                <span className="inline-flex items-center gap-2">
+                  <span className="film-rec-dot h-2 w-2" aria-hidden="true" />
+                  {copy.frameLabel}
                 </span>
+                <span>{copy.frameMeta}</span>
               </div>
 
-              <div className="grid gap-4">
-                {[media[1], media[2]].map((item, index) => (
-                  <div
-                    key={item.key}
-                    className="relative min-h-[13rem] overflow-hidden rounded-[1.6rem] border border-white/10 bg-black"
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 24vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,61,0,0.06),rgba(0,0,0,0.68))]" />
-                    <span className="absolute left-4 top-4 border border-white/15 bg-black/30 px-3 py-1 font-mono text-[0.56rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)]">
-                      {copy.labels[index + 1]}
-                    </span>
-                  </div>
-                ))}
+              <div className="relative min-h-[24rem] overflow-hidden rounded-[1.4rem] border border-white/12 bg-black sm:min-h-[29rem]">
+                <Image
+                  src={media.src}
+                  alt={media.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 46vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,61,0,0.08),rgba(0,0,0,0.78))]" />
+                <div
+                  className="absolute inset-[0.9rem] border border-white/15"
+                  aria-hidden="true"
+                />
+                <div className="absolute bottom-5 left-5 right-5 grid gap-3 sm:grid-cols-3">
+                  {copy.lanes.map((label, index) => (
+                    <div
+                      key={label}
+                      className="border border-white/12 bg-black/45 px-3 py-3 font-mono text-[0.62rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)] backdrop-blur-sm"
+                    >
+                      <span className="mr-2 text-[var(--tripod-orange)]">{`0${index + 1}`}</span>
+                      {label}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
