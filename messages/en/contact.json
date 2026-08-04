@@ -1,80 +1,166 @@
 {
-  "fallbackMessage": "Hello Tripod Creative. I would like to book a creative service.",
+  "fallbackMessage": "Hello Tripod Creative. I would like to send a project brief.",
   "hero": {
-    "eyebrow": "Creative Brief Intake",
-    "title": "Bring the brief into the studio.",
-    "subtitle": "Tell us what we are creating, where it will appear, and which service you need. Then we send it straight to WhatsApp."
+    "eyebrow": "Project Intake",
+    "title": "BRING THE IDEA. WE'LL BUILD THE FRAME.",
+    "subtitle": "Tell us what you want to create, where it needs to appear, and how fast it needs to move. Tripod will shape the next step.",
+    "labels": [
+      "Studio Booking",
+      "Creative Brief",
+      "Response Ready"
+    ]
   },
   "form": {
-    "eyebrow": "Send to Studio",
-    "title": "Project intake",
-    "subtitle": "This form stays client-side and prepares a WhatsApp message with your brief.",
+    "eyebrow": "Studio Brief Board",
+    "title": "Build the project brief.",
+    "subtitle": "This intake stays client-side and prepares a WhatsApp brief with the details the studio needs to respond clearly.",
     "fields": {
       "name": "Your name",
-      "phone": "Phone number",
-      "email": "Your email",
+      "phone": "Phone or WhatsApp number",
+      "email": "Email address",
       "service": "What are we creating?",
-      "budget": "Project size",
-      "message": "Your message"
+      "feeling": "What should people feel?",
+      "usage": "Where will this be used?",
+      "timeline": "Timeline",
+      "budget": "Budget range",
+      "message": "Project details"
     },
     "placeholders": {
       "name": "Your name",
-      "phone": "Your phone number",
+      "phone": "Your phone or WhatsApp number",
       "email": "your@email.com",
-      "service": "Select a service",
-      "budget": "Select a project size",
-      "message": "Describe the idea, platform, or campaign you want to build."
+      "service": "Select a project type",
+      "feeling": "Select the feeling or response",
+      "usage": "Select the main output or placement",
+      "timeline": "Select a timeline",
+      "budget": "Select a budget range",
+      "message": "Describe the idea, campaign, deliverables, or production needs."
     },
     "services": {
-      "brandingDesign": "Branding & Design",
-      "printingCreativeProduction": "Printing & Creative Production",
-      "digitalMarketing": "Digital Campaigns",
+      "graphicDesign": "Graphic Design",
+      "branding": "Branding",
+      "printing": "Printing",
       "photography": "Photography",
-      "videoDroneLiveStreaming": "Video, Drone & Live Streaming",
+      "videography": "Videography",
+      "droneCoverage": "Drone Coverage",
+      "liveStreaming": "Live Streaming",
+      "audioRecording": "Audio Recording",
       "musicProduction": "Music Production",
-      "recordingSession": "Recording Session",
+      "podcastRecording": "Podcast Recording",
+      "digitalMarketing": "Digital Marketing",
       "instrumentTraining": "Instrument Training",
-      "webAppDevelopment": "Web & App Development",
-      "generalInquiry": "General Inquiry"
+      "fullCampaign": "Full Campaign"
+    },
+    "feelings": {
+      "attention": "Immediate attention",
+      "trust": "Trust and clarity",
+      "energy": "Energy and movement",
+      "emotion": "Emotion and memory",
+      "authority": "Authority and confidence",
+      "notSureYet": "Not sure yet"
+    },
+    "usageOptions": {
+      "socialMedia": "Social media rollout",
+      "print": "Print and physical material",
+      "event": "Event or live audience",
+      "website": "Website or landing page",
+      "campaign": "Full campaign",
+      "studioRelease": "Song, podcast, or studio release"
+    },
+    "timelines": {
+      "urgent": "Urgent / as soon as possible",
+      "thisWeek": "This week",
+      "thisMonth": "This month",
+      "flexible": "Flexible timeline"
     },
     "budgets": {
-      "smallProject": "Small Project",
-      "mediumProject": "Medium Project",
-      "largeProject": "Large Project",
-      "notSureYet": "Not Sure Yet"
+      "smallProject": "Starter range",
+      "mediumProject": "Mid-range project",
+      "largeProject": "Large production",
+      "notSureYet": "Not sure yet"
     },
     "errors": {
       "name": "Please enter your name.",
-      "phone": "Please enter your phone number.",
+      "phone": "Please enter your phone or WhatsApp number.",
       "email": "Please enter your email address.",
       "emailInvalid": "Please enter a valid email address.",
-      "service": "Please choose a service.",
-      "budget": "Please choose a project size.",
-      "message": "Please enter a short brief."
+      "service": "Please choose a project type.",
+      "feeling": "Please choose the feeling or response.",
+      "usage": "Please choose where this will be used.",
+      "timeline": "Please choose a timeline.",
+      "budget": "Please choose a budget range.",
+      "message": "Please enter the project details."
     },
-    "submit": "SEND TO STUDIO",
-    "whatsappTemplate": "Hello Tripod Creative. My name is {name}. I would like to book {service}. My project size is {budget}. My phone is {phone}. My email is {email}. Message: {message}."
+    "submit": "Send Brief on WhatsApp",
+    "whatsappTemplate": "Hello Tripod Creative. My name is {name}. Contact: {phone}. Email: {email}. We are creating: {service}. Desired feeling: {feeling}. Usage: {usage}. Timeline: {timeline}. Budget: {budget}. Project details: {message}."
   },
-  "instant": {
-    "title": "Jump straight into WhatsApp",
-    "body": "If you already know what you need, open a direct chat and send the brief there.",
-    "button": "WhatsApp"
+  "response": {
+    "eyebrow": "Studio Response Board",
+    "title": "WhatsApp stays first because the brief needs momentum.",
+    "body": "Use this lane for project briefs, bookings, campaign conversations, and quick production questions that need direction fast.",
+    "labels": {
+      "channel": "Response channel",
+      "bestFor": "Best for",
+      "flow": "Studio flow"
+    },
+    "values": {
+      "channel": "WhatsApp",
+      "bestFor": "Project briefs, bookings, campaigns"
+    },
+    "flowSteps": [
+      {
+        "number": "01",
+        "title": "Send brief"
+      },
+      {
+        "number": "02",
+        "title": "Confirm direction"
+      },
+      {
+        "number": "03",
+        "title": "Plan production"
+      },
+      {
+        "number": "04",
+        "title": "Create and deliver"
+      }
+    ]
   },
-  "quick": {
-    "title": "Quick contact",
-    "whatsappValue": "Start a direct conversation",
-    "phoneTitle": "Phone",
-    "emailTitle": "Email",
-    "phoneFallback": "Phone not configured",
-    "emailFallback": "Email not configured",
-    "whatsappTitle": "WhatsApp"
+  "contacts": {
+    "eyebrow": "Contact Lines",
+    "items": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "fallback": "Start a direct conversation"
+      },
+      "phone": {
+        "title": "Phone",
+        "fallback": "Phone not configured"
+      },
+      "email": {
+        "title": "Email",
+        "fallback": "Email not configured"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "fallback": "Instagram link coming soon"
+      },
+      "youtube": {
+        "title": "YouTube",
+        "fallback": "YouTube link coming soon"
+      },
+      "location": {
+        "title": "Service area",
+        "fallback": "Location details coming soon"
+      }
+    }
   },
-  "location": {
-    "title": "Location details coming soon",
-    "body": "A confirmed address has not been added yet. This section stays clearly marked as a placeholder."
-  },
-  "final": {
-    "title": "Bring your next project into the studio.",
-    "body": "Send the brief, ask a question, or start with one sharp idea."
+  "cta": {
+    "eyebrow": "Clear Brief",
+    "title": "YOUR NEXT PROJECT STARTS WITH A CLEAR BRIEF.",
+    "body": "Send the brief on WhatsApp, explore the service wall, or review the work archive before the next conversation.",
+    "primary": "Send Brief on WhatsApp",
+    "secondary": "Explore Services",
+    "viewWork": "View Our Work"
   }
 }

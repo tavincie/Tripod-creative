@@ -1,80 +1,166 @@
 {
-  "fallbackMessage": "Habari Tripod Creative. Ningependa kuweka nafasi ya huduma ya ubunifu.",
+  "fallbackMessage": "Habari Tripod Creative. Ningependa kutuma project brief.",
   "hero": {
-    "eyebrow": "Creative Brief Intake",
-    "title": "Leta brief yako ndani ya studio.",
-    "subtitle": "Tueleze tunatengeneza nini, itaonekana wapi, na ni service gani unahitaji. Kisha tutume moja kwa moja kwenye WhatsApp."
+    "eyebrow": "Project Intake",
+    "title": "LETA IDEA. SISI TUTAIJENGA FRAME.",
+    "subtitle": "Tueleze unataka kutengeneza nini, itaonekana wapi, na inahitaji kusogea kwa kasi gani. Tripod itakupa hatua inayofuata.",
+    "labels": [
+      "Studio Booking",
+      "Creative Brief",
+      "Response Ready"
+    ]
   },
   "form": {
-    "eyebrow": "Tuma Studio",
-    "title": "Project intake",
-    "subtitle": "Form hii hubaki client-side na huandaa WhatsApp message yenye brief yako.",
+    "eyebrow": "Studio Brief Board",
+    "title": "Jenga project brief.",
+    "subtitle": "Intake hii hubaki client-side na huandaa WhatsApp brief yenye maelezo ambayo studio inahitaji ili kujibu kwa uwazi.",
     "fields": {
       "name": "Jina lako",
-      "phone": "Namba ya simu",
-      "email": "Email yako",
+      "phone": "Namba ya simu au WhatsApp",
+      "email": "Anwani ya email",
       "service": "Tunatengeneza nini?",
-      "budget": "Project size",
-      "message": "Ujumbe wako"
+      "feeling": "Unataka watu wahisi nini?",
+      "usage": "Hii itatumika wapi?",
+      "timeline": "Timeline",
+      "budget": "Budget range",
+      "message": "Maelezo ya project"
     },
     "placeholders": {
       "name": "Jina lako",
-      "phone": "Namba yako ya simu",
+      "phone": "Namba yako ya simu au WhatsApp",
       "email": "your@email.com",
-      "service": "Chagua service",
-      "budget": "Chagua project size",
-      "message": "Eleza idea, platform, au campaign unayotaka."
+      "service": "Chagua project type",
+      "feeling": "Chagua feeling au response",
+      "usage": "Chagua matumizi au sehemu itakapoonekana",
+      "timeline": "Chagua timeline",
+      "budget": "Chagua budget range",
+      "message": "Eleza idea, campaign, deliverables, au production needs."
     },
     "services": {
-      "brandingDesign": "Branding & Design",
-      "printingCreativeProduction": "Printing & Creative Production",
-      "digitalMarketing": "Digital Campaigns",
+      "graphicDesign": "Graphic Design",
+      "branding": "Branding",
+      "printing": "Printing",
       "photography": "Photography",
-      "videoDroneLiveStreaming": "Video, Drone & Live Streaming",
+      "videography": "Videography",
+      "droneCoverage": "Drone Coverage",
+      "liveStreaming": "Live Streaming",
+      "audioRecording": "Audio Recording",
       "musicProduction": "Music Production",
-      "recordingSession": "Recording Session",
+      "podcastRecording": "Podcast Recording",
+      "digitalMarketing": "Digital Marketing",
       "instrumentTraining": "Instrument Training",
-      "webAppDevelopment": "Web & App Development",
-      "generalInquiry": "General Inquiry"
+      "fullCampaign": "Full Campaign"
+    },
+    "feelings": {
+      "attention": "Attention ya haraka",
+      "trust": "Trust na clarity",
+      "energy": "Energy na movement",
+      "emotion": "Emotion na memory",
+      "authority": "Authority na confidence",
+      "notSureYet": "Bado sijui"
+    },
+    "usageOptions": {
+      "socialMedia": "Social media rollout",
+      "print": "Print na physical material",
+      "event": "Event au live audience",
+      "website": "Website au landing page",
+      "campaign": "Full campaign",
+      "studioRelease": "Song, podcast, au studio release"
+    },
+    "timelines": {
+      "urgent": "Haraka / mapema iwezekanavyo",
+      "thisWeek": "Wiki hii",
+      "thisMonth": "Mwezi huu",
+      "flexible": "Timeline ni flexible"
     },
     "budgets": {
-      "smallProject": "Small Project",
-      "mediumProject": "Medium Project",
-      "largeProject": "Large Project",
-      "notSureYet": "Not Sure Yet"
+      "smallProject": "Starter range",
+      "mediumProject": "Mid-range project",
+      "largeProject": "Large production",
+      "notSureYet": "Bado sijui"
     },
     "errors": {
       "name": "Tafadhali andika jina lako.",
-      "phone": "Tafadhali andika namba yako ya simu.",
+      "phone": "Tafadhali andika namba yako ya simu au WhatsApp.",
       "email": "Tafadhali andika email yako.",
       "emailInvalid": "Tafadhali andika email sahihi.",
-      "service": "Tafadhali chagua service.",
-      "budget": "Tafadhali chagua project size.",
-      "message": "Tafadhali andika brief fupi."
+      "service": "Tafadhali chagua project type.",
+      "feeling": "Tafadhali chagua feeling au response.",
+      "usage": "Tafadhali chagua sehemu itakapotumika.",
+      "timeline": "Tafadhali chagua timeline.",
+      "budget": "Tafadhali chagua budget range.",
+      "message": "Tafadhali andika maelezo ya project."
     },
-    "submit": "SEND TO STUDIO",
-    "whatsappTemplate": "Habari Tripod Creative. Jina langu ni {name}. Ningependa kuweka nafasi ya huduma ya {service}. Ukubwa wa project ni {budget}. Simu yangu ni {phone}. Email yangu ni {email}. Ujumbe: {message}."
+    "submit": "Tuma Brief kwa WhatsApp",
+    "whatsappTemplate": "Habari Tripod Creative. Jina langu ni {name}. Contact: {phone}. Email: {email}. Tunatengeneza: {service}. Feeling inayotakiwa: {feeling}. Matumizi: {usage}. Timeline: {timeline}. Budget: {budget}. Maelezo ya project: {message}."
   },
-  "instant": {
-    "title": "Anza moja kwa moja kwenye WhatsApp",
-    "body": "Ikiwa tayari unajua unachotaka, fungua chat ya haraka na utume brief hapo.",
-    "button": "WhatsApp"
+  "response": {
+    "eyebrow": "Studio Response Board",
+    "title": "WhatsApp inabaki ya kwanza kwa sababu brief inahitaji momentum.",
+    "body": "Tumia lane hii kwa project briefs, bookings, campaign conversations, na maswali ya haraka ya production yanayohitaji direction mapema.",
+    "labels": {
+      "channel": "Response channel",
+      "bestFor": "Best for",
+      "flow": "Studio flow"
+    },
+    "values": {
+      "channel": "WhatsApp",
+      "bestFor": "Project briefs, bookings, campaigns"
+    },
+    "flowSteps": [
+      {
+        "number": "01",
+        "title": "Tuma brief"
+      },
+      {
+        "number": "02",
+        "title": "Thibitisha direction"
+      },
+      {
+        "number": "03",
+        "title": "Panga production"
+      },
+      {
+        "number": "04",
+        "title": "Tengeneza na deliver"
+      }
+    ]
   },
-  "quick": {
-    "title": "Quick contact",
-    "whatsappValue": "Anza mazungumzo ya moja kwa moja",
-    "phoneTitle": "Simu",
-    "emailTitle": "Email",
-    "phoneFallback": "Namba ya simu haijawekwa",
-    "emailFallback": "Email haijawekwa",
-    "whatsappTitle": "WhatsApp"
+  "contacts": {
+    "eyebrow": "Contact Lines",
+    "items": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "fallback": "Anza mazungumzo ya moja kwa moja"
+      },
+      "phone": {
+        "title": "Phone",
+        "fallback": "Namba ya simu haijawekwa"
+      },
+      "email": {
+        "title": "Email",
+        "fallback": "Email haijawekwa"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "fallback": "Instagram link itakuja baadaye"
+      },
+      "youtube": {
+        "title": "YouTube",
+        "fallback": "YouTube link itakuja baadaye"
+      },
+      "location": {
+        "title": "Service area",
+        "fallback": "Location details coming soon"
+      }
+    }
   },
-  "location": {
-    "title": "Location details coming soon",
-    "body": "Anwani rasmi bado haijawekwa. Sehemu hii inabaki wazi kama placeholder tu."
-  },
-  "final": {
-    "title": "Leta project yako inayofuata ndani ya studio.",
-    "body": "Tuma brief, uliza swali, au anza na idea moja kali."
+  "cta": {
+    "eyebrow": "Clear Brief",
+    "title": "PROJECT YAKO INAYOFUATA HUANZA NA BRIEF ILIYO WAZI.",
+    "body": "Tuma brief kwa WhatsApp, chunguza service wall, au pitia work archive kabla ya mazungumzo yanayofuata.",
+    "primary": "Tuma Brief kwa WhatsApp",
+    "secondary": "Chunguza Services",
+    "viewWork": "Tazama Kazi Zetu"
   }
 }
