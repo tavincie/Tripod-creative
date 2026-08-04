@@ -1,181 +1,106 @@
 {
   "hero": {
-    "eyebrow": "Studio na Chuo",
-    "title": "Recording support, music production, na mafunzo ya ala ndani ya nafasi moja ya ubunifu.",
-    "subtitle": "Tripod inaunganisha beginner-friendly learning, studio support ya vitendo, na artist development katika safari moja ya muziki iliyo wazi.",
-    "tags": {
-      "recordingSupport": "Recording support",
-      "musicProduction": "Music production",
-      "instrumentTraining": "Instrument training"
-    },
-    "panelLabel": "Mtiririko wa Sauti ya Ubunifu",
-    "panelItems": {
-      "recording": {
-        "title": "Recording Support",
-        "description": "Vipindi vya kurekodi vilivyoongozwa kwa vocals, demos, na maendeleo ya miradi ya ubunifu."
-      },
-      "production": {
-        "title": "Beat Making",
-        "description": "Vipindi vya production vinavyojengwa kulingana na mwelekeo wa wimbo, arrangement, na uchaguzi wa sauti."
-      },
-      "training": {
-        "title": "Instrument Training",
-        "description": "Vipindi vya kujifunza kwa vitendo kwa piano, guitar, drums, na vocals."
-      },
-      "coaching": {
-        "title": "Creative Coaching",
-        "description": "Msaada wa confidence, consistency, na hatua zinazofuata za ukuaji wa msanii."
-      }
-    }
-  },
-  "recording": {
-    "eyebrow": "Recording Studio",
-    "title": "Vipindi vya recording vinavyojengwa kwa uwazi na confidence.",
-    "subtitle": "Tunasaidia vocal recording, practice takes, creative direction, na session flow kwa namna inayokaribisha wasanii wapya na wale wanaorudi tena.",
-    "items": [
-      {
-        "title": "Vocal Recording",
-        "description": "Session support yenye umakini kwa nyimbo, demos, spoken pieces, na mawazo ya ubunifu."
-      },
-      {
-        "title": "Practice Sessions",
-        "description": "Rudia, boresha, na jenga confidence kabla ya kuingia hatua inayofuata ya recording."
-      },
-      {
-        "title": "Session Guidance",
-        "description": "Creative direction inayosaidia shaping ya takes, pacing, na delivery bila pressure."
-      }
+    "eyebrow": "Studio na Academy",
+    "title": "HAPA NDIPO SAUTI, UJUZI, NA CONFIDENCE YA UBUNIFU HUJENGWA.",
+    "subtitle": "Rekodi vocals, tengeneza music, jenga podcasts, na jifunze ala ndani ya studio environment iliyoundwa kwa creators.",
+    "frameLabel": "Session Monitor",
+    "statusLabel": "Hali ya Studio",
+    "statusValue": "Live / Tayari kwa Practice",
+    "laneLabels": [
+      "Recording",
+      "Production",
+      "Training"
     ],
-    "cta": "Weka Nafasi ya Recording Session"
+    "summary": [
+      "Mwongozo wa studio wa vitendo",
+      "Creator practice sessions",
+      "Recording flow inayolenga output"
+    ]
   },
-  "production": {
-    "eyebrow": "Music Production",
-    "title": "Production support kwa mawazo yanayohitaji structure na momentum.",
-    "subtitle": "Kuanzia beat making hadi vocal arrangement, tunasaidia wasanii na wanaojifunza kusogeza mawazo yao kwenda kwenye nyimbo, drafts, na creative direction iliyo wazi zaidi.",
-    "items": [
-      {
-        "title": "Beat Making",
-        "description": "Jenga rhythm, mood, na msingi wa wimbo unaolingana na creative direction yako."
-      },
-      {
-        "title": "Song Development",
-        "description": "Shape arrangement, sections, na flow ili rough ideas ziwe nyimbo zilizo wazi zaidi."
-      },
-      {
-        "title": "Vocal Direction",
-        "description": "Fanyia kazi uchaguzi wa performance, layering ideas, na maandalizi ya recording."
-      },
-      {
-        "title": "Artist Development",
-        "description": "Tumia kila session kuimarisha process, confidence, na ukuaji wa muda mrefu."
-      }
-    ],
-    "cta": "Jadili Music Production"
-  },
-  "training": {
-    "eyebrow": "Mafunzo ya Ala",
-    "title": "Jifunze kwa mpangilio, fanya practice kwa msaada, na ukue kwa kasi yako.",
-    "subtitle": "Mafunzo yameundwa kuwa beginner-friendly huku yakisaidia wanaorejea kujenga habits na technique bora zaidi.",
+  "zones": {
+    "eyebrow": "Studio Zones",
+    "title": "Studio lanes tano zimepangwa kama chumba kimoja cha production kinachofanya kazi.",
+    "body": "Kila zone imejengwa ihisi ya vitendo na media-first, ikiwa na labels wazi, session energy ya kweli, na nafasi ya creators kujifunza kwa kufanya.",
     "items": {
-      "piano": {
-        "title": "Piano",
-        "level": "Beginner Friendly",
-        "description": "Jenga hand coordination, rhythm, na melody kwa lessons zilizoongozwa na practice sessions zinazoweza kurudiwa.",
-        "bullets": [
-          "Mazoezi ya kuanzia na progress paths zilizo rahisi kufuata",
-          "Creative coaching kwa confidence na consistency"
-        ],
-        "cta": "Uliza kuhusu Mafunzo ya Piano"
+      "recordingStudio": {
+        "number": "01",
+        "label": "Tracking Room",
+        "title": "Recording Studio",
+        "description": "Chumba chenye focus kwa vocals, demo takes, guided recording, na repeat sessions zinazomsaidia creator kuzoea mic."
       },
-      "guitar": {
-        "title": "Guitar",
-        "level": "Practice Led",
-        "description": "Endeleza chords, timing, na practice ya nyimbo kwa namna inayofanya kujifunza kuwa practical na motivating.",
-        "bullets": [
-          "Hands-on learning yenye weekly focus areas zilizo wazi",
-          "Sessions zinazojengwa kwa playing confidence ya kweli"
-        ],
-        "cta": "Uliza kuhusu Mafunzo ya Guitar"
+      "musicProduction": {
+        "number": "02",
+        "label": "Production Desk",
+        "title": "Music Production",
+        "description": "Jenga beats, shape arrangements, na sogeza rough ideas kuwa drafts zilizo imara zaidi kwa studio guidance na workflow safi."
       },
-      "drums": {
-        "title": "Drums",
-        "level": "Rhythm Focused",
-        "description": "Fanyia kazi timing, groove, coordination, na performance discipline kupitia rhythm sessions zilizoongozwa.",
-        "bullets": [
-          "Practice sessions zinazoboresha control na feel",
-          "Njia za beginner-friendly zenye nafasi ya kuendelea juu"
-        ],
-        "cta": "Uliza kuhusu Mafunzo ya Drums"
+      "podcastSetup": {
+        "number": "03",
+        "label": "Voice Booth",
+        "title": "Podcast Setup",
+        "description": "Unda spoken-word sessions, interviews, na voice-led content ndani ya setup inayoweka mazungumzo yakiwa wazi na controlled."
       },
-      "vocals": {
-        "title": "Vocals",
-        "level": "Performance Ready",
-        "description": "Jenga vocal confidence, control, na recording readiness kupitia coaching ya msaada na repetition.",
-        "bullets": [
-          "Warm-up, delivery, na vocal practice support",
-          "Coaching inayosaidia kuunganisha sauti na expression"
-        ],
-        "cta": "Uliza kuhusu Mafunzo ya Vocals"
+      "instrumentTraining": {
+        "number": "04",
+        "label": "Practice Corner",
+        "title": "Instrument Training",
+        "description": "Hands-on practice ya piano, guitar, drums, na vocals iliyoundwa kujenga rhythm, confidence, na repetition ndani ya studio."
+      },
+      "creativePracticeSessions": {
+        "number": "05",
+        "label": "Creator Lab",
+        "title": "Creative Practice Sessions",
+        "description": "Nafasi pana kwa creators kujaribu ideas, kurehearse, kurudia, na kuzoea tools na pace ya sessions za kweli."
       }
     }
   },
-  "benefits": {
-    "eyebrow": "Kwa Nini Ujifunze na Tripod",
-    "title": "Mazingira ya kujifunza yaliyojengwa kwa creative progress ya kweli.",
-    "items": [
+  "path": {
+    "eyebrow": "Creator Development Path",
+    "title": "Session log inayotoka kwenye first sound hadi output iliyokamilika.",
+    "body": "Path hii inatakiwa ihisi kama production board, si classroom outline. Inamfanya creator asonge kupitia tools, practice, na recorded work akiwa na momentum.",
+    "steps": [
       {
-        "title": "Beginner-Friendly Learning",
-        "description": "Sessions zimepangwa ziwe rahisi kuingia huku zikijenga habits muhimu za ubunifu."
+        "number": "01",
+        "title": "Pick Your Sound",
+        "description": "Chagua ala, sauti, au format unayotaka kuunda na funga creative direction mapema."
       },
       {
-        "title": "Practice With Purpose",
-        "description": "Wanaojifunza husonga kwa guided practice sessions badala ya kubahatisha hatua inayofuata."
+        "number": "02",
+        "title": "Learn the Tools",
+        "description": "Zoea studio tools, session flow, na practical habits zinazofanya creation iwe rahisi."
       },
       {
-        "title": "Creative Coaching",
-        "description": "Msaada hauishii kwenye technique pekee bali pia confidence, consistency, na expression."
+        "number": "03",
+        "title": "Practice in Session",
+        "description": "Rudia sehemu muhimu, jenga control, na jifunze kupitia active sessions badala ya theory ya mbali."
       },
       {
-        "title": "Studio Connection",
-        "description": "Mafunzo na recording support vinaweza kuungana kwa urahisi wakati mwanafunzi yuko tayari kuunda zaidi."
+        "number": "04",
+        "title": "Record / Produce",
+        "description": "Ingia kwenye takes, drafts, beats, edits, au voice capture mara tu creative direction inapoanza kujisikia tayari."
+      },
+      {
+        "number": "05",
+        "title": "Package Your Output",
+        "description": "Shape matokeo yawe kitu kinachoweza kushare-iwa, kureview-iwa, au kuwa tayari kwa hatua inayofuata ya ubunifu."
       }
     ]
   },
-  "pathway": {
-    "eyebrow": "Njia ya Ubunifu",
-    "title": "Njia rahisi kutoka kujifunza hadi performance.",
-    "steps": {
-      "learn": {
-        "title": "Jifunze",
-        "description": "Anza na foundations zilizo wazi, lessons zilizoongozwa, na creative coaching ya vitendo."
-      },
-      "practice": {
-        "title": "Fanya Practice",
-        "description": "Imarisha rhythm, timing, confidence, na control kupitia sessions zinazoweza kurudiwa."
-      },
-      "record": {
-        "title": "Rekodi",
-        "description": "Ingia kwenye recording support wakati mawazo, nyimbo, au performances ziko tayari kurekodiwa."
-      },
-      "perform": {
-        "title": "Performa",
-        "description": "Tumia progress uliyojenga kujieleza, kushare, na kuendelea kukua kama msanii."
-      }
-    }
+  "atmosphere": {
+    "eyebrow": "Studio Atmosphere",
+    "title": "Microphones, instruments, desks, na creator energy vikikaa ndani ya chumba kimoja.",
+    "body": "Atmosphere inabaki broad na honest: hands-on practice, recording focus, na studio setup inayowasaidia creators kuzoea production spaces za kweli.",
+    "labels": [
+      "Mic Check",
+      "Practice Desk",
+      "Session Energy"
+    ]
   },
   "cta": {
-    "eyebrow": "Enrollment na Booking",
-    "title": "Chagua studio au njia ya mafunzo unayotaka kuchunguza.",
-    "subtitle": "Anza na WhatsApp message iliyoelekezwa vizuri na tutakuongoza kwenye session, learning plan, au creative next step inayofaa.",
-    "buttonHint": "Inafungua WhatsApp ikiwa na ujumbe wa studio husika",
-    "buttons": {
-      "recordingSession": "Recording Session",
-      "musicProduction": "Music Production",
-      "pianoTraining": "Piano Training",
-      "guitarTraining": "Guitar Training",
-      "drumTraining": "Drum Training",
-      "vocalTraining": "Vocal Training",
-      "generalInquiry": "Studio Inquiry ya Jumla"
-    }
+    "eyebrow": "Studio Booking",
+    "title": "INGIA NDANI YA STUDIO NA UJENGE SAUTI YAKO.",
+    "subtitle": "Anza na session yenye focus, uliza kuhusu training, au fungua mazungumzo ya moja kwa moja kwenye WhatsApp na tutakuongoza kwenye hatua inayofuata.",
+    "primary": "Book a Studio Session",
+    "secondary": "Ongea kwa WhatsApp"
   }
 }

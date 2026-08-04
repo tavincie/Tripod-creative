@@ -1,300 +1,230 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import {
-  AudioWaveform,
-  Drum,
-  Guitar,
-  MessageCircle,
-  Mic2,
-  Music2,
-  Piano,
-  PlayCircle,
-  Sparkles,
-  Volume2,
-} from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
-import { GlassCard } from '@/components/ui/GlassCard';
 import { Button } from '@/components/ui/Button';
+import { sampleMedia } from '@/data/sampleMedia';
 
 interface StudioAcademyExperienceProps {
   serviceUrls: Record<string, string>;
 }
 
-const trainingIcons = {
-  piano: Piano,
-  guitar: Guitar,
-  drums: Drum,
-  vocals: Mic2,
+const zoneOrder = [
+  'recordingStudio',
+  'musicProduction',
+  'podcastSetup',
+  'instrumentTraining',
+  'creativePracticeSessions',
+] as const;
+
+const zoneMediaMap = {
+  recordingStudio: 'studioMicrophone',
+  musicProduction: 'musicProducerWorkstation',
+  podcastSetup: 'editingTimeline',
+  instrumentTraining: 'instrumentTraining',
+  creativePracticeSessions: 'creativeTeamBts',
 } as const;
 
-const pathwayIcons = {
-  learn: Sparkles,
-  practice: Music2,
-  record: AudioWaveform,
-  perform: PlayCircle,
-} as const;
+const atmosphereMediaKeys = [
+  'studioMicrophone',
+  'instrumentTraining',
+  'musicProducerWorkstation',
+] as const;
 
 export function StudioAcademyExperience({
   serviceUrls,
 }: StudioAcademyExperienceProps) {
   const t = useTranslations('StudioAcademyPage');
+  const tCommon = useTranslations('Common');
+  const pathSteps = t.raw('path.steps') as Array<{
+    number: string;
+    title: string;
+    description: string;
+  }>;
 
   return (
     <main className="relative flex-grow overflow-hidden">
-      <section className="relative overflow-hidden border-b border-white/6 pb-14 pt-28 sm:pb-18 sm:pt-32 lg:pb-24 lg:pt-36">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,126,0,0.22),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(253,208,0,0.12),transparent_28%)]" />
-        <div className="absolute left-0 right-0 top-24 h-24 bg-[linear-gradient(90deg,transparent,rgba(255,182,136,0.14),transparent)] opacity-70 blur-2xl" />
+      <section className="relative overflow-hidden border-b border-white/6 bg-[linear-gradient(180deg,#050505_0%,#050505_72%,#090909_100%)] pb-16 pt-28 sm:pt-32 lg:pb-24 lg:pt-36">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_14%,rgba(255,124,72,0.24),transparent_22%),radial-gradient(circle_at_84%_20%,rgba(245,241,233,0.08),transparent_20%),repeating-linear-gradient(90deg,rgba(245,241,233,0.04)_0_1px,transparent_1px_9rem)] opacity-90" />
+        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(245,241,233,0.22),transparent)]" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-16">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(25rem,1.14fr)] lg:items-center">
             <div className="space-y-5">
               <ScrollReveal>
-                <span className="label-sm inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-white/5 px-4 py-2 text-primary">
-                  <AudioWaveform className="h-4 w-4" aria-hidden="true" />
+                <p className="film-kicker">
+                  <span className="film-rec-dot" aria-hidden="true" />
                   {t('hero.eyebrow')}
-                </span>
+                </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h1 className="display-lg max-w-4xl text-white">
+                <h1 className="max-w-4xl text-[clamp(3.2rem,5vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
                   {t('hero.title')}
                 </h1>
               </ScrollReveal>
-              <ScrollReveal delay={0.16}>
-                <p className="body-lg max-w-2xl text-on-surface-variant">
+              <ScrollReveal delay={0.12}>
+                <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.74)] sm:text-base">
                   {t('hero.subtitle')}
                 </p>
               </ScrollReveal>
-              <ScrollReveal delay={0.24}>
-                <div className="flex flex-wrap gap-3">
-                  {['recordingSupport', 'musicProduction', 'instrumentTraining'].map(
-                    (item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-sm text-on-surface-variant"
-                      >
-                        {t(`hero.tags.${item}`)}
-                      </span>
-                    ),
-                  )}
+              <ScrollReveal delay={0.16}>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {(t.raw('hero.summary') as string[]).map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-4 font-mono text-[0.65rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]"
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </ScrollReveal>
             </div>
 
-            <ScrollReveal delay={0.28}>
-              <GlassCard className="rounded-[30px] p-6 sm:p-7">
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between">
-                    <p className="label-sm text-primary">{t('hero.panelLabel')}</p>
-                    <Volume2 className="h-5 w-5 text-primary" aria-hidden="true" />
+            <ScrollReveal delay={0.12}>
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.34)]">
+                <div className="grid gap-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.92fr)]">
+                  <div className="relative min-h-[22rem] overflow-hidden border-b border-white/10 lg:min-h-[31rem] lg:border-b-0 lg:border-r">
+                    <Image
+                      src={sampleMedia.musicProducerWorkstation.src}
+                      alt={tCommon(sampleMedia.musicProducerWorkstation.altKey)}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,124,72,0.06),rgba(0,0,0,0.76))]" />
+                    <div className="absolute inset-[1rem] border border-white/12" aria-hidden="true" />
+                    <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
+                      <span>{t('hero.frameLabel')}</span>
+                      <span>{t('hero.statusValue')}</span>
+                    </div>
+                    <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
+                      {(t.raw('hero.laneLabels') as string[]).map((label) => (
+                        <span
+                          key={label}
+                          className="rounded-full border border-white/12 bg-black/30 px-3 py-1 font-mono text-[0.56rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-warm-white)]"
+                        >
+                          {label}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="flex items-end gap-2 rounded-[24px] border border-white/8 bg-black/25 p-4">
-                    {Array.from({ length: 18 }).map((_, index) => (
-                      <span
-                        key={index}
-                        className="waveform-bar w-2 rounded-full bg-gradient-to-t from-primary-container via-primary to-secondary-container"
-                        style={{
-                          height: `${20 + ((index * 13) % 55)}px`,
-                          animationDelay: `${(index % 5) * 0.12}s`,
-                        }}
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {['recording', 'production', 'training', 'coaching'].map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-[22px] border border-white/8 bg-white/5 p-4"
-                      >
-                        <p className="text-sm font-semibold text-white">
-                          {t(`hero.panelItems.${item}.title`)}
-                        </p>
-                        <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                          {t(`hero.panelItems.${item}.description`)}
-                        </p>
-                      </div>
-                    ))}
+                  <div className="grid gap-0">
+                    {[sampleMedia.studioMicrophone, sampleMedia.instrumentTraining].map(
+                      (media, index) => (
+                        <div
+                          key={media.key}
+                          className={`relative min-h-[15.5rem] overflow-hidden ${
+                            index === 0 ? 'border-b border-white/10' : ''
+                          }`}
+                        >
+                          <Image
+                            src={media.src}
+                            alt={tCommon(media.altKey)}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 22vw"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+                          <div className="absolute bottom-4 left-4 rounded-sm border border-white/12 bg-black/35 px-3 py-2 font-mono text-[0.58rem] font-black uppercase tracking-[0.16em] text-[rgba(245,241,233,0.76)]">
+                            {index === 0 ? `02 / ${t('hero.statusLabel')}` : `03 / ${t('zones.eyebrow')}`}
+                          </div>
+                        </div>
+                      ),
+                    )}
                   </div>
                 </div>
-              </GlassCard>
+              </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      <section className="tripod-page-light py-14 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="grid gap-5 lg:grid-cols-2">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#090909_0%,#050505_100%)] py-14 sm:py-16 lg:py-20">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(245,241,233,0.04)_0_1px,transparent_1px_11rem)] opacity-20" />
+        <div className="relative mx-auto max-w-7xl px-5 md:px-16">
+          <div className="mb-10 grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
             <ScrollReveal>
-              <GlassCard className="tripod-glass-card--light h-full rounded-[30px] p-6 sm:p-8">
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-                      <Mic2 className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="label-sm text-primary">
-                        {t('recording.eyebrow')}
-                      </p>
-                      <h2 className="headline-md text-white">
-                        {t('recording.title')}
-                      </h2>
-                    </div>
-                  </div>
-                  <p className="body-md text-on-surface-variant">
-                    {t('recording.subtitle')}
-                  </p>
-                  <div className="space-y-3">
-                    {[0, 1, 2].map((index) => (
-                      <div
-                        key={index}
-                        className="rounded-[22px] border border-white/8 bg-black/20 p-4"
-                      >
-                        <p className="text-sm font-semibold text-white">
-                          {t(`recording.items.${index}.title`)}
-                        </p>
-                        <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                          {t(`recording.items.${index}.description`)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href={serviceUrls.recordingSession}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-full"
-                  >
-                    <Button variant="primary" className="gap-2 px-6 py-3.5">
-                      <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                      {t('recording.cta')}
-                    </Button>
-                  </a>
-                </div>
-              </GlassCard>
+              <div className="space-y-4">
+                <p className="film-kicker">
+                  <span className="film-rec-dot" aria-hidden="true" />
+                  {t('zones.eyebrow')}
+                </p>
+                <h2 className="max-w-xl text-[clamp(2.95rem,4.8vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
+                  {t('zones.title')}
+                </h2>
+              </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.08}>
-              <GlassCard className="tripod-glass-card--light h-full rounded-[30px] p-6 sm:p-8">
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-                      <Music2 className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="label-sm text-primary">
-                        {t('production.eyebrow')}
-                      </p>
-                      <h2 className="headline-md text-white">
-                        {t('production.title')}
-                      </h2>
-                    </div>
-                  </div>
-                  <p className="body-md text-on-surface-variant">
-                    {t('production.subtitle')}
-                  </p>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {[0, 1, 2, 3].map((index) => (
-                      <div
-                        key={index}
-                        className="rounded-[22px] border border-white/8 bg-white/5 p-4"
-                      >
-                        <p className="text-sm font-semibold text-white">
-                          {t(`production.items.${index}.title`)}
-                        </p>
-                        <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                          {t(`production.items.${index}.description`)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href={serviceUrls.musicProduction}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-full"
-                  >
-                    <Button variant="primary" className="gap-2 px-6 py-3.5">
-                      <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                      {t('production.cta')}
-                    </Button>
-                  </a>
-                </div>
-              </GlassCard>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="tripod-page-dark border-y border-white/6 py-14 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 space-y-3">
-            <ScrollReveal>
-              <span className="label-sm text-primary">{t('training.eyebrow')}</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <h2 className="headline-lg text-white">{t('training.title')}</h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.16}>
-              <p className="body-md max-w-2xl text-on-surface-variant">
-                {t('training.subtitle')}
+              <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.72)] sm:text-base">
+                {t('zones.body')}
               </p>
             </ScrollReveal>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {(['piano', 'guitar', 'drums', 'vocals'] as const).map((item, index) => {
-              const Icon = trainingIcons[item];
+          <div className="space-y-8">
+            {zoneOrder.map((zoneKey, index) => {
+              const media = sampleMedia[zoneMediaMap[zoneKey]];
+
               return (
-                <ScrollReveal key={item} delay={0.06 * index}>
-                  <GlassCard className="h-full rounded-[28px] p-5 sm:p-6">
-                    <div className="flex h-full flex-col gap-5">
-                      <div className="flex items-center justify-between">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-                          <Icon className="h-6 w-6" aria-hidden="true" />
-                        </div>
-                        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">
-                          {t(`training.items.${item}.level`)}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-white">
-                          {t(`training.items.${item}.title`)}
-                        </h3>
-                        <p className="mt-3 text-sm leading-6 text-on-surface-variant">
-                          {t(`training.items.${item}.description`)}
-                        </p>
-                      </div>
-                      <div className="space-y-2">
-                        {[0, 1].map((bullet) => (
-                          <div
-                            key={bullet}
-                            className="flex items-start gap-3 text-sm text-on-surface-variant"
-                          >
-                            <span
-                              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-primary to-secondary-container"
-                              aria-hidden="true"
-                            />
-                            <span>{t(`training.items.${item}.bullets.${bullet}`)}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <a
-                        href={serviceUrls[`${item}Training`]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-auto inline-flex rounded-full"
+                <ScrollReveal key={zoneKey} delay={0.05 * index}>
+                  <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(9,9,9,0.98),rgba(17,17,17,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.32)]">
+                    <div className="grid gap-0 lg:grid-cols-[minmax(19rem,0.92fr)_minmax(0,1.08fr)]">
+                      <div
+                        className={`relative min-h-[21rem] overflow-hidden border-b border-white/10 lg:min-h-[28rem] lg:border-b-0 ${
+                          index % 2 === 1 ? 'lg:order-2 lg:border-l lg:border-r-0' : 'lg:border-r'
+                        }`}
                       >
-                        <Button variant="secondary" className="w-full justify-center">
-                          {t(`training.items.${item}.cta`)}
-                        </Button>
-                      </a>
+                        <Image
+                          src={media.src}
+                          alt={tCommon(media.altKey)}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 42vw"
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,61,0,0.08),rgba(0,0,0,0.8))]" />
+                        <div className="absolute inset-[1rem] border border-white/14" aria-hidden="true" />
+                        <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 font-mono text-[0.6rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
+                          <span>{t(`zones.items.${zoneKey}.label`)}</span>
+                          <span>{t(`zones.items.${zoneKey}.number`)}</span>
+                        </div>
+                        <div className="absolute bottom-5 left-5 right-5 space-y-3">
+                          <h3 className="text-[2rem] font-black uppercase leading-[0.9] tracking-[-0.03em] text-[var(--tripod-warm-white)] sm:text-[2.6rem]">
+                            {t(`zones.items.${zoneKey}.title`)}
+                          </h3>
+                          <p className="max-w-md text-sm leading-7 text-[rgba(245,241,233,0.78)]">
+                            {t(`zones.items.${zoneKey}.description`)}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className={`flex items-center p-5 sm:p-7 lg:p-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                        <div className="grid w-full gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+                          <div className="space-y-4">
+                            <p className="font-mono text-[0.72rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
+                              {t(`zones.items.${zoneKey}.number`)}
+                            </p>
+                            <h4 className="text-[1.35rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-warm-white)] sm:text-[1.55rem]">
+                              {t(`zones.items.${zoneKey}.title`)}
+                            </h4>
+                            <p className="max-w-xl text-sm leading-7 text-[rgba(245,241,233,0.7)]">
+                              {t(`zones.items.${zoneKey}.description`)}
+                            </p>
+                          </div>
+
+                          <div className="rounded-[1.15rem] border border-white/10 bg-white/[0.03] px-4 py-4 font-mono text-[0.62rem] font-black uppercase tracking-[0.16em] text-[rgba(245,241,233,0.74)] sm:min-w-[12rem]">
+                            {t(`zones.items.${zoneKey}.label`)}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </GlassCard>
+                  </article>
                 </ScrollReveal>
               );
             })}
@@ -302,120 +232,170 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="tripod-page-light py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-light border-y border-white/6 py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)]">
+          <div className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <ScrollReveal>
-              <GlassCard className="tripod-glass-card--light rounded-[30px] p-6 sm:p-8">
-                <span className="label-sm text-primary">{t('benefits.eyebrow')}</span>
-                <h2 className="headline-lg mt-4 text-white">{t('benefits.title')}</h2>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {[0, 1, 2, 3].map((index) => (
-                    <div
-                      key={index}
-                      className="rounded-[22px] border border-white/8 bg-black/20 p-4"
-                    >
-                      <p className="text-sm font-semibold text-white">
-                        {t(`benefits.items.${index}.title`)}
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                        {t(`benefits.items.${index}.description`)}
-                      </p>
-                    </div>
-                  ))}
+              <div className="space-y-3">
+                <p className="film-light-kicker">{t('path.eyebrow')}</p>
+                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-text-dark)]">
+                  {t('path.title')}
+                </h2>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <p className="max-w-2xl text-sm leading-7 text-[var(--tripod-text-muted-dark)] sm:text-base">
+                {t('path.body')}
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start">
+            <ScrollReveal>
+              <div className="relative overflow-hidden rounded-[2rem] border border-[rgba(23,21,18,0.12)] bg-black shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
+                <div className="relative min-h-[25rem]">
+                  <Image
+                    src={sampleMedia.editingTimeline.src}
+                    alt={tCommon(sampleMedia.editingTimeline.altKey)}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,61,0,0.12),rgba(0,0,0,0.72))]" />
+                  <div className="absolute inset-[1rem] border border-white/12" aria-hidden="true" />
+                  <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
+                    <span>{t('path.eyebrow')}</span>
+                    <span>{pathSteps.length} STEPS</span>
+                  </div>
+                  <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
+                    {pathSteps.map((step) => (
+                      <span
+                        key={step.number}
+                        className="rounded-full border border-white/12 bg-black/30 px-3 py-1 font-mono text-[0.56rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-warm-white)]"
+                      >
+                        {step.number}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </GlassCard>
+              </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.08}>
-              <GlassCard className="tripod-glass-card--light rounded-[30px] p-6 sm:p-8">
-                <span className="label-sm text-primary">{t('pathway.eyebrow')}</span>
-                <h2 className="headline-lg mt-4 text-white">{t('pathway.title')}</h2>
-                <div className="mt-6 space-y-4">
-                  {(['learn', 'practice', 'record', 'perform'] as const).map(
-                    (step, index) => {
-                      const Icon = pathwayIcons[step];
-                      return (
-                        <div
-                          key={step}
-                          className="flex items-start gap-4 rounded-[22px] border border-white/8 bg-white/5 p-4"
-                        >
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary">
-                            <Icon className="h-5 w-5" aria-hidden="true" />
-                          </div>
-                          <div>
-                            <p className="text-xs uppercase tracking-[0.18em] text-primary">
-                              0{index + 1}
-                            </p>
-                            <h3 className="mt-1 text-lg font-semibold text-white">
-                              {t(`pathway.steps.${step}.title`)}
-                            </h3>
-                            <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                              {t(`pathway.steps.${step}.description`)}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    },
-                  )}
-                </div>
-              </GlassCard>
-            </ScrollReveal>
+            <div className="grid gap-4">
+              {pathSteps.map((step, index) => (
+                <ScrollReveal key={step.number} delay={0.05 * index}>
+                  <div className="rounded-[1.5rem] border border-[rgba(23,21,18,0.12)] bg-white px-5 py-5 shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
+                    <div className="grid gap-4 sm:grid-cols-[4.8rem_minmax(0,1fr)] sm:items-start">
+                      <div className="font-mono text-[0.72rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
+                        {step.number}
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-[1.3rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-text-dark)]">
+                          {step.title}
+                        </h3>
+                        <p className="text-sm leading-7 text-[var(--tripod-text-muted-dark)]">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="film-cta-section relative overflow-hidden border-t border-white/6 py-14 sm:py-16 lg:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,126,0,0.15),transparent_35%),radial-gradient(circle_at_top_right,rgba(253,208,0,0.08),transparent_28%)]" />
-        <div className="relative mx-auto max-w-7xl px-5 md:px-16">
-          <ScrollReveal>
-            <GlassCard className="tripod-dark-panel rounded-[30px] p-6 text-center sm:p-8 lg:p-10">
-              <span className="label-sm text-primary">{t('cta.eyebrow')}</span>
-              <h2 className="headline-lg mx-auto mt-4 max-w-3xl text-white">
-                {t('cta.title')}
-              </h2>
-              <p className="body-md mx-auto mt-4 max-w-2xl text-on-surface-variant">
-                {t('cta.subtitle')}
-              </p>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {(
-                  [
-                    'recordingSession',
-                    'musicProduction',
-                    'pianoTraining',
-                    'guitarTraining',
-                    'drumTraining',
-                    'vocalTraining',
-                    'generalInquiry',
-                  ] as const
-                ).map((item) => (
-                  <a
-                    key={item}
-                    href={serviceUrls[item]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-[22px]"
-                  >
-                    <GlassCard className="h-full w-full rounded-[22px] p-4">
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="text-left">
-                          <p className="text-sm font-semibold text-white">
-                            {t(`cta.buttons.${item}`)}
-                          </p>
-                          <p className="mt-1 text-xs leading-5 text-on-surface-variant">
-                            {t('cta.buttonHint')}
-                          </p>
-                        </div>
-                        <MessageCircle
-                          className="h-5 w-5 shrink-0 text-primary"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    </GlassCard>
-                  </a>
-                ))}
+      <section className="tripod-page-dark border-y border-white/6 py-14 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-16">
+          <div className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <ScrollReveal>
+              <div className="space-y-3">
+                <p className="film-kicker">
+                  <span className="film-rec-dot" aria-hidden="true" />
+                  {t('atmosphere.eyebrow')}
+                </p>
+                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
+                  {t('atmosphere.title')}
+                </h2>
               </div>
-            </GlassCard>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.72)] sm:text-base">
+                {t('atmosphere.body')}
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-[1.16fr_0.84fr_0.84fr]">
+            {atmosphereMediaKeys.map((mediaKey, index) => {
+              const media = sampleMedia[mediaKey];
+              const labels = t.raw('atmosphere.labels') as string[];
+
+              return (
+                <ScrollReveal key={media.key} delay={0.06 * index}>
+                  <div
+                    className={`relative overflow-hidden rounded-[1.8rem] border border-white/10 ${
+                      index === 0 ? 'md:row-span-2 min-h-[28rem]' : 'min-h-[13.5rem]'
+                    }`}
+                  >
+                    <Image
+                      src={media.src}
+                      alt={tCommon(media.altKey)}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-full border border-white/10 bg-black/25 px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-white/80">
+                      {labels[index]}
+                    </div>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="film-cta-section border-t border-white/8 py-16 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 lg:grid-cols-[1.04fr_0.78fr_0.68fr] lg:items-center">
+          <ScrollReveal>
+            <div className="space-y-4">
+              <p className="film-kicker">
+                <span className="film-rec-dot" aria-hidden="true" />
+                {t('cta.eyebrow')}
+              </p>
+              <h2>{t('cta.title')}</h2>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.08}>
+            <p>{t('cta.subtitle')}</p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.14}>
+            <div className="flex flex-col gap-3 lg:items-end">
+              <a
+                href={serviceUrls.recordingSession}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full"
+              >
+                <Button variant="primary" className="gap-2 px-6 py-3">
+                  {t('cta.primary')}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Button>
+              </a>
+
+              <a
+                href={serviceUrls.generalInquiry}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring inline-flex items-center gap-2 rounded-sm border border-white/12 px-4 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                {t('cta.secondary')}
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>
