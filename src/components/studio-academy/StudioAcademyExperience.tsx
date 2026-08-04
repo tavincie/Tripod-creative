@@ -61,7 +61,7 @@ export function StudioAcademyExperience({
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h1 className="max-w-4xl text-[clamp(3.2rem,5vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
+                <h1 className="max-w-[9.4ch] text-[clamp(2.85rem,13.8vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)] sm:max-w-4xl">
                   {t('hero.title')}
                 </h1>
               </ScrollReveal>
@@ -71,7 +71,7 @@ export function StudioAcademyExperience({
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.16}>
-                <div className="grid gap-3 sm:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-3">
                   {(t.raw('hero.summary') as string[]).map((item) => (
                     <div
                       key={item}
@@ -87,7 +87,7 @@ export function StudioAcademyExperience({
             <ScrollReveal delay={0.12}>
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.34)]">
                 <div className="grid gap-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.92fr)]">
-                  <div className="relative min-h-[22rem] overflow-hidden border-b border-white/10 lg:min-h-[31rem] lg:border-b-0 lg:border-r">
+                  <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[22rem] lg:min-h-[31rem] lg:border-b-0 lg:border-r">
                     <Image
                       src={sampleMedia.musicProducerWorkstation.src}
                       alt={tCommon(sampleMedia.musicProducerWorkstation.altKey)}
@@ -119,7 +119,7 @@ export function StudioAcademyExperience({
                       (media, index) => (
                         <div
                           key={media.key}
-                          className={`relative min-h-[15.5rem] overflow-hidden ${
+                          className={`relative min-h-[11rem] overflow-hidden sm:min-h-[15.5rem] ${
                             index === 0 ? 'border-b border-white/10' : ''
                           }`}
                         >
@@ -177,7 +177,7 @@ export function StudioAcademyExperience({
                   <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(9,9,9,0.98),rgba(17,17,17,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.32)]">
                     <div className="grid gap-0 lg:grid-cols-[minmax(19rem,0.92fr)_minmax(0,1.08fr)]">
                       <div
-                        className={`relative min-h-[21rem] overflow-hidden border-b border-white/10 lg:min-h-[28rem] lg:border-b-0 ${
+                        className={`relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[21rem] lg:min-h-[28rem] lg:border-b-0 ${
                           index % 2 === 1 ? 'lg:order-2 lg:border-l lg:border-r-0' : 'lg:border-r'
                         }`}
                       >
@@ -205,7 +205,7 @@ export function StudioAcademyExperience({
                       </div>
 
                       <div className={`flex items-center p-5 sm:p-7 lg:p-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                        <div className="grid w-full gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+                        <div className="grid w-full gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start">
                           <div className="space-y-4">
                             <p className="font-mono text-[0.72rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                               {t(`zones.items.${zoneKey}.number`)}
@@ -285,7 +285,7 @@ export function StudioAcademyExperience({
               {pathSteps.map((step, index) => (
                 <ScrollReveal key={step.number} delay={0.05 * index}>
                   <div className="rounded-[1.5rem] border border-[rgba(23,21,18,0.12)] bg-white px-5 py-5 shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
-                    <div className="grid gap-4 sm:grid-cols-[4.8rem_minmax(0,1fr)] sm:items-start">
+                    <div className="grid gap-4 md:grid-cols-[4.8rem_minmax(0,1fr)] md:items-start">
                       <div className="font-mono text-[0.72rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                         {step.number}
                       </div>

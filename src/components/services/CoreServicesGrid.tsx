@@ -78,7 +78,7 @@ export function CoreServicesGrid({ serviceUrls }: CoreServicesGridProps) {
               <ScrollReveal key={zone.key} delay={0.05 * index}>
                 <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(9,9,9,0.98),rgba(17,17,17,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.32)]">
                   <div className="grid gap-0 lg:grid-cols-[minmax(19rem,0.92fr)_minmax(0,1.08fr)]">
-                    <div className={`relative min-h-[21rem] overflow-hidden border-b border-white/10 lg:min-h-[30rem] lg:border-b-0 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                    <div className={`relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[21rem] lg:min-h-[30rem] lg:border-b-0 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                       <Image
                         src={media.src}
                         alt={tCommon(`media.${media.key}`)}
@@ -112,7 +112,7 @@ export function CoreServicesGrid({ serviceUrls }: CoreServicesGridProps) {
                             rel="noopener noreferrer"
                             className="focus-ring group block rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 transition-colors hover:border-[rgba(255,61,0,0.34)] hover:bg-white/[0.05] sm:px-5"
                           >
-                            <div className="grid gap-4 sm:grid-cols-[4.6rem_minmax(0,1fr)_auto] sm:items-center">
+                            <div className="grid gap-4 md:grid-cols-[4.6rem_minmax(0,1fr)_auto] md:items-center">
                               <div className="font-mono text-[0.72rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                                 {tServices(`items.${serviceId}.number`)}
                               </div>

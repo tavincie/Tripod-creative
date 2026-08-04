@@ -198,7 +198,7 @@ export function ContactBookingExperience({
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h1 className="max-w-4xl text-[clamp(3.2rem,5vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
+                <h1 className="max-w-[9.2ch] text-[clamp(2.85rem,13.8vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)] sm:max-w-4xl">
                   {tContact('hero.title')}
                 </h1>
               </ScrollReveal>
@@ -212,7 +212,7 @@ export function ContactBookingExperience({
             <ScrollReveal delay={0.12}>
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.34)]">
                 <div className="grid gap-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.92fr)]">
-                  <div className="relative min-h-[22rem] overflow-hidden border-b border-white/10 lg:min-h-[31rem] lg:border-b-0 lg:border-r">
+                  <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[22rem] lg:min-h-[31rem] lg:border-b-0 lg:border-r">
                     <Image
                       src={sampleMedia.creativeTeamBts.src}
                       alt={tCommon(sampleMedia.creativeTeamBts.altKey)}
@@ -244,7 +244,7 @@ export function ContactBookingExperience({
                       (media, index) => (
                         <div
                           key={media.key}
-                          className={`relative min-h-[15.5rem] overflow-hidden ${
+                          className={`relative min-h-[11rem] overflow-hidden sm:min-h-[15.5rem] ${
                             index === 0 ? 'border-b border-white/10' : ''
                           }`}
                         >
@@ -268,7 +268,7 @@ export function ContactBookingExperience({
       </section>
 
       <section className="tripod-page-light py-16 lg:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.88fr)]">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.88fr)]">
           <ScrollReveal>
             <div className="rounded-[2rem] tripod-dark-panel p-6 sm:p-8">
               <div className="mb-6 space-y-3">
@@ -285,7 +285,7 @@ export function ContactBookingExperience({
               </div>
 
               <form className="space-y-5" onSubmit={handleSubmit} noValidate>
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-5 md:grid-cols-2">
                   {(['name', 'phone', 'email'] as const).map((field) => (
                     <div key={field}>
                       <label htmlFor={field} className="mb-2 block text-sm font-medium text-white">
@@ -388,7 +388,7 @@ export function ContactBookingExperience({
                   </div>
                 </div>
 
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-5 md:grid-cols-2">
                   <div>
                     <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-white">
                       {tContact('form.fields.timeline')} <span aria-hidden="true">*</span>
@@ -527,7 +527,7 @@ export function ContactBookingExperience({
                     </p>
                     <div className="mt-4 space-y-3">
                       {(tContact.raw('response.flowSteps') as Array<{ number: string; title: string }>).map((step) => (
-                        <div key={step.number} className="grid gap-3 sm:grid-cols-[3.6rem_minmax(0,1fr)] sm:items-center">
+                        <div key={step.number} className="grid gap-3 md:grid-cols-[3.6rem_minmax(0,1fr)] md:items-center">
                           <div className="font-mono text-[0.62rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                             {step.number}
                           </div>

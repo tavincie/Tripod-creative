@@ -92,7 +92,7 @@ export function PortfolioExperience({
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h1 className="max-w-4xl text-[clamp(3.35rem,5vw,5.8rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)] sm:text-[clamp(3.6rem,5.3vw,6rem)]">
+                <h1 className="max-w-[9.1ch] text-[clamp(2.9rem,14vw,5.8rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)] sm:max-w-4xl sm:text-[clamp(3.35rem,5.3vw,6rem)]">
                   {t('hero.title')}
                 </h1>
               </ScrollReveal>
@@ -102,7 +102,7 @@ export function PortfolioExperience({
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.16}>
-                <div className="grid gap-3 sm:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-3">
                   {[
                     t('hero.frameLabel'),
                     t('hero.archiveStatus'),
@@ -122,7 +122,7 @@ export function PortfolioExperience({
             <ScrollReveal delay={0.12}>
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.34)]">
                 <div className="grid gap-0 lg:grid-cols-[minmax(0,1.06fr)_minmax(19rem,0.94fr)]">
-                  <div className="relative min-h-[22rem] overflow-hidden border-b border-white/10 lg:min-h-[31rem] lg:border-b-0 lg:border-r">
+                  <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[22rem] lg:min-h-[31rem] lg:border-b-0 lg:border-r">
                     <Image
                       src={sampleMedia.eventPhotography.src}
                       alt={tCommon(sampleMedia.eventPhotography.altKey)}
@@ -157,7 +157,7 @@ export function PortfolioExperience({
                       (media, index) => (
                         <div
                           key={media.key}
-                          className={`relative min-h-[15.5rem] overflow-hidden ${
+                          className={`relative min-h-[11rem] overflow-hidden sm:min-h-[15.5rem] ${
                             index === 0 ? 'border-b border-white/10' : ''
                           }`}
                         >

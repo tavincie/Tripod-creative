@@ -49,7 +49,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
-                <h1 className="max-w-4xl text-[clamp(3.2rem,5vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
+                <h1 className="max-w-[9.3ch] text-[clamp(2.85rem,13.8vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)] sm:max-w-4xl">
                   {tAbout('hero.title')}
                 </h1>
               </ScrollReveal>
@@ -63,7 +63,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
             <ScrollReveal delay={0.12}>
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.34)]">
                 <div className="grid gap-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.92fr)]">
-                  <div className="relative min-h-[22rem] overflow-hidden border-b border-white/10 lg:min-h-[31rem] lg:border-b-0 lg:border-r">
+                  <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[22rem] lg:min-h-[31rem] lg:border-b-0 lg:border-r">
                     <Image
                       src={sampleMedia.cameraOperator.src}
                       alt={tCommon(sampleMedia.cameraOperator.altKey)}
@@ -95,7 +95,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
                       (media, index) => (
                         <div
                           key={media.key}
-                          className={`relative min-h-[15.5rem] overflow-hidden ${
+                          className={`relative min-h-[11rem] overflow-hidden sm:min-h-[15.5rem] ${
                             index === 0 ? 'border-b border-white/10' : ''
                           }`}
                         >
@@ -200,8 +200,8 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.02fr)_minmax(320px,0.98fr)] lg:items-center">
             <ScrollReveal>
               <div className="relative overflow-hidden rounded-[2rem] border border-[rgba(23,21,18,0.12)] bg-black shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
-                <div className="grid gap-0 sm:grid-cols-[1.08fr_0.92fr]">
-                  <div className="relative min-h-[26rem] overflow-hidden border-b border-white/10 sm:border-b-0 sm:border-r">
+                <div className="grid gap-0 md:grid-cols-[1.08fr_0.92fr]">
+                  <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 md:min-h-[26rem] md:border-b-0 md:border-r">
                     <Image
                       src={sampleMedia.videoProductionSetup.src}
                       alt={tCommon(sampleMedia.videoProductionSetup.altKey)}
@@ -217,7 +217,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
                       return (
                         <div
                           key={media.key}
-                          className={`relative min-h-[13rem] overflow-hidden ${
+                          className={`relative min-h-[11rem] overflow-hidden md:min-h-[13rem] ${
                             index === 0 ? 'border-b border-white/10' : ''
                           }`}
                         >
