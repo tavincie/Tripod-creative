@@ -1,11 +1,21 @@
 {
   "hero": {
-    "eyebrow": "Kazi Teule",
-    "title": "Portfolio inayojengwa kupitia branding, visuals, maudhui, na kampeni.",
-    "subtitle": "Mwonekano wenye vichujio wa kadi za portfolio zilizo tayari kubadilishwa baadaye kwa kazi halisi katika print, motion, matukio, na usimulizi wa kidijitali."
+    "eyebrow": "Kazi za Karibuni",
+    "title": "KAZI INAYOONEKANA VIZURI, INASIKIKA SAFI, NA INAWASUKUMA WATU KUHISI KITU.",
+    "subtitle": "Archive inayokua ya design, photography, video, audio, print, na campaign work iliyoundwa kwa brands zinazotaka kukumbukwa.",
+    "frameLabel": "Contact Sheet",
+    "archiveStatus": "Hali ya Archive",
+    "archiveStatusValue": "Inaendelea / Placeholder Ready",
+    "frameCount": "Frame 9 Zimeandikwa",
+    "laneLabels": [
+      "Design",
+      "Motion",
+      "Campaign"
+    ]
   },
   "filters": {
     "ariaLabel": "Chuja portfolio kwa kategoria",
+    "eyebrow": "Lebo za Archive",
     "items": {
       "all": "Zote",
       "branding": "Branding",
@@ -19,26 +29,59 @@
     }
   },
   "grid": {
-    "eyebrow": "Grid ya Portfolio",
-    "title": "Chunguza portfolio kwa aina ya kazi au aina ya kampeni.",
+    "eyebrow": "Contact Sheet",
+    "title": "Ushahidi wa production uliopangwa kama archive safi ya studio.",
     "resultCount": "{count, plural, =0 {Hakuna kazi zinazoonekana} one {Kazi # inaonekana} other {Kazi # zinaonekana}}",
     "empty": "Bado hakuna kazi ya portfolio inayolingana na kichujio hiki.",
     "cardCta": "Tazama maelezo ya placeholder",
     "imagePlaceholder": "Placeholder ya Picha",
-    "videoPlaceholder": "Placeholder ya Video"
+    "videoPlaceholder": "Placeholder ya Video",
+    "frameLabel": "Frame",
+    "yearLabel": "Mwaka",
+    "statusLabel": "Hali",
+    "tagLabel": "Imeandikwa Kama"
   },
   "featured": {
-    "eyebrow": "Mwelekeo Ulioangaziwa",
-    "title": "Tumia portfolio kama mwanzo wa brief yako inayofuata.",
-    "subtitle": "Ikiwa mtindo, aina ya kazi, au mwelekeo wa kampeni unakuvutia, tunaweza kuutumia kuongoza mazungumzo yanayofuata.",
-    "note": "Vipengele vya portfolio katika ukurasa huu vinatumia majina ya generic placeholder ili kazi halisi ya baadaye iweze kuongezwa bila kubadilisha muundo wa uzoefu.",
-    "cta": "Jadili Mradi Unaofanana"
+    "eyebrow": "Archive Strip",
+    "title": "Production lanes nne zinazojirudia kwenye kazi.",
+    "subtitle": "Strip hii inafanya kazi kama archive wall: labels wazi, media ya ushahidi, na nafasi ya kazi halisi kuchukua nafasi ya placeholders bila kubadili mfumo.",
+    "items": [
+      {
+        "key": "brandIdentity",
+        "eyebrow": "Lane 01",
+        "title": "Brand Identity",
+        "description": "Identity direction, key visuals, na rollout surfaces zinazobeba attention."
+      },
+      {
+        "key": "eventCoverage",
+        "eyebrow": "Lane 02",
+        "title": "Event Coverage",
+        "description": "Live capture, recap edits, na assets za moments zinazoweka energy ionekane."
+      },
+      {
+        "key": "studioProduction",
+        "eyebrow": "Lane 03",
+        "title": "Studio Production",
+        "description": "Audio, edit timelines, na output ya recording room inayoundwa kwa delivery safi."
+      },
+      {
+        "key": "digitalCampaigns",
+        "eyebrow": "Lane 04",
+        "title": "Digital Campaigns",
+        "description": "Launch assets, social systems, na campaign structures zinazojengwa kwa rollout."
+      }
+    ]
   },
   "cta": {
-    "eyebrow": "Booking ya Mradi",
-    "title": "Uko tayari kubadilisha marejeleo kuwa mpango wa mradi?",
-    "subtitle": "Tueleze aina ya kazi unayohitaji na tutajenga mchanganyiko bora wa huduma za ubunifu, production, na digital.",
-    "button": "Weka Nafasi kwa WhatsApp"
+    "eyebrow": "Frame Inayofuata",
+    "title": "MRADI WAKO UNASTAHILI KUWA KWENYE FRAME INAYOFUATA.",
+    "subtitle": "Leta brief ndani ya studio na tutaipeleka kwenye production path inayofaa.",
+    "primary": "Anza Mradi",
+    "secondary": "Ongea kwa WhatsApp"
+  },
+  "status": {
+    "archiveReady": "Archive Ready",
+    "placeholder": "Placeholder"
   },
   "tags": {
     "identity": "Utambulisho",

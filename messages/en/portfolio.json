@@ -1,11 +1,21 @@
 {
   "hero": {
-    "eyebrow": "Selected Work",
-    "title": "Portfolio built across branding, visuals, content, and campaigns.",
-    "subtitle": "A filtered view of placeholder-ready portfolio cards for the work Tripod can shape across print, motion, events, and digital storytelling."
+    "eyebrow": "Recent Work",
+    "title": "WORK THAT LOOKS SHARP, SOUNDS CLEAN, AND MOVES PEOPLE.",
+    "subtitle": "A growing archive of design, photography, video, audio, print, and campaign work shaped for brands that need to be remembered.",
+    "frameLabel": "Contact Sheet",
+    "archiveStatus": "Archive Status",
+    "archiveStatusValue": "Growing / Placeholder Ready",
+    "frameCount": "9 Frames Logged",
+    "laneLabels": [
+      "Design",
+      "Motion",
+      "Campaign"
+    ]
   },
   "filters": {
     "ariaLabel": "Filter portfolio by category",
+    "eyebrow": "Archive Labels",
     "items": {
       "all": "All",
       "branding": "Branding",
@@ -19,26 +29,59 @@
     }
   },
   "grid": {
-    "eyebrow": "Portfolio Grid",
-    "title": "Browse the portfolio by format or campaign type.",
+    "eyebrow": "Contact Sheet",
+    "title": "Production evidence arranged like a clean studio archive.",
     "resultCount": "{count, plural, =0 {No projects shown} one {# project shown} other {# projects shown}}",
     "empty": "No portfolio items match this filter yet.",
     "cardCta": "View placeholder details",
     "imagePlaceholder": "Image Placeholder",
-    "videoPlaceholder": "Video Placeholder"
+    "videoPlaceholder": "Video Placeholder",
+    "frameLabel": "Frame",
+    "yearLabel": "Year",
+    "statusLabel": "Status",
+    "tagLabel": "Recorded As"
   },
   "featured": {
-    "eyebrow": "Featured Direction",
-    "title": "Use the portfolio as a starting point for your next brief.",
-    "subtitle": "If a style, format, or campaign direction stands out, we can use it to shape the next conversation.",
-    "note": "Portfolio entries on this page use clean placeholder project naming so future real work can be swapped in without redesigning the experience.",
-    "cta": "Discuss a Similar Project"
+    "eyebrow": "Archive Strip",
+    "title": "Four production lanes that keep showing up in the work.",
+    "subtitle": "This strip behaves like an archive wall: clear labels, proof-driven media, and room for real work to replace placeholders without changing the system.",
+    "items": [
+      {
+        "key": "brandIdentity",
+        "eyebrow": "Lane 01",
+        "title": "Brand Identity",
+        "description": "Identity direction, key visuals, and rollout surfaces built to hold attention."
+      },
+      {
+        "key": "eventCoverage",
+        "eyebrow": "Lane 02",
+        "title": "Event Coverage",
+        "description": "Live capture, recap edits, and moment-driven assets that keep the energy visible."
+      },
+      {
+        "key": "studioProduction",
+        "eyebrow": "Lane 03",
+        "title": "Studio Production",
+        "description": "Audio, edit timelines, and recording-room output shaped for clean delivery."
+      },
+      {
+        "key": "digitalCampaigns",
+        "eyebrow": "Lane 04",
+        "title": "Digital Campaigns",
+        "description": "Launch assets, social systems, and campaign structures built for rollout."
+      }
+    ]
   },
   "cta": {
-    "eyebrow": "Project Booking",
-    "title": "Ready to turn references into a project plan?",
-    "subtitle": "Share the kind of work you need and we can map the best combination of creative, production, and digital services.",
-    "button": "Book on WhatsApp"
+    "eyebrow": "Next Frame",
+    "title": "YOUR PROJECT BELONGS IN THE NEXT FRAME.",
+    "subtitle": "Bring the brief into the studio and we will route it into the right production path.",
+    "primary": "Start a Project",
+    "secondary": "Talk on WhatsApp"
+  },
+  "status": {
+    "archiveReady": "Archive Ready",
+    "placeholder": "Placeholder"
   },
   "tags": {
     "identity": "Identity",
