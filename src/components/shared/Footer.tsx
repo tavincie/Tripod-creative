@@ -28,73 +28,75 @@ export function Footer() {
 
   return (
     <footer className="film-footer">
-      <div className="tripod-shell--wide grid gap-9 py-12 md:grid-cols-[1.15fr_0.8fr_0.9fr_0.9fr] md:py-14">
-        <div className="film-footer-brand">
-          <Link href="/" className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creatives home">
-            <Image
-              src="/branding/tripod-creative-footer-logo.png"
-              alt="Tripod Creatives logo"
-              width={420}
-              height={233}
-              priority
-            />
-          </Link>
-          <p className="film-footer-brand__description max-w-sm text-sm leading-7 text-[rgba(245,241,233,0.72)]">
-            {tFooter('description')}
-          </p>
-          <p className="film-footer-brand__rec font-mono text-[0.62rem] font-black uppercase tracking-[0.22em] text-[var(--tripod-orange)]">
-            {tFooter('recLine')}
-          </p>
-        </div>
-
-        <div>
-          <h2 className="film-footer-heading">{tFooter('navHeading')}</h2>
-          <nav className="mt-4 grid gap-2">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="film-footer-link focus-ring">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        <div>
-          <h2 className="film-footer-heading">{tFooter('servicesHeading')}</h2>
-          <div className="mt-4 grid gap-2">
-            {services.map((service) => (
-              <Link key={service} href="/services" className="film-footer-link focus-ring">
-                {service}
-              </Link>
-            ))}
+      <div className="tripod-shell--wide film-footer__container">
+        <div className="film-footer__grid">
+          <div className="film-footer-brand">
+            <Link href="/" className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creatives home">
+              <Image
+                src="/branding/tripod-creative-footer-logo.png"
+                alt="Tripod Creatives logo"
+                width={420}
+                height={233}
+                priority
+              />
+            </Link>
+            <p className="film-footer-brand__description max-w-sm text-sm leading-7 text-[rgba(245,241,233,0.72)]">
+              {tFooter('description')}
+            </p>
+            <p className="film-footer-brand__rec font-mono text-[0.62rem] font-black uppercase tracking-[0.22em] text-[var(--tripod-orange)]">
+              {tFooter('recLine')}
+            </p>
           </div>
-        </div>
 
-        <div>
-          <h2 className="film-footer-heading">{tFooter('contactHeading')}</h2>
-          <div className="mt-4 grid gap-3">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              {tCommon('whatsApp')}
-            </a>
-            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="4" />
-                <circle cx="12" cy="12" r="4" />
-                <path d="M17.5 6.5h.01" />
-              </svg>
-              {tCommon('instagram')}
-            </a>
-            {siteConfig.location ? (
-              <span className="film-footer-link">
-                <MapPin className="h-4 w-4" aria-hidden="true" />
-                {siteConfig.location}
-              </span>
-            ) : null}
+          <div className="film-footer-column">
+            <h2 className="film-footer-heading">{tFooter('navHeading')}</h2>
+            <nav className="film-footer-list">
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="film-footer-link focus-ring">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="film-footer-column">
+            <h2 className="film-footer-heading">{tFooter('servicesHeading')}</h2>
+            <div className="film-footer-list">
+              {services.map((service) => (
+                <Link key={service} href="/services" className="film-footer-link focus-ring">
+                  {service}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="film-footer-column">
+            <h2 className="film-footer-heading">{tFooter('contactHeading')}</h2>
+            <div className="film-footer-list film-footer-list--contact">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                {tCommon('whatsApp')}
+              </a>
+              <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="film-footer-link focus-ring">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="4" />
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M17.5 6.5h.01" />
+                </svg>
+                {tCommon('instagram')}
+              </a>
+              {siteConfig.location ? (
+                <span className="film-footer-link">
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  {siteConfig.location}
+                </span>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="tripod-shell--wide flex flex-col gap-3 border-t border-white/10 py-5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/45 md:flex-row md:items-center md:justify-between">
+      <div className="tripod-shell--wide film-footer-bottom">
         <span>© {new Date().getFullYear()} Tripod Creatives</span>
         <span>{tFooter('tagline')}</span>
       </div>
