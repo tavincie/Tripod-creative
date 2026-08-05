@@ -1,4 +1,5 @@
 import enAbout from '../../messages/en/about.json';
+import enBooking from '../../messages/en/booking.json';
 import enCommon from '../../messages/en/common.json';
 import enContact from '../../messages/en/contact.json';
 import enFooter from '../../messages/en/footer.json';
@@ -9,6 +10,7 @@ import enSeo from '../../messages/en/seo.json';
 import enServices from '../../messages/en/services.json';
 import enStudioAcademy from '../../messages/en/studio-academy.json';
 import swAbout from '../../messages/sw/about.json';
+import swBooking from '../../messages/sw/booking.json';
 import swCommon from '../../messages/sw/common.json';
 import swContact from '../../messages/sw/contact.json';
 import swFooter from '../../messages/sw/footer.json';
@@ -28,6 +30,7 @@ const localeMessages = {
     Navigation: enNavigation,
     Common: enCommon,
     Footer: enFooter,
+    Booking: enBooking,
     HomePage: enHome,
     ServicesPage: enServices,
     PortfolioPage: enPortfolio,
@@ -40,6 +43,7 @@ const localeMessages = {
     Navigation: swNavigation,
     Common: swCommon,
     Footer: swFooter,
+    Booking: swBooking,
     HomePage: swHome,
     ServicesPage: swServices,
     PortfolioPage: swPortfolio,

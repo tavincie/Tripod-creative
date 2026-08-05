@@ -1,0 +1,404 @@
+{
+  "modal": {
+    "eyebrow": "Production Booking",
+    "title": "BOOK YOUR CREATIVE SESSION",
+    "subtitle": "Choose what you want to create, select a package, add your details, and send your booking brief directly to Tripod on WhatsApp.",
+    "boardLabel": "Booking Board"
+  },
+  "fields": {
+    "fullName": {
+      "label": "Full Name",
+      "placeholder": "Your full name"
+    },
+    "phone": {
+      "label": "Phone / WhatsApp Number",
+      "placeholder": "+255 ..."
+    },
+    "email": {
+      "label": "Email Address",
+      "placeholder": "you@example.com"
+    },
+    "serviceType": {
+      "label": "Service Type",
+      "placeholder": "Select a service"
+    },
+    "package": {
+      "label": "Package",
+      "placeholder": "Choose a package"
+    },
+    "preferredDate": {
+      "label": "Preferred Date"
+    },
+    "preferredTime": {
+      "label": "Preferred Time"
+    },
+    "location": {
+      "label": "Location",
+      "placeholder": "Venue, studio, city, or online"
+    },
+    "budgetRange": {
+      "label": "Budget Range",
+      "placeholder": "Select budget range"
+    },
+    "projectDetails": {
+      "label": "Project Details",
+      "placeholder": "Tell us what you want to create, the mood, audience, deliverables, and any deadline."
+    }
+  },
+  "validation": {
+    "fullName": "Full Name is required.",
+    "phone": "Phone / WhatsApp Number is required.",
+    "email": "Email Address is required.",
+    "serviceType": "Service Type is required.",
+    "packageId": "Package is required.",
+    "preferredDate": "Preferred Date is required.",
+    "preferredTime": "Preferred Time is required.",
+    "location": "Location is required.",
+    "budgetRange": "Budget Range is required.",
+    "projectDetails": "Project Details are required."
+  },
+  "services": {
+    "weddingCoverage": "Wedding Coverage",
+    "graphicDesign": "Graphic Design",
+    "branding": "Branding",
+    "printing": "Printing",
+    "photography": "Photography",
+    "videography": "Videography",
+    "droneCoverage": "Drone Coverage",
+    "liveStreaming": "Live Streaming",
+    "audioRecording": "Audio Recording",
+    "musicProduction": "Music Production",
+    "podcastRecording": "Podcast Recording",
+    "digitalMarketing": "Digital Marketing",
+    "instrumentTraining": "Instrument Training",
+    "customProject": "Custom Project"
+  },
+  "budgetRanges": {
+    "below300": "Below TZS 300,000",
+    "range300To800": "TZS 300,000 - 800,000",
+    "range800To1500": "TZS 800,000 - 1,500,000",
+    "range1500To2500": "TZS 1,500,000 - 2,500,000",
+    "above2500": "Above TZS 2,500,000",
+    "customNotSure": "Custom / Not Sure"
+  },
+  "price": {
+    "fixed": "{price}",
+    "from": "From {price}",
+    "each": "{price} each",
+    "perHour": "{price} per hour",
+    "perYear": "{price} per year",
+    "fromPerCard": "From {price} per card",
+    "custom": "Custom Quote"
+  },
+  "packages": {
+    "weddingBronze": {
+      "name": "Bronze",
+      "description": "Best for simple wedding coverage."
+    },
+    "weddingSilver": {
+      "name": "Silver",
+      "description": "Best for complete standard wedding production."
+    },
+    "weddingGold": {
+      "name": "Gold",
+      "description": "Best for premium full wedding production."
+    },
+    "weddingCustom": {
+      "name": "Custom Wedding Package",
+      "description": "A tailored wedding production plan for unique timelines, venues, and deliverables."
+    },
+    "graphicSingleDesign": {
+      "name": "Single Design",
+      "description": "A focused design asset for one clear communication moment."
+    },
+    "graphicSocialMediaPack": {
+      "name": "Social Media Pack",
+      "description": "A coordinated visual pack for posts, stories, and campaign rhythm."
+    },
+    "graphicCampaignDesignPack": {
+      "name": "Campaign Design Pack",
+      "description": "A fuller campaign design system for launch, promotion, or event visibility."
+    },
+    "brandingLogoStarter": {
+      "name": "Logo Starter",
+      "description": "A clean starter mark and direction for a new brand identity."
+    },
+    "brandingIdentityKit": {
+      "name": "Brand Identity Kit",
+      "description": "A practical identity package with core visuals for consistent brand use."
+    },
+    "brandingFullLaunchKit": {
+      "name": "Full Brand Launch Kit",
+      "description": "A complete launch-ready brand system with campaign and rollout assets."
+    },
+    "printingStarter": {
+      "name": "Print Starter",
+      "description": "Entry print production for essential promotional or event materials."
+    },
+    "printingEventKit": {
+      "name": "Event Print Kit",
+      "description": "A practical set of event print assets sized for visibility on-site."
+    },
+    "printingFullProduction": {
+      "name": "Full Print Production",
+      "description": "A full production run for larger print needs across formats and finishes."
+    },
+    "photographyStudioPortrait": {
+      "name": "Studio Portrait Session",
+      "description": "A polished portrait session for individuals, teams, or profile imagery."
+    },
+    "photographyEvent": {
+      "name": "Event Photography",
+      "description": "Coverage built to document moments, people, atmosphere, and key details."
+    },
+    "photographyCommercial": {
+      "name": "Commercial Photography",
+      "description": "Brand, product, or campaign photography planned for business use."
+    },
+    "videographyShortForm": {
+      "name": "Short Form Video",
+      "description": "A concise video package for social, promo, or announcement content."
+    },
+    "videographyEventCoverage": {
+      "name": "Event Video Coverage",
+      "description": "Video coverage for ceremonies, launches, performances, and live moments."
+    },
+    "videographyCommercialDocumentary": {
+      "name": "Commercial / Documentary",
+      "description": "A story-led production for brands, institutions, artists, or campaigns."
+    },
+    "droneBasicAerial": {
+      "name": "Basic Aerial Shots",
+      "description": "Aerial visuals for location, venue, event, or brand context."
+    },
+    "droneEventAddon": {
+      "name": "Event Drone Add-on",
+      "description": "Drone coverage added to event production for stronger scene-setting."
+    },
+    "droneFullCoverage": {
+      "name": "Full Drone Coverage",
+      "description": "A dedicated aerial coverage package for richer outdoor production."
+    },
+    "liveStreamingBasic": {
+      "name": "Basic Livestream",
+      "description": "A lean livestream setup for simple live coverage."
+    },
+    "liveStreamingStandard": {
+      "name": "Standard Livestream",
+      "description": "A stronger stream setup for clearer coverage and audience experience."
+    },
+    "liveStreamingPremium": {
+      "name": "Premium Livestream",
+      "description": "A premium live production setup for events that need broadcast confidence."
+    },
+    "audioVoiceover": {
+      "name": "Voiceover Session",
+      "description": "A focused voiceover recording session for ads, narration, or content."
+    },
+    "audioStudioSession": {
+      "name": "Studio Recording Session",
+      "description": "Studio time for clean vocal, instrument, or spoken audio capture."
+    },
+    "audioFullProduction": {
+      "name": "Full Audio Production",
+      "description": "Recording, direction, editing, and polishing for finished audio output."
+    },
+    "musicBeatProduction": {
+      "name": "Beat Production",
+      "description": "A custom beat production session shaped around your sound."
+    },
+    "musicRecordingMixing": {
+      "name": "Recording + Mixing",
+      "description": "Capture and mix support for a clean, release-minded track."
+    },
+    "musicFullProduction": {
+      "name": "Full Music Production",
+      "description": "A complete production path from idea to polished music output."
+    },
+    "podcastStarter": {
+      "name": "Podcast Starter",
+      "description": "A simple podcast recording setup for a first episode or pilot."
+    },
+    "podcastProduction": {
+      "name": "Podcast Production",
+      "description": "Recording and production support for a polished podcast episode."
+    },
+    "podcastMonthlyPack": {
+      "name": "Podcast Monthly Pack",
+      "description": "A monthly podcast production rhythm for recurring episodes."
+    },
+    "digitalSocialPromo": {
+      "name": "Social Promo Kit",
+      "description": "A focused promo kit for social visibility and short campaign pushes."
+    },
+    "digitalCampaignContent": {
+      "name": "Campaign Content Kit",
+      "description": "Content assets for a coordinated digital campaign."
+    },
+    "digitalMonthlyCampaign": {
+      "name": "Monthly Digital Campaign",
+      "description": "Monthly content and campaign support for consistent digital presence."
+    },
+    "trainingSinglePractice": {
+      "name": "Single Practice Session",
+      "description": "One guided session for instrument practice, coaching, and progress."
+    },
+    "trainingMonthlyPack": {
+      "name": "Monthly Training Pack",
+      "description": "A structured month of guided instrument training."
+    },
+    "trainingPrivateIntensive": {
+      "name": "Private Intensive Pack",
+      "description": "A focused private training plan for faster skill development."
+    },
+    "customQuote": {
+      "name": "Custom Quote",
+      "description": "A tailored plan for projects that need a custom creative route."
+    }
+  },
+  "includes": {
+    "album100PrintedPictures": "1 Album 100 printed pictures",
+    "fullVideoCoverage": "Full video coverage",
+    "softCopies200": "200 soft copies",
+    "a3WoodFrame": "1 A3 wood frame",
+    "flashDiskVideoPhotos": "1 flash disk with video and photos",
+    "twoHdTelevisions": "2 HD televisions",
+    "preWeddingCoverage": "Pre-wedding coverage",
+    "digitalCardFrom1500": "Digital card available from TZS 1,500",
+    "photobookPrintedPackage": "1 photobook printed picture package",
+    "oneMinuteHighlight": "1-minute video highlight",
+    "unlimitedSoftCopies": "Unlimited soft copies",
+    "a2WoodFrame": "1 A2 wood frame",
+    "twoFlashDisks": "2 flash disks with video and pictures",
+    "fourLiveScreens": "4 live screens",
+    "droneCoverage": "Drone coverage",
+    "digitalCardsFrom1500": "Digital cards available from TZS 1,500",
+    "oneYearOnlineStorage": "Online storage for 1 year",
+    "oneToFiveMinuteHighlight": "1 to 5-minute video highlight",
+    "a1WoodFrame": "1 A1 wood frame",
+    "fourFlashDisks": "4 flash disks",
+    "sixLiveScreens": "6 live screens",
+    "documentary": "Documentary",
+    "booth360": "360 booth",
+    "digitalCardsFrom2200": "Digital cards available from TZS 2,200",
+    "twoYearsOnlineStorage": "Online storage for 2 years"
+  },
+  "serviceNotes": {
+    "printing": "Final price depends on size, material, quantity, and finishing.",
+    "digitalMarketing": "Ad spend is not included."
+  },
+  "addOns": {
+    "title": "Add-ons",
+    "hint": "Optional extras can be added to the WhatsApp brief.",
+    "items": {
+      "droneCoverage": {
+        "name": "Drone Coverage"
+      },
+      "booth360": {
+        "name": "360 Booth"
+      },
+      "documentaryEdit": {
+        "name": "Documentary Edit"
+      },
+      "extraLiveScreen": {
+        "name": "Extra Live Screen"
+      },
+      "extraFlashDisk": {
+        "name": "Extra Flash Disk"
+      },
+      "extraPhotoFrame": {
+        "name": "Extra Photo Frame"
+      },
+      "extraHighlightVideo": {
+        "name": "Extra Highlight Video"
+      },
+      "sameDayEdit": {
+        "name": "Same-Day Edit"
+      },
+      "livestreamSetupAddon": {
+        "name": "Livestream Setup Add-on"
+      },
+      "extraShootingHour": {
+        "name": "Extra Shooting Hour"
+      },
+      "onlineStorageExtension": {
+        "name": "Online Storage Extension"
+      },
+      "digitalInvitationCard": {
+        "name": "Digital Invitation Card"
+      },
+      "printedAlbumUpgrade": {
+        "name": "Printed Album Upgrade"
+      }
+    }
+  },
+  "summary": {
+    "emptyTitle": "Select a package",
+    "emptyBody": "Your package details, payment notes, and add-ons will appear here once the brief has a service and package.",
+    "selectedPackage": "Selected Package",
+    "includes": "Includes",
+    "serviceNote": "Production Note",
+    "selectedAddOns": "Selected Add-ons",
+    "noAddOns": "No add-ons selected"
+  },
+  "payment": {
+    "title": "Payment Policy",
+    "items": {
+      "deposit": "50% deposit confirms your booking.",
+      "balance": "50% balance is paid before delivery.",
+      "smallServices": "Small services below TZS 100,000 are paid upfront.",
+      "productionCosts": "Printing and material-heavy work may require production cost upfront.",
+      "finalDetails": "Final payment details are confirmed on WhatsApp."
+    },
+    "confirmation": "Submitting this form does not automatically confirm your booking. Our team will review your brief and confirm availability, payment details, and next steps on WhatsApp."
+  },
+  "whatsapp": {
+    "submit": "Send Booking Brief on WhatsApp",
+    "none": "None",
+    "greeting": "Hello Tripod Creative Agency,",
+    "intro": "I would like to book a creative session.",
+    "closing": "Please confirm availability, payment details, and next steps.",
+    "labels": {
+      "name": "Name:",
+      "phone": "Phone:",
+      "email": "Email:",
+      "service": "Service:",
+      "package": "Package:",
+      "preferredDate": "Preferred Date:",
+      "preferredTime": "Preferred Time:",
+      "location": "Location:",
+      "budgetRange": "Budget Range:",
+      "addOns": "Add-ons:",
+      "projectDetails": "Project Details:"
+    }
+  },
+  "teaser": {
+    "eyebrow": "Production Paths",
+    "title": "CHOOSE YOUR PRODUCTION PATH.",
+    "subtitle": "From quick studio sessions to full wedding coverage and brand campaigns, start with a package or request a tailored production plan.",
+    "viewPackages": "View Packages",
+    "bookSession": "Book A Creative Session",
+    "cards": {
+      "weddingPackages": {
+        "title": "Wedding Packages",
+        "body": "Bronze, Silver, and Gold coverage for wedding memories.",
+        "price": "Starting from TZS 800,000"
+      },
+      "studioSessions": {
+        "title": "Studio Sessions",
+        "body": "Audio, podcast, voiceover, music, and creative practice.",
+        "price": "Starting from TZS 50,000"
+      },
+      "brandCampaigns": {
+        "title": "Brand Campaigns",
+        "body": "Design, printing, photography, video, and digital assets.",
+        "price": "Starting from TZS 50,000"
+      },
+      "customProduction": {
+        "title": "Custom Production",
+        "body": "For projects that need a tailored creative plan.",
+        "price": "Custom Quote"
+      }
+    }
+  }
+}

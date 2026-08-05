@@ -5,6 +5,7 @@ import { ServicesHero } from '@/components/services/ServicesHero';
 import { CoreServicesGrid } from '@/components/services/CoreServicesGrid';
 import { ServicesProcess } from '@/components/services/ServicesProcess';
 import { ServicesWhatsAppCta } from '@/components/services/ServicesWhatsAppCta';
+import { getWhatsAppNumber } from '@/config/site';
 
 function createWhatsAppUrl(number: string, message: string) {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -54,9 +55,7 @@ export default async function ServicesPage() {
     locale,
     namespace: 'ServicesPage.metadataMessages',
   });
-  const whatsappNumber = (
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
-  ).replace(/[^0-9]/g, '');
+  const whatsappNumber = getWhatsAppNumber();
   const serviceMap = tServices.raw('serviceMap') as Record<string, string>;
 
   const serviceUrls = Object.fromEntries(

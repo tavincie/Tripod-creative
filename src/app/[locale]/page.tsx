@@ -6,8 +6,11 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Circle, MessageCircle, Play, X } from 'lucide-react';
+import { BookingModal } from '@/components/booking/BookingModal';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
+import { getWhatsAppNumber } from '@/config/site';
+import { packageTeaserIds } from '@/data/bookingPackages';
 import { homepageArchiveMediaKeys, sampleMedia } from '@/data/sampleMedia';
 
 const serviceBlocks = [
@@ -43,14 +46,17 @@ const capabilities = [
 ] as const;
 
 export default function HomePage() {
+  const tBooking = useTranslations('Booking');
   const tHome = useTranslations('HomePage');
   const tCommon = useTranslations('Common');
   const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const [isServiceTapePaused, setIsServiceTapePaused] = useState(false);
   const [isCapabilityTapePaused, setIsCapabilityTapePaused] = useState(false);
   const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
   const showreelModalVideoRef = useRef<HTMLVideoElement | null>(null);
+  const packageCardsRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeResumeTimerRef = useRef<number | null>(null);
   const capabilityTapeViewportRef = useRef<HTMLDivElement | null>(null);
@@ -69,8 +75,7 @@ export default function HomePage() {
   } | null>(null);
   const heroShowreelLoopSrc = '/assets/showreel/tripod-hero-loop.mp4';
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
-  const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
+  const whatsappNumber = getWhatsAppNumber();
   const whatsappMessage = tHome('whatsappMessage');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   const heroTitleLines = tHome.raw('hero.titleLines') as string[];
@@ -339,6 +344,15 @@ export default function HomePage() {
     scheduleCapabilityTapeResume();
   };
 
+  const openBookingModal = () => setBookingOpen(true);
+  const closeBookingModal = () => setBookingOpen(false);
+  const handleViewPackages = () => {
+    packageCardsRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'nearest',
+    });
+  };
+
   return (
     <main className="film-desk-page relative flex-grow overflow-x-hidden">
       <section className="film-hero" aria-labelledby="home-hero-title">
@@ -380,10 +394,10 @@ export default function HomePage() {
                 </Link>
                 <button
                   type="button"
-                  onClick={() => setShowreelOpen(true)}
+                  onClick={openBookingModal}
                   className="film-play-button"
                 >
-                  <Play className="h-4 w-4" aria-hidden="true" />
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   {tHome('hero.secondary')}
                 </button>
               </div>
@@ -450,6 +464,45 @@ export default function HomePage() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="booking-package-section" aria-labelledby="booking-packages-title">
+        <div className="mx-auto grid max-w-7xl gap-7 px-5 py-10 md:px-16 lg:grid-cols-[0.78fr_1.72fr] lg:py-12">
+          <ScrollReveal>
+            <div className="film-section-intro film-section-intro--dark booking-package-section__intro">
+              <p className="film-kicker">{tBooking('teaser.eyebrow')}</p>
+              <h2 id="booking-packages-title">{tBooking('teaser.title')}</h2>
+              <p>{tBooking('teaser.subtitle')}</p>
+              <div className="booking-package-section__actions">
+                <Button type="button" variant="primary" className="gap-2 px-5 py-3" onClick={handleViewPackages}>
+                  {tBooking('teaser.viewPackages')}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Button>
+                <button
+                  type="button"
+                  onClick={openBookingModal}
+                  className="film-play-button booking-package-section__book"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  {tBooking('teaser.bookSession')}
+                </button>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <div ref={packageCardsRef} className="booking-package-teaser-grid">
+            {packageTeaserIds.map((teaserId, index) => (
+              <ScrollReveal key={teaserId} delay={0.05 * index}>
+                <article className="booking-package-teaser-card">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{tBooking(`teaser.cards.${teaserId}.title`)}</h3>
+                  <p>{tBooking(`teaser.cards.${teaserId}.body`)}</p>
+                  <strong>{tBooking(`teaser.cards.${teaserId}.price`)}</strong>
+                </article>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -745,6 +798,8 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
+      <BookingModal isOpen={bookingOpen} onClose={closeBookingModal} />
     </main>
   );
 }

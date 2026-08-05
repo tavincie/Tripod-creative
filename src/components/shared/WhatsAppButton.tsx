@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import { getWhatsAppNumber } from '@/config/site';
 
 export function WhatsAppButton() {
   const tCommon = useTranslations('Common');
   const tContact = useTranslations('ContactPage');
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
-  const whatsappNumber = rawNumber.replace(/[^0-9]/g, '');
+  const whatsappNumber = getWhatsAppNumber();
 
   const message = tContact('fallbackMessage');
 

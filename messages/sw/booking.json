@@ -1,0 +1,404 @@
+{
+  "modal": {
+    "eyebrow": "Booking ya Production",
+    "title": "WEKA NAFASI YA CREATIVE SESSION",
+    "subtitle": "Chagua unachotaka kutengeneza, chagua kifurushi, ongeza maelezo yako, kisha tuma brief moja kwa moja kwa Tripod kupitia WhatsApp.",
+    "boardLabel": "Ubao wa Booking"
+  },
+  "fields": {
+    "fullName": {
+      "label": "Jina Kamili",
+      "placeholder": "Jina lako kamili"
+    },
+    "phone": {
+      "label": "Simu / WhatsApp",
+      "placeholder": "+255 ..."
+    },
+    "email": {
+      "label": "Barua Pepe",
+      "placeholder": "wewe@example.com"
+    },
+    "serviceType": {
+      "label": "Aina ya Huduma",
+      "placeholder": "Chagua huduma"
+    },
+    "package": {
+      "label": "Kifurushi",
+      "placeholder": "Chagua kifurushi"
+    },
+    "preferredDate": {
+      "label": "Tarehe Unayopendelea"
+    },
+    "preferredTime": {
+      "label": "Muda Unaopendelea"
+    },
+    "location": {
+      "label": "Mahali",
+      "placeholder": "Ukumbi, studio, mji, au online"
+    },
+    "budgetRange": {
+      "label": "Bajeti",
+      "placeholder": "Chagua bajeti"
+    },
+    "projectDetails": {
+      "label": "Maelezo ya Kazi",
+      "placeholder": "Tuambie unachotaka kutengeneza, mood, audience, deliverables, na deadline kama ipo."
+    }
+  },
+  "validation": {
+    "fullName": "Tafadhali andika jina kamili.",
+    "phone": "Tafadhali andika namba ya simu au WhatsApp.",
+    "email": "Tafadhali andika barua pepe.",
+    "serviceType": "Tafadhali chagua aina ya huduma.",
+    "packageId": "Tafadhali chagua kifurushi.",
+    "preferredDate": "Tafadhali chagua tarehe unayopendelea.",
+    "preferredTime": "Tafadhali chagua muda unaopendelea.",
+    "location": "Tafadhali andika mahali.",
+    "budgetRange": "Tafadhali chagua bajeti.",
+    "projectDetails": "Tafadhali ongeza maelezo ya kazi."
+  },
+  "services": {
+    "weddingCoverage": "Coverage ya Harusi",
+    "graphicDesign": "Graphic Design",
+    "branding": "Branding",
+    "printing": "Printing",
+    "photography": "Photography",
+    "videography": "Videography",
+    "droneCoverage": "Drone Coverage",
+    "liveStreaming": "Live Streaming",
+    "audioRecording": "Audio Recording",
+    "musicProduction": "Music Production",
+    "podcastRecording": "Podcast Recording",
+    "digitalMarketing": "Digital Marketing",
+    "instrumentTraining": "Mafunzo ya Ala",
+    "customProject": "Mradi Maalum"
+  },
+  "budgetRanges": {
+    "below300": "Chini ya TZS 300,000",
+    "range300To800": "TZS 300,000 - 800,000",
+    "range800To1500": "TZS 800,000 - 1,500,000",
+    "range1500To2500": "TZS 1,500,000 - 2,500,000",
+    "above2500": "Zaidi ya TZS 2,500,000",
+    "customNotSure": "Custom / Sina Uhakika"
+  },
+  "price": {
+    "fixed": "{price}",
+    "from": "Kuanzia {price}",
+    "each": "{price} kila moja",
+    "perHour": "{price} kwa saa",
+    "perYear": "{price} kwa mwaka",
+    "fromPerCard": "Kuanzia {price} kwa kadi",
+    "custom": "Bei ya Custom"
+  },
+  "packages": {
+    "weddingBronze": {
+      "name": "Bronze",
+      "description": "Inafaa kwa coverage rahisi ya harusi."
+    },
+    "weddingSilver": {
+      "name": "Silver",
+      "description": "Inafaa kwa wedding production kamili ya kiwango cha standard."
+    },
+    "weddingGold": {
+      "name": "Gold",
+      "description": "Inafaa kwa wedding production ya premium na coverage kubwa."
+    },
+    "weddingCustom": {
+      "name": "Kifurushi Maalum cha Harusi",
+      "description": "Mpango maalum wa wedding production kulingana na ratiba, ukumbi, na deliverables zako."
+    },
+    "graphicSingleDesign": {
+      "name": "Single Design",
+      "description": "Design moja yenye focus kwa ujumbe au tangazo moja."
+    },
+    "graphicSocialMediaPack": {
+      "name": "Social Media Pack",
+      "description": "Seti ya visuals kwa posts, stories, na mdundo wa campaign."
+    },
+    "graphicCampaignDesignPack": {
+      "name": "Campaign Design Pack",
+      "description": "Design system ya campaign kwa launch, promo, au visibility ya event."
+    },
+    "brandingLogoStarter": {
+      "name": "Logo Starter",
+      "description": "Alama ya mwanzo na direction safi kwa brand mpya."
+    },
+    "brandingIdentityKit": {
+      "name": "Brand Identity Kit",
+      "description": "Kifurushi cha identity chenye visuals za msingi kwa matumizi ya brand."
+    },
+    "brandingFullLaunchKit": {
+      "name": "Full Brand Launch Kit",
+      "description": "Mfumo kamili wa brand wenye assets za launch na rollout."
+    },
+    "printingStarter": {
+      "name": "Print Starter",
+      "description": "Print production ya kuanzia kwa materials muhimu za promo au event."
+    },
+    "printingEventKit": {
+      "name": "Event Print Kit",
+      "description": "Seti ya print assets za event zinazosaidia visibility eneo la tukio."
+    },
+    "printingFullProduction": {
+      "name": "Full Print Production",
+      "description": "Production kubwa ya print kwa formats na finishing tofauti."
+    },
+    "photographyStudioPortrait": {
+      "name": "Studio Portrait Session",
+      "description": "Portrait session safi kwa mtu binafsi, team, au profile imagery."
+    },
+    "photographyEvent": {
+      "name": "Event Photography",
+      "description": "Coverage ya picha kwa moments, watu, atmosphere, na details muhimu."
+    },
+    "photographyCommercial": {
+      "name": "Commercial Photography",
+      "description": "Photography ya brand, product, au campaign kwa matumizi ya biashara."
+    },
+    "videographyShortForm": {
+      "name": "Short Form Video",
+      "description": "Video fupi kwa social, promo, au announcement content."
+    },
+    "videographyEventCoverage": {
+      "name": "Event Video Coverage",
+      "description": "Coverage ya video kwa sherehe, launches, performances, na live moments."
+    },
+    "videographyCommercialDocumentary": {
+      "name": "Commercial / Documentary",
+      "description": "Production yenye story kwa brands, taasisi, wasanii, au campaigns."
+    },
+    "droneBasicAerial": {
+      "name": "Basic Aerial Shots",
+      "description": "Picha na video za angani kwa location, ukumbi, event, au brand context."
+    },
+    "droneEventAddon": {
+      "name": "Event Drone Add-on",
+      "description": "Drone coverage inayoongezwa kwenye event production kwa scene-setting bora."
+    },
+    "droneFullCoverage": {
+      "name": "Full Drone Coverage",
+      "description": "Kifurushi kamili cha aerial coverage kwa production ya nje yenye nguvu."
+    },
+    "liveStreamingBasic": {
+      "name": "Basic Livestream",
+      "description": "Setup rahisi ya livestream kwa coverage ya msingi."
+    },
+    "liveStreamingStandard": {
+      "name": "Standard Livestream",
+      "description": "Setup imara ya stream kwa coverage safi na experience bora ya audience."
+    },
+    "liveStreamingPremium": {
+      "name": "Premium Livestream",
+      "description": "Live production ya premium kwa events zinazohitaji broadcast yenye uhakika."
+    },
+    "audioVoiceover": {
+      "name": "Voiceover Session",
+      "description": "Session yenye focus kwa matangazo, narration, au content ya sauti."
+    },
+    "audioStudioSession": {
+      "name": "Studio Recording Session",
+      "description": "Muda wa studio kwa kurekodi vocals, ala, au spoken audio kwa usafi."
+    },
+    "audioFullProduction": {
+      "name": "Full Audio Production",
+      "description": "Recording, direction, editing, na polishing kwa audio iliyokamilika."
+    },
+    "musicBeatProduction": {
+      "name": "Beat Production",
+      "description": "Session ya beat production iliyotengenezwa kulingana na sound yako."
+    },
+    "musicRecordingMixing": {
+      "name": "Recording + Mixing",
+      "description": "Recording na mixing support kwa track safi iliyo tayari kusikilizwa."
+    },
+    "musicFullProduction": {
+      "name": "Full Music Production",
+      "description": "Njia kamili ya production kutoka wazo hadi music output iliyopigwa polish."
+    },
+    "podcastStarter": {
+      "name": "Podcast Starter",
+      "description": "Setup rahisi ya podcast kwa episode ya kwanza au pilot."
+    },
+    "podcastProduction": {
+      "name": "Podcast Production",
+      "description": "Recording na production support kwa podcast episode iliyo polished."
+    },
+    "podcastMonthlyPack": {
+      "name": "Podcast Monthly Pack",
+      "description": "Mdundo wa monthly podcast production kwa episodes za mara kwa mara."
+    },
+    "digitalSocialPromo": {
+      "name": "Social Promo Kit",
+      "description": "Promo kit yenye focus kwa visibility ya social na campaign fupi."
+    },
+    "digitalCampaignContent": {
+      "name": "Campaign Content Kit",
+      "description": "Content assets kwa digital campaign yenye mpangilio."
+    },
+    "digitalMonthlyCampaign": {
+      "name": "Monthly Digital Campaign",
+      "description": "Content na campaign support ya mwezi kwa digital presence ya kudumu."
+    },
+    "trainingSinglePractice": {
+      "name": "Single Practice Session",
+      "description": "Session moja ya mazoezi, coaching, na progress ya ala."
+    },
+    "trainingMonthlyPack": {
+      "name": "Monthly Training Pack",
+      "description": "Mwezi mmoja wa mafunzo ya ala yenye mpangilio."
+    },
+    "trainingPrivateIntensive": {
+      "name": "Private Intensive Pack",
+      "description": "Mpango wa private training wenye focus kwa kukuza uwezo haraka."
+    },
+    "customQuote": {
+      "name": "Bei ya Custom",
+      "description": "Mpango maalum kwa miradi inayohitaji njia ya ubunifu iliyotengenezwa mahsusi."
+    }
+  },
+  "includes": {
+    "album100PrintedPictures": "Album 1 yenye picha 100 zilizochapishwa",
+    "fullVideoCoverage": "Full video coverage",
+    "softCopies200": "Soft copies 200",
+    "a3WoodFrame": "Wood frame 1 ya A3",
+    "flashDiskVideoPhotos": "Flash disk 1 yenye video na picha",
+    "twoHdTelevisions": "HD televisions 2",
+    "preWeddingCoverage": "Pre-wedding coverage",
+    "digitalCardFrom1500": "Digital card inapatikana kuanzia TZS 1,500",
+    "photobookPrintedPackage": "Photobook 1 ya printed picture package",
+    "oneMinuteHighlight": "Video highlight ya dakika 1",
+    "unlimitedSoftCopies": "Soft copies bila kikomo",
+    "a2WoodFrame": "Wood frame 1 ya A2",
+    "twoFlashDisks": "Flash disks 2 zenye video na picha",
+    "fourLiveScreens": "Live screens 4",
+    "droneCoverage": "Drone coverage",
+    "digitalCardsFrom1500": "Digital cards zinapatikana kuanzia TZS 1,500",
+    "oneYearOnlineStorage": "Online storage kwa mwaka 1",
+    "oneToFiveMinuteHighlight": "Video highlight ya dakika 1 hadi 5",
+    "a1WoodFrame": "Wood frame 1 ya A1",
+    "fourFlashDisks": "Flash disks 4",
+    "sixLiveScreens": "Live screens 6",
+    "documentary": "Documentary",
+    "booth360": "360 booth",
+    "digitalCardsFrom2200": "Digital cards zinapatikana kuanzia TZS 2,200",
+    "twoYearsOnlineStorage": "Online storage kwa miaka 2"
+  },
+  "serviceNotes": {
+    "printing": "Bei ya mwisho hutegemea size, material, quantity, na finishing.",
+    "digitalMarketing": "Ad spend haijajumuishwa."
+  },
+  "addOns": {
+    "title": "Huduma za Ziada",
+    "hint": "Ziada ni optional na zitaingia kwenye WhatsApp brief ukizichagua.",
+    "items": {
+      "droneCoverage": {
+        "name": "Drone Coverage"
+      },
+      "booth360": {
+        "name": "360 Booth"
+      },
+      "documentaryEdit": {
+        "name": "Documentary Edit"
+      },
+      "extraLiveScreen": {
+        "name": "Extra Live Screen"
+      },
+      "extraFlashDisk": {
+        "name": "Extra Flash Disk"
+      },
+      "extraPhotoFrame": {
+        "name": "Extra Photo Frame"
+      },
+      "extraHighlightVideo": {
+        "name": "Extra Highlight Video"
+      },
+      "sameDayEdit": {
+        "name": "Same-Day Edit"
+      },
+      "livestreamSetupAddon": {
+        "name": "Livestream Setup Add-on"
+      },
+      "extraShootingHour": {
+        "name": "Extra Shooting Hour"
+      },
+      "onlineStorageExtension": {
+        "name": "Online Storage Extension"
+      },
+      "digitalInvitationCard": {
+        "name": "Digital Invitation Card"
+      },
+      "printedAlbumUpgrade": {
+        "name": "Printed Album Upgrade"
+      }
+    }
+  },
+  "summary": {
+    "emptyTitle": "Chagua kifurushi",
+    "emptyBody": "Maelezo ya kifurushi, malipo, na huduma za ziada yataonekana hapa baada ya kuchagua huduma na kifurushi.",
+    "selectedPackage": "Kifurushi Kilichochaguliwa",
+    "includes": "Kinajumuisha",
+    "serviceNote": "Production Note",
+    "selectedAddOns": "Huduma za Ziada Zilizochaguliwa",
+    "noAddOns": "Hakuna huduma za ziada zilizochaguliwa"
+  },
+  "payment": {
+    "title": "Sera ya Malipo",
+    "items": {
+      "deposit": "Deposit ya 50% huthibitisha booking yako.",
+      "balance": "Balance ya 50% hulipwa kabla ya delivery.",
+      "smallServices": "Huduma ndogo chini ya TZS 100,000 hulipwa yote kabla ya kazi kuanza.",
+      "productionCosts": "Printing na kazi zenye materials nyingi zinaweza kuhitaji production cost kulipwa mapema.",
+      "finalDetails": "Maelezo ya mwisho ya malipo huthibitishwa WhatsApp."
+    },
+    "confirmation": "Kutuma form hii hakuthibitishi booking moja kwa moja. Team yetu itapitia brief yako na kuthibitisha upatikanaji, malipo, na hatua zinazofuata kupitia WhatsApp."
+  },
+  "whatsapp": {
+    "submit": "Tuma Booking Brief kwa WhatsApp",
+    "none": "Hakuna",
+    "greeting": "Habari Tripod Creative Agency,",
+    "intro": "Ningependa kuweka booking ya huduma ya ubunifu.",
+    "closing": "Tafadhali nithibitishieni upatikanaji, malipo, na hatua zinazofuata.",
+    "labels": {
+      "name": "Jina:",
+      "phone": "Simu / WhatsApp:",
+      "email": "Barua pepe:",
+      "service": "Huduma:",
+      "package": "Kifurushi:",
+      "preferredDate": "Tarehe ninayopendelea:",
+      "preferredTime": "Muda ninayopendelea:",
+      "location": "Mahali:",
+      "budgetRange": "Bajeti:",
+      "addOns": "Huduma za ziada:",
+      "projectDetails": "Maelezo ya kazi:"
+    }
+  },
+  "teaser": {
+    "eyebrow": "Njia za Production",
+    "title": "CHAGUA NJIA YA PRODUCTION YAKO.",
+    "subtitle": "Kuanzia studio sessions za haraka hadi full wedding coverage na brand campaigns, anza na kifurushi au omba production plan maalum.",
+    "viewPackages": "Angalia Vifurushi",
+    "bookSession": "Weka Nafasi ya Creative Session",
+    "cards": {
+      "weddingPackages": {
+        "title": "Wedding Packages",
+        "body": "Bronze, Silver, na Gold coverage kwa kumbukumbu za harusi.",
+        "price": "Kuanzia TZS 800,000"
+      },
+      "studioSessions": {
+        "title": "Studio Sessions",
+        "body": "Audio, podcast, voiceover, music, na creative practice.",
+        "price": "Kuanzia TZS 50,000"
+      },
+      "brandCampaigns": {
+        "title": "Brand Campaigns",
+        "body": "Design, printing, photography, video, na digital assets.",
+        "price": "Kuanzia TZS 50,000"
+      },
+      "customProduction": {
+        "title": "Custom Production",
+        "body": "Kwa miradi inayohitaji creative plan maalum.",
+        "price": "Bei ya Custom"
+      }
+    }
+  }
+}

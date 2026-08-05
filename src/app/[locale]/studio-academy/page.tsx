@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { StudioAcademyExperience } from '@/components/studio-academy/StudioAcademyExperience';
+import { getWhatsAppNumber } from '@/config/site';
 
 function createWhatsAppUrl(number: string, message: string) {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -48,9 +49,7 @@ export async function generateMetadata({
 export default async function StudioAcademyPage() {
   const locale = await getLocale();
   const tContact = await getTranslations({ locale, namespace: 'ContactPage' });
-  const whatsappNumber = (
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000'
-  ).replace(/[^0-9]/g, '');
+  const whatsappNumber = getWhatsAppNumber();
   const fallbackMessage = tContact('fallbackMessage');
 
   const serviceUrls = Object.fromEntries(
