@@ -31,10 +31,10 @@ export function CameraFilmHeader() {
 
   const items = [
     { name: tNav('home'), href: '/' },
+    { name: tNav('about'), href: '/about' },
     { name: tNav('services'), href: '/services' },
     { name: tNav('portfolio'), href: '/portfolio' },
     { name: tNav('studioShort'), href: '/studio-academy' },
-    { name: tNav('about'), href: '/about' },
     { name: tNav('contact'), href: '/contact' },
   ].map((item) => ({
     ...item,

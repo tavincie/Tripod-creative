@@ -347,10 +347,27 @@ export default function HomePage() {
   const openBookingModal = () => setBookingOpen(true);
   const closeBookingModal = () => setBookingOpen(false);
   const handleViewPackages = () => {
-    packageCardsRef.current?.scrollIntoView({
+    const packageBoard = packageCardsRef.current;
+
+    if (!packageBoard) {
+      openBookingModal();
+      return;
+    }
+
+    const boardBounds = packageBoard.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const boardIsVisible = boardBounds.top >= 0 && boardBounds.bottom <= viewportHeight;
+
+    if (boardIsVisible) {
+      openBookingModal();
+      return;
+    }
+
+    packageBoard.scrollIntoView({
       behavior: prefersReducedMotion ? 'auto' : 'smooth',
-      block: 'nearest',
+      block: 'center',
     });
+    packageBoard.focus({ preventScroll: true });
   };
 
   return (
@@ -468,8 +485,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="booking-package-section" aria-labelledby="booking-packages-title">
-        <div className="mx-auto grid max-w-7xl gap-7 px-5 py-10 md:px-16 lg:grid-cols-[0.78fr_1.72fr] lg:py-12">
+      <section id="production-packages" className="booking-package-section" aria-labelledby="booking-packages-title">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:px-16 lg:grid-cols-[0.82fr_1.38fr] lg:py-16">
           <ScrollReveal>
             <div className="film-section-intro film-section-intro--dark booking-package-section__intro">
               <p className="film-kicker">{tBooking('teaser.eyebrow')}</p>
@@ -492,7 +509,13 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div ref={packageCardsRef} className="booking-package-teaser-grid">
+          <div
+            ref={packageCardsRef}
+            id="packages"
+            className="booking-package-teaser-grid"
+            tabIndex={-1}
+            aria-labelledby="booking-packages-title"
+          >
             {packageTeaserIds.map((teaserId, index) => (
               <ScrollReveal key={teaserId} delay={0.05 * index}>
                 <article className="booking-package-teaser-card">
