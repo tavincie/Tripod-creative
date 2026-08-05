@@ -883,10 +883,8 @@ body {
   position: absolute;
   inset: 0 -3rem 0 -6rem;
   z-index: -1;
-  background:
-    radial-gradient(circle at 50% 52%, rgba(255, 61, 0, 0.9), rgba(255, 61, 0, 0.22) 34%, transparent 58%),
-    linear-gradient(90deg, transparent, rgba(245, 241, 233, 0.62), transparent);
-  filter: blur(10px);
+  background: none;
+  filter: none;
 }
 
 .film-hero-meta {
@@ -1052,7 +1050,7 @@ body {
   height: var(--showreel-corner-size);
   border-width: var(--showreel-corner-stroke);
   border-style: solid;
-  border-color: rgba(245, 241, 233, 0.95);
+  border-color: transparent;
 }
 
 .film-focus-corners span:nth-child(1) {
