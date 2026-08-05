@@ -3225,18 +3225,18 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   }
 
   .camera-brand {
-    flex: 0 0 clamp(7.2rem, 28vw, 8.6rem);
-    width: clamp(7.2rem, 28vw, 8.6rem);
+    flex: 0 0 clamp(8rem, 31vw, 9.5rem);
+    width: clamp(8rem, 31vw, 9.5rem);
     padding-left: 0;
   }
 
   .camera-brand__shell {
-    min-height: 3.05rem;
+    min-height: 3.35rem;
   }
 
   .camera-brand__lens-assembly {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 3.15rem;
+    height: 3.15rem;
   }
 
   .camera-brand__labels {
