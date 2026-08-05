@@ -47,8 +47,17 @@ export default function HomePage() {
   const tCommon = useTranslations('Common');
   const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
+  const [isServiceTapePaused, setIsServiceTapePaused] = useState(false);
   const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
   const showreelModalVideoRef = useRef<HTMLVideoElement | null>(null);
+  const serviceTapeViewportRef = useRef<HTMLDivElement | null>(null);
+  const serviceTapeResumeTimerRef = useRef<number | null>(null);
+  const serviceTapeDragRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startScrollLeft: number;
+    dragging: boolean;
+  } | null>(null);
   const heroShowreelLoopSrc = '/assets/showreel/tripod-hero-loop.mp4';
 
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255000000000';
@@ -105,6 +114,115 @@ export default function HomePage() {
       // Ignore autoplay failures and let the controls handle playback.
     });
   }, [showreelOpen]);
+
+  useEffect(() => () => {
+    if (serviceTapeResumeTimerRef.current) {
+      window.clearTimeout(serviceTapeResumeTimerRef.current);
+    }
+  }, []);
+
+  const clearServiceTapeResume = () => {
+    if (serviceTapeResumeTimerRef.current) {
+      window.clearTimeout(serviceTapeResumeTimerRef.current);
+      serviceTapeResumeTimerRef.current = null;
+    }
+  };
+
+  const pauseServiceTape = () => {
+    clearServiceTapeResume();
+    setIsServiceTapePaused(true);
+  };
+
+  const scheduleServiceTapeResume = (delay = 1800) => {
+    clearServiceTapeResume();
+
+    if (prefersReducedMotion) {
+      setIsServiceTapePaused(true);
+      return;
+    }
+
+    serviceTapeResumeTimerRef.current = window.setTimeout(() => {
+      setIsServiceTapePaused(false);
+      serviceTapeResumeTimerRef.current = null;
+    }, delay);
+  };
+
+  const handleServiceTapeWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    const viewport = serviceTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    pauseServiceTape();
+
+    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    if (maxScrollLeft <= 0) {
+      return;
+    }
+
+    const dominantDelta =
+      Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+    if (dominantDelta === 0) {
+      return;
+    }
+
+    event.preventDefault();
+    viewport.scrollLeft += dominantDelta;
+    scheduleServiceTapeResume(1400);
+  };
+
+  const handleServiceTapePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    pauseServiceTape();
+
+    if (
+      event.pointerType === 'mouse' &&
+      (event.target instanceof HTMLElement && event.target.closest('a, button'))
+    ) {
+      return;
+    }
+
+    const viewport = serviceTapeViewportRef.current;
+    if (!viewport) {
+      return;
+    }
+
+    serviceTapeDragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startScrollLeft: viewport.scrollLeft,
+      dragging: event.pointerType === 'mouse',
+    };
+
+    if (event.pointerType === 'mouse') {
+      viewport.setPointerCapture(event.pointerId);
+    }
+  };
+
+  const handleServiceTapePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const viewport = serviceTapeViewportRef.current;
+    const dragState = serviceTapeDragRef.current;
+
+    if (!viewport || !dragState || dragState.pointerId !== event.pointerId || !dragState.dragging) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragState.startX;
+    viewport.scrollLeft = dragState.startScrollLeft - deltaX;
+  };
+
+  const finishServiceTapeInteraction = (pointerId?: number) => {
+    const viewport = serviceTapeViewportRef.current;
+    const dragState = serviceTapeDragRef.current;
+
+    if (viewport && dragState && dragState.pointerId === pointerId && viewport.hasPointerCapture(pointerId!)) {
+      viewport.releasePointerCapture(pointerId!);
+    }
+
+    serviceTapeDragRef.current = null;
+    scheduleServiceTapeResume();
+  };
 
   return (
     <main className="film-desk-page relative flex-grow overflow-x-hidden">
@@ -237,7 +355,23 @@ export default function HomePage() {
 
           <div className="film-service-tape" aria-label="Tripod Creative services">
             <div
-              className={`film-service-tape__viewport${prefersReducedMotion ? ' film-service-tape__viewport--reduced' : ''}`}
+              ref={serviceTapeViewportRef}
+              className={`film-service-tape__viewport${prefersReducedMotion ? ' film-service-tape__viewport--reduced' : ''}${isServiceTapePaused || prefersReducedMotion ? ' is-paused' : ''}`}
+              onPointerEnter={pauseServiceTape}
+              onPointerLeave={() => scheduleServiceTapeResume(250)}
+              onPointerDown={handleServiceTapePointerDown}
+              onPointerMove={handleServiceTapePointerMove}
+              onPointerUp={(event) => finishServiceTapeInteraction(event.pointerId)}
+              onPointerCancel={(event) => finishServiceTapeInteraction(event.pointerId)}
+              onTouchStart={pauseServiceTape}
+              onTouchEnd={() => scheduleServiceTapeResume(2200)}
+              onFocusCapture={pauseServiceTape}
+              onBlurCapture={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                  scheduleServiceTapeResume(250);
+                }
+              }}
+              onWheel={handleServiceTapeWheel}
             >
               <div className="film-service-tape__track">
                 {[0, 1].map((setIndex) => (

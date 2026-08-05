@@ -27,6 +27,8 @@ export function CameraMobileMenu({
   ctaHref,
   ctaLabel,
 }: CameraMobileMenuProps) {
+  const panelId = 'camera-mobile-menu-panel';
+
   return (
     <div className="camera-mobile-menu lg:hidden">
       <button
@@ -34,6 +36,7 @@ export function CameraMobileMenu({
         onClick={onToggle}
         className="camera-mobile-menu__toggle focus-ring"
         aria-expanded={isOpen}
+        aria-controls={panelId}
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -46,8 +49,10 @@ export function CameraMobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            id={panelId}
             className="camera-mobile-menu__panel"
           >
+            <div className="camera-mobile-menu__perforation" aria-hidden="true" />
             <div className="camera-mobile-menu__controls">
               <LanguageSwitcher />
             </div>
