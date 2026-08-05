@@ -404,6 +404,14 @@
       "open": "Open {title} production path details",
       "close": "Close {title} production path details"
     },
+    "mobile": {
+      "label": "Mobile production path carousel",
+      "instruction": "Swipe or choose a path. Photos cycle only inside the active card.",
+      "previous": "Show previous production path",
+      "next": "Show next production path",
+      "dots": "Production path pagination",
+      "goTo": "Show {title} production path"
+    },
     "productionPaths": {
       "wedding": {
         "shortTitle": "Wedding",

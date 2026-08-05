@@ -404,6 +404,14 @@
       "open": "Fungua maelezo ya njia ya production ya {title}",
       "close": "Funga maelezo ya njia ya production ya {title}"
     },
+    "mobile": {
+      "label": "Carousel ya njia za production kwenye simu",
+      "instruction": "Swipe au chagua njia. Picha pekee ndani ya card active ndizo zinabadilika.",
+      "previous": "Onyesha njia ya production iliyopita",
+      "next": "Onyesha njia ya production inayofuata",
+      "dots": "Pagination ya njia za production",
+      "goTo": "Onyesha njia ya production ya {title}"
+    },
     "productionPaths": {
       "wedding": {
         "shortTitle": "Wedding",

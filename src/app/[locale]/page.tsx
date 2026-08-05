@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Circle, MessageCircle, Play, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Circle, MessageCircle, Play, X } from 'lucide-react';
 import { BookingModal } from '@/components/booking/BookingModal';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
@@ -287,6 +287,226 @@ function ProductionPathFanCard({
         </div>
       </div>
     </article>
+  );
+}
+
+interface MobileProductionPathCarouselProps {
+  flippedProductionPathId: ProductionPathId | null;
+  isSectionActive: boolean;
+  prefersReducedMotion: boolean;
+  onToggle: (cardId: ProductionPathId) => void;
+  onClose: () => void;
+  onBooking: () => void;
+}
+
+function MobileProductionPathCarousel({
+  flippedProductionPathId,
+  isSectionActive,
+  prefersReducedMotion,
+  onToggle,
+  onClose,
+  onBooking,
+}: MobileProductionPathCarouselProps) {
+  const tBooking = useTranslations('Booking');
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const activeCard = productionPathCards[activeCardIndex];
+  const isFlipped = flippedProductionPathId === activeCard.id;
+  const activeImageIndex = useRapidImageCycle({
+    imageCount: activeCard.imagePaths.length,
+    interval: prefersReducedMotion ? 3200 : Math.max(activeCard.cycleIntervalMs, 2200),
+    initialDelay: prefersReducedMotion ? 0 : 550,
+    enabled: isSectionActive && !isFlipped && !prefersReducedMotion,
+  });
+  const previousImageIndex =
+    (activeImageIndex - 1 + activeCard.imagePaths.length) % activeCard.imagePaths.length;
+  const nextImageIndex = (activeImageIndex + 1) % activeCard.imagePaths.length;
+  const highlights = tBooking.raw(
+    `teaser.productionPaths.${activeCard.highlightsKey}`,
+  ) as string[];
+
+  const selectCard = (nextIndex: number) => {
+    const normalizedIndex =
+      (nextIndex + productionPathCards.length) % productionPathCards.length;
+
+    setActiveCardIndex(normalizedIndex);
+    onClose();
+  };
+
+  return (
+    <div className="booking-package-mobile-carousel" aria-label={tBooking('teaser.mobile.label')}>
+      <div className="booking-package-mobile-carousel__topline">
+        <p>{tBooking('teaser.mobile.instruction')}</p>
+        <div className="booking-package-mobile-carousel__step" aria-live="polite">
+          <span>{String(activeCardIndex + 1).padStart(2, '0')}</span>
+          <span>/</span>
+          <span>{String(productionPathCards.length).padStart(2, '0')}</span>
+        </div>
+      </div>
+
+      <div className="booking-package-mobile-carousel__tabs" role="tablist">
+        {productionPathCards.map((card, index) => (
+          <button
+            key={card.id}
+            type="button"
+            role="tab"
+            aria-selected={index === activeCardIndex}
+            className={index === activeCardIndex ? 'is-active' : ''}
+            onClick={() => selectCard(index)}
+          >
+            {tBooking(`teaser.productionPaths.${card.shortTitleKey}`)}
+          </button>
+        ))}
+      </div>
+
+      <div className="booking-package-mobile-carousel__stage">
+        <button
+          type="button"
+          className="booking-package-mobile-carousel__control booking-package-mobile-carousel__control--previous"
+          onClick={() => selectCard(activeCardIndex - 1)}
+          aria-label={tBooking('teaser.mobile.previous')}
+        >
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+        </button>
+
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.article
+            key={activeCard.id}
+            className={`booking-package-mobile-card${isFlipped ? ' is-flipped' : ''}`}
+            data-card-id={activeCard.id}
+            drag={prefersReducedMotion ? false : 'x'}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.18}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -48 || info.velocity.x < -360) {
+                selectCard(activeCardIndex + 1);
+              }
+
+              if (info.offset.x > 48 || info.velocity.x > 360) {
+                selectCard(activeCardIndex - 1);
+              }
+            }}
+            initial={prefersReducedMotion ? false : { opacity: 0, x: 34 }}
+            animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -34 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="booking-package-teaser-card__inner">
+              <button
+                type="button"
+                className="booking-package-teaser-card__face booking-package-teaser-card__face--front"
+                onClick={() => onToggle(activeCard.id)}
+                aria-pressed={isFlipped}
+                aria-label={tBooking('teaser.cardAria.open', {
+                  title: tBooking(`teaser.productionPaths.${activeCard.shortTitleKey}`),
+                })}
+              >
+                <span className="booking-package-teaser-card__frame">
+                  {String(activeCardIndex + 1).padStart(2, '0')}
+                </span>
+                <span className="booking-package-teaser-card__slideshow" aria-hidden="true">
+                  <span className="booking-package-teaser-card__image-panel is-previous">
+                    <Image
+                      src={activeCard.imagePaths[previousImageIndex]}
+                      alt=""
+                      fill
+                      sizes="88vw"
+                    />
+                  </span>
+                  <span className="booking-package-teaser-card__image-panel is-next">
+                    <Image src={activeCard.imagePaths[nextImageIndex]} alt="" fill sizes="88vw" />
+                  </span>
+                  <AnimatePresence mode="popLayout" initial={false}>
+                    <motion.span
+                      key={`${activeCard.id}-${activeCard.imagePaths[activeImageIndex]}`}
+                      className="booking-package-teaser-card__image-panel is-active"
+                      initial={{ opacity: 0, scale: 1.035 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.99 }}
+                      transition={{ duration: prefersReducedMotion ? 0 : 0.24, ease: 'easeOut' }}
+                    >
+                      <Image
+                        src={activeCard.imagePaths[activeImageIndex]}
+                        alt=""
+                        fill
+                        sizes="88vw"
+                        priority={activeCardIndex === 0}
+                      />
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+                <span className="booking-package-teaser-card__shade" aria-hidden="true" />
+                <span className="booking-package-teaser-card__progress" aria-hidden="true">
+                  {activeCard.imagePaths.map((imagePath, imageIndex) => (
+                    <span
+                      key={`${activeCard.id}-mobile-progress-${imagePath}`}
+                      className={imageIndex === activeImageIndex ? 'is-active' : ''}
+                    />
+                  ))}
+                </span>
+                <span className="booking-package-teaser-card__front-copy">
+                  <span>{tBooking(`teaser.productionPaths.${activeCard.shortTitleKey}`)}</span>
+                </span>
+              </button>
+
+              <div className="booking-package-teaser-card__face booking-package-teaser-card__face--back">
+                <button
+                  type="button"
+                  className="booking-package-teaser-card__close"
+                  onClick={onClose}
+                  aria-label={tBooking('teaser.cardAria.close', {
+                    title: tBooking(`teaser.productionPaths.${activeCard.shortTitleKey}`),
+                  })}
+                >
+                  <X className="h-4 w-4" aria-hidden="true" />
+                </button>
+                <span className="booking-package-teaser-card__frame">
+                  {String(activeCardIndex + 1).padStart(2, '0')}
+                </span>
+                <h3>{tBooking(`teaser.productionPaths.${activeCard.fullTitleKey}`)}</h3>
+                <p>{tBooking(`teaser.productionPaths.${activeCard.summaryKey}`)}</p>
+                <strong>{tBooking(`teaser.productionPaths.${activeCard.priceKey}`)}</strong>
+                <ul>
+                  {highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+                <Button
+                  type="button"
+                  variant="primary"
+                  className="booking-package-teaser-card__booking"
+                  onClick={onBooking}
+                >
+                  {tBooking('teaser.bookSession')}
+                </Button>
+              </div>
+            </div>
+          </motion.article>
+        </AnimatePresence>
+
+        <button
+          type="button"
+          className="booking-package-mobile-carousel__control booking-package-mobile-carousel__control--next"
+          onClick={() => selectCard(activeCardIndex + 1)}
+          aria-label={tBooking('teaser.mobile.next')}
+        >
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </button>
+      </div>
+
+      <div className="booking-package-mobile-carousel__dots" aria-label={tBooking('teaser.mobile.dots')}>
+        {productionPathCards.map((card, index) => (
+          <button
+            key={`${card.id}-dot`}
+            type="button"
+            className={index === activeCardIndex ? 'is-active' : ''}
+            onClick={() => selectCard(index)}
+            aria-label={tBooking('teaser.mobile.goTo', {
+              title: tBooking(`teaser.productionPaths.${card.shortTitleKey}`),
+            })}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -805,37 +1025,50 @@ export default function HomePage() {
           <div
             ref={packageCardsRef}
             id="packages"
-            className="booking-package-teaser-grid"
+            className="booking-package-teaser-zone"
             tabIndex={-1}
             aria-labelledby="booking-packages-title"
           >
-            <motion.div
-              className="booking-package-teaser-grid__motion"
-              animate={
-                prefersReducedMotion
-                  ? undefined
-                  : { y: [0, -6, 0], rotate: [-0.8, 0.8, -0.8] }
-              }
-              transition={{ duration: 8, repeat: prefersReducedMotion ? 0 : Infinity, ease: 'easeInOut' }}
-            >
-              {productionPathCards.map((card, index) => (
-                <ProductionPathFanCard
-                  key={card.id}
-                  card={card}
-                  index={index}
-                  isFlipped={flippedProductionPathId === card.id}
-                  isPaused={pausedProductionPathId === card.id}
-                  isSectionActive={isProductionPathFanActive}
-                  prefersReducedMotion={Boolean(prefersReducedMotion)}
-                  onToggle={toggleProductionPathCard}
-                  onPause={setPausedProductionPathId}
-                  onResume={() => setPausedProductionPathId(null)}
-                  onClose={closeProductionPathCard}
-                  onBooking={openBookingFromProductionPath}
-                />
-              ))}
-            </motion.div>
-            <div className="booking-package-teaser-grid__mask" aria-hidden="true" />
+            <div className="booking-package-mobile-shell md:hidden">
+              <MobileProductionPathCarousel
+                flippedProductionPathId={flippedProductionPathId}
+                isSectionActive={isProductionPathFanActive}
+                prefersReducedMotion={Boolean(prefersReducedMotion)}
+                onToggle={toggleProductionPathCard}
+                onClose={closeProductionPathCard}
+                onBooking={openBookingFromProductionPath}
+              />
+            </div>
+
+            <div className="booking-package-teaser-grid hidden md:block">
+              <motion.div
+                className="booking-package-teaser-grid__motion"
+                animate={
+                  prefersReducedMotion
+                    ? undefined
+                    : { y: [0, -6, 0], rotate: [-0.8, 0.8, -0.8] }
+                }
+                transition={{ duration: 8, repeat: prefersReducedMotion ? 0 : Infinity, ease: 'easeInOut' }}
+              >
+                {productionPathCards.map((card, index) => (
+                  <ProductionPathFanCard
+                    key={card.id}
+                    card={card}
+                    index={index}
+                    isFlipped={flippedProductionPathId === card.id}
+                    isPaused={pausedProductionPathId === card.id}
+                    isSectionActive={isProductionPathFanActive}
+                    prefersReducedMotion={Boolean(prefersReducedMotion)}
+                    onToggle={toggleProductionPathCard}
+                    onPause={setPausedProductionPathId}
+                    onResume={() => setPausedProductionPathId(null)}
+                    onClose={closeProductionPathCard}
+                    onBooking={openBookingFromProductionPath}
+                  />
+                ))}
+              </motion.div>
+              <div className="booking-package-teaser-grid__mask" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </section>

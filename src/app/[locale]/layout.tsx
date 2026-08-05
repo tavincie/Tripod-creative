@@ -8,7 +8,6 @@ import '@/app/globals.css';
 import { Metadata } from 'next';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
-import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
 import { geistMono, inter, montserrat } from '@/app/fonts';
 
 // Build SEO metadata dynamically
@@ -88,7 +87,6 @@ export default async function LocaleLayout({
               <Header />
               {children}
               <Footer />
-              <WhatsAppButton />
             </div>
           </AppProviders>
         </NextIntlClientProvider>

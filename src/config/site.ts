@@ -1,8 +1,8 @@
-import { BOOKING_WHATSAPP_NUMBER } from '@/data/bookingPackages';
+const whatsappNumber = '255689430743';
 
 export const siteConfig = {
   name: 'Tripod Creatives',
-  whatsappNumber: BOOKING_WHATSAPP_NUMBER,
+  whatsappNumber,
   instagramUrl: 'https://www.instagram.com/tripodcreative_/?hl=en',
   email: '',
   phone: '',
