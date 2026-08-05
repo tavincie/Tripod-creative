@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { MapPin, MessageCircle } from 'lucide-react';
@@ -28,15 +29,20 @@ export function Footer() {
   return (
     <footer className="film-footer">
       <div className="tripod-shell--wide grid gap-9 py-12 md:grid-cols-[1.15fr_0.8fr_0.9fr_0.9fr] md:py-14">
-        <div>
-          <Link href="/" className="film-logo-mark focus-ring rounded-sm">
-            TRIP<span className="film-logo-o">O</span>D
-            <small>Creatives</small>
+        <div className="film-footer-brand">
+          <Link href="/" className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creatives home">
+            <Image
+              src="/branding/tripod-creative-footer-logo.png"
+              alt="Tripod Creatives logo"
+              width={420}
+              height={233}
+              priority
+            />
           </Link>
-          <p className="mt-5 max-w-sm text-sm leading-7 text-[rgba(245,241,233,0.72)]">
+          <p className="film-footer-brand__description max-w-sm text-sm leading-7 text-[rgba(245,241,233,0.72)]">
             {tFooter('description')}
           </p>
-          <p className="mt-6 font-mono text-[0.62rem] font-black uppercase tracking-[0.22em] text-[var(--tripod-orange)]">
+          <p className="film-footer-brand__rec font-mono text-[0.62rem] font-black uppercase tracking-[0.22em] text-[var(--tripod-orange)]">
             {tFooter('recLine')}
           </p>
         </div>

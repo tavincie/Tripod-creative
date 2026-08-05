@@ -136,11 +136,12 @@ export function CameraBrand() {
 
             <div className="camera-brand__lens-logo">
               <Image
-                src="/branding/tripod-creative-logo.png"
+                src="/branding/tripod-creative-icon.png"
                 alt="Tripod Creatives logo"
                 fill
                 priority
                 sizes="220px"
+                className="object-contain"
               />
             </div>
           </div>

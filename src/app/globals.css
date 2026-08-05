@@ -2307,6 +2307,32 @@ main.relative.flex-grow > section:first-child:not(.film-hero)::before {
   color: var(--tripod-warm-white);
 }
 
+.film-footer-logo {
+  display: inline-flex;
+  width: min(100%, 17.5rem);
+  margin-top: -0.15rem;
+  margin-bottom: 2.15rem;
+}
+
+.film-footer-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.film-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.film-footer-brand__description {
+  margin-top: 0;
+}
+
+.film-footer-brand__rec {
+  margin-top: 1.55rem;
+}
+
 .film-footer-heading {
   color: var(--tripod-warm-white);
   font-family: var(--font-mono);
@@ -2507,9 +2533,9 @@ main.relative.flex-grow [class*='border-white\\/6'] {
 
 .camera-brand__lens-logo {
   position: absolute;
-  inset: 1.14rem;
+  inset: 0.02rem;
   border-radius: 999px;
-  opacity: 0.96;
+  opacity: 1;
 }
 
 .camera-brand__lens-logo > span,
@@ -3119,7 +3145,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   }
 
   .camera-brand__lens-logo {
-    inset: 0.55rem;
+    inset: 0;
   }
 
   .film-language-switcher {
@@ -3540,6 +3566,26 @@ body:has(main.film-desk-page) .film-footer-heading {
 body:has(main.film-desk-page) .film-footer > .tripod-shell--wide > div {
   position: relative;
   padding-top: 0.9rem;
+}
+
+body:has(main.film-desk-page) .film-footer > .tripod-shell--wide > .film-footer-brand {
+  padding-top: 0.2rem;
+}
+
+@media (max-width: 767px) {
+  .film-footer-logo {
+    margin-top: 0;
+    margin-bottom: 1.85rem;
+    width: min(100%, 15.5rem);
+  }
+
+  .film-footer-brand__rec {
+    margin-top: 1.3rem;
+  }
+
+  body:has(main.film-desk-page) .film-footer > .tripod-shell--wide > .film-footer-brand {
+    padding-top: 0;
+  }
 }
 
 body:has(main.film-desk-page) .film-footer > .tripod-shell--wide > div::before {
