@@ -48,11 +48,20 @@ export default function HomePage() {
   const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [isServiceTapePaused, setIsServiceTapePaused] = useState(false);
+  const [isCapabilityTapePaused, setIsCapabilityTapePaused] = useState(false);
   const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
   const showreelModalVideoRef = useRef<HTMLVideoElement | null>(null);
   const serviceTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeResumeTimerRef = useRef<number | null>(null);
+  const capabilityTapeViewportRef = useRef<HTMLDivElement | null>(null);
+  const capabilityTapeResumeTimerRef = useRef<number | null>(null);
   const serviceTapeDragRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startScrollLeft: number;
+    dragging: boolean;
+  } | null>(null);
+  const capabilityTapeDragRef = useRef<{
     pointerId: number;
     startX: number;
     startScrollLeft: number;
@@ -118,6 +127,9 @@ export default function HomePage() {
   useEffect(() => () => {
     if (serviceTapeResumeTimerRef.current) {
       window.clearTimeout(serviceTapeResumeTimerRef.current);
+    }
+    if (capabilityTapeResumeTimerRef.current) {
+      window.clearTimeout(capabilityTapeResumeTimerRef.current);
     }
   }, []);
 
@@ -222,6 +234,109 @@ export default function HomePage() {
 
     serviceTapeDragRef.current = null;
     scheduleServiceTapeResume();
+  };
+
+  const clearCapabilityTapeResume = () => {
+    if (capabilityTapeResumeTimerRef.current) {
+      window.clearTimeout(capabilityTapeResumeTimerRef.current);
+      capabilityTapeResumeTimerRef.current = null;
+    }
+  };
+
+  const pauseCapabilityTape = () => {
+    clearCapabilityTapeResume();
+    setIsCapabilityTapePaused(true);
+  };
+
+  const scheduleCapabilityTapeResume = (delay = 1800) => {
+    clearCapabilityTapeResume();
+
+    if (prefersReducedMotion) {
+      setIsCapabilityTapePaused(true);
+      return;
+    }
+
+    capabilityTapeResumeTimerRef.current = window.setTimeout(() => {
+      setIsCapabilityTapePaused(false);
+      capabilityTapeResumeTimerRef.current = null;
+    }, delay);
+  };
+
+  const handleCapabilityTapeWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    const viewport = capabilityTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    pauseCapabilityTape();
+
+    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    if (maxScrollLeft <= 0) {
+      return;
+    }
+
+    const dominantDelta =
+      Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+    if (dominantDelta === 0) {
+      return;
+    }
+
+    event.preventDefault();
+    viewport.scrollLeft += dominantDelta;
+    scheduleCapabilityTapeResume(1400);
+  };
+
+  const handleCapabilityTapePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    pauseCapabilityTape();
+
+    if (
+      event.pointerType === 'mouse' &&
+      (event.target instanceof HTMLElement && event.target.closest('a, button'))
+    ) {
+      return;
+    }
+
+    const viewport = capabilityTapeViewportRef.current;
+    if (!viewport) {
+      return;
+    }
+
+    capabilityTapeDragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startScrollLeft: viewport.scrollLeft,
+      dragging: event.pointerType === 'mouse',
+    };
+
+    if (event.pointerType === 'mouse') {
+      viewport.setPointerCapture(event.pointerId);
+    }
+  };
+
+  const handleCapabilityTapePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const viewport = capabilityTapeViewportRef.current;
+    const dragState = capabilityTapeDragRef.current;
+
+    if (!viewport || !dragState || dragState.pointerId !== event.pointerId || !dragState.dragging) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragState.startX;
+    viewport.scrollLeft = dragState.startScrollLeft - deltaX;
+  };
+
+  const finishCapabilityTapeInteraction = (pointerId?: number) => {
+    const viewport = capabilityTapeViewportRef.current;
+    const dragState = capabilityTapeDragRef.current;
+
+    if (viewport && dragState && dragState.pointerId === pointerId && viewport.hasPointerCapture(pointerId!)) {
+      viewport.releasePointerCapture(pointerId!);
+    }
+
+    capabilityTapeDragRef.current = null;
+    scheduleCapabilityTapeResume();
   };
 
   return (
@@ -520,7 +635,25 @@ export default function HomePage() {
         <div
           className={`mx-auto film-capability-tape max-w-7xl px-5 py-10 md:px-16${prefersReducedMotion ? ' film-capability-tape--reduced' : ''}`}
         >
-          <div className="film-capability-tape__viewport">
+          <div
+            ref={capabilityTapeViewportRef}
+            className={`film-capability-tape__viewport${isCapabilityTapePaused || prefersReducedMotion ? ' is-paused' : ''}`}
+            onPointerEnter={pauseCapabilityTape}
+            onPointerLeave={() => scheduleCapabilityTapeResume(250)}
+            onPointerDown={handleCapabilityTapePointerDown}
+            onPointerMove={handleCapabilityTapePointerMove}
+            onPointerUp={(event) => finishCapabilityTapeInteraction(event.pointerId)}
+            onPointerCancel={(event) => finishCapabilityTapeInteraction(event.pointerId)}
+            onTouchStart={pauseCapabilityTape}
+            onTouchEnd={() => scheduleCapabilityTapeResume(2200)}
+            onFocusCapture={pauseCapabilityTape}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                scheduleCapabilityTapeResume(250);
+              }
+            }}
+            onWheel={handleCapabilityTapeWheel}
+          >
             <div className="film-capability-tape__track" role="list">
               <div className="film-capability-tape__set">
                 {capabilities.map((key, index) => (
