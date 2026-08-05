@@ -399,6 +399,64 @@
         "body": "For projects that need a tailored creative plan.",
         "price": "Custom Quote"
       }
+    },
+    "cardAria": {
+      "open": "Open {title} production path details",
+      "close": "Close {title} production path details"
+    },
+    "productionPaths": {
+      "wedding": {
+        "shortTitle": "Wedding",
+        "fullTitle": "Wedding Packages",
+        "summary": "Bronze, Silver, and Gold coverage for wedding memories.",
+        "price": "Starting from TZS 800,000",
+        "highlights": [
+          "Wedding coverage",
+          "Pre-wedding sessions",
+          "Video and photo delivery",
+          "Albums and framed prints",
+          "Drone and live screen options"
+        ]
+      },
+      "studio": {
+        "shortTitle": "Studio",
+        "fullTitle": "Studio Sessions",
+        "summary": "Audio, podcast, voiceover, music, and creative practice.",
+        "price": "Starting from TZS 50,000",
+        "highlights": [
+          "Audio recording",
+          "Podcast recording",
+          "Voiceover capture",
+          "Music production",
+          "Creative practice sessions"
+        ]
+      },
+      "brand": {
+        "shortTitle": "Brand",
+        "fullTitle": "Brand Campaigns",
+        "summary": "Design, printing, photography, video, and digital assets.",
+        "price": "Starting from TZS 50,000",
+        "highlights": [
+          "Graphic design",
+          "Brand identity support",
+          "Printing production",
+          "Photography and video",
+          "Digital campaign assets"
+        ]
+      },
+      "custom": {
+        "shortTitle": "Custom",
+        "fullTitle": "Custom Production",
+        "summary": "For tailored creative production plans.",
+        "price": "Custom Quote",
+        "highlights": [
+          "Custom creative brief",
+          "Mixed production plan",
+          "Campaign planning",
+          "Multi-service package",
+          "Quote confirmation"
+        ]
+      }
     }
   }
 }

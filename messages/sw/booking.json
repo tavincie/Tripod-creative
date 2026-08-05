@@ -399,6 +399,64 @@
         "body": "Kwa miradi inayohitaji creative plan maalum.",
         "price": "Bei ya Custom"
       }
+    },
+    "cardAria": {
+      "open": "Fungua maelezo ya njia ya production ya {title}",
+      "close": "Funga maelezo ya njia ya production ya {title}"
+    },
+    "productionPaths": {
+      "wedding": {
+        "shortTitle": "Wedding",
+        "fullTitle": "Wedding Packages",
+        "summary": "Bronze, Silver, na Gold coverage kwa kumbukumbu za harusi.",
+        "price": "Kuanzia TZS 800,000",
+        "highlights": [
+          "Coverage ya wedding",
+          "Pre-wedding sessions",
+          "Video na picha delivered",
+          "Albums na framed prints",
+          "Drone na live screen options"
+        ]
+      },
+      "studio": {
+        "shortTitle": "Studio",
+        "fullTitle": "Studio Sessions",
+        "summary": "Audio, podcast, voiceover, music, na creative practice.",
+        "price": "Kuanzia TZS 50,000",
+        "highlights": [
+          "Audio recording",
+          "Podcast recording",
+          "Voiceover capture",
+          "Music production",
+          "Creative practice sessions"
+        ]
+      },
+      "brand": {
+        "shortTitle": "Brand",
+        "fullTitle": "Brand Campaigns",
+        "summary": "Design, printing, photography, video, na digital assets.",
+        "price": "Kuanzia TZS 50,000",
+        "highlights": [
+          "Graphic design",
+          "Brand identity support",
+          "Printing production",
+          "Photography na video",
+          "Digital campaign assets"
+        ]
+      },
+      "custom": {
+        "shortTitle": "Custom",
+        "fullTitle": "Custom Production",
+        "summary": "Kwa production plans za ubunifu zilizotengenezwa kulingana na brief yako.",
+        "price": "Bei ya Custom",
+        "highlights": [
+          "Creative brief maalum",
+          "Mixed production plan",
+          "Campaign planning",
+          "Multi-service package",
+          "Quote confirmation"
+        ]
+      }
     }
   }
 }

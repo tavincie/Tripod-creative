@@ -4,13 +4,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Circle, MessageCircle, Play, X } from 'lucide-react';
 import { BookingModal } from '@/components/booking/BookingModal';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { getWhatsAppNumber } from '@/config/site';
-import { packageTeaserIds } from '@/data/bookingPackages';
+import {
+  productionPathCards,
+  type ProductionPathCard,
+  type ProductionPathId,
+} from '@/data/productionPaths';
 import { homepageArchiveMediaKeys, sampleMedia } from '@/data/sampleMedia';
 
 const serviceBlocks = [
@@ -45,6 +49,247 @@ const capabilities = [
   'training',
 ] as const;
 
+const productionPathFanPositions = [
+  { x: -270, y: 55, rotate: -18, zIndex: 1 },
+  { x: -90, y: 0, rotate: -6, zIndex: 3 },
+  { x: 90, y: 0, rotate: 6, zIndex: 3 },
+  { x: 270, y: 55, rotate: 18, zIndex: 1 },
+] as const;
+
+interface RapidImageCycleOptions {
+  imageCount: number;
+  interval: number;
+  initialDelay: number;
+  enabled: boolean;
+}
+
+function useRapidImageCycle({
+  imageCount,
+  interval,
+  initialDelay,
+  enabled,
+}: RapidImageCycleOptions) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (!enabled || imageCount <= 1) {
+      return undefined;
+    }
+
+    let intervalId: number | null = null;
+    let delayId: number | null = null;
+
+    const startCycle = () => {
+      if (document.visibilityState === 'hidden') {
+        return;
+      }
+
+      delayId = window.setTimeout(() => {
+        setActiveIndex((currentIndex) => (currentIndex + 1) % imageCount);
+        intervalId = window.setInterval(() => {
+          setActiveIndex((currentIndex) => (currentIndex + 1) % imageCount);
+        }, interval);
+      }, initialDelay);
+    };
+
+    const stopCycle = () => {
+      if (delayId) window.clearTimeout(delayId);
+      if (intervalId) window.clearInterval(intervalId);
+      delayId = null;
+      intervalId = null;
+    };
+
+    const handleVisibilityChange = () => {
+      stopCycle();
+      if (document.visibilityState === 'visible') {
+        startCycle();
+      }
+    };
+
+    startCycle();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      stopCycle();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [enabled, imageCount, initialDelay, interval]);
+
+  return activeIndex;
+}
+
+interface ProductionPathFanCardProps {
+  card: ProductionPathCard;
+  index: number;
+  isFlipped: boolean;
+  isPaused: boolean;
+  isSectionActive: boolean;
+  prefersReducedMotion: boolean;
+  onToggle: (cardId: ProductionPathId) => void;
+  onPause: (cardId: ProductionPathId) => void;
+  onResume: () => void;
+  onClose: () => void;
+  onBooking: () => void;
+}
+
+function ProductionPathFanCard({
+  card,
+  index,
+  isFlipped,
+  isPaused,
+  isSectionActive,
+  prefersReducedMotion,
+  onToggle,
+  onPause,
+  onResume,
+  onClose,
+  onBooking,
+}: ProductionPathFanCardProps) {
+  const tBooking = useTranslations('Booking');
+  const activeImageIndex = useRapidImageCycle({
+    imageCount: card.imagePaths.length,
+    interval: prefersReducedMotion ? 2800 : card.cycleIntervalMs,
+    initialDelay: prefersReducedMotion ? 0 : card.initialDelayMs,
+    enabled: isSectionActive && !isPaused && !isFlipped && !prefersReducedMotion,
+  });
+  const position = productionPathFanPositions[index] ?? productionPathFanPositions[0];
+  const previousImageIndex =
+    (activeImageIndex - 1 + card.imagePaths.length) % card.imagePaths.length;
+  const nextImageIndex = (activeImageIndex + 1) % card.imagePaths.length;
+  const highlights = tBooking.raw(`teaser.productionPaths.${card.highlightsKey}`) as string[];
+  const cardStyle = {
+    '--fan-x': `${position.x}px`,
+    '--fan-y': `${position.y}px`,
+    '--fan-rotate': `${position.rotate}deg`,
+    '--fan-z': position.zIndex,
+    '--float-duration': `${4.8 + index * 0.55}s`,
+    '--float-delay': `${index * -0.65}s`,
+  } as React.CSSProperties;
+
+  return (
+    <article
+      className={`booking-package-teaser-card production-path-fan-card--${card.id}${isFlipped ? ' is-flipped' : ''}`}
+      data-card-id={card.id}
+      style={cardStyle}
+    >
+      <div className="booking-package-teaser-card__inner">
+        <button
+          type="button"
+          className="booking-package-teaser-card__face booking-package-teaser-card__face--front"
+          onClick={() => onToggle(card.id)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              onToggle(card.id);
+            }
+          }}
+          onPointerEnter={() => onPause(card.id)}
+          onPointerLeave={onResume}
+          onFocus={() => onPause(card.id)}
+          onBlur={onResume}
+          aria-pressed={isFlipped}
+          aria-label={tBooking('teaser.cardAria.open', {
+            title: tBooking(`teaser.productionPaths.${card.shortTitleKey}`),
+          })}
+        >
+          <span className="booking-package-teaser-card__frame">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span className="booking-package-teaser-card__slideshow" aria-hidden="true">
+            <span className="booking-package-teaser-card__image-panel is-previous">
+              <Image
+                src={card.imagePaths[previousImageIndex]}
+                alt=""
+                fill
+                sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
+              />
+            </span>
+            <span className="booking-package-teaser-card__image-panel is-next">
+              <Image
+                src={card.imagePaths[nextImageIndex]}
+                alt=""
+                fill
+                sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
+              />
+            </span>
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.span
+                key={`${card.id}-${card.imagePaths[activeImageIndex]}`}
+                className="booking-package-teaser-card__image-panel is-active"
+                initial={{ opacity: 0, scale: 1.06, y: 8 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.99, y: -6 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.22, ease: 'easeOut' }}
+              >
+                <Image
+                  src={card.imagePaths[activeImageIndex]}
+                  alt=""
+                  fill
+                  priority={index === 1}
+                  sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
+                />
+              </motion.span>
+            </AnimatePresence>
+          </span>
+          <span className="booking-package-teaser-card__shade" aria-hidden="true" />
+          <span className="booking-package-teaser-card__progress" aria-hidden="true">
+            {card.imagePaths.map((imagePath, imageIndex) => (
+              <span
+                key={`${card.id}-progress-${imagePath}`}
+                className={imageIndex === activeImageIndex ? 'is-active' : ''}
+              />
+            ))}
+          </span>
+          <span className="booking-package-teaser-card__front-copy">
+            <span>{tBooking(`teaser.productionPaths.${card.shortTitleKey}`)}</span>
+          </span>
+        </button>
+
+        <div
+          className="booking-package-teaser-card__face booking-package-teaser-card__face--back"
+          onClick={onClose}
+        >
+          <button
+            type="button"
+            className="booking-package-teaser-card__close"
+            onClick={(event) => {
+              event.stopPropagation();
+              onClose();
+            }}
+            aria-label={tBooking('teaser.cardAria.close', {
+              title: tBooking(`teaser.productionPaths.${card.shortTitleKey}`),
+            })}
+          >
+            <X className="h-4 w-4" aria-hidden="true" />
+          </button>
+          <span className="booking-package-teaser-card__frame">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3>{tBooking(`teaser.productionPaths.${card.fullTitleKey}`)}</h3>
+          <p>{tBooking(`teaser.productionPaths.${card.summaryKey}`)}</p>
+          <strong>{tBooking(`teaser.productionPaths.${card.priceKey}`)}</strong>
+          <ul>
+            {highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+          <Button
+            type="button"
+            variant="primary"
+            className="booking-package-teaser-card__booking"
+            onClick={(event) => {
+              event.stopPropagation();
+              onBooking();
+            }}
+          >
+            {tBooking('teaser.bookSession')}
+          </Button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function HomePage() {
   const tBooking = useTranslations('Booking');
   const tHome = useTranslations('HomePage');
@@ -52,6 +297,11 @@ export default function HomePage() {
   const prefersReducedMotion = useReducedMotion();
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [flippedProductionPathId, setFlippedProductionPathId] =
+    useState<ProductionPathId | null>(null);
+  const [pausedProductionPathId, setPausedProductionPathId] =
+    useState<ProductionPathId | null>(null);
+  const [isProductionPathFanActive, setIsProductionPathFanActive] = useState(false);
   const [isServiceTapePaused, setIsServiceTapePaused] = useState(false);
   const [isCapabilityTapePaused, setIsCapabilityTapePaused] = useState(false);
   const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -137,6 +387,41 @@ export default function HomePage() {
       window.clearTimeout(capabilityTapeResumeTimerRef.current);
     }
   }, []);
+
+  useEffect(() => {
+    const fanElement = packageCardsRef.current;
+
+    if (!fanElement) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsProductionPathFanActive(entry.isIntersecting);
+      },
+      { rootMargin: '420px 0px', threshold: 0.08 },
+    );
+
+    observer.observe(fanElement);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!flippedProductionPathId) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setFlippedProductionPathId(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [flippedProductionPathId]);
 
   const clearServiceTapeResume = () => {
     if (serviceTapeResumeTimerRef.current) {
@@ -346,6 +631,14 @@ export default function HomePage() {
 
   const openBookingModal = () => setBookingOpen(true);
   const closeBookingModal = () => setBookingOpen(false);
+  const toggleProductionPathCard = (cardId: ProductionPathId) => {
+    setFlippedProductionPathId((currentCardId) => (currentCardId === cardId ? null : cardId));
+  };
+  const closeProductionPathCard = () => setFlippedProductionPathId(null);
+  const openBookingFromProductionPath = () => {
+    setFlippedProductionPathId(null);
+    openBookingModal();
+  };
   const handleViewPackages = () => {
     const packageBoard = packageCardsRef.current;
 
@@ -486,7 +779,7 @@ export default function HomePage() {
       </section>
 
       <section id="production-packages" className="booking-package-section" aria-labelledby="booking-packages-title">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:px-16 lg:grid-cols-[0.82fr_1.38fr] lg:py-16">
+        <div className="mx-auto grid max-w-[88rem] gap-6 px-5 py-12 md:px-16 lg:grid-cols-[0.72fr_1.9fr] lg:py-16">
           <ScrollReveal>
             <div className="film-section-intro film-section-intro--dark booking-package-section__intro">
               <p className="film-kicker">{tBooking('teaser.eyebrow')}</p>
@@ -516,16 +809,33 @@ export default function HomePage() {
             tabIndex={-1}
             aria-labelledby="booking-packages-title"
           >
-            {packageTeaserIds.map((teaserId, index) => (
-              <ScrollReveal key={teaserId} delay={0.05 * index}>
-                <article className="booking-package-teaser-card">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <h3>{tBooking(`teaser.cards.${teaserId}.title`)}</h3>
-                  <p>{tBooking(`teaser.cards.${teaserId}.body`)}</p>
-                  <strong>{tBooking(`teaser.cards.${teaserId}.price`)}</strong>
-                </article>
-              </ScrollReveal>
-            ))}
+            <motion.div
+              className="booking-package-teaser-grid__motion"
+              animate={
+                prefersReducedMotion
+                  ? undefined
+                  : { y: [0, -6, 0], rotate: [-0.8, 0.8, -0.8] }
+              }
+              transition={{ duration: 8, repeat: prefersReducedMotion ? 0 : Infinity, ease: 'easeInOut' }}
+            >
+              {productionPathCards.map((card, index) => (
+                <ProductionPathFanCard
+                  key={card.id}
+                  card={card}
+                  index={index}
+                  isFlipped={flippedProductionPathId === card.id}
+                  isPaused={pausedProductionPathId === card.id}
+                  isSectionActive={isProductionPathFanActive}
+                  prefersReducedMotion={Boolean(prefersReducedMotion)}
+                  onToggle={toggleProductionPathCard}
+                  onPause={setPausedProductionPathId}
+                  onResume={() => setPausedProductionPathId(null)}
+                  onClose={closeProductionPathCard}
+                  onBooking={openBookingFromProductionPath}
+                />
+              ))}
+            </motion.div>
+            <div className="booking-package-teaser-grid__mask" aria-hidden="true" />
           </div>
         </div>
       </section>
