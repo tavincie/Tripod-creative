@@ -42,7 +42,7 @@ function FilterButton({
       onClick={onClick}
       aria-pressed={active}
       className={[
-        'focus-ring relative inline-flex min-h-12 items-center justify-center overflow-hidden rounded-sm border px-4 py-3 font-mono text-[0.64rem] font-black uppercase tracking-[0.18em] transition-colors duration-300 sm:px-5',
+        'focus-ring relative inline-flex min-h-12 shrink-0 items-center justify-center overflow-hidden whitespace-nowrap rounded-sm border px-4 py-3 text-center font-mono text-[0.64rem] font-black uppercase tracking-[0.18em] transition-colors duration-300 sm:px-5',
         active
           ? 'border-[rgba(255,124,72,0.55)] bg-[linear-gradient(180deg,rgba(255,124,72,0.18),rgba(255,124,72,0.06))] text-[var(--tripod-warm-white)] shadow-[0_16px_40px_rgba(255,124,72,0.14)]'
           : 'border-white/10 bg-white/[0.03] text-[rgba(245,241,233,0.68)] hover:border-white/20 hover:text-[var(--tripod-warm-white)]',
@@ -177,18 +177,20 @@ export function PortfolioExperience({
               </p>
             </div>
             <div
-              className="flex gap-3 overflow-x-auto pb-1"
+              className="overflow-x-auto pb-1"
               role="toolbar"
               aria-label={t('filters.ariaLabel')}
             >
-              {portfolioCategories.map((category) => (
-                <FilterButton
-                  key={category}
-                  active={activeCategory === category}
-                  label={t(`filters.items.${category}`)}
-                  onClick={() => setActiveCategory(category)}
-                />
-              ))}
+              <div className="flex w-max min-w-full gap-3 px-1">
+                {portfolioCategories.map((category) => (
+                  <FilterButton
+                    key={category}
+                    active={activeCategory === category}
+                    label={t(`filters.items.${category}`)}
+                    onClick={() => setActiveCategory(category)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -247,13 +249,15 @@ export function PortfolioExperience({
                           className="absolute inset-[0.9rem] border border-white/12"
                           aria-hidden="true"
                         />
-                        <div className="absolute left-4 right-4 top-4 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
-                          <span>
+                        <div className="absolute left-4 right-4 top-4 flex flex-wrap items-start justify-between gap-2 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
+                          <span className="max-w-[55%]">
                             {t('grid.frameLabel')} {String(index + 1).padStart(2, '0')}
                           </span>
-                          <span>{t(`filters.items.${item.categoryKey}`)}</span>
+                          <span className="max-w-[45%] text-right leading-relaxed">
+                            {t(`filters.items.${item.categoryKey}`)}
+                          </span>
                         </div>
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-4">
+                        <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-2">
                           <span className="rounded-sm border border-white/12 bg-black/35 px-3 py-2 font-mono text-[0.56rem] font-black uppercase tracking-[0.16em] text-[rgba(245,241,233,0.78)]">
                             {item.placeholderType === 'video'
                               ? t('grid.videoPlaceholder')
@@ -266,7 +270,7 @@ export function PortfolioExperience({
                       </div>
 
                       <div className="flex flex-1 flex-col gap-5 p-5 sm:p-6">
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap items-start gap-2">
                           {item.tagKeys.map((tagKey) => (
                             <span
                               key={tagKey}
@@ -277,37 +281,37 @@ export function PortfolioExperience({
                           ))}
                         </div>
 
-                        <div className="space-y-3">
-                          <h3 className="text-[1.32rem] font-black uppercase leading-tight tracking-normal text-[var(--tripod-warm-white)] sm:text-[1.5rem]">
+                        <div className="space-y-3 text-left">
+                          <h3 className="text-[1.2rem] font-black uppercase leading-[1.15] tracking-[-0.01em] text-[var(--tripod-warm-white)] sm:text-[1.38rem]">
                             {t(`projects.${item.key}.title`)}
                           </h3>
-                          <p className="text-sm leading-7 text-[rgba(245,241,233,0.74)]">
+                          <p className="text-sm leading-6 text-[rgba(245,241,233,0.74)]">
                             {t(`projects.${item.key}.description`)}
                           </p>
                         </div>
 
                         <div className="mt-auto grid gap-3 border-t border-white/8 pt-4 sm:grid-cols-3">
-                          <div className="space-y-1">
+                          <div className="min-w-0 space-y-1 text-left">
                             <p className="font-mono text-[0.55rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.48)]">
                               {t('grid.yearLabel')}
                             </p>
-                            <p className="font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)]">
+                            <p className="break-words font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)]">
                               {item.year}
                             </p>
                           </div>
-                          <div className="space-y-1">
+                          <div className="min-w-0 space-y-1 text-left">
                             <p className="font-mono text-[0.55rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.48)]">
                               {t('grid.statusLabel')}
                             </p>
-                            <p className="font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)]">
+                            <p className="break-words font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-warm-white)]">
                               {t(`status.${item.statusKey}`)}
                             </p>
                           </div>
-                          <div className="space-y-1">
+                          <div className="min-w-0 space-y-1 text-left">
                             <p className="font-mono text-[0.55rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.48)]">
                               {t('grid.tagLabel')}
                             </p>
-                            <p className="font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
+                            <p className="break-words font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                               {t(`filters.items.${item.categoryKey}`)}
                             </p>
                           </div>

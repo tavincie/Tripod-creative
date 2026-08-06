@@ -30,6 +30,13 @@ export async function generateMetadata({
     },
     description: descText,
     metadataBase: new URL(siteUrl),
+    icons: {
+      icon: [
+        { url: '/branding/tripod-creative-icon.png', type: 'image/png' },
+      ],
+      shortcut: ['/branding/tripod-creative-icon.png'],
+      apple: [{ url: '/branding/tripod-creative-icon.png' }],
+    },
     alternates: {
       canonical: `${siteUrl}/${locale}`,
       languages: {
