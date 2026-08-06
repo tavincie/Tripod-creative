@@ -5,7 +5,7 @@ import { ServicesHero } from '@/components/services/ServicesHero';
 import { CoreServicesGrid } from '@/components/services/CoreServicesGrid';
 import { ServicesProcess } from '@/components/services/ServicesProcess';
 import { ServicesWhatsAppCta } from '@/components/services/ServicesWhatsAppCta';
-import { getWhatsAppNumber } from '@/config/site';
+import { getSiteUrl, getWhatsAppNumber } from '@/config/site';
 
 function createWhatsAppUrl(number: string, message: string) {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -18,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const tSeo = await getTranslations({ locale, namespace: 'Seo.services' });
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = getSiteUrl();
   const title = tSeo('title');
   const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/services`;

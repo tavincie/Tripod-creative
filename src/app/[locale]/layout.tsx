@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
 import { geistMono, inter, montserrat } from '@/app/fonts';
+import { getSiteUrl } from '@/config/site';
 
 // Build SEO metadata dynamically
 export async function generateMetadata({
@@ -17,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = getSiteUrl();
   const tSeo = await getTranslations({ locale, namespace: 'Seo.layout' });
   const titleText = tSeo('title');
   const descText = tSeo('description');

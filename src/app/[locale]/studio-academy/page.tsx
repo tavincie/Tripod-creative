@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { StudioAcademyExperience } from '@/components/studio-academy/StudioAcademyExperience';
-import { getWhatsAppNumber } from '@/config/site';
+import { getSiteUrl, getWhatsAppNumber } from '@/config/site';
 
 function createWhatsAppUrl(number: string, message: string) {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const tSeo = await getTranslations({ locale, namespace: 'Seo.studioAcademy' });
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = getSiteUrl();
   const title = tSeo('title');
   const description = tSeo('description');
   const canonical = `${siteUrl}/${locale}/studio-academy`;

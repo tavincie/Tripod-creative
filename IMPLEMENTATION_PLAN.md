@@ -402,7 +402,7 @@ export interface ServicePillar {
 ## 9. WhatsApp Booking Strategy
 
 To support immediate client conversion across East Africa:
-1.  **Format Rule:** Use the international routing format for Tanzania (`+255`) or general placeholder `[WhatsApp Phone Number Placeholder]`.
+1.  **Format Rule:** Use the confirmed Tripod Creative Agency WhatsApp number in international routing format: `+255 689 430 743`.
 2.  **Form Backend Architecture (Phase 1):** Sessional contact forms run strictly client-side. The submit handler compiles form parameters, generates the custom URL, and triggers redirect to WhatsApp (`https://wa.me/...`). No backend server, database, or API request exists in Phase 1.
 3.  **Redirection Helper:**
     ```typescript
@@ -412,7 +412,7 @@ To support immediate client conversion across East Africa:
       budget: string;
       language: 'en' | 'sw';
     }) {
-      const base = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '255XXXXXXXXX'}`;
+      const base = `https://wa.me/${getWhatsAppNumber()}`;
       
       const message = params.language === 'sw'
         ? `Habari Tripod! Jina langu ni ${params.name}. Ningependa kuweka nafasi ya huduma ya "${params.service}" yenye kiwango cha bajeti ya ${params.budget}.`
@@ -435,7 +435,7 @@ To support immediate client conversion across East Africa:
 2.  **Alternate Language Configuration:** Alternate markup headers pointing search engines to matching language pages:
     ```typescript
     // metadata config template:
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const baseUrl = getSiteUrl();
     
     export const metadata = {
       alternates: {
