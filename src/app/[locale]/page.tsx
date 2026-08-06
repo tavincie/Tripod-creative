@@ -540,15 +540,26 @@ export default function HomePage() {
     useState<ProductionPathId | null>(null);
   const [isProductionPathFanActive, setIsProductionPathFanActive] = useState(false);
   const [isServiceTapePaused, setIsServiceTapePaused] = useState(false);
+  const [isPortfolioTapePaused, setIsPortfolioTapePaused] = useState(false);
   const [isCapabilityTapePaused, setIsCapabilityTapePaused] = useState(false);
   const heroShowreelVideoRef = useRef<HTMLVideoElement | null>(null);
   const showreelModalVideoRef = useRef<HTMLVideoElement | null>(null);
   const packageCardsRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeResumeTimerRef = useRef<number | null>(null);
+  const serviceTapePositionRef = useRef(0);
+  const portfolioTapeViewportRef = useRef<HTMLDivElement | null>(null);
+  const portfolioTapeResumeTimerRef = useRef<number | null>(null);
+  const portfolioTapePositionRef = useRef(0);
   const capabilityTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const capabilityTapeResumeTimerRef = useRef<number | null>(null);
   const serviceTapeDragRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startScrollLeft: number;
+    dragging: boolean;
+  } | null>(null);
+  const portfolioTapeDragRef = useRef<{
     pointerId: number;
     startX: number;
     startScrollLeft: number;
@@ -617,6 +628,9 @@ export default function HomePage() {
     if (serviceTapeResumeTimerRef.current) {
       window.clearTimeout(serviceTapeResumeTimerRef.current);
     }
+    if (portfolioTapeResumeTimerRef.current) {
+      window.clearTimeout(portfolioTapeResumeTimerRef.current);
+    }
     if (capabilityTapeResumeTimerRef.current) {
       window.clearTimeout(capabilityTapeResumeTimerRef.current);
     }
@@ -644,18 +658,20 @@ export default function HomePage() {
         return;
       }
 
-      if (viewport.scrollLeft >= loopWidth) {
-        viewport.scrollLeft -= loopWidth;
-      } else if (viewport.scrollLeft < 0) {
-        viewport.scrollLeft += loopWidth;
+      if (serviceTapePositionRef.current >= loopWidth) {
+        serviceTapePositionRef.current -= loopWidth;
+      } else if (serviceTapePositionRef.current < 0) {
+        serviceTapePositionRef.current += loopWidth;
       }
+
+      viewport.scrollLeft = serviceTapePositionRef.current;
     };
 
     const tick = () => {
       const viewport = serviceTapeViewportRef.current;
 
       if (viewport) {
-        viewport.scrollLeft += pixelsPerSecond * (tickMs / 1000);
+        serviceTapePositionRef.current += pixelsPerSecond * (tickMs / 1000);
         normalizeScrollPosition();
       }
     };
@@ -668,6 +684,55 @@ export default function HomePage() {
       }
     };
   }, [isServiceTapePaused, prefersReducedMotion]);
+
+  useEffect(() => {
+    if (isPortfolioTapePaused || prefersReducedMotion) {
+      return undefined;
+    }
+
+    let intervalId: number | null = null;
+    const pixelsPerSecond = 18;
+    const tickMs = 32;
+
+    const normalizeScrollPosition = () => {
+      const viewport = portfolioTapeViewportRef.current;
+
+      if (!viewport) {
+        return;
+      }
+
+      const loopWidth = viewport.scrollWidth / 2;
+
+      if (loopWidth <= 0) {
+        return;
+      }
+
+      if (portfolioTapePositionRef.current >= loopWidth) {
+        portfolioTapePositionRef.current -= loopWidth;
+      } else if (portfolioTapePositionRef.current < 0) {
+        portfolioTapePositionRef.current += loopWidth;
+      }
+
+      viewport.scrollLeft = portfolioTapePositionRef.current;
+    };
+
+    const tick = () => {
+      const viewport = portfolioTapeViewportRef.current;
+
+      if (viewport) {
+        portfolioTapePositionRef.current += pixelsPerSecond * (tickMs / 1000);
+        normalizeScrollPosition();
+      }
+    };
+
+    intervalId = window.setInterval(tick, tickMs);
+
+    return () => {
+      if (intervalId !== null) {
+        window.clearInterval(intervalId);
+      }
+    };
+  }, [isPortfolioTapePaused, prefersReducedMotion]);
 
   useEffect(() => {
     const fanElement = packageCardsRef.current;
@@ -740,14 +805,19 @@ export default function HomePage() {
     const loopWidth = viewport.scrollWidth / 2;
 
     if (loopWidth <= 0) {
+      serviceTapePositionRef.current = viewport.scrollLeft;
       return;
     }
 
-    if (viewport.scrollLeft >= loopWidth) {
-      viewport.scrollLeft -= loopWidth;
-    } else if (viewport.scrollLeft < 0) {
-      viewport.scrollLeft += loopWidth;
+    serviceTapePositionRef.current = viewport.scrollLeft;
+
+    if (serviceTapePositionRef.current >= loopWidth) {
+      serviceTapePositionRef.current -= loopWidth;
+    } else if (serviceTapePositionRef.current < 0) {
+      serviceTapePositionRef.current += loopWidth;
     }
+
+    viewport.scrollLeft = serviceTapePositionRef.current;
   };
 
   const handleServiceTapeWheel = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -772,7 +842,7 @@ export default function HomePage() {
     }
 
     event.preventDefault();
-    viewport.scrollLeft += dominantDelta;
+    serviceTapePositionRef.current = viewport.scrollLeft + dominantDelta;
     normalizeServiceTapeScroll();
     scheduleServiceTapeResume(1400);
   };
@@ -785,7 +855,7 @@ export default function HomePage() {
     }
 
     pauseServiceTape();
-    viewport.scrollLeft += distance;
+    serviceTapePositionRef.current = viewport.scrollLeft + distance;
     normalizeServiceTapeScroll();
     scheduleServiceTapeResume(1600);
   };
@@ -809,12 +879,14 @@ export default function HomePage() {
     } else if (event.key === 'Home') {
       event.preventDefault();
       pauseServiceTape();
+      serviceTapePositionRef.current = 0;
       viewport.scrollLeft = 0;
       scheduleServiceTapeResume(1600);
     } else if (event.key === 'End') {
       event.preventDefault();
       pauseServiceTape();
-      viewport.scrollLeft = Math.max(viewport.scrollWidth / 2 - viewport.clientWidth, 0);
+      serviceTapePositionRef.current = Math.max(viewport.scrollWidth / 2 - viewport.clientWidth, 0);
+      viewport.scrollLeft = serviceTapePositionRef.current;
       scheduleServiceTapeResume(1600);
     }
   };
@@ -838,12 +910,10 @@ export default function HomePage() {
       pointerId: event.pointerId,
       startX: event.clientX,
       startScrollLeft: viewport.scrollLeft,
-      dragging: event.pointerType === 'mouse',
+      dragging: true,
     };
 
-    if (event.pointerType === 'mouse') {
-      viewport.setPointerCapture(event.pointerId);
-    }
+    viewport.setPointerCapture(event.pointerId);
   };
 
   const handleServiceTapePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -855,7 +925,8 @@ export default function HomePage() {
     }
 
     const deltaX = event.clientX - dragState.startX;
-    viewport.scrollLeft = dragState.startScrollLeft - deltaX;
+    serviceTapePositionRef.current = dragState.startScrollLeft - deltaX;
+    viewport.scrollLeft = serviceTapePositionRef.current;
     normalizeServiceTapeScroll();
   };
 
@@ -870,6 +941,176 @@ export default function HomePage() {
     serviceTapeDragRef.current = null;
     normalizeServiceTapeScroll();
     scheduleServiceTapeResume();
+  };
+
+  const clearPortfolioTapeResume = () => {
+    if (portfolioTapeResumeTimerRef.current) {
+      window.clearTimeout(portfolioTapeResumeTimerRef.current);
+      portfolioTapeResumeTimerRef.current = null;
+    }
+  };
+
+  const pausePortfolioTape = () => {
+    clearPortfolioTapeResume();
+    setIsPortfolioTapePaused(true);
+  };
+
+  const schedulePortfolioTapeResume = (delay = 1800) => {
+    clearPortfolioTapeResume();
+
+    if (prefersReducedMotion) {
+      setIsPortfolioTapePaused(true);
+      return;
+    }
+
+    portfolioTapeResumeTimerRef.current = window.setTimeout(() => {
+      setIsPortfolioTapePaused(false);
+      portfolioTapeResumeTimerRef.current = null;
+    }, delay);
+  };
+
+  const normalizePortfolioTapeScroll = () => {
+    const viewport = portfolioTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    const loopWidth = viewport.scrollWidth / 2;
+
+    if (loopWidth <= 0) {
+      portfolioTapePositionRef.current = viewport.scrollLeft;
+      return;
+    }
+
+    portfolioTapePositionRef.current = viewport.scrollLeft;
+
+    if (portfolioTapePositionRef.current >= loopWidth) {
+      portfolioTapePositionRef.current -= loopWidth;
+    } else if (portfolioTapePositionRef.current < 0) {
+      portfolioTapePositionRef.current += loopWidth;
+    }
+
+    viewport.scrollLeft = portfolioTapePositionRef.current;
+  };
+
+  const scrollPortfolioTapeBy = (distance: number) => {
+    const viewport = portfolioTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    pausePortfolioTape();
+    portfolioTapePositionRef.current = viewport.scrollLeft + distance;
+    normalizePortfolioTapeScroll();
+    schedulePortfolioTapeResume(1600);
+  };
+
+  const handlePortfolioTapeWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    const viewport = portfolioTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    pausePortfolioTape();
+
+    const dominantDelta =
+      Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+    if (dominantDelta === 0) {
+      return;
+    }
+
+    event.preventDefault();
+    portfolioTapePositionRef.current = viewport.scrollLeft + dominantDelta;
+    normalizePortfolioTapeScroll();
+    schedulePortfolioTapeResume(1400);
+  };
+
+  const handlePortfolioTapeKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const viewport = portfolioTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    const itemWidth =
+      viewport.querySelector<HTMLElement>('.film-portfolio-card')?.offsetWidth ?? 240;
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      scrollPortfolioTapeBy(itemWidth);
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      scrollPortfolioTapeBy(-itemWidth);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      pausePortfolioTape();
+      portfolioTapePositionRef.current = 0;
+      viewport.scrollLeft = 0;
+      schedulePortfolioTapeResume(1600);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      pausePortfolioTape();
+      portfolioTapePositionRef.current = Math.max(viewport.scrollWidth / 2 - viewport.clientWidth, 0);
+      viewport.scrollLeft = portfolioTapePositionRef.current;
+      schedulePortfolioTapeResume(1600);
+    }
+  };
+
+  const handlePortfolioTapePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    pausePortfolioTape();
+
+    if (
+      event.pointerType === 'mouse' &&
+      (event.target instanceof HTMLElement && event.target.closest('a, button'))
+    ) {
+      return;
+    }
+
+    const viewport = portfolioTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    portfolioTapeDragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startScrollLeft: viewport.scrollLeft,
+      dragging: true,
+    };
+
+    viewport.setPointerCapture(event.pointerId);
+  };
+
+  const handlePortfolioTapePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const viewport = portfolioTapeViewportRef.current;
+    const dragState = portfolioTapeDragRef.current;
+
+    if (!viewport || !dragState || dragState.pointerId !== event.pointerId || !dragState.dragging) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragState.startX;
+    portfolioTapePositionRef.current = dragState.startScrollLeft - deltaX;
+    viewport.scrollLeft = portfolioTapePositionRef.current;
+    normalizePortfolioTapeScroll();
+  };
+
+  const finishPortfolioTapeInteraction = (pointerId?: number) => {
+    const viewport = portfolioTapeViewportRef.current;
+    const dragState = portfolioTapeDragRef.current;
+
+    if (viewport && dragState && dragState.pointerId === pointerId && viewport.hasPointerCapture(pointerId!)) {
+      viewport.releasePointerCapture(pointerId!);
+    }
+
+    portfolioTapeDragRef.current = null;
+    normalizePortfolioTapeScroll();
+    schedulePortfolioTapeResume();
   };
 
   const clearCapabilityTapeResume = () => {
@@ -1199,9 +1440,8 @@ export default function HomePage() {
       </section>
 
       <section className="film-light-section" aria-labelledby="home-services-title">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:px-16 lg:grid-cols-[0.85fr_2.45fr] lg:py-14">
-          <ScrollReveal>
-            <div className="film-section-intro">
+        <div className="mx-auto grid w-full max-w-full min-w-0 gap-6 px-5 py-8 sm:px-6 md:max-w-7xl md:gap-8 md:px-16 md:py-10 lg:grid-cols-[0.85fr_2.45fr] lg:py-14">
+          <div className="film-section-intro film-section-intro--services min-w-0 max-w-full">
               <p className="film-light-kicker">{tHome('services.eyebrow')}</p>
               <h2 id="home-services-title">{tHome('services.title')}</h2>
               <p>{tHome('services.intro')}</p>
@@ -1209,10 +1449,27 @@ export default function HomePage() {
                 {tCommon('exploreAllServices')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-            </div>
-          </ScrollReveal>
+          </div>
 
-          <div className="film-service-tape" aria-label="Tripod Creative Agency services">
+          <div className="film-service-tape w-full min-w-0 max-w-full" aria-label="Tripod Creative Agency services">
+            <button
+              type="button"
+              className="film-service-tape__control film-service-tape__control--previous focus-ring"
+              onClick={() => scrollServiceTapeBy(-240)}
+              aria-label="Show previous service cards"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            </button>
+
+            <button
+              type="button"
+              className="film-service-tape__control film-service-tape__control--next focus-ring"
+              onClick={() => scrollServiceTapeBy(240)}
+              aria-label="Show next service cards"
+            >
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+
             <div
               ref={serviceTapeViewportRef}
               className={`film-service-tape__viewport${prefersReducedMotion ? ' film-service-tape__viewport--reduced' : ''}${isServiceTapePaused || prefersReducedMotion ? ' is-paused' : ''}`}
@@ -1293,49 +1550,96 @@ export default function HomePage() {
       </section>
 
       <section className="film-portfolio-section" aria-labelledby="home-portfolio-title">
-        <div className="mx-auto grid max-w-7xl gap-7 px-5 py-12 md:px-16 lg:grid-cols-[0.7fr_2.8fr]">
-          <ScrollReveal>
-            <div className="film-section-intro film-section-intro--dark">
-              <p className="film-kicker">{tHome('portfolio.eyebrow')}</p>
-              <h2 id="home-portfolio-title">{tHome('portfolio.title')}</h2>
-              <p>{tHome('portfolio.intro')}</p>
-              <Link
-                href="/portfolio"
-                prefetch={false}
-                className="film-text-link film-text-link--light film-portfolio-link"
-              >
-                {tHome('portfolio.link')}
-                <ArrowRight className="film-portfolio-link__arrow h-4 w-4" aria-hidden="true" />
-              </Link>
+        <div className="mx-auto grid w-full max-w-full min-w-0 gap-6 px-5 py-10 sm:px-6 md:max-w-7xl md:gap-7 md:px-16 md:py-12 lg:grid-cols-[0.7fr_2.8fr]">
+          <div className="film-section-intro film-section-intro--dark film-section-intro--portfolio min-w-0 max-w-full">
+            <p className="film-kicker">{tHome('portfolio.eyebrow')}</p>
+            <h2 id="home-portfolio-title">{tHome('portfolio.title')}</h2>
+            <p>{tHome('portfolio.intro')}</p>
+            <Link
+              href="/portfolio"
+              prefetch={false}
+              className="film-text-link film-text-link--light film-portfolio-link"
+            >
+              {tHome('portfolio.link')}
+              <ArrowRight className="film-portfolio-link__arrow h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="film-portfolio-strip w-full min-w-0 max-w-full" aria-label={tHome('portfolio.title')}>
+            <button
+              type="button"
+              className="film-portfolio-strip__control film-portfolio-strip__control--previous focus-ring"
+              onClick={() => scrollPortfolioTapeBy(-240)}
+              aria-label="Show previous featured work"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            </button>
+
+            <button
+              type="button"
+              className="film-portfolio-strip__control film-portfolio-strip__control--next focus-ring"
+              onClick={() => scrollPortfolioTapeBy(240)}
+              aria-label="Show next featured work"
+            >
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+
+            <div
+              ref={portfolioTapeViewportRef}
+              className={`film-portfolio-strip__viewport${isPortfolioTapePaused || prefersReducedMotion ? ' is-paused' : ''}${prefersReducedMotion ? ' film-portfolio-strip__viewport--reduced' : ''}`}
+              tabIndex={0}
+              onPointerEnter={pausePortfolioTape}
+              onPointerLeave={() => schedulePortfolioTapeResume(250)}
+              onPointerDown={handlePortfolioTapePointerDown}
+              onPointerMove={handlePortfolioTapePointerMove}
+              onPointerUp={(event) => finishPortfolioTapeInteraction(event.pointerId)}
+              onPointerCancel={(event) => finishPortfolioTapeInteraction(event.pointerId)}
+              onTouchStart={pausePortfolioTape}
+              onTouchEnd={() => schedulePortfolioTapeResume(2200)}
+              onFocusCapture={pausePortfolioTape}
+              onBlurCapture={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                  schedulePortfolioTapeResume(250);
+                }
+              }}
+              onKeyDown={handlePortfolioTapeKeyDown}
+              onScroll={normalizePortfolioTapeScroll}
+              onWheel={handlePortfolioTapeWheel}
+            >
+              <div className="film-portfolio-track">
+                {[0, 1].map((setIndex) => (
+                  <div
+                    key={setIndex}
+                    className="film-portfolio-track__set"
+                    aria-hidden={setIndex === 1}
+                  >
+                    {portfolioBlocks.map((block, index) => {
+                      const media = sampleMedia[block.mediaKey];
+                      const labels = tHome.raw(`portfolio.labels.${block.key}`) as string[];
+
+                      return (
+                        <article key={`${block.key}-${setIndex}`} className="film-portfolio-card">
+                          <Image
+                            src={media.src}
+                            alt={tCommon(`media.${media.key}`)}
+                            fill
+                            sizes="(max-width: 680px) 72vw, (max-width: 1024px) 34vw, 20vw"
+                            className="object-cover"
+                          />
+                          <div className="film-portfolio-card__overlay">
+                            <span className="film-portfolio-card__frame">
+                              FRAME {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <p>{labels[0]}</p>
+                            <h3>{labels[1]}</h3>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
-          </ScrollReveal>
-
-          <div className="film-portfolio-track">
-            {portfolioBlocks.map((block, index) => {
-              const media = sampleMedia[block.mediaKey];
-              const labels = tHome.raw(`portfolio.labels.${block.key}`) as string[];
-
-              return (
-                <ScrollReveal key={block.key} delay={0.05 * index}>
-                  <article className="film-portfolio-card">
-                    <Image
-                      src={media.src}
-                      alt={tCommon(`media.${media.key}`)}
-                      fill
-                      sizes="(max-width: 1024px) 66vw, 20vw"
-                      className="object-cover"
-                    />
-                    <div className="film-portfolio-card__overlay">
-                      <span className="film-portfolio-card__frame">
-                        FRAME {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <p>{labels[0]}</p>
-                      <h3>{labels[1]}</h3>
-                    </div>
-                  </article>
-                </ScrollReveal>
-              );
-            })}
           </div>
         </div>
       </section>
