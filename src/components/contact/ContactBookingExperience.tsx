@@ -536,7 +536,7 @@ export function ContactBookingExperience({
                     rel="noopener noreferrer"
                     className="mt-6 inline-flex rounded-full"
                   >
-                    <Button variant="primary" className="gap-2 px-6 py-3.5">
+                    <Button as="span" variant="primary" className="gap-2 px-6 py-3.5">
                       <MessageCircle className="h-4 w-4" aria-hidden="true" />
                       {tContact('cta.primary')}
                     </Button>
@@ -624,7 +624,7 @@ export function ContactBookingExperience({
                 rel="noopener noreferrer"
                 className="inline-flex rounded-full"
               >
-                <Button variant="primary" className="gap-2 px-6 py-3">
+                <Button as="span" variant="primary" className="gap-2 px-6 py-3">
                   {tContact('cta.primary')}
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 </Button>

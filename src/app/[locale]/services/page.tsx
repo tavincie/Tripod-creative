@@ -67,7 +67,7 @@ export default async function ServicesPage() {
 
   return (
     <main className="relative overflow-hidden">
-      <ServicesHero whatsappUrl={createWhatsAppUrl(whatsappNumber, tServices('hero'))} />
+      <ServicesHero />
       <CoreServicesGrid serviceUrls={serviceUrls} />
       <ServicesProcess />
       <ServicesWhatsAppCta serviceUrls={serviceUrls} />

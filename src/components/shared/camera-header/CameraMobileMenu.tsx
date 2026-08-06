@@ -16,16 +16,16 @@ interface CameraMobileMenuProps {
   isOpen: boolean;
   onToggle: () => void;
   items: NavItem[];
-  ctaHref: string;
   ctaLabel: string;
+  onCtaClick: () => void;
 }
 
 export function CameraMobileMenu({
   isOpen,
   onToggle,
   items,
-  ctaHref,
   ctaLabel,
+  onCtaClick,
 }: CameraMobileMenuProps) {
   const panelId = 'camera-mobile-menu-panel';
 
@@ -73,16 +73,14 @@ export function CameraMobileMenu({
               ))}
             </nav>
 
-            <a
-              href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={onToggle}
+            <button
+              type="button"
+              onClick={onCtaClick}
               className="camera-mobile-menu__cta focus-ring"
             >
               <span>{ctaLabel}</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </button>
           </motion.div>
         ) : null}
       </AnimatePresence>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { usePathname } from '@/i18n/routing';
-import { getWhatsAppNumber } from '@/config/site';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { CameraBrand } from './CameraBrand';
 import { FilmNavigation } from './FilmNavigation';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -23,11 +23,8 @@ export function CameraFilmHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const tNav = useTranslations('Navigation');
-  const tServices = useTranslations('ServicesPage');
   const pathname = usePathname();
-  const whatsappNumber = getWhatsAppNumber();
-  const message = tServices('metadataMessages.hero');
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const { openBooking } = useBooking();
 
   const items = [
     { name: tNav('home'), href: '/' },
@@ -40,6 +37,11 @@ export function CameraFilmHeader() {
     ...item,
     active: isActiveRoute(pathname, item.href),
   }));
+
+  const openBookingModal = () => {
+    setIsOpen(false);
+    openBooking();
+  };
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -85,48 +87,51 @@ export function CameraFilmHeader() {
   }, [isOpen]);
 
   return (
-    <motion.header
-      className="camera-film-header"
-      data-visible={isVisible}
-      animate={{
-        y: isVisible ? 0 : -180,
-        opacity: isVisible ? 1 : 0,
-      }}
-      transition={{ duration: 0.24, ease: 'easeOut' }}
-    >
-      <CameraShutterTransition />
+    <>
+      <motion.header
+        className="camera-film-header"
+        data-visible={isVisible}
+        animate={{
+          y: isVisible ? 0 : -180,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{ duration: 0.24, ease: 'easeOut' }}
+      >
+        <CameraShutterTransition />
 
-      <div className="camera-film-header__inner">
-        <div className="camera-film-header__desktop">
-          <div className="camera-film-assembly">
-            <div className="camera-film-assembly__brand">
-              <CameraBrand />
+        <div className="camera-film-header__inner">
+          <div className="camera-film-header__desktop">
+            <div className="camera-film-assembly">
+              <div className="camera-film-assembly__brand">
+                <CameraBrand />
+              </div>
+              <div className="camera-film-assembly__feed">
+                <FilmNavigation
+                  items={items}
+                  ctaLabel={tNav('startProject')}
+                  onCtaClick={openBookingModal}
+                  onNavigate={() => setIsOpen(false)}
+                />
+              </div>
             </div>
-            <div className="camera-film-assembly__feed">
-              <FilmNavigation
+          </div>
+
+          <div className="camera-film-header__mobile">
+            <CameraBrand />
+            <div className="camera-film-header__mobile-controls">
+              <LanguageSwitcher />
+              <CameraMobileMenu
+                isOpen={isOpen}
+                onToggle={() => setIsOpen((prev) => !prev)}
                 items={items}
-                ctaHref={whatsappUrl}
                 ctaLabel={tNav('startProject')}
-                onNavigate={() => setIsOpen(false)}
+                onCtaClick={openBookingModal}
               />
             </div>
           </div>
         </div>
+      </motion.header>
 
-        <div className="camera-film-header__mobile">
-          <CameraBrand />
-          <div className="camera-film-header__mobile-controls">
-            <LanguageSwitcher />
-            <CameraMobileMenu
-              isOpen={isOpen}
-              onToggle={() => setIsOpen((prev) => !prev)}
-              items={items}
-              ctaHref={whatsappUrl}
-              ctaLabel={tNav('startProject')}
-            />
-          </div>
-        </div>
-      </div>
-    </motion.header>
+    </>
   );
 }

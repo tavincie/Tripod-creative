@@ -6,19 +6,16 @@ import { useTranslations } from 'next-intl';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
 import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
+import { getWhatsAppNumber } from '@/config/site';
 import {
   portfolioCategories,
   portfolioData,
   type PortfolioCategoryKey,
 } from '@/data/portfolio';
 import { sampleMedia } from '@/data/sampleMedia';
-
-interface PortfolioExperienceProps {
-  featuredUrl: string;
-  bookingUrl: string;
-}
 
 const featuredArchiveMediaKeys = {
   brandIdentity: 'brandingMockups',
@@ -57,14 +54,14 @@ function FilterButton({
   );
 }
 
-export function PortfolioExperience({
-  featuredUrl,
-  bookingUrl,
-}: PortfolioExperienceProps) {
+export function PortfolioExperience() {
   const t = useTranslations('PortfolioPage');
+  const tContact = useTranslations('ContactPage');
   const tCommon = useTranslations('Common');
+  const { openBooking } = useBooking();
   const [activeCategory, setActiveCategory] =
     useState<PortfolioCategoryKey>('all');
+  const bookingUrl = `https://wa.me/${getWhatsAppNumber()}?text=${encodeURIComponent(tContact('fallbackMessage'))}`;
 
   const filteredItems = useMemo(() => {
     if (activeCategory === 'all') return portfolioData;
@@ -387,17 +384,15 @@ export function PortfolioExperience({
           </ScrollReveal>
           <ScrollReveal delay={0.14}>
             <div className="flex flex-col gap-3 lg:items-end">
-              <a
-                href={featuredUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex rounded-full"
+              <Button
+                type="button"
+                variant="primary"
+                onClick={openBooking}
+                className="gap-2 px-6 py-3"
               >
-                <Button variant="primary" className="gap-2 px-6 py-3">
-                  {t('cta.primary')}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Button>
-              </a>
+                {t('cta.primary')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Button>
 
               <a
                 href={bookingUrl}

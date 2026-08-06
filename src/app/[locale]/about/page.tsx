@@ -1,12 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { AboutExperience } from '@/components/about/AboutExperience';
-import { getSiteUrl, getWhatsAppNumber } from '@/config/site';
-
-function createWhatsAppUrl(number: string, message: string) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-}
+import { getSiteUrl } from '@/config/site';
 
 export async function generateMetadata({
   params,
@@ -47,13 +43,5 @@ export async function generateMetadata({
 }
 
 export default async function AboutPage() {
-  const locale = await getLocale();
-  const tAbout = await getTranslations({ locale, namespace: 'AboutPage' });
-  const whatsappNumber = getWhatsAppNumber();
-
-  return (
-    <AboutExperience
-      ctaUrl={createWhatsAppUrl(whatsappNumber, tAbout('whatsappMessage'))}
-    />
-  );
+  return <AboutExperience />;
 }

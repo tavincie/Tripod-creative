@@ -327,7 +327,7 @@ export function StudioAcademyExperience({
                 rel="noopener noreferrer"
                 className="inline-flex rounded-full"
               >
-                <Button variant="primary" className="gap-2 px-6 py-3">
+                <Button as="span" variant="primary" className="gap-2 px-6 py-3">
                   {t('cta.primary')}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Button>

@@ -37,7 +37,6 @@ export function Footer() {
                 alt="Tripod Creative Agency logo"
                 width={420}
                 height={233}
-                priority
               />
             </Link>
             <p className="film-footer-brand__description max-w-sm text-sm leading-7 text-[rgba(245,241,233,0.72)]">

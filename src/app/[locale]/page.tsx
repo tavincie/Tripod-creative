@@ -6,10 +6,9 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Circle, MessageCircle, Play, X } from 'lucide-react';
-import { BookingModal } from '@/components/booking/BookingModal';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
-import { getWhatsAppNumber } from '@/config/site';
 import {
   productionPathCards,
   type ProductionPathCard,
@@ -201,6 +200,7 @@ function ProductionPathFanCard({
                 src={card.imagePaths[previousImageIndex]}
                 alt=""
                 fill
+                priority={index <= 1}
                 sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
               />
             </span>
@@ -209,6 +209,7 @@ function ProductionPathFanCard({
                 src={card.imagePaths[nextImageIndex]}
                 alt=""
                 fill
+                priority={index <= 1}
                 sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
               />
             </span>
@@ -225,7 +226,7 @@ function ProductionPathFanCard({
                   src={card.imagePaths[activeImageIndex]}
                   alt=""
                   fill
-                  priority={index === 1}
+                  priority={index <= 1}
                   sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
                 />
               </motion.span>
@@ -409,11 +410,18 @@ function MobileProductionPathCarousel({
                       src={activeCard.imagePaths[previousImageIndex]}
                       alt=""
                       fill
+                      priority={activeCardIndex === 0}
                       sizes="88vw"
                     />
                   </span>
                   <span className="booking-package-teaser-card__image-panel is-next">
-                    <Image src={activeCard.imagePaths[nextImageIndex]} alt="" fill sizes="88vw" />
+                    <Image
+                      src={activeCard.imagePaths[nextImageIndex]}
+                      alt=""
+                      fill
+                      priority={activeCardIndex === 0}
+                      sizes="88vw"
+                    />
                   </span>
                   <AnimatePresence mode="popLayout" initial={false}>
                     <motion.span
@@ -515,8 +523,8 @@ export default function HomePage() {
   const tHome = useTranslations('HomePage');
   const tCommon = useTranslations('Common');
   const prefersReducedMotion = useReducedMotion();
+  const { openBooking } = useBooking();
   const [showreelOpen, setShowreelOpen] = useState(false);
-  const [bookingOpen, setBookingOpen] = useState(false);
   const [flippedProductionPathId, setFlippedProductionPathId] =
     useState<ProductionPathId | null>(null);
   const [pausedProductionPathId, setPausedProductionPathId] =
@@ -545,9 +553,6 @@ export default function HomePage() {
   } | null>(null);
   const heroShowreelLoopSrc = '/assets/showreel/tripod-hero-loop.mp4';
 
-  const whatsappNumber = getWhatsAppNumber();
-  const whatsappMessage = tHome('whatsappMessage');
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   const heroTitleLines = tHome.raw('hero.titleLines') as string[];
   const studioProcess = tHome.raw('studio.process') as string[];
   const capabilitiesCopy = tHome.raw('capabilities') as Record<string, string>;
@@ -849,8 +854,7 @@ export default function HomePage() {
     scheduleCapabilityTapeResume();
   };
 
-  const openBookingModal = () => setBookingOpen(true);
-  const closeBookingModal = () => setBookingOpen(false);
+  const openBookingModal = openBooking;
   const toggleProductionPathCard = (cardId: ProductionPathId) => {
     setFlippedProductionPathId((currentCardId) => (currentCardId === cardId ? null : cardId));
   };
@@ -917,7 +921,7 @@ export default function HomePage() {
 
               <div className="film-hero-actions flex flex-wrap items-center gap-4">
                 <Link href="/portfolio" prefetch={false} className="focus-ring rounded-sm">
-                  <Button variant="primary" className="gap-2 px-6 py-3">
+                  <Button as="span" variant="primary" className="gap-2 px-6 py-3">
                     {tHome('hero.primary')}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Button>
@@ -925,7 +929,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={openBookingModal}
-                  className="film-play-button"
+                  className="film-play-button film-play-button--secondary"
                 >
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   {tHome('hero.secondary')}
@@ -1309,17 +1313,15 @@ export default function HomePage() {
             <p>{tHome('cta.body')}</p>
           </ScrollReveal>
           <ScrollReveal delay={0.14}>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex focus-ring rounded-full"
+            <Button
+              type="button"
+              onClick={openBookingModal}
+              variant="primary"
+              className="gap-2 px-6 py-3"
             >
-              <Button variant="primary" className="gap-2 px-6 py-3">
-                {tHome('cta.button')}
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              </Button>
-            </a>
+              {tHome('cta.button')}
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            </Button>
           </ScrollReveal>
         </div>
       </section>
@@ -1366,8 +1368,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
-      <BookingModal isOpen={bookingOpen} onClose={closeBookingModal} />
     </main>
   );
 }

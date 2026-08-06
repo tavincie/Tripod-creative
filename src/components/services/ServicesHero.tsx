@@ -6,17 +6,15 @@ import { useTranslations } from 'next-intl';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
 import { sampleMedia } from '@/data/sampleMedia';
 
-interface ServicesHeroProps {
-  whatsappUrl: string;
-}
-
-export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
+export function ServicesHero() {
   const tServices = useTranslations('ServicesPage');
   const tCommon = useTranslations('Common');
+  const { openBooking } = useBooking();
   const media = sampleMedia.videoProductionSetup;
   const lanes = tServices.raw('hero.lanes') as string[];
 
@@ -29,17 +27,15 @@ export function ServicesHero({ whatsappUrl }: ServicesHeroProps) {
       textAfterTitle={
         <ScrollReveal delay={0.2}>
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-sm"
+            <Button
+              type="button"
+              variant="primary"
+              onClick={openBooking}
+              className="gap-2 px-7 py-3.5"
             >
-              <Button variant="primary" className="gap-2 px-7 py-3.5">
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                {tServices('hero.primary')}
-              </Button>
-            </a>
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              {tServices('hero.primary')}
+            </Button>
 
             <Link
               href="#services-zones"

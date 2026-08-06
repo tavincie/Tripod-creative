@@ -2,13 +2,26 @@
 
 import React from 'react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonOwnProps = {
   variant?: 'primary' | 'secondary' | 'outline';
   children: React.ReactNode;
   className?: string;
-}
+};
+
+type ButtonAsButtonProps = ButtonOwnProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    as?: 'button';
+  };
+
+type ButtonAsSpanProps = ButtonOwnProps &
+  React.HTMLAttributes<HTMLSpanElement> & {
+    as: 'span';
+  };
+
+type ButtonProps = ButtonAsButtonProps | ButtonAsSpanProps;
 
 export function Button({
+  as = 'button',
   variant = 'primary',
   children,
   className = '',
@@ -28,8 +41,18 @@ export function Button({
       'border border-[var(--tripod-border-light)] bg-[rgba(247,242,233,0.18)] text-[var(--tripod-text-dark)] hover:border-[rgba(255,61,0,0.28)] hover:bg-[rgba(247,242,233,0.3)]';
   }
 
+  const classes = `${baseStyles} ${variantStyles} ${className}`;
+
+  if (as === 'span') {
+    return (
+      <span className={classes} {...(props as React.HTMLAttributes<HTMLSpanElement>)}>
+        {children}
+      </span>
+    );
+  }
+
   return (
-    <button className={`${baseStyles} ${variantStyles} ${className}`} {...props}>
+    <button className={classes} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {children}
     </button>
   );

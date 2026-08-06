@@ -7,13 +7,10 @@ import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { sampleMedia } from '@/data/sampleMedia';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
 import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
-
-interface AboutExperienceProps {
-  ctaUrl: string;
-}
 
 const noteMediaKeys = [
   'creativeTeamBts',
@@ -21,9 +18,10 @@ const noteMediaKeys = [
   'graphicDesignerWorkspace',
 ] as const;
 
-export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
+export function AboutExperience() {
   const tAbout = useTranslations('AboutPage');
   const tCommon = useTranslations('Common');
+  const { openBooking } = useBooking();
   const productionNotes = tAbout.raw('notes.items') as Array<{
     number: string;
     title: string;
@@ -270,17 +268,15 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
           </ScrollReveal>
           <ScrollReveal delay={0.14}>
             <div className="flex flex-col gap-3 lg:items-end">
-              <a
-                href={ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex rounded-full"
+              <Button
+                type="button"
+                variant="primary"
+                onClick={openBooking}
+                className="gap-2 px-6 py-3"
               >
-                <Button variant="primary" className="gap-2 px-6 py-3">
-                  {tAbout('cta.primary')}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Button>
-              </a>
+                {tAbout('cta.primary')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Button>
 
               <Link
                 href="/portfolio"

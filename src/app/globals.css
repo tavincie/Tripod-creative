@@ -845,12 +845,39 @@ body {
 }
 
 .film-play-button {
+  min-height: 3rem;
+  border: 0;
+  background: transparent;
   color: var(--tripod-warm-white);
   font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.film-play-button--secondary {
+  justify-content: center;
+  padding: 0.76rem 1.05rem;
+  border: 1px solid rgba(245, 241, 233, 0.26);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(245, 241, 233, 0.08), rgba(245, 241, 233, 0.025)),
+    rgba(0, 0, 0, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(245, 241, 233, 0.12),
+    0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.film-play-button--secondary:hover,
+.film-play-button--secondary:focus-visible {
+  color: var(--tripod-warm-white);
+  border-color: rgba(255, 61, 0, 0.68);
+  background:
+    linear-gradient(180deg, rgba(255, 61, 0, 0.18), rgba(255, 61, 0, 0.06)),
+    rgba(0, 0, 0, 0.24);
+  transform: translateY(-1px);
 }
 
 .film-play-button svg {
@@ -860,10 +887,21 @@ body {
   padding: 0.65rem;
 }
 
+.film-play-button--secondary svg {
+  border: 0;
+  padding: 0;
+  color: var(--tripod-orange);
+}
+
 .film-play-button:hover,
 .film-mini-cta:hover,
 .film-text-link:hover {
   color: var(--tripod-orange);
+}
+
+.film-play-button--secondary:hover,
+.film-play-button--secondary:focus-visible {
+  color: var(--tripod-warm-white);
 }
 
 .film-hero-strip {
@@ -4355,6 +4393,17 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   padding: 0.6rem 0.68rem 0.5rem;
 }
 
+.film-project-cta {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: inherit;
+}
+
 .film-project-button {
   display: inline-flex;
   align-items: center;
@@ -4555,7 +4604,9 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 0.95rem 1rem;
+  border: 0;
   border-radius: 1rem;
   background: linear-gradient(90deg, var(--tripod-orange), #ffca29);
   color: #111;
@@ -4564,6 +4615,7 @@ main.relative.flex-grow [class*='border-white\\/6'] {
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .camera-shutter-transition {

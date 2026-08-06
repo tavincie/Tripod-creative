@@ -7,6 +7,7 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
 import { sampleMedia } from '@/data/sampleMedia';
 
@@ -19,6 +20,7 @@ export function ServicesWhatsAppCta({
 }: ServicesWhatsAppCtaProps) {
   const tServices = useTranslations('ServicesPage');
   const tCommon = useTranslations('Common');
+  const { openBooking } = useBooking();
 
   return (
     <>
@@ -69,7 +71,7 @@ export function ServicesWhatsAppCta({
                 rel="noopener noreferrer"
                 className="inline-flex rounded-sm"
               >
-                <Button variant="primary" className="gap-2 px-7 py-3.5">
+                <Button as="span" variant="primary" className="gap-2 px-7 py-3.5">
                   {tServices('digitalSupport.cta')}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Button>
@@ -99,17 +101,15 @@ export function ServicesWhatsAppCta({
 
           <ScrollReveal delay={0.14}>
             <div className="flex flex-col gap-3 lg:items-end">
-              <a
-                href={serviceUrls.branding}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex rounded-full"
+              <Button
+                type="button"
+                variant="primary"
+                onClick={openBooking}
+                className="gap-2 px-6 py-3"
               >
-                <Button variant="primary" className="gap-2 px-6 py-3">
-                  {tServices('cta.primary')}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Button>
-              </a>
+                {tServices('cta.primary')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Button>
 
               <a
                 href={serviceUrls.videography}

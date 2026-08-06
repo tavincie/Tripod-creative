@@ -15,15 +15,15 @@ interface NavItem {
 
 interface FilmNavigationProps {
   items: NavItem[];
-  ctaHref: string;
   ctaLabel: string;
+  onCtaClick: () => void;
   onNavigate?: () => void;
 }
 
 export function FilmNavigation({
   items,
-  ctaHref,
   ctaLabel,
+  onCtaClick,
   onNavigate,
 }: FilmNavigationProps) {
   return (
@@ -45,7 +45,7 @@ export function FilmNavigation({
               />
             ))}
 
-            <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="film-project-cta focus-ring">
+            <button type="button" onClick={onCtaClick} className="film-project-cta focus-ring">
               <div className="film-module film-module--cta">
                 <span className="film-module__frame">07</span>
                 <span className="film-module__mark film-module__mark--top" aria-hidden="true" />
@@ -55,7 +55,7 @@ export function FilmNavigation({
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </div>
-            </a>
+            </button>
 
             <div className="film-language-frame">
               <FilmModule frame="08" tone="utility">

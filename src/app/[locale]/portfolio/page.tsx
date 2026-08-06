@@ -1,12 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { PortfolioExperience } from '@/components/portfolio/PortfolioExperience';
-import { getSiteUrl, getWhatsAppNumber } from '@/config/site';
-
-function createWhatsAppUrl(number: string, message: string) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-}
+import { getSiteUrl } from '@/config/site';
 
 export async function generateMetadata({
   params,
@@ -47,14 +43,5 @@ export async function generateMetadata({
 }
 
 export default async function PortfolioPage() {
-  const locale = await getLocale();
-  const tContact = await getTranslations({ locale, namespace: 'ContactPage' });
-  const whatsappNumber = getWhatsAppNumber();
-
-  return (
-    <PortfolioExperience
-      featuredUrl={createWhatsAppUrl(whatsappNumber, tContact('fallbackMessage'))}
-      bookingUrl={createWhatsAppUrl(whatsappNumber, tContact('fallbackMessage'))}
-    />
-  );
+  return <PortfolioExperience />;
 }
