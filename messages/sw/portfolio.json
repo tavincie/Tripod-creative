@@ -30,7 +30,8 @@
   },
   "grid": {
     "eyebrow": "Contact Sheet",
-    "title": "Service showcase iliyopangwa kama archive safi ya production.",
+    "title": "Production archive",
+    "body": "Service showcase safi iliyopangwa kuzunguka campaign formats, production lanes, na media outputs ambazo Tripod hutengeneza.",
     "resultCount": "{count, plural, =0 {Hakuna kazi zinazoonekana} one {Kazi # inaonekana} other {Kazi # zinaonekana}}",
     "empty": "Bado hakuna kazi ya portfolio inayolingana na kichujio hiki.",
     "cardCta": "Tazama maelezo ya frame",
@@ -43,7 +44,7 @@
   },
   "featured": {
     "eyebrow": "Archive Strip",
-    "title": "Production lanes nne zinazojirudia kwenye kazi.",
+    "title": "Production lanes nne",
     "subtitle": "Strip hii inaonyesha production lanes ambazo zinaunda briefs nyingi za Tripod, kuanzia identity systems hadi event coverage na campaign rollout.",
     "items": [
       {

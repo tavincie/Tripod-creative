@@ -19,7 +19,7 @@
   },
   "zones": {
     "eyebrow": "Studio Zones",
-    "title": "Studio lanes tano zimepangwa kama chumba kimoja cha ubunifu kinachofanya kazi.",
+    "title": "Studio lanes tano",
     "body": "Kila zone ni ya vitendo, hands-on, na imeundwa kuonyesha jinsi Tripod inavyorekodi, kufundisha, kurehearse, na kukuza kazi za ubunifu.",
     "items": {
       "recordingStudio": {
@@ -56,7 +56,7 @@
   },
   "path": {
     "eyebrow": "Creator Development Path",
-    "title": "Njia ya maendeleo inayotoka kwenye session ya kwanza hadi output iliyokamilika.",
+    "title": "Creator development path",
     "body": "Path hii inaonyesha jinsi Tripod inavyosaidia creators kwa vitendo: kuelewa goal, kujenga confidence, kurekodi kwa purpose, na kutoka na kitu kinachotumika.",
     "steps": [
       {
@@ -88,7 +88,7 @@
   },
   "atmosphere": {
     "eyebrow": "Studio Atmosphere",
-    "title": "Microphones, instruments, coaching, na session energy ndani ya chumba kimoja.",
+    "title": "Studio atmosphere",
     "body": "Atmosphere ni ya vitendo na yenye encouragement, ikiwapa creators nafasi ya kurehearse, kurekodi, na kuboresha kazi ndani ya production environment halisi.",
     "labels": [
       "Mic Check",

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
 import { sampleMedia } from '@/data/sampleMedia';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
+import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
 
 interface AboutExperienceProps {
   ctaUrl: string;
@@ -99,59 +100,40 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </SecondaryPageHero>
 
-      <section className="tripod-page-light py-16 lg:py-20">
+      <section className="tripod-page-light py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
-            <ScrollReveal>
-              <div className="space-y-4">
-                <p className="film-light-kicker">{tAbout('identity.eyebrow')}</p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-text-dark)]">
-                  {tAbout('identity.title')}
-                </h2>
-                <p className="max-w-xl text-sm leading-7 text-[var(--tripod-text-muted-dark)] sm:text-base">
-                  {tAbout('identity.body')}
-                </p>
-              </div>
-            </ScrollReveal>
+          <SecondarySectionHeader
+            eyebrow={tAbout('identity.eyebrow')}
+            title={tAbout('identity.title')}
+            body={tAbout('identity.body')}
+            tone="light"
+            variant="section"
+          />
 
-            <ScrollReveal delay={0.08}>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                {(tAbout.raw('identity.credits') as string[]).map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[1.35rem] border border-[rgba(23,21,18,0.12)] bg-white px-4 py-5 text-center shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
-                  >
-                    <p className="font-mono text-[0.68rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal delay={0.08}>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {(tAbout.raw('identity.credits') as string[]).map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.1rem] border border-[rgba(23,21,18,0.12)] bg-white px-4 py-4 text-center shadow-[0_14px_30px_rgba(0,0,0,0.07)]"
+                >
+                  <p className="font-mono text-[0.62rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-orange)]">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      <section className="tripod-page-dark border-y border-white/6 py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-            <ScrollReveal>
-              <div className="space-y-3">
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {tAbout('notes.eyebrow')}
-                </p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
-                  {tAbout('notes.title')}
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.72)] sm:text-base">
-                {tAbout('notes.body')}
-              </p>
-            </ScrollReveal>
-          </div>
+          <SecondarySectionHeader
+            eyebrow={tAbout('notes.eyebrow')}
+            title={tAbout('notes.title')}
+            body={tAbout('notes.body')}
+          />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {productionNotes.map((note, index) => (
@@ -160,7 +142,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
                   <p className="font-mono text-[0.68rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                     {note.number}
                   </p>
-                  <h3 className="mt-4 text-[1.35rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-warm-white)]">
+                  <h3 className="mt-4 text-[1.18rem] font-black uppercase leading-tight tracking-normal text-[var(--tripod-warm-white)]">
                     {note.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-[rgba(245,241,233,0.72)]">
@@ -173,7 +155,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="tripod-page-light py-16 lg:py-20">
+      <section className="tripod-page-light py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.02fr)_minmax(320px,0.98fr)] lg:items-center">
             <ScrollReveal>
@@ -218,7 +200,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
             <ScrollReveal delay={0.08}>
               <div className="space-y-5">
                 <p className="film-light-kicker">{tAbout('difference.eyebrow')}</p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-text-dark)]">
+                <h2 className="secondary-section-title secondary-section-title--section text-[var(--tripod-text-dark)]">
                   {tAbout('difference.title')}
                 </h2>
                 <p className="max-w-xl text-sm leading-7 text-[var(--tripod-text-muted-dark)] sm:text-base">
@@ -242,21 +224,13 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
         </div>
       </section>
 
-      <section className="tripod-page-dark border-y border-white/6 py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-            <ScrollReveal>
-              <div className="space-y-3">
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {tAbout('process.eyebrow')}
-                </p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
-                  {tAbout('process.title')}
-                </h2>
-              </div>
-            </ScrollReveal>
-          </div>
+          <SecondarySectionHeader
+            eyebrow={tAbout('process.eyebrow')}
+            title={tAbout('process.title')}
+            body={tAbout('process.body')}
+          />
 
           <div className="grid gap-5 lg:grid-cols-5">
             {processSteps.map((step, index) => (
@@ -265,7 +239,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
                   <div className="font-mono text-[0.68rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                     {step.number}
                   </div>
-                  <h3 className="mt-4 text-[1.22rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-warm-white)]">
+                  <h3 className="mt-4 text-[1.08rem] font-black uppercase leading-tight tracking-normal text-[var(--tripod-warm-white)]">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-[rgba(245,241,233,0.72)]">
@@ -286,7 +260,9 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
                 <span className="film-rec-dot" aria-hidden="true" />
                 {tAbout('cta.eyebrow')}
               </p>
-              <h2>{tAbout('cta.title')}</h2>
+              <h2 className="secondary-section-title secondary-section-title--section">
+                {tAbout('cta.title')}
+              </h2>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.08}>

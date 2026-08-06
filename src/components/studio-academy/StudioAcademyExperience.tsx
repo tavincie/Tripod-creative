@@ -7,6 +7,7 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
+import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
 import { sampleMedia } from '@/data/sampleMedia';
 
 interface StudioAcademyExperienceProps {
@@ -125,28 +126,14 @@ export function StudioAcademyExperience({
         </div>
       </SecondaryPageHero>
 
-      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#090909_0%,#050505_100%)] py-14 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#090909_0%,#050505_100%)] py-12 sm:py-14 lg:py-16">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(245,241,233,0.04)_0_1px,transparent_1px_11rem)] opacity-20" />
         <div className="relative mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-10 grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-            <ScrollReveal>
-              <div className="space-y-4">
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {t('zones.eyebrow')}
-                </p>
-                <h2 className="max-w-xl text-[clamp(2.95rem,4.8vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
-                  {t('zones.title')}
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.08}>
-              <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.72)] sm:text-base">
-                {t('zones.body')}
-              </p>
-            </ScrollReveal>
-          </div>
+          <SecondarySectionHeader
+            eyebrow={t('zones.eyebrow')}
+            title={t('zones.title')}
+            body={t('zones.body')}
+          />
 
           <div className="space-y-8">
             {zoneOrder.map((zoneKey, index) => {
@@ -157,7 +144,7 @@ export function StudioAcademyExperience({
                   <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(9,9,9,0.98),rgba(17,17,17,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.32)]">
                     <div className="grid gap-0 lg:grid-cols-[minmax(19rem,0.92fr)_minmax(0,1.08fr)]">
                       <div
-                        className={`relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[21rem] lg:min-h-[28rem] lg:border-b-0 ${
+                        className={`relative min-h-[16rem] overflow-hidden border-b border-white/10 sm:min-h-[19rem] lg:min-h-[23rem] lg:border-b-0 ${
                           index % 2 === 1 ? 'lg:order-2 lg:border-l lg:border-r-0' : 'lg:border-r'
                         }`}
                       >
@@ -175,7 +162,7 @@ export function StudioAcademyExperience({
                           <span>{t(`zones.items.${zoneKey}.number`)}</span>
                         </div>
                         <div className="absolute bottom-5 left-5 right-5 space-y-3">
-                          <h3 className="text-[2rem] font-black uppercase leading-[0.9] tracking-[-0.03em] text-[var(--tripod-warm-white)] sm:text-[2.6rem]">
+                          <h3 className="secondary-section-title secondary-section-title--compact text-[var(--tripod-warm-white)]">
                             {t(`zones.items.${zoneKey}.title`)}
                           </h3>
                           <p className="max-w-md text-sm leading-7 text-[rgba(245,241,233,0.78)]">
@@ -190,7 +177,7 @@ export function StudioAcademyExperience({
                             <p className="font-mono text-[0.72rem] font-black uppercase tracking-[0.18em] text-[var(--tripod-orange)]">
                               {t(`zones.items.${zoneKey}.number`)}
                             </p>
-                            <h4 className="text-[1.35rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-warm-white)] sm:text-[1.55rem]">
+                            <h4 className="text-[1.18rem] font-black uppercase leading-tight tracking-normal text-[var(--tripod-warm-white)] sm:text-[1.32rem]">
                               {t(`zones.items.${zoneKey}.title`)}
                             </h4>
                             <p className="max-w-xl text-sm leading-7 text-[rgba(245,241,233,0.7)]">
@@ -212,23 +199,14 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="tripod-page-light border-y border-white/6 py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-light border-y border-white/6 py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-            <ScrollReveal>
-              <div className="space-y-3">
-                <p className="film-light-kicker">{t('path.eyebrow')}</p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-text-dark)]">
-                  {t('path.title')}
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <p className="max-w-2xl text-sm leading-7 text-[var(--tripod-text-muted-dark)] sm:text-base">
-                {t('path.body')}
-              </p>
-            </ScrollReveal>
-          </div>
+          <SecondarySectionHeader
+            eyebrow={t('path.eyebrow')}
+            title={t('path.title')}
+            body={t('path.body')}
+            tone="light"
+          />
 
           <div className="grid gap-5 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start">
             <ScrollReveal>
@@ -270,7 +248,7 @@ export function StudioAcademyExperience({
                         {step.number}
                       </div>
                       <div className="space-y-2">
-                        <h3 className="text-[1.3rem] font-black uppercase leading-tight tracking-[-0.02em] text-[var(--tripod-text-dark)]">
+                        <h3 className="text-[1.15rem] font-black uppercase leading-tight tracking-normal text-[var(--tripod-text-dark)]">
                           {step.title}
                         </h3>
                         <p className="text-sm leading-7 text-[var(--tripod-text-muted-dark)]">
@@ -286,26 +264,13 @@ export function StudioAcademyExperience({
         </div>
       </section>
 
-      <section className="tripod-page-dark border-y border-white/6 py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-            <ScrollReveal>
-              <div className="space-y-3">
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {t('atmosphere.eyebrow')}
-                </p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
-                  {t('atmosphere.title')}
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.72)] sm:text-base">
-                {t('atmosphere.body')}
-              </p>
-            </ScrollReveal>
-          </div>
+          <SecondarySectionHeader
+            eyebrow={t('atmosphere.eyebrow')}
+            title={t('atmosphere.title')}
+            body={t('atmosphere.body')}
+          />
 
           <div className="grid gap-4 md:grid-cols-[1.16fr_0.84fr_0.84fr]">
             {atmosphereMediaKeys.map((mediaKey, index) => {
@@ -346,7 +311,9 @@ export function StudioAcademyExperience({
                 <span className="film-rec-dot" aria-hidden="true" />
                 {t('cta.eyebrow')}
               </p>
-              <h2>{t('cta.title')}</h2>
+              <h2 className="secondary-section-title secondary-section-title--section">
+                {t('cta.title')}
+              </h2>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.08}>

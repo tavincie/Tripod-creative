@@ -33,8 +33,8 @@
   },
   "intro": {
     "eyebrow": "Service Film Strip",
-    "title": "Twelve services arranged as one connected workflow.",
-    "body": "Each zone shows how Tripod groups creative direction, capture, sound, print, and rollout support without breaking the brief into disconnected pieces."
+    "title": "Connected services",
+    "body": "Twelve services are arranged as one workflow, showing how Tripod groups creative direction, capture, sound, print, and rollout support without breaking the brief into disconnected pieces."
   },
   "zones": {
     "designBrand": {
@@ -146,7 +146,7 @@
   },
   "process": {
     "eyebrow": "Production Board",
-    "title": "From brief to delivery on one studio timeline.",
+    "title": "Brief to delivery",
     "body": "This follows the way Tripod works in practice: clear stages, disciplined handoff, and a route from idea to delivery that stays understandable.",
     "steps": [
       {
@@ -178,7 +178,7 @@
   },
   "digitalSupport": {
     "eyebrow": "Optional Digital Support",
-    "title": "DIGITAL SUPPORT CAN FOLLOW THE CAMPAIGN WITHOUT TAKING OVER THE PAGE.",
+    "title": "Campaign rollout support",
     "body": "If the campaign needs rollout support, content structuring, or landing-page assistance, Tripod can extend the production plan after the main brief is clear.",
     "items": [
       "Landing-page support",

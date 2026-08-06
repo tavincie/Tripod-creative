@@ -19,7 +19,7 @@
   },
   "zones": {
     "eyebrow": "Studio Zones",
-    "title": "Five studio lanes arranged like one working creative room.",
+    "title": "Five studio lanes",
     "body": "Each zone is practical, hands-on, and shaped around how Tripod records, coaches, rehearses, and develops creative work.",
     "items": {
       "recordingStudio": {
@@ -56,7 +56,7 @@
   },
   "path": {
     "eyebrow": "Creator Development Path",
-    "title": "A development path that moves from first session to finished output.",
+    "title": "Creator development path",
     "body": "This path reflects how Tripod supports creators in practice: understand the goal, build confidence, record with purpose, and leave with something useful.",
     "steps": [
       {
@@ -88,7 +88,7 @@
   },
   "atmosphere": {
     "eyebrow": "Studio Atmosphere",
-    "title": "Microphones, instruments, coaching, and session energy in one room.",
+    "title": "Studio atmosphere",
     "body": "The atmosphere is practical and encouraging, giving creators space to rehearse, record, and improve inside a working production environment.",
     "labels": [
       "Mic Check",

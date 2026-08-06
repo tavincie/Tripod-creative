@@ -30,7 +30,8 @@
   },
   "grid": {
     "eyebrow": "Contact Sheet",
-    "title": "A service showcase arranged like a clean production archive.",
+    "title": "Production archive",
+    "body": "A clean service showcase arranged around the campaign formats, production lanes, and media outputs Tripod builds.",
     "resultCount": "{count, plural, =0 {No projects shown} one {# project shown} other {# projects shown}}",
     "empty": "No portfolio items match this filter yet.",
     "cardCta": "View frame details",
@@ -43,7 +44,7 @@
   },
   "featured": {
     "eyebrow": "Archive Strip",
-    "title": "Four production lanes that keep showing up in the work.",
+    "title": "Four production lanes",
     "subtitle": "This strip shows the production lanes that shape most Tripod briefs, from identity systems to event coverage and campaign rollout.",
     "items": [
       {

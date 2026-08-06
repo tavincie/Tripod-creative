@@ -1509,6 +1509,41 @@ body {
   text-transform: uppercase;
 }
 
+.secondary-section-header {
+  max-width: 100%;
+}
+
+.secondary-section-title {
+  max-width: 42rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 1.04;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+.secondary-section-title--section {
+  font-size: clamp(2rem, 3.1vw, 3.25rem);
+}
+
+.secondary-section-title--editorial {
+  max-width: 46rem;
+  font-size: clamp(1.75rem, 2.45vw, 2.65rem);
+  line-height: 1.1;
+}
+
+.secondary-section-title--compact,
+.secondary-section-title--legal {
+  max-width: 36rem;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.12;
+}
+
+.secondary-section-body {
+  max-width: 42rem;
+}
+
 .film-timeline-step {
   display: flex;
   align-items: center;
@@ -1760,6 +1795,12 @@ body {
   color: rgba(245, 241, 233, 0.82);
   font-size: 0.96rem;
   line-height: 1.55;
+}
+
+.film-cta-section h2.secondary-section-title {
+  max-width: 38rem;
+  font-size: clamp(1.9rem, 3vw, 3.1rem);
+  line-height: 1.04;
 }
 
 .film-services-page-grid {

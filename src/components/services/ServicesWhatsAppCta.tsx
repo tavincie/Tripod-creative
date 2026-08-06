@@ -7,6 +7,7 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/i18n/routing';
+import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
 import { sampleMedia } from '@/data/sampleMedia';
 
 interface ServicesWhatsAppCtaProps {
@@ -21,7 +22,7 @@ export function ServicesWhatsAppCta({
 
   return (
     <>
-      <section className="bg-[linear-gradient(135deg,#f5f1e9_0%,#f1d2be_42%,#ff7c48_100%)] py-16 lg:py-20">
+      <section className="bg-[linear-gradient(135deg,#f5f1e9_0%,#f1d2be_42%,#ff7c48_100%)] py-12 sm:py-14 lg:py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.92fr)] lg:items-center">
           <ScrollReveal>
             <div className="relative overflow-hidden rounded-[2rem] border border-[rgba(23,21,18,0.12)] bg-black shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
@@ -44,13 +45,14 @@ export function ServicesWhatsAppCta({
 
           <ScrollReveal delay={0.08}>
             <div className="space-y-5">
-              <p className="film-light-kicker">{tServices('digitalSupport.eyebrow')}</p>
-              <h2 className="film-editorial-heading max-w-xl text-[var(--tripod-text-dark)]">
-                {tServices('digitalSupport.title')}
-              </h2>
-              <p className="max-w-lg text-sm leading-7 text-[rgba(23,21,18,0.72)] sm:text-base">
-                {tServices('digitalSupport.body')}
-              </p>
+              <SecondarySectionHeader
+                eyebrow={tServices('digitalSupport.eyebrow')}
+                title={tServices('digitalSupport.title')}
+                body={tServices('digitalSupport.body')}
+                tone="light"
+                layout="stack"
+                className="mb-0"
+              />
               <div className="grid gap-3 sm:grid-cols-2">
                 {(tServices.raw('digitalSupport.items') as string[]).map((item) => (
                   <div
@@ -85,7 +87,9 @@ export function ServicesWhatsAppCta({
                 <span className="film-rec-dot" aria-hidden="true" />
                 {tServices('cta.eyebrow')}
               </p>
-              <h2>{tServices('cta.title')}</h2>
+              <h2 className="secondary-section-title secondary-section-title--section">
+                {tServices('cta.title')}
+              </h2>
             </div>
           </ScrollReveal>
 

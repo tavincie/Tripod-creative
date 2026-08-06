@@ -7,6 +7,7 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
+import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
 import {
   portfolioCategories,
   portfolioData,
@@ -193,23 +194,17 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#090909_0%,#050505_100%)] py-14 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#090909_0%,#050505_100%)] py-12 sm:py-14 lg:py-16">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(245,241,233,0.04)_0_1px,transparent_1px_11rem)] opacity-20" />
         <div className="relative mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-            <div className="space-y-3">
-              <ScrollReveal>
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {t('grid.eyebrow')}
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.08}>
-                <h2 className="max-w-xl text-[clamp(2.9rem,4.8vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
-                  {t('grid.title')}
-                </h2>
-              </ScrollReveal>
-            </div>
+          <div className="mb-7 grid gap-5 lg:mb-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <SecondarySectionHeader
+              eyebrow={t('grid.eyebrow')}
+              title={t('grid.title')}
+              body={t('grid.body')}
+              layout="stack"
+              className="mb-0 lg:col-span-1"
+            />
             <ScrollReveal delay={0.12}>
               <div className="flex flex-wrap items-center gap-3 lg:justify-end">
                 <div className="rounded-sm border border-white/10 bg-white/[0.03] px-4 py-3 font-mono text-[0.62rem] font-black uppercase tracking-[0.16em] text-[rgba(245,241,233,0.72)]">
@@ -283,7 +278,7 @@ export function PortfolioExperience({
                         </div>
 
                         <div className="space-y-3">
-                          <h3 className="text-[1.5rem] font-black uppercase leading-[0.94] tracking-[-0.03em] text-[var(--tripod-warm-white)] sm:text-[1.8rem]">
+                          <h3 className="text-[1.32rem] font-black uppercase leading-tight tracking-normal text-[var(--tripod-warm-white)] sm:text-[1.5rem]">
                             {t(`projects.${item.key}.title`)}
                           </h3>
                           <p className="text-sm leading-7 text-[rgba(245,241,233,0.74)]">
@@ -327,28 +322,13 @@ export function PortfolioExperience({
         </div>
       </section>
 
-      <section className="tripod-page-dark border-y border-white/6 py-14 sm:py-16 lg:py-20">
+      <section className="tripod-page-dark border-y border-white/6 py-12 sm:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-16">
-          <div className="mb-8 grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-            <div className="space-y-3">
-              <ScrollReveal>
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {t('featured.eyebrow')}
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.08}>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--tripod-warm-white)]">
-                  {t('featured.title')}
-                </h2>
-              </ScrollReveal>
-            </div>
-            <ScrollReveal delay={0.12}>
-              <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.72)] sm:text-base">
-                {t('featured.subtitle')}
-              </p>
-            </ScrollReveal>
-          </div>
+          <SecondarySectionHeader
+            eyebrow={t('featured.eyebrow')}
+            title={t('featured.title')}
+            body={t('featured.subtitle')}
+          />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredArchiveItems.map((item, index) => {
@@ -393,7 +373,9 @@ export function PortfolioExperience({
                 <span className="film-rec-dot" aria-hidden="true" />
                 {t('cta.eyebrow')}
               </p>
-              <h2>{t('cta.title')}</h2>
+              <h2 className="secondary-section-title secondary-section-title--section">
+                {t('cta.title')}
+              </h2>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.08}>

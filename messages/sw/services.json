@@ -33,8 +33,8 @@
   },
   "intro": {
     "eyebrow": "Service Film Strip",
-    "title": "Huduma 12 zimepangwa kama workflow moja iliyounganishwa.",
-    "body": "Kila zone inaonyesha jinsi Tripod inaunganisha creative direction, capture, sound, print, na rollout support bila kuuvunja brief vipande vipande."
+    "title": "Huduma zilizounganishwa",
+    "body": "Huduma 12 zimepangwa kama workflow moja, zikionyesha jinsi Tripod inaunganisha creative direction, capture, sound, print, na rollout support bila kuuvunja brief vipande vipande."
   },
   "zones": {
     "designBrand": {
@@ -146,7 +146,7 @@
   },
   "process": {
     "eyebrow": "Production Board",
-    "title": "Kutoka brief hadi delivery kwa timeline moja ya studio.",
+    "title": "Brief hadi delivery",
     "body": "Hii inaonyesha jinsi Tripod inavyofanya kazi kwa vitendo: hatua wazi, handoff iliyoeleweka, na njia ya kutoka idea hadi delivery.",
     "steps": [
       {
@@ -178,7 +178,7 @@
   },
   "digitalSupport": {
     "eyebrow": "Digital Support ya Ziada",
-    "title": "DIGITAL SUPPORT INAWEZA KUFUATA CAMPAIGN BILA KUTAWALA UKURASA.",
+    "title": "Campaign rollout support",
     "body": "Ikiwa campaign inahitaji rollout support, content structuring, au landing-page assistance, Tripod inaweza kupanua production plan baada ya brief kuwa wazi.",
     "items": [
       "Landing-page support",

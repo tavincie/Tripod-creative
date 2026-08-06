@@ -7,6 +7,7 @@ import { Globe, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
+import { SecondarySectionHeader } from '@/components/shared/SecondarySectionHeader';
 import { Link } from '@/i18n/routing';
 import { sampleMedia } from '@/data/sampleMedia';
 import { siteConfig } from '@/config/site';
@@ -261,22 +262,17 @@ export function ContactBookingExperience({
         </div>
       </SecondaryPageHero>
 
-      <section className="tripod-page-light py-16 lg:py-20">
+      <section className="tripod-page-light py-12 sm:py-14 lg:py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-16 xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.88fr)]">
           <ScrollReveal>
             <div className="rounded-[2rem] tripod-dark-panel p-6 sm:p-8">
-              <div className="mb-6 space-y-3">
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {tContact('form.eyebrow')}
-                </p>
-                <h2 className="max-w-xl text-[clamp(2.75rem,4.5vw,4.8rem)] font-black uppercase leading-[0.92] tracking-[-0.05em] text-white">
-                  {tContact('form.title')}
-                </h2>
-                <p className="body-md max-w-2xl text-on-surface-variant">
-                  {tContact('form.subtitle')}
-                </p>
-              </div>
+              <SecondarySectionHeader
+                eyebrow={tContact('form.eyebrow')}
+                title={tContact('form.title')}
+                body={tContact('form.subtitle')}
+                layout="stack"
+                className="mb-6"
+              />
 
               <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                 <div className="grid gap-5 md:grid-cols-2">
@@ -611,7 +607,9 @@ export function ContactBookingExperience({
                 <span className="film-rec-dot" aria-hidden="true" />
                 {tContact('cta.eyebrow')}
               </p>
-              <h2>{tContact('cta.title')}</h2>
+              <h2 className="secondary-section-title secondary-section-title--section">
+                {tContact('cta.title')}
+              </h2>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.08}>

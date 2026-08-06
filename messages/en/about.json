@@ -15,8 +15,8 @@
   },
   "identity": {
     "eyebrow": "Studio Identity",
-    "title": "One production team built to make brands seen, heard, and remembered.",
-    "body": "Tripod Creative Agency does not split design, production, sound, and rollout into disconnected suppliers. We keep the creative direction together from the first brief to the final delivery.",
+    "title": "One production team",
+    "body": "Built to keep brands seen, heard, and remembered, Tripod Creative Agency keeps design, production, sound, and rollout moving through one creative direction from first brief to final delivery.",
     "credits": [
       "We design.",
       "We shoot.",
@@ -27,8 +27,8 @@
   },
   "notes": {
     "eyebrow": "Production Notes",
-    "title": "The culture stays disciplined, practical, and close to the work.",
-    "body": "These notes describe how Tripod works in real production situations: clear direction, careful execution, and delivery that is ready to use.",
+    "title": "Production discipline",
+    "body": "Our working culture stays practical, focused, and close to the real demands of each production: clear direction, careful execution, and delivery that is ready to use.",
     "items": [
       {
         "number": "01",
@@ -64,8 +64,8 @@
   },
   "difference": {
     "eyebrow": "Why Tripod Feels Different",
-    "title": "The studio moves like one production desk instead of disconnected departments.",
-    "body": "That difference shows up in the handoff. The same creative thread stays visible from concept through design, capture, recording, print, and rollout.",
+    "title": "One connected studio",
+    "body": "Design, photography, video, audio, print, and campaign production move through one coordinated workflow, so the same creative thread stays visible from concept through rollout.",
     "labels": [
       "Direction Locked",
       "Crew Energy",
@@ -74,7 +74,8 @@
   },
   "process": {
     "eyebrow": "Production Credits",
-    "title": "A working process that keeps the brief moving from idea to launch.",
+    "title": "From brief to launch",
+    "body": "A clear production process keeps the project moving from the first idea through final delivery.",
     "steps": [
       {
         "number": "01",

@@ -15,8 +15,8 @@
   },
   "identity": {
     "eyebrow": "Studio Identity",
-    "title": "Timu moja ya production iliyojengwa kufanya brands zionekane, zisikike, na zikumbukwe.",
-    "body": "Tripod Creative Agency haigawi design, production, sound, na rollout kwa suppliers waliotengana. Tunaweka creative direction pamoja kuanzia brief ya kwanza hadi delivery ya mwisho.",
+    "title": "Timu moja ya production",
+    "body": "Imejengwa kusaidia brands zionekane, zisikike, na zikumbukwe, huku Tripod Creative Agency ikiweka design, production, sound, na rollout chini ya creative direction moja kuanzia brief ya kwanza hadi delivery ya mwisho.",
     "credits": [
       "Tunadesign.",
       "Tunashoot.",
@@ -27,8 +27,8 @@
   },
   "notes": {
     "eyebrow": "Production Notes",
-    "title": "Culture inabaki disciplined, practical, na karibu na kazi yenyewe.",
-    "body": "Notes hizi zinaeleza jinsi Tripod inavyofanya kazi kwenye production za kweli: direction iliyo wazi, execution makini, na delivery iliyo tayari kutumika.",
+    "title": "Production discipline",
+    "body": "Culture yetu ya kazi inabaki practical, focused, na karibu na mahitaji halisi ya kila production: direction iliyo wazi, execution makini, na delivery iliyo tayari kutumika.",
     "items": [
       {
         "number": "01",
@@ -64,8 +64,8 @@
   },
   "difference": {
     "eyebrow": "Kwa Nini Tripod Inajisikia Tofauti",
-    "title": "Studio inasogea kama production desk moja badala ya departments zisizoungana.",
-    "body": "Tofauti hiyo huonekana kwenye handoff. Creative thread ileile inaendelea kuonekana kutoka concept hadi design, capture, recording, print, na rollout.",
+    "title": "Studio moja iliyoungana",
+    "body": "Design, photography, video, audio, print, na campaign production vinasogea ndani ya workflow moja iliyoratibiwa, hivyo creative thread ileile inaendelea kuonekana kutoka concept hadi rollout.",
     "labels": [
       "Direction Locked",
       "Crew Energy",
@@ -74,7 +74,8 @@
   },
   "process": {
     "eyebrow": "Production Credits",
-    "title": "Mchakato wa kazi unaosukuma brief kutoka idea hadi launch.",
+    "title": "Kutoka brief hadi launch",
+    "body": "Mchakato ulio wazi huifanya project isogee kutoka idea ya kwanza hadi final delivery.",
     "steps": [
       {
         "number": "01",
