@@ -1635,6 +1635,19 @@ body {
   overflow-x: clip;
 }
 
+.featured-work-layout {
+  width: 100%;
+}
+
+.featured-work-copy {
+  min-width: 0;
+}
+
+.featured-work-carousel-column {
+  min-width: 0;
+  width: 100%;
+}
+
 .film-portfolio-strip {
   position: relative;
   width: 100%;
@@ -1830,6 +1843,68 @@ body {
     max-width: 100%;
     padding-inline: 1rem;
     padding-bottom: 3.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-work-layout {
+    grid-template-columns: minmax(380px, 0.82fr) minmax(0, 1.18fr);
+    align-items: center;
+    column-gap: clamp(56px, 5vw, 96px);
+  }
+
+  .featured-work-copy {
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+    padding-right: clamp(24px, 3vw, 40px);
+    position: relative;
+    z-index: 2;
+  }
+
+  .featured-work-title {
+    max-width: 8ch;
+    font-size: clamp(3.1rem, 3.9vw, 4.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+
+  .featured-work-copy p:not(.film-kicker) {
+    margin-top: 1.15rem;
+    max-width: 19rem;
+  }
+
+  .featured-work-copy .film-text-link {
+    margin-top: 1.4rem;
+  }
+
+  .featured-work-carousel-column {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .film-portfolio-strip {
+    max-width: min(100%, 48rem);
+    margin-left: auto;
+  }
+
+  .film-portfolio-strip__viewport {
+    padding-inline: 2.5rem;
+  }
+
+  .film-portfolio-card {
+    flex: 0 0 clamp(15.75rem, 22vw, 18.75rem);
+    min-width: clamp(15.75rem, 22vw, 18.75rem);
+    min-height: clamp(15.5rem, 22vw, 17.5rem);
+  }
+
+  .film-portfolio-card img {
+    object-position: center 35%;
   }
 }
 

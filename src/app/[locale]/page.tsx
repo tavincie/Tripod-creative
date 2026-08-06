@@ -1554,10 +1554,12 @@ export default function HomePage() {
       </section>
 
       <section className="film-portfolio-section" aria-labelledby="home-portfolio-title">
-        <div className="mx-auto grid w-full max-w-full min-w-0 gap-6 px-5 py-10 sm:px-6 md:max-w-7xl md:gap-7 md:px-16 md:py-12 lg:grid-cols-[0.7fr_2.8fr]">
-          <div className="film-section-intro film-section-intro--dark film-section-intro--portfolio min-w-0 max-w-full">
+        <div className="featured-work-layout mx-auto grid w-full max-w-full min-w-0 gap-6 px-5 py-10 sm:px-6 md:max-w-7xl md:gap-7 md:px-16 md:py-12">
+          <div className="featured-work-copy film-section-intro film-section-intro--dark film-section-intro--portfolio min-w-0 max-w-full">
             <p className="film-kicker">{tHome('portfolio.eyebrow')}</p>
-            <h2 id="home-portfolio-title">{tHome('portfolio.title')}</h2>
+            <h2 id="home-portfolio-title" className="featured-work-title">
+              {tHome('portfolio.title')}
+            </h2>
             <p>{tHome('portfolio.intro')}</p>
             <Link
               href="/portfolio"
@@ -1569,6 +1571,7 @@ export default function HomePage() {
             </Link>
           </div>
 
+          <div className="featured-work-carousel-column min-w-0">
           <div className="film-portfolio-strip w-full min-w-0 max-w-full" aria-label={tHome('portfolio.title')}>
             <button
               type="button"
@@ -1644,6 +1647,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
