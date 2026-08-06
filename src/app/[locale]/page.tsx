@@ -1439,9 +1439,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="film-light-section" aria-labelledby="home-services-title">
-        <div className="mx-auto grid w-full max-w-full min-w-0 gap-6 px-5 py-8 sm:px-6 md:max-w-7xl md:gap-8 md:px-16 md:py-10 lg:grid-cols-[0.85fr_2.45fr] lg:py-14">
-          <div className="film-section-intro film-section-intro--services min-w-0 max-w-full">
+      <section className="film-light-section film-light-section--services" aria-labelledby="home-services-title">
+        <div className="home-services-layout grid w-full min-w-0 gap-6 py-8 md:gap-8 md:py-10 lg:grid-cols-[38%_62%] lg:items-center lg:py-14">
+          <div className="home-services-copy min-w-0">
+            <div className="film-section-intro film-section-intro--services min-w-0 max-w-full">
               <p className="film-light-kicker">{tHome('services.eyebrow')}</p>
               <h2 id="home-services-title">{tHome('services.title')}</h2>
               <p>{tHome('services.intro')}</p>
@@ -1449,9 +1450,11 @@ export default function HomePage() {
                 {tCommon('exploreAllServices')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
+            </div>
           </div>
 
-          <div className="film-service-tape w-full min-w-0 max-w-full" aria-label="Tripod Creative Agency services">
+          <div className="home-services-reel min-w-0">
+            <div className="film-service-tape w-full min-w-0 max-w-full" aria-label="Tripod Creative Agency services">
             <button
               type="button"
               className="film-service-tape__control film-service-tape__control--previous focus-ring"
@@ -1544,6 +1547,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </div>
         </div>
