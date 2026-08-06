@@ -916,7 +916,7 @@ export default function HomePage() {
               </p>
 
               <div className="film-hero-actions flex flex-wrap items-center gap-4">
-                <Link href="/portfolio" className="focus-ring rounded-sm">
+                <Link href="/portfolio" prefetch={false} className="focus-ring rounded-sm">
                   <Button variant="primary" className="gap-2 px-6 py-3">
                     {tHome('hero.primary')}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -1080,7 +1080,7 @@ export default function HomePage() {
               <p className="film-light-kicker">{tHome('services.eyebrow')}</p>
               <h2 id="home-services-title">{tHome('services.title')}</h2>
               <p>{tHome('services.intro')}</p>
-              <Link href="/services" className="film-text-link">
+              <Link href="/services" prefetch={false} className="film-text-link">
                 {tCommon('exploreAllServices')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
@@ -1146,6 +1146,7 @@ export default function HomePage() {
                             <p>{tHome(`services.details.${block.key}`)}</p>
                             <Link
                               href="/services"
+                              prefetch={false}
                               aria-label={`${tHome(`services.labels.${block.key}`)} services`}
                               className="film-service-tape__link"
                             >
@@ -1172,6 +1173,7 @@ export default function HomePage() {
               <p>{tHome('portfolio.intro')}</p>
               <Link
                 href="/portfolio"
+                prefetch={false}
                 className="film-text-link film-text-link--light film-portfolio-link"
               >
                 {tHome('portfolio.link')}

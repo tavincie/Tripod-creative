@@ -284,6 +284,7 @@ export function AboutExperience({ ctaUrl }: AboutExperienceProps) {
 
               <Link
                 href="/portfolio"
+                prefetch={false}
                 className="focus-ring inline-flex items-center gap-2 rounded-sm border border-white/12 px-4 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
               >
                 {tAbout('cta.secondary')}

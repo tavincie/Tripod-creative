@@ -31,7 +31,7 @@ export function Footer() {
       <div className="tripod-shell--wide film-footer__container">
         <div className="film-footer__grid">
           <div className="film-footer-brand">
-            <Link href="/" className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creative Agency home">
+            <Link href="/" prefetch={false} className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creative Agency home">
               <Image
                 src="/branding/tripod-creative-footer-logo.png"
                 alt="Tripod Creative Agency logo"
@@ -52,7 +52,7 @@ export function Footer() {
             <h2 className="film-footer-heading">{tFooter('navHeading')}</h2>
             <nav className="film-footer-list">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="film-footer-link focus-ring">
+                <Link key={link.href} href={link.href} prefetch={false} className="film-footer-link focus-ring">
                   {link.label}
                 </Link>
               ))}
@@ -63,7 +63,7 @@ export function Footer() {
             <h2 className="film-footer-heading">{tFooter('servicesHeading')}</h2>
             <div className="film-footer-list">
               {services.map((service) => (
-                <Link key={service} href="/services" className="film-footer-link focus-ring">
+                <Link key={service} href="/services" prefetch={false} className="film-footer-link focus-ring">
                   {service}
                 </Link>
               ))}

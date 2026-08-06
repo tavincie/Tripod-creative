@@ -62,6 +62,7 @@ export function CameraMobileMenu({
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={false}
                   onClick={onToggle}
                   aria-current={item.active ? 'page' : undefined}
                   className={`camera-mobile-menu__item focus-ring ${item.active ? 'is-active' : ''}`}

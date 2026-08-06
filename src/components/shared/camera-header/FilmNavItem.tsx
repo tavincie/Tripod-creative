@@ -22,6 +22,7 @@ export function FilmNavItem({
   return (
     <Link
       href={href}
+      prefetch={false}
       onClick={onNavigate}
       aria-current={active ? 'page' : undefined}
       className={`film-nav-item focus-ring ${active ? 'is-active' : ''}`}

@@ -461,6 +461,7 @@ export function ContactBookingExperience({
 
                   <Link
                     href="/portfolio"
+                    prefetch={false}
                     className="focus-ring inline-flex items-center justify-center rounded-sm border border-white/12 px-6 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
                   >
                     {tContact('cta.viewWork')}
@@ -631,6 +632,7 @@ export function ContactBookingExperience({
 
               <Link
                 href="/services"
+                prefetch={false}
                 className="focus-ring inline-flex items-center gap-2 rounded-sm border border-white/12 px-4 py-3 font-mono text-[0.68rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-warm-white)] transition-colors hover:border-[var(--tripod-orange)] hover:text-[var(--tripod-orange)]"
               >
                 {tContact('cta.secondary')}

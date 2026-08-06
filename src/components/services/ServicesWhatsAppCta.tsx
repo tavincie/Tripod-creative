@@ -123,6 +123,7 @@ export function ServicesWhatsAppCta({
 
               <Link
                 href="/contact"
+                prefetch={false}
                 className="focus-ring inline-flex items-center gap-2 pt-1 font-mono text-[0.68rem] font-black uppercase tracking-[0.14em] text-[var(--tripod-orange)]"
               >
                 {tServices('cta.contact')}
