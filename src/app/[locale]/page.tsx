@@ -60,6 +60,7 @@ interface RapidImageCycleOptions {
   interval: number;
   initialDelay: number;
   enabled: boolean;
+  resetKey?: string;
 }
 
 function useRapidImageCycle({
@@ -67,8 +68,10 @@ function useRapidImageCycle({
   interval,
   initialDelay,
   enabled,
+  resetKey,
 }: RapidImageCycleOptions) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [cycleState, setCycleState] = useState({ resetKey, activeIndex: 0 });
+  const activeIndex = cycleState.resetKey === resetKey ? cycleState.activeIndex : 0;
 
   useEffect(() => {
     if (!enabled || imageCount <= 1) {
@@ -84,9 +87,21 @@ function useRapidImageCycle({
       }
 
       delayId = window.setTimeout(() => {
-        setActiveIndex((currentIndex) => (currentIndex + 1) % imageCount);
+        setCycleState((currentState) => ({
+          resetKey,
+          activeIndex:
+            currentState.resetKey === resetKey
+              ? (currentState.activeIndex + 1) % imageCount
+              : 1 % imageCount,
+        }));
         intervalId = window.setInterval(() => {
-          setActiveIndex((currentIndex) => (currentIndex + 1) % imageCount);
+          setCycleState((currentState) => ({
+            resetKey,
+            activeIndex:
+              currentState.resetKey === resetKey
+                ? (currentState.activeIndex + 1) % imageCount
+                : 1 % imageCount,
+          }));
         }, interval);
       }, initialDelay);
     };
@@ -112,9 +127,25 @@ function useRapidImageCycle({
       stopCycle();
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [enabled, imageCount, initialDelay, interval]);
+  }, [enabled, imageCount, initialDelay, interval, resetKey]);
 
-  return activeIndex;
+  return activeIndex % imageCount;
+}
+
+function getImagePanelState(imageIndex: number, activeIndex: number, imageCount: number) {
+  if (imageIndex === activeIndex) {
+    return 'is-active';
+  }
+
+  if (imageIndex === (activeIndex - 1 + imageCount) % imageCount) {
+    return 'is-previous';
+  }
+
+  if (imageIndex === (activeIndex + 1) % imageCount) {
+    return 'is-next';
+  }
+
+  return 'is-far';
 }
 
 interface ProductionPathFanCardProps {
@@ -150,11 +181,9 @@ function ProductionPathFanCard({
     interval: prefersReducedMotion ? 2800 : card.cycleIntervalMs,
     initialDelay: prefersReducedMotion ? 0 : card.initialDelayMs,
     enabled: isSectionActive && !isPaused && !isFlipped && !prefersReducedMotion,
+    resetKey: card.id,
   });
   const position = productionPathFanPositions[index] ?? productionPathFanPositions[0];
-  const previousImageIndex =
-    (activeImageIndex - 1 + card.imagePaths.length) % card.imagePaths.length;
-  const nextImageIndex = (activeImageIndex + 1) % card.imagePaths.length;
   const highlights = tBooking.raw(`teaser.productionPaths.${card.highlightsKey}`) as string[];
   const cardStyle = {
     '--fan-x': `${position.x}px`,
@@ -195,42 +224,24 @@ function ProductionPathFanCard({
             {String(index + 1).padStart(2, '0')}
           </span>
           <span className="booking-package-teaser-card__slideshow" aria-hidden="true">
-            <span className="booking-package-teaser-card__image-panel is-previous">
-              <Image
-                src={card.imagePaths[previousImageIndex]}
-                alt=""
-                fill
-                priority={index <= 1}
-                sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
-              />
-            </span>
-            <span className="booking-package-teaser-card__image-panel is-next">
-              <Image
-                src={card.imagePaths[nextImageIndex]}
-                alt=""
-                fill
-                priority={index <= 1}
-                sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
-              />
-            </span>
-            <AnimatePresence mode="popLayout" initial={false}>
-              <motion.span
-                key={`${card.id}-${card.imagePaths[activeImageIndex]}`}
-                className="booking-package-teaser-card__image-panel is-active"
-                initial={{ opacity: 0, scale: 1.06, y: 8 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.99, y: -6 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.22, ease: 'easeOut' }}
+            {card.imagePaths.map((imagePath, imageIndex) => (
+              <span
+                key={`${card.id}-${imagePath}`}
+                className={`booking-package-teaser-card__image-panel ${getImagePanelState(
+                  imageIndex,
+                  activeImageIndex,
+                  card.imagePaths.length,
+                )}`}
               >
                 <Image
-                  src={card.imagePaths[activeImageIndex]}
+                  src={imagePath}
                   alt=""
                   fill
-                  priority={index <= 1}
+                  priority={index <= 1 && imageIndex === 0}
                   sizes="(max-width: 760px) 78vw, (max-width: 1120px) 34vw, 260px"
                 />
-              </motion.span>
-            </AnimatePresence>
+              </span>
+            ))}
           </span>
           <span className="booking-package-teaser-card__shade" aria-hidden="true" />
           <span className="booking-package-teaser-card__progress" aria-hidden="true">
@@ -317,10 +328,8 @@ function MobileProductionPathCarousel({
     interval: prefersReducedMotion ? 3200 : Math.max(activeCard.cycleIntervalMs, 2200),
     initialDelay: prefersReducedMotion ? 0 : 550,
     enabled: isSectionActive && !isFlipped && !prefersReducedMotion,
+    resetKey: activeCard.id,
   });
-  const previousImageIndex =
-    (activeImageIndex - 1 + activeCard.imagePaths.length) % activeCard.imagePaths.length;
-  const nextImageIndex = (activeImageIndex + 1) % activeCard.imagePaths.length;
   const highlights = tBooking.raw(
     `teaser.productionPaths.${activeCard.highlightsKey}`,
   ) as string[];
@@ -359,7 +368,25 @@ function MobileProductionPathCarousel({
         ))}
       </div>
 
-      <div className="booking-package-mobile-carousel__stage">
+      <div
+        className="booking-package-mobile-carousel__stage"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            selectCard(activeCardIndex + 1);
+          } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            selectCard(activeCardIndex - 1);
+          } else if (event.key === 'Home') {
+            event.preventDefault();
+            selectCard(0);
+          } else if (event.key === 'End') {
+            event.preventDefault();
+            selectCard(productionPathCards.length - 1);
+          }
+        }}
+      >
         <button
           type="button"
           className="booking-package-mobile-carousel__control booking-package-mobile-carousel__control--previous"
@@ -369,7 +396,7 @@ function MobileProductionPathCarousel({
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
         </button>
 
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence initial={false}>
           <motion.article
             key={activeCard.id}
             className={`booking-package-mobile-card${isFlipped ? ' is-flipped' : ''}`}
@@ -405,42 +432,24 @@ function MobileProductionPathCarousel({
                   {String(activeCardIndex + 1).padStart(2, '0')}
                 </span>
                 <span className="booking-package-teaser-card__slideshow" aria-hidden="true">
-                  <span className="booking-package-teaser-card__image-panel is-previous">
-                    <Image
-                      src={activeCard.imagePaths[previousImageIndex]}
-                      alt=""
-                      fill
-                      priority={activeCardIndex === 0}
-                      sizes="88vw"
-                    />
-                  </span>
-                  <span className="booking-package-teaser-card__image-panel is-next">
-                    <Image
-                      src={activeCard.imagePaths[nextImageIndex]}
-                      alt=""
-                      fill
-                      priority={activeCardIndex === 0}
-                      sizes="88vw"
-                    />
-                  </span>
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    <motion.span
-                      key={`${activeCard.id}-${activeCard.imagePaths[activeImageIndex]}`}
-                      className="booking-package-teaser-card__image-panel is-active"
-                      initial={{ opacity: 0, scale: 1.035 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.99 }}
-                      transition={{ duration: prefersReducedMotion ? 0 : 0.24, ease: 'easeOut' }}
+                  {activeCard.imagePaths.map((imagePath, imageIndex) => (
+                    <span
+                      key={`${activeCard.id}-mobile-${imagePath}`}
+                      className={`booking-package-teaser-card__image-panel ${getImagePanelState(
+                        imageIndex,
+                        activeImageIndex,
+                        activeCard.imagePaths.length,
+                      )}`}
                     >
                       <Image
-                        src={activeCard.imagePaths[activeImageIndex]}
+                        src={imagePath}
                         alt=""
                         fill
                         sizes="88vw"
-                        priority={activeCardIndex === 0}
+                        priority={activeCardIndex === 0 && imageIndex === 0}
                       />
-                    </motion.span>
-                  </AnimatePresence>
+                    </span>
+                  ))}
                 </span>
                 <span className="booking-package-teaser-card__shade" aria-hidden="true" />
                 <span className="booking-package-teaser-card__progress" aria-hidden="true">
@@ -614,6 +623,53 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    if (isServiceTapePaused || prefersReducedMotion) {
+      return undefined;
+    }
+
+    let intervalId: number | null = null;
+    const pixelsPerSecond = 28;
+    const tickMs = 32;
+
+    const normalizeScrollPosition = () => {
+      const viewport = serviceTapeViewportRef.current;
+
+      if (!viewport) {
+        return;
+      }
+
+      const loopWidth = viewport.scrollWidth / 2;
+
+      if (loopWidth <= 0) {
+        return;
+      }
+
+      if (viewport.scrollLeft >= loopWidth) {
+        viewport.scrollLeft -= loopWidth;
+      } else if (viewport.scrollLeft < 0) {
+        viewport.scrollLeft += loopWidth;
+      }
+    };
+
+    const tick = () => {
+      const viewport = serviceTapeViewportRef.current;
+
+      if (viewport) {
+        viewport.scrollLeft += pixelsPerSecond * (tickMs / 1000);
+        normalizeScrollPosition();
+      }
+    };
+
+    intervalId = window.setInterval(tick, tickMs);
+
+    return () => {
+      if (intervalId !== null) {
+        window.clearInterval(intervalId);
+      }
+    };
+  }, [isServiceTapePaused, prefersReducedMotion]);
+
+  useEffect(() => {
     const fanElement = packageCardsRef.current;
 
     if (!fanElement) {
@@ -674,6 +730,26 @@ export default function HomePage() {
     }, delay);
   };
 
+  const normalizeServiceTapeScroll = () => {
+    const viewport = serviceTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    const loopWidth = viewport.scrollWidth / 2;
+
+    if (loopWidth <= 0) {
+      return;
+    }
+
+    if (viewport.scrollLeft >= loopWidth) {
+      viewport.scrollLeft -= loopWidth;
+    } else if (viewport.scrollLeft < 0) {
+      viewport.scrollLeft += loopWidth;
+    }
+  };
+
   const handleServiceTapeWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     const viewport = serviceTapeViewportRef.current;
 
@@ -697,7 +773,50 @@ export default function HomePage() {
 
     event.preventDefault();
     viewport.scrollLeft += dominantDelta;
+    normalizeServiceTapeScroll();
     scheduleServiceTapeResume(1400);
+  };
+
+  const scrollServiceTapeBy = (distance: number) => {
+    const viewport = serviceTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    pauseServiceTape();
+    viewport.scrollLeft += distance;
+    normalizeServiceTapeScroll();
+    scheduleServiceTapeResume(1600);
+  };
+
+  const handleServiceTapeKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const viewport = serviceTapeViewportRef.current;
+
+    if (!viewport) {
+      return;
+    }
+
+    const itemWidth =
+      viewport.querySelector<HTMLElement>('.film-service-tape__item')?.offsetWidth ?? 240;
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      scrollServiceTapeBy(itemWidth);
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      scrollServiceTapeBy(-itemWidth);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      pauseServiceTape();
+      viewport.scrollLeft = 0;
+      scheduleServiceTapeResume(1600);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      pauseServiceTape();
+      viewport.scrollLeft = Math.max(viewport.scrollWidth / 2 - viewport.clientWidth, 0);
+      scheduleServiceTapeResume(1600);
+    }
   };
 
   const handleServiceTapePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -737,6 +856,7 @@ export default function HomePage() {
 
     const deltaX = event.clientX - dragState.startX;
     viewport.scrollLeft = dragState.startScrollLeft - deltaX;
+    normalizeServiceTapeScroll();
   };
 
   const finishServiceTapeInteraction = (pointerId?: number) => {
@@ -748,6 +868,7 @@ export default function HomePage() {
     }
 
     serviceTapeDragRef.current = null;
+    normalizeServiceTapeScroll();
     scheduleServiceTapeResume();
   };
 
@@ -1095,6 +1216,7 @@ export default function HomePage() {
             <div
               ref={serviceTapeViewportRef}
               className={`film-service-tape__viewport${prefersReducedMotion ? ' film-service-tape__viewport--reduced' : ''}${isServiceTapePaused || prefersReducedMotion ? ' is-paused' : ''}`}
+              tabIndex={0}
               onPointerEnter={pauseServiceTape}
               onPointerLeave={() => scheduleServiceTapeResume(250)}
               onPointerDown={handleServiceTapePointerDown}
@@ -1109,6 +1231,8 @@ export default function HomePage() {
                   scheduleServiceTapeResume(250);
                 }
               }}
+              onKeyDown={handleServiceTapeKeyDown}
+              onScroll={normalizeServiceTapeScroll}
               onWheel={handleServiceTapeWheel}
             >
               <div className="film-service-tape__track">
