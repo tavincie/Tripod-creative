@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { Button } from '@/components/ui/Button';
+import { SecondaryPageHero } from '@/components/shared/SecondaryPageHero';
 import { sampleMedia } from '@/data/sampleMedia';
 
 interface StudioAcademyExperienceProps {
@@ -47,103 +48,82 @@ export function StudioAcademyExperience({
 
   return (
     <main className="relative flex-grow overflow-hidden">
-      <section className="relative overflow-hidden border-b border-white/6 bg-[linear-gradient(180deg,#050505_0%,#050505_72%,#090909_100%)] pb-16 pt-28 sm:pt-32 lg:pb-24 lg:pt-36">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_14%,rgba(255,124,72,0.24),transparent_22%),radial-gradient(circle_at_84%_20%,rgba(245,241,233,0.08),transparent_20%),repeating-linear-gradient(90deg,rgba(245,241,233,0.04)_0_1px,transparent_1px_9rem)] opacity-90" />
-        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(245,241,233,0.22),transparent)]" />
-
-        <div className="relative mx-auto max-w-7xl px-5 md:px-16">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(25rem,1.14fr)] lg:items-center">
-            <div className="space-y-5">
-              <ScrollReveal>
-                <p className="film-kicker">
-                  <span className="film-rec-dot" aria-hidden="true" />
-                  {t('hero.eyebrow')}
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.08}>
-                <h1 className="max-w-[9.4ch] text-[clamp(2.85rem,13.8vw,5.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[var(--tripod-warm-white)] sm:max-w-4xl">
-                  {t('hero.title')}
-                </h1>
-              </ScrollReveal>
-              <ScrollReveal delay={0.12}>
-                <p className="max-w-2xl text-sm leading-7 text-[rgba(245,241,233,0.74)] sm:text-base">
-                  {t('hero.subtitle')}
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.16}>
-                <div className="grid gap-3 md:grid-cols-3">
-                  {(t.raw('hero.summary') as string[]).map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-[1rem] border border-white/10 bg-white/[0.03] px-4 py-4 font-mono text-[0.65rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]"
-                    >
-                      {item}
-                    </div>
-                  ))}
+      <SecondaryPageHero
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        titleId="studio-academy-hero-title"
+        textAfterTitle={
+          <ScrollReveal delay={0.16}>
+            <div className="grid gap-3 md:grid-cols-3">
+              {(t.raw('hero.summary') as string[]).map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[0.85rem] border border-white/10 bg-white/[0.03] px-4 py-4 font-mono text-[0.65rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]"
+                >
+                  {item}
                 </div>
-              </ScrollReveal>
+              ))}
+            </div>
+          </ScrollReveal>
+        }
+      >
+        <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_24px_60px_rgba(0,0,0,0.32)]">
+          <div className="grid gap-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(16rem,0.92fr)]">
+            <div className="relative min-h-[14rem] overflow-hidden border-b border-white/10 sm:min-h-[18rem] lg:min-h-[22rem] lg:border-b-0 lg:border-r">
+              <Image
+                src={sampleMedia.musicProducerWorkstation.src}
+                alt={tCommon(sampleMedia.musicProducerWorkstation.altKey)}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,124,72,0.06),rgba(0,0,0,0.76))]" />
+              <div className="absolute inset-[1rem] border border-white/12" aria-hidden="true" />
+              <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
+                <span>{t('hero.frameLabel')}</span>
+                <span>{t('hero.statusValue')}</span>
+              </div>
+              <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
+                {(t.raw('hero.laneLabels') as string[]).map((label) => (
+                  <span
+                    key={label}
+                    className="rounded-full border border-white/12 bg-black/30 px-3 py-1 font-mono text-[0.56rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-warm-white)]"
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <ScrollReveal delay={0.12}>
-              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,10,10,0.98),rgba(18,18,18,0.96))] shadow-[0_28px_70px_rgba(0,0,0,0.34)]">
-                <div className="grid gap-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.92fr)]">
-                  <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 sm:min-h-[22rem] lg:min-h-[31rem] lg:border-b-0 lg:border-r">
+            <div className="hidden gap-0 lg:grid">
+              {[sampleMedia.studioMicrophone, sampleMedia.instrumentTraining].map(
+                (media, index) => (
+                  <div
+                    key={media.key}
+                    className={`relative min-h-[8.5rem] overflow-hidden sm:min-h-[10rem] lg:min-h-[11rem] ${
+                      index === 0 ? 'border-b border-white/10' : ''
+                    }`}
+                  >
                     <Image
-                      src={sampleMedia.musicProducerWorkstation.src}
-                      alt={tCommon(sampleMedia.musicProducerWorkstation.altKey)}
+                      src={media.src}
+                      alt={tCommon(media.altKey)}
                       fill
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      sizes="(max-width: 1024px) 100vw, 22vw"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,124,72,0.06),rgba(0,0,0,0.76))]" />
-                    <div className="absolute inset-[1rem] border border-white/12" aria-hidden="true" />
-                    <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 font-mono text-[0.58rem] font-black uppercase tracking-[0.18em] text-[rgba(245,241,233,0.76)]">
-                      <span>{t('hero.frameLabel')}</span>
-                      <span>{t('hero.statusValue')}</span>
-                    </div>
-                    <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
-                      {(t.raw('hero.laneLabels') as string[]).map((label) => (
-                        <span
-                          key={label}
-                          className="rounded-full border border-white/12 bg-black/30 px-3 py-1 font-mono text-[0.56rem] font-black uppercase tracking-[0.16em] text-[var(--tripod-warm-white)]"
-                        >
-                          {label}
-                        </span>
-                      ))}
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
+                    <div className="absolute bottom-4 left-4 rounded-sm border border-white/12 bg-black/35 px-3 py-2 font-mono text-[0.58rem] font-black uppercase tracking-[0.16em] text-[rgba(245,241,233,0.76)]">
+                      {index === 0 ? `02 / ${t('hero.statusLabel')}` : `03 / ${t('zones.eyebrow')}`}
                     </div>
                   </div>
-
-                  <div className="grid gap-0">
-                    {[sampleMedia.studioMicrophone, sampleMedia.instrumentTraining].map(
-                      (media, index) => (
-                        <div
-                          key={media.key}
-                          className={`relative min-h-[11rem] overflow-hidden sm:min-h-[15.5rem] ${
-                            index === 0 ? 'border-b border-white/10' : ''
-                          }`}
-                        >
-                          <Image
-                            src={media.src}
-                            alt={tCommon(media.altKey)}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 22vw"
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" />
-                          <div className="absolute bottom-4 left-4 rounded-sm border border-white/12 bg-black/35 px-3 py-2 font-mono text-[0.58rem] font-black uppercase tracking-[0.16em] text-[rgba(245,241,233,0.76)]">
-                            {index === 0 ? `02 / ${t('hero.statusLabel')}` : `03 / ${t('zones.eyebrow')}`}
-                          </div>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+                ),
+              )}
+            </div>
           </div>
         </div>
-      </section>
+      </SecondaryPageHero>
 
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#090909_0%,#050505_100%)] py-14 sm:py-16 lg:py-20">
         <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(245,241,233,0.04)_0_1px,transparent_1px_11rem)] opacity-20" />

@@ -1087,7 +1087,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="film-service-tape" aria-label="Tripod Creative services">
+          <div className="film-service-tape" aria-label="Tripod Creative Agency services">
             <div
               ref={serviceTapeViewportRef}
               className={`film-service-tape__viewport${prefersReducedMotion ? ' film-service-tape__viewport--reduced' : ''}${isServiceTapePaused || prefersReducedMotion ? ' is-paused' : ''}`}

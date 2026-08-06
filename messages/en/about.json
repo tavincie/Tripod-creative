@@ -1,9 +1,9 @@
 {
-  "whatsappMessage": "Hello Tripod! I would like to learn more about your creative studio approach.",
+  "whatsappMessage": "Hello Tripod Creative Agency. I would like to learn more about your production approach.",
   "hero": {
     "eyebrow": "About Tripod",
     "title": "WE ARE THE CREATIVE CREW BEHIND THE FRAME.",
-    "subtitle": "Tripod Creative brings design, print, photography, video, audio, and digital storytelling into one production-minded studio.",
+    "subtitle": "Tripod Creative Agency connects design, print, photography, video, audio, and digital rollout inside one production-led studio.",
     "frameLabel": "Production Notes",
     "statusLabel": "Crew Status",
     "statusValue": "Active / Studio Ready",
@@ -15,8 +15,8 @@
   },
   "identity": {
     "eyebrow": "Studio Identity",
-    "title": "One crew built to make brands seen, heard, and remembered.",
-    "body": "Tripod is not arranged like separate vendors passing work around. The studio holds design, print, stills, video, audio, and digital rollout in one production-minded space so the direction stays intact from the first idea to the final handoff.",
+    "title": "One production team built to make brands seen, heard, and remembered.",
+    "body": "Tripod Creative Agency does not split design, production, sound, and rollout into disconnected suppliers. We keep the creative direction together from the first brief to the final delivery.",
     "credits": [
       "We design.",
       "We shoot.",
@@ -28,7 +28,7 @@
   "notes": {
     "eyebrow": "Production Notes",
     "title": "The culture stays disciplined, practical, and close to the work.",
-    "body": "These notes behave more like crew credits than company values. They describe how the studio approaches visuals, sound, pace, and delivery without turning into a corporate profile.",
+    "body": "These notes describe how Tripod works in real production situations: clear direction, careful execution, and delivery that is ready to use.",
     "items": [
       {
         "number": "01",
@@ -52,8 +52,8 @@
       },
       {
         "number": "05",
-        "title": "Street-Level Creativity",
-        "description": "Ideas stay close to real audiences, real environments, and real creative energy."
+        "title": "Audience Awareness",
+        "description": "Ideas stay grounded in the people, places, and moments they are meant to reach."
       },
       {
         "number": "06",
@@ -64,8 +64,8 @@
   },
   "difference": {
     "eyebrow": "Why Tripod Feels Different",
-    "title": "The studio moves like one production desk instead of a stack of disconnected services.",
-    "body": "That difference shows up in the handoff. Ideas are not redesigned in one place, captured in another, and diluted by the time they launch. Tripod keeps the creative thread visible from concept through recording, production, print, and release.",
+    "title": "The studio moves like one production desk instead of disconnected departments.",
+    "body": "That difference shows up in the handoff. The same creative thread stays visible from concept through design, capture, recording, print, and rollout.",
     "labels": [
       "Direction Locked",
       "Crew Energy",
@@ -74,7 +74,7 @@
   },
   "process": {
     "eyebrow": "Production Credits",
-    "title": "A credits board that keeps the work moving from idea to launch.",
+    "title": "A working process that keeps the brief moving from idea to launch.",
     "steps": [
       {
         "number": "01",
@@ -106,7 +106,7 @@
   "cta": {
     "eyebrow": "Next Frame",
     "title": "READY TO PUT YOUR BRAND IN THE FRAME?",
-    "body": "Start the conversation, bring the brief into the studio, or head to the work archive and see how the production language comes to life.",
+    "body": "Start the conversation, bring the brief to Tripod, or explore the work archive and see how our production language comes to life.",
     "primary": "Start a Project",
     "secondary": "View Our Work"
   }

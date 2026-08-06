@@ -1,9 +1,9 @@
 {
-  "fallbackMessage": "Habari Tripod Creative. Ningependa kutuma project brief.",
+  "fallbackMessage": "Habari Tripod Creative Agency. Ningependa kutuma project brief.",
   "hero": {
     "eyebrow": "Project Intake",
     "title": "LETA IDEA. SISI TUTAIJENGA FRAME.",
-    "subtitle": "Tueleze unataka kutengeneza nini, itaonekana wapi, na inahitaji kusogea kwa kasi gani. Tripod itakupa hatua inayofuata.",
+    "subtitle": "Tueleze unataka kutengeneza nini, itaonekana wapi, na inahitaji kusogea kwa kasi gani. Tripod Creative Agency itakuongoza kwenye hatua inayofuata.",
     "labels": [
       "Studio Booking",
       "Creative Brief",
@@ -13,7 +13,7 @@
   "form": {
     "eyebrow": "Studio Brief Board",
     "title": "Jenga project brief.",
-    "subtitle": "Intake hii hubaki client-side na huandaa WhatsApp brief yenye maelezo ambayo studio inahitaji ili kujibu kwa uwazi.",
+    "subtitle": "Intake hii hubaki client-side na huandaa WhatsApp brief yenye maelezo ambayo Tripod inahitaji ili kujibu kwa uwazi.",
     "fields": {
       "name": "Jina lako",
       "phone": "Namba ya simu au WhatsApp",
@@ -34,7 +34,7 @@
       "usage": "Chagua matumizi au sehemu itakapoonekana",
       "timeline": "Chagua timeline",
       "budget": "Chagua budget range",
-      "message": "Eleza idea, campaign, deliverables, au production needs."
+      "message": "Eleza idea, deliverables, audience, na chochote ambacho Tripod inapaswa kujua kabla ya kujibu."
     },
     "services": {
       "graphicDesign": "Graphic Design",
@@ -49,7 +49,7 @@
       "podcastRecording": "Podcast Recording",
       "digitalMarketing": "Digital Marketing",
       "instrumentTraining": "Instrument Training",
-      "fullCampaign": "Full Campaign"
+      "fullCampaign": "Integrated Campaign"
     },
     "feelings": {
       "attention": "Attention ya haraka",
@@ -92,12 +92,12 @@
       "message": "Tafadhali andika maelezo ya project."
     },
     "submit": "Tuma Brief kwa WhatsApp",
-    "whatsappTemplate": "Habari Tripod Creative. Jina langu ni {name}. Contact: {phone}. Email: {email}. Tunatengeneza: {service}. Feeling inayotakiwa: {feeling}. Matumizi: {usage}. Timeline: {timeline}. Budget: {budget}. Maelezo ya project: {message}."
+    "whatsappTemplate": "Habari Tripod Creative Agency. Jina langu ni {name}. Contact: {phone}. Email: {email}. Tunatengeneza: {service}. Feeling inayotakiwa: {feeling}. Matumizi: {usage}. Timeline: {timeline}. Budget: {budget}. Maelezo ya project: {message}."
   },
   "response": {
     "eyebrow": "Studio Response Board",
-    "title": "WhatsApp inabaki ya kwanza kwa sababu brief inahitaji momentum.",
-    "body": "Tumia lane hii kwa project briefs, bookings, campaign conversations, na maswali ya haraka ya production yanayohitaji direction mapema.",
+    "title": "WhatsApp inabaki ya kwanza kwa sababu project briefs zinahitaji momentum.",
+    "body": "Tumia channel hii kwa bookings, campaign conversations, production questions, na uratibu wa moja kwa moja na Tripod.",
     "labels": {
       "channel": "Response channel",
       "bestFor": "Best for",
@@ -135,26 +135,26 @@
       },
       "phone": {
         "title": "Phone",
-        "fallback": "Namba ya simu haijawekwa"
+        "fallback": "Piga simu Tripod moja kwa moja"
       },
       "email": {
         "title": "Email",
-        "fallback": "Email haijawekwa"
+        "fallback": "Email inapatikana ukiihitaji"
       },
       "instagram": {
         "title": "Instagram",
-        "fallback": "Instagram link itakuja baadaye"
+        "fallback": "@tripodcreative_"
       },
       "location": {
         "title": "Service area",
-        "fallback": "Location details coming soon"
+        "fallback": "Dar es Salaam, Tanzania"
       }
     }
   },
   "cta": {
     "eyebrow": "Clear Brief",
     "title": "PROJECT YAKO INAYOFUATA HUANZA NA BRIEF ILIYO WAZI.",
-    "body": "Tuma brief kwa WhatsApp, chunguza service wall, au pitia work archive kabla ya mazungumzo yanayofuata.",
+    "body": "Tuma brief kwa WhatsApp, chunguza service wall, au pitia work archive kabla ya mazungumzo yanayofuata na Tripod.",
     "primary": "Tuma Brief kwa WhatsApp",
     "secondary": "Chunguza Services",
     "viewWork": "Tazama Kazi Zetu"

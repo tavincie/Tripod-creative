@@ -1,9 +1,9 @@
 {
-  "fallbackMessage": "Hello Tripod Creative. I would like to send a project brief.",
+  "fallbackMessage": "Hello Tripod Creative Agency. I would like to send a project brief.",
   "hero": {
     "eyebrow": "Project Intake",
     "title": "BRING THE IDEA. WE'LL BUILD THE FRAME.",
-    "subtitle": "Tell us what you want to create, where it needs to appear, and how fast it needs to move. Tripod will shape the next step.",
+    "subtitle": "Tell us what you want to create, where it needs to appear, and how soon it needs to move. Tripod Creative Agency will guide the next step.",
     "labels": [
       "Studio Booking",
       "Creative Brief",
@@ -13,7 +13,7 @@
   "form": {
     "eyebrow": "Studio Brief Board",
     "title": "Build the project brief.",
-    "subtitle": "This intake stays client-side and prepares a WhatsApp brief with the details the studio needs to respond clearly.",
+    "subtitle": "This intake stays client-side and prepares a WhatsApp brief with the details Tripod needs to respond clearly.",
     "fields": {
       "name": "Your name",
       "phone": "Phone or WhatsApp number",
@@ -34,7 +34,7 @@
       "usage": "Select the main output or placement",
       "timeline": "Select a timeline",
       "budget": "Select a budget range",
-      "message": "Describe the idea, campaign, deliverables, or production needs."
+      "message": "Describe the idea, deliverables, audience, and anything Tripod should know before replying."
     },
     "services": {
       "graphicDesign": "Graphic Design",
@@ -49,7 +49,7 @@
       "podcastRecording": "Podcast Recording",
       "digitalMarketing": "Digital Marketing",
       "instrumentTraining": "Instrument Training",
-      "fullCampaign": "Full Campaign"
+      "fullCampaign": "Integrated Campaign"
     },
     "feelings": {
       "attention": "Immediate attention",
@@ -92,12 +92,12 @@
       "message": "Please enter the project details."
     },
     "submit": "Send Brief on WhatsApp",
-    "whatsappTemplate": "Hello Tripod Creative. My name is {name}. Contact: {phone}. Email: {email}. We are creating: {service}. Desired feeling: {feeling}. Usage: {usage}. Timeline: {timeline}. Budget: {budget}. Project details: {message}."
+    "whatsappTemplate": "Hello Tripod Creative Agency. My name is {name}. Contact: {phone}. Email: {email}. We are creating: {service}. Desired feeling: {feeling}. Usage: {usage}. Timeline: {timeline}. Budget: {budget}. Project details: {message}."
   },
   "response": {
     "eyebrow": "Studio Response Board",
-    "title": "WhatsApp stays first because the brief needs momentum.",
-    "body": "Use this lane for project briefs, bookings, campaign conversations, and quick production questions that need direction fast.",
+    "title": "WhatsApp stays first because project briefs need momentum.",
+    "body": "Use this channel for bookings, campaign conversations, production questions, and direct project coordination with Tripod.",
     "labels": {
       "channel": "Response channel",
       "bestFor": "Best for",
@@ -135,26 +135,26 @@
       },
       "phone": {
         "title": "Phone",
-        "fallback": "Phone not configured"
+        "fallback": "Call Tripod directly"
       },
       "email": {
         "title": "Email",
-        "fallback": "Email not configured"
+        "fallback": "Email available on request"
       },
       "instagram": {
         "title": "Instagram",
-        "fallback": "Instagram link coming soon"
+        "fallback": "@tripodcreative_"
       },
       "location": {
         "title": "Service area",
-        "fallback": "Location details coming soon"
+        "fallback": "Dar es Salaam, Tanzania"
       }
     }
   },
   "cta": {
     "eyebrow": "Clear Brief",
     "title": "YOUR NEXT PROJECT STARTS WITH A CLEAR BRIEF.",
-    "body": "Send the brief on WhatsApp, explore the service wall, or review the work archive before the next conversation.",
+    "body": "Send the brief on WhatsApp, explore the service wall, or review the work archive before the next conversation with Tripod.",
     "primary": "Send Brief on WhatsApp",
     "secondary": "Explore Services",
     "viewWork": "View Our Work"

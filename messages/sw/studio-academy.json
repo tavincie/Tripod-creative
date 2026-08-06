@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Studio na Academy",
     "title": "HAPA NDIPO SAUTI, UJUZI, NA CONFIDENCE YA UBUNIFU HUJENGWA.",
-    "subtitle": "Rekodi vocals, tengeneza music, jenga podcasts, na jifunze ala ndani ya studio environment iliyoundwa kwa creators.",
+    "subtitle": "Tripod Creative Agency hutoa recording, music production, podcast support, na practical instrument training ndani ya studio environment inayofanya kazi kila siku.",
     "frameLabel": "Session Monitor",
     "statusLabel": "Hali ya Studio",
     "statusValue": "Live / Tayari kwa Practice",
@@ -19,14 +19,14 @@
   },
   "zones": {
     "eyebrow": "Studio Zones",
-    "title": "Studio lanes tano zimepangwa kama chumba kimoja cha production kinachofanya kazi.",
-    "body": "Kila zone imejengwa ihisi ya vitendo na media-first, ikiwa na labels wazi, session energy ya kweli, na nafasi ya creators kujifunza kwa kufanya.",
+    "title": "Studio lanes tano zimepangwa kama chumba kimoja cha ubunifu kinachofanya kazi.",
+    "body": "Kila zone ni ya vitendo, hands-on, na imeundwa kuonyesha jinsi Tripod inavyorekodi, kufundisha, kurehearse, na kukuza kazi za ubunifu.",
     "items": {
       "recordingStudio": {
         "number": "01",
         "label": "Tracking Room",
         "title": "Recording Studio",
-        "description": "Chumba chenye focus kwa vocals, demo takes, guided recording, na repeat sessions zinazomsaidia creator kuzoea mic."
+        "description": "Chumba chenye focus kwa vocals, voice work, demos, na guided recording sessions zinazomsaidia creator kuzoea mic."
       },
       "musicProduction": {
         "number": "02",
@@ -50,29 +50,29 @@
         "number": "05",
         "label": "Creator Lab",
         "title": "Creative Practice Sessions",
-        "description": "Nafasi pana kwa creators kujaribu ideas, kurehearse, kurudia, na kuzoea tools na pace ya sessions za kweli."
+        "description": "Lane yenye flexibility kwa rehearsal, idea development, repetition, na confidence-building ndani ya rhythm halisi ya studio."
       }
     }
   },
   "path": {
     "eyebrow": "Creator Development Path",
-    "title": "Session log inayotoka kwenye first sound hadi output iliyokamilika.",
-    "body": "Path hii inatakiwa ihisi kama production board, si classroom outline. Inamfanya creator asonge kupitia tools, practice, na recorded work akiwa na momentum.",
+    "title": "Njia ya maendeleo inayotoka kwenye session ya kwanza hadi output iliyokamilika.",
+    "body": "Path hii inaonyesha jinsi Tripod inavyosaidia creators kwa vitendo: kuelewa goal, kujenga confidence, kurekodi kwa purpose, na kutoka na kitu kinachotumika.",
     "steps": [
       {
         "number": "01",
-        "title": "Pick Your Sound",
-        "description": "Chagua ala, sauti, au format unayotaka kuunda na funga creative direction mapema."
+        "title": "Chagua Focus Yako",
+        "description": "Anza na ala, sauti, session type, au production goal unayotaka kuikuza."
       },
       {
         "number": "02",
-        "title": "Learn the Tools",
-        "description": "Zoea studio tools, session flow, na practical habits zinazofanya creation iwe rahisi."
+        "title": "Elewa Setup",
+        "description": "Jifunze tools, signal flow, na studio habits zinazofanya recording na practice viwe bora zaidi."
       },
       {
         "number": "03",
-        "title": "Practice in Session",
-        "description": "Rudia sehemu muhimu, jenga control, na jifunze kupitia active sessions badala ya theory ya mbali."
+        "title": "Fanya Practice Yenye Direction",
+        "description": "Jenga control kupitia repetition, guided feedback, na practical session time."
       },
       {
         "number": "04",
@@ -81,15 +81,15 @@
       },
       {
         "number": "05",
-        "title": "Package Your Output",
-        "description": "Shape matokeo yawe kitu kinachoweza kushare-iwa, kureview-iwa, au kuwa tayari kwa hatua inayofuata ya ubunifu."
+        "title": "Toka na Output Inayotumika",
+        "description": "Maliza ukiwa na draft, recording, rehearsal milestone, au next-step plan unayoweza kuendelea nayo."
       }
     ]
   },
   "atmosphere": {
     "eyebrow": "Studio Atmosphere",
-    "title": "Microphones, instruments, desks, na creator energy vikikaa ndani ya chumba kimoja.",
-    "body": "Atmosphere inabaki broad na honest: hands-on practice, recording focus, na studio setup inayowasaidia creators kuzoea production spaces za kweli.",
+    "title": "Microphones, instruments, coaching, na session energy ndani ya chumba kimoja.",
+    "body": "Atmosphere ni ya vitendo na yenye encouragement, ikiwapa creators nafasi ya kurehearse, kurekodi, na kuboresha kazi ndani ya production environment halisi.",
     "labels": [
       "Mic Check",
       "Practice Desk",
@@ -98,8 +98,8 @@
   },
   "cta": {
     "eyebrow": "Studio Booking",
-    "title": "INGIA NDANI YA STUDIO NA UJENGE SAUTI YAKO.",
-    "subtitle": "Anza na session yenye focus, uliza kuhusu training, au fungua mazungumzo ya moja kwa moja kwenye WhatsApp na tutakuongoza kwenye hatua inayofuata.",
+    "title": "INGIA NDANI YA STUDIO NA UJENGE RECORDING YAKO INAYOFUATA.",
+    "subtitle": "Anza na session, uliza kuhusu training, au fungua mazungumzo ya WhatsApp na Tripod itakuongoza kwenye hatua inayofuata.",
     "primary": "Book a Studio Session",
     "secondary": "Ongea kwa WhatsApp"
   }

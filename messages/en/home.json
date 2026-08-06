@@ -1,13 +1,13 @@
 {
-  "whatsappMessage": "Hello Tripod Creatives. I have a new project and I would like to bring it into the studio.",
+  "whatsappMessage": "Hello Tripod Creative Agency. I have a project I would like to discuss with your team.",
   "hero": {
-    "eyebrow": "We are Tripod Creatives",
+    "eyebrow": "TRIPOD CREATIVE AGENCY",
     "titleLines": [
-      "We Empower",
-      "Your",
-      "Brand",
-      "Through",
-      "Creativity"
+      "WE EMPOWER",
+      "YOUR",
+      "BRAND",
+      "THROUGH",
+      "CREATIVITY"
     ],
     "subtitle": "Graphics, photography, video, and audio built to make brands impossible to ignore.",
     "primary": "View Our Work",
@@ -15,8 +15,8 @@
   },
   "services": {
     "eyebrow": "What We Do",
-    "title": "What We Create.",
-    "intro": "Designed for screens, stages, streets, and stories.",
+    "title": "Production Built Around Real Deliverables.",
+    "intro": "From concept to rollout, Tripod keeps design, capture, sound, print, and campaign support moving in one direction.",
     "link": "Explore All Services",
     "labels": {
       "video": "Video Production",
@@ -27,12 +27,12 @@
       "music": "Music Studio"
     },
     "details": {
-      "video": "Concept to camera to final cut.",
-      "design": "Identity, visuals, and campaign systems.",
-      "photo": "Portraits, products, events, and brand shots.",
-      "printing": "Posters, banners, packaging, and print pieces.",
-      "digital": "Content built for social attention.",
-      "music": "Recording, production, and studio sessions."
+      "video": "Coverage, edits, and brand films shaped for screens.",
+      "design": "Identity systems, campaign graphics, and visual direction.",
+      "photo": "Studio portraits, products, events, and branded stills.",
+      "printing": "Posters, banners, packaging, and physical campaign pieces.",
+      "digital": "Launch content and rollout assets for social visibility.",
+      "music": "Recording, production, podcast, and studio sessions."
     },
     "titleLines": {
       "video": [
@@ -61,8 +61,8 @@
   },
   "portfolio": {
     "eyebrow": "Featured Work",
-    "title": "Our Work Speaks.",
-    "intro": "Real projects. Real impact.",
+    "title": "Production Categories We Handle Every Day.",
+    "intro": "A focused look at the kinds of visual, print, motion, and studio work Tripod is built to deliver.",
     "link": "View Full Portfolio",
     "labels": {
       "branding": [
@@ -89,17 +89,17 @@
   },
   "studio": {
     "eyebrow": "Studio Desk",
-    "title": "Studio energy, archive discipline, launch-ready output.",
-    "body": "Direction, capture, edit, print, and rollout handled in one coordinated creative studio.",
+    "title": "One studio flow from brief to final handoff.",
+    "body": "Creative direction, shooting, editing, printing, and release planning stay connected so the work leaves Tripod ready to use.",
     "process": [
-      "Brief lock",
+      "Brief and direction",
       "Shoot / design / record",
-      "Edit timeline",
-      "Launch package"
+      "Edit and production prep",
+      "Delivery and rollout"
     ]
   },
   "capabilities": {
-    "ariaLabel": "Tripod Creatives capabilities",
+    "ariaLabel": "Tripod Creative Agency capabilities",
     "graphic": "Graphic Design",
     "branding": "Branding",
     "printing": "Printing",
@@ -115,13 +115,13 @@
   },
   "cta": {
     "title": "Ready to make something great?",
-    "body": "Let us create something that gets people talking.",
+    "body": "Start with a brief and let Tripod shape the right production path for your brand, event, or release.",
     "button": "Start a Project"
   },
   "showreel": {
-    "ariaLabel": "Play Tripod Creative showreel",
-    "title": "Tripod Creative showreel",
-    "label": "SHOWREEL",
+    "ariaLabel": "Play Tripod Creative Agency showreel",
+    "title": "Tripod Creative Agency showreel",
+    "label": "TRIPOD CREATIVE",
     "modalEyebrow": "REC 00:12:08",
     "modalLabel": "SHOWREEL"
   }

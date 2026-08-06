@@ -1,9 +1,9 @@
 {
-  "whatsappMessage": "Habari Tripod! Ningependa kuelewa zaidi studio approach yenu ya ubunifu.",
+  "whatsappMessage": "Habari Tripod Creative Agency. Ningependa kuelewa zaidi production approach yenu.",
   "hero": {
     "eyebrow": "Kuhusu Tripod",
     "title": "SISI NDIO CREATIVE CREW ILIYO NYUMA YA FRAME.",
-    "subtitle": "Tripod Creative inaunganisha design, print, photography, video, audio, na digital storytelling ndani ya studio moja yenye production mindset.",
+    "subtitle": "Tripod Creative Agency inaunganisha design, print, photography, video, audio, na digital rollout ndani ya studio moja yenye production mindset.",
     "frameLabel": "Production Notes",
     "statusLabel": "Hali ya Crew",
     "statusValue": "Active / Studio Ready",
@@ -15,8 +15,8 @@
   },
   "identity": {
     "eyebrow": "Studio Identity",
-    "title": "Crew moja iliyojengwa kufanya brands zionekane, zisikike, na zikumbukwe.",
-    "body": "Tripod haijapangiliwa kama vendors tofauti wanaorushiana kazi. Studio inashikilia design, print, stills, video, audio, na digital rollout ndani ya production space moja ili direction ibaki imara kuanzia idea ya kwanza hadi handoff ya mwisho.",
+    "title": "Timu moja ya production iliyojengwa kufanya brands zionekane, zisikike, na zikumbukwe.",
+    "body": "Tripod Creative Agency haigawi design, production, sound, na rollout kwa suppliers waliotengana. Tunaweka creative direction pamoja kuanzia brief ya kwanza hadi delivery ya mwisho.",
     "credits": [
       "Tunadesign.",
       "Tunashoot.",
@@ -28,7 +28,7 @@
   "notes": {
     "eyebrow": "Production Notes",
     "title": "Culture inabaki disciplined, practical, na karibu na kazi yenyewe.",
-    "body": "Notes hizi zinafanya kazi zaidi kama crew credits kuliko company values. Zinaeleza namna studio inavyoshughulikia visuals, sound, pace, na delivery bila kugeuka corporate profile.",
+    "body": "Notes hizi zinaeleza jinsi Tripod inavyofanya kazi kwenye production za kweli: direction iliyo wazi, execution makini, na delivery iliyo tayari kutumika.",
     "items": [
       {
         "number": "01",
@@ -52,8 +52,8 @@
       },
       {
         "number": "05",
-        "title": "Street-Level Creativity",
-        "description": "Ideas hubaki karibu na audiences halisi, mazingira halisi, na creative energy ya kweli."
+        "title": "Audience Awareness",
+        "description": "Ideas hubaki karibu na watu, maeneo, na moments ambazo kazi inapaswa kuzifikia."
       },
       {
         "number": "06",
@@ -64,8 +64,8 @@
   },
   "difference": {
     "eyebrow": "Kwa Nini Tripod Inajisikia Tofauti",
-    "title": "Studio inasogea kama production desk moja badala ya mkusanyiko wa services zisizoungana.",
-    "body": "Tofauti hiyo huonekana kwenye handoff. Ideas hazidesign-iwi sehemu moja, zikacapture-iwa sehemu nyingine, halafu zikapoteza nguvu kabla ya launch. Tripod huweka creative thread ionekane kutoka concept hadi recording, production, print, na release.",
+    "title": "Studio inasogea kama production desk moja badala ya departments zisizoungana.",
+    "body": "Tofauti hiyo huonekana kwenye handoff. Creative thread ileile inaendelea kuonekana kutoka concept hadi design, capture, recording, print, na rollout.",
     "labels": [
       "Direction Locked",
       "Crew Energy",
@@ -74,7 +74,7 @@
   },
   "process": {
     "eyebrow": "Production Credits",
-    "title": "Credits board inayosukuma kazi kutoka idea hadi launch.",
+    "title": "Mchakato wa kazi unaosukuma brief kutoka idea hadi launch.",
     "steps": [
       {
         "number": "01",
@@ -106,7 +106,7 @@
   "cta": {
     "eyebrow": "Frame Inayofuata",
     "title": "UKO TAYARI KUIWEKA BRAND YAKO NDANI YA FRAME?",
-    "body": "Anza mazungumzo, leta brief ndani ya studio, au nenda kwenye work archive uone namna production language inavyokuwa hai.",
+    "body": "Anza mazungumzo, leta brief Tripod, au tembelea work archive uone jinsi production language yetu inavyokuwa hai.",
     "primary": "Anza Mradi",
     "secondary": "Tazama Kazi Zetu"
   }

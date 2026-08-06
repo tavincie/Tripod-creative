@@ -37,7 +37,7 @@ export async function generateMetadata({
       title,
       description,
       url: canonical,
-      siteName: 'Tripod Creative',
+      siteName: 'Tripod Creative Agency',
       locale: locale === 'sw' ? 'sw_TZ' : 'en_US',
       type: 'website',
     },

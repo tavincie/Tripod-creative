@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Studio & Academy",
     "title": "WHERE SOUND, SKILL, AND CREATIVE CONFIDENCE ARE BUILT.",
-    "subtitle": "Record vocals, produce music, build podcasts, and learn instruments inside a studio environment designed for creators.",
+    "subtitle": "Tripod Creative Agency offers recording, music production, podcast support, and practical instrument training inside a working studio environment.",
     "frameLabel": "Session Monitor",
     "statusLabel": "Studio Status",
     "statusValue": "Live / Practice Ready",
@@ -19,14 +19,14 @@
   },
   "zones": {
     "eyebrow": "Studio Zones",
-    "title": "Five studio lanes arranged like one working production room.",
-    "body": "Each zone is built to feel practical and media-first, with clear labels, real session energy, and room for creators to learn by doing.",
+    "title": "Five studio lanes arranged like one working creative room.",
+    "body": "Each zone is practical, hands-on, and shaped around how Tripod records, coaches, rehearses, and develops creative work.",
     "items": {
       "recordingStudio": {
         "number": "01",
         "label": "Tracking Room",
         "title": "Recording Studio",
-        "description": "A focused room for vocals, demo takes, guided recording, and repeat sessions that help creators settle into the mic."
+        "description": "A focused room for vocals, voice work, demos, and guided recording sessions that help creators grow comfortable behind the mic."
       },
       "musicProduction": {
         "number": "02",
@@ -50,29 +50,29 @@
         "number": "05",
         "label": "Creator Lab",
         "title": "Creative Practice Sessions",
-        "description": "A broad space for creators to test ideas, rehearse, repeat, and grow comfortable with the tools and pace of real sessions."
+        "description": "A flexible lane for rehearsal, idea development, repetition, and confidence-building inside a real studio rhythm."
       }
     }
   },
   "path": {
     "eyebrow": "Creator Development Path",
-    "title": "A session log that moves from first sound to finished output.",
-    "body": "This path is meant to feel like a production board, not a classroom outline. It keeps the creator moving through tools, practice, and recorded work with momentum.",
+    "title": "A development path that moves from first session to finished output.",
+    "body": "This path reflects how Tripod supports creators in practice: understand the goal, build confidence, record with purpose, and leave with something useful.",
     "steps": [
       {
         "number": "01",
-        "title": "Pick Your Sound",
-        "description": "Choose the instrument, voice, or format you want to shape and define the creative direction early."
+        "title": "Choose Your Focus",
+        "description": "Start with the instrument, voice, session type, or production goal you want to improve."
       },
       {
         "number": "02",
-        "title": "Learn the Tools",
-        "description": "Get comfortable with the studio tools, session flow, and practical habits that make creation easier."
+        "title": "Understand the Setup",
+        "description": "Learn the tools, signal flow, and studio habits that make recording and practice more effective."
       },
       {
         "number": "03",
-        "title": "Practice in Session",
-        "description": "Repeat key parts, build control, and learn through active sessions instead of passive theory."
+        "title": "Practice with Direction",
+        "description": "Build control through repetition, guided feedback, and practical session time."
       },
       {
         "number": "04",
@@ -81,15 +81,15 @@
       },
       {
         "number": "05",
-        "title": "Package Your Output",
-        "description": "Shape the result into something shareable, reviewable, or ready for the next creative step."
+        "title": "Leave with Usable Output",
+        "description": "Finish with a draft, recording, rehearsal milestone, or next-step plan you can build on."
       }
     ]
   },
   "atmosphere": {
     "eyebrow": "Studio Atmosphere",
-    "title": "Microphones, instruments, desks, and creator energy held in one room.",
-    "body": "The atmosphere stays broad and honest: hands-on practice, recording focus, and a studio setup that helps creators grow more comfortable with real production spaces.",
+    "title": "Microphones, instruments, coaching, and session energy in one room.",
+    "body": "The atmosphere is practical and encouraging, giving creators space to rehearse, record, and improve inside a working production environment.",
     "labels": [
       "Mic Check",
       "Practice Desk",
@@ -98,8 +98,8 @@
   },
   "cta": {
     "eyebrow": "Studio Booking",
-    "title": "STEP INTO THE STUDIO AND BUILD YOUR SOUND.",
-    "subtitle": "Start with a focused session, ask about training, or open a direct WhatsApp conversation and we will guide the next step.",
+    "title": "STEP INTO THE STUDIO AND BUILD YOUR NEXT RECORDING.",
+    "subtitle": "Start with a session, ask about training, or open a WhatsApp conversation and Tripod will guide the next step.",
     "primary": "Book a Studio Session",
     "secondary": "Talk on WhatsApp"
   }

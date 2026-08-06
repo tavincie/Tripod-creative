@@ -1,6 +1,5 @@
-// Temporary sample media for the homepage redesign only.
-// Replace every item in this file with Tripod Creative's real media before public launch.
-// Keep media references centralized here so homepage visuals can be updated without editing components.
+// Shared visual references used across public marketing pages.
+// Keep media references centralized here so content updates stay coordinated.
 
 export interface SampleMediaItem {
   key: string;

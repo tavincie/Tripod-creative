@@ -1,13 +1,13 @@
 {
-  "whatsappMessage": "Habari Tripod Creatives. Nina mradi mpya na ningependa kuupeleka studio.",
+  "whatsappMessage": "Habari Tripod Creative Agency. Nina mradi ambao ningependa kujadili na timu yenu.",
   "hero": {
-    "eyebrow": "We are Tripod Creatives",
+    "eyebrow": "TRIPOD CREATIVE AGENCY",
     "titleLines": [
-      "We Empower",
-      "Your",
-      "Brand",
-      "Through",
-      "Creativity"
+      "WE EMPOWER",
+      "YOUR",
+      "BRAND",
+      "THROUGH",
+      "CREATIVITY"
     ],
     "subtitle": "Graphics, photography, video, and audio built to make brands impossible to ignore.",
     "primary": "Angalia Kazi Zetu",
@@ -15,8 +15,8 @@
   },
   "services": {
     "eyebrow": "What We Do",
-    "title": "What We Create.",
-    "intro": "Designed for screens, stages, streets, and stories.",
+    "title": "Tunatengeneza Kazi Yenye Deliverables Halisi.",
+    "intro": "Kuanzia concept hadi rollout, Tripod huweka design, capture, sound, print, na campaign support zikienda katika direction moja.",
     "link": "Chunguza Huduma Zote",
     "labels": {
       "video": "Video Production",
@@ -27,12 +27,12 @@
       "music": "Music Studio"
     },
     "details": {
-      "video": "Concept to camera to final cut.",
-      "design": "Identity, visuals, and campaign systems.",
-      "photo": "Portraits, products, events, and brand shots.",
-      "printing": "Posters, banners, packaging, and print pieces.",
-      "digital": "Content built for social attention.",
-      "music": "Recording, production, and studio sessions."
+      "video": "Coverage, edits, na brand films zilizojengwa kwa screens.",
+      "design": "Identity systems, campaign graphics, na visual direction.",
+      "photo": "Studio portraits, products, events, na branded stills.",
+      "printing": "Posters, banners, packaging, na campaign pieces za physical.",
+      "digital": "Launch content na rollout assets za social visibility.",
+      "music": "Recording, production, podcast, na studio sessions."
     },
     "titleLines": {
       "video": [
@@ -61,8 +61,8 @@
   },
   "portfolio": {
     "eyebrow": "Featured Work",
-    "title": "Our Work Speaks.",
-    "intro": "Real projects. Real impact.",
+    "title": "Aina za Kazi Tunazoshughulikia Kila Siku.",
+    "intro": "Muonekano wa haraka wa kazi za visual, print, motion, na studio ambazo Tripod imejengwa kuzitoa.",
     "link": "Angalia Portfolio Nzima",
     "labels": {
       "branding": [
@@ -89,17 +89,17 @@
   },
   "studio": {
     "eyebrow": "Studio Desk",
-    "title": "Studio energy, archive discipline, launch-ready output.",
-    "body": "Direction, capture, edit, print, and rollout handled in one coordinated creative studio.",
+    "title": "Mtiririko mmoja wa studio kutoka brief hadi handoff ya mwisho.",
+    "body": "Creative direction, shooting, editing, printing, na release planning hubaki zimeunganishwa ili kazi itoke Tripod ikiwa tayari kutumika.",
     "process": [
-      "Brief lock",
+      "Brief na direction",
       "Shoot / design / record",
-      "Edit timeline",
-      "Launch package"
+      "Edit na production prep",
+      "Delivery na rollout"
     ]
   },
   "capabilities": {
-    "ariaLabel": "Uwezo wa Tripod Creatives",
+    "ariaLabel": "Uwezo wa Tripod Creative Agency",
     "graphic": "Graphic Design",
     "branding": "Branding",
     "printing": "Printing",
@@ -114,14 +114,14 @@
     "training": "Instrument Training"
   },
   "cta": {
-    "title": "Ready to make something great?",
-    "body": "Let us create something that gets people talking.",
+    "title": "Uko tayari kutengeneza kitu kizuri?",
+    "body": "Anza na brief na uiruhusu Tripod itengeneze production path inayofaa kwa brand, event, au release yako.",
     "button": "Anza Mradi"
   },
   "showreel": {
-    "ariaLabel": "Cheza showreel ya Tripod Creative",
-    "title": "Showreel ya Tripod Creative",
-    "label": "SHOWREEL",
+    "ariaLabel": "Cheza showreel ya Tripod Creative Agency",
+    "title": "Showreel ya Tripod Creative Agency",
+    "label": "TRIPOD CREATIVE",
     "modalEyebrow": "REC 00:12:08",
     "modalLabel": "SHOWREEL"
   }

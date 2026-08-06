@@ -2,10 +2,10 @@
   "hero": {
     "eyebrow": "Kazi za Karibuni",
     "title": "KAZI INAYOONEKANA VIZURI, INASIKIKA SAFI, NA INAWASUKUMA WATU KUHISI KITU.",
-    "subtitle": "Archive inayokua ya design, photography, video, audio, print, na campaign work iliyoundwa kwa brands zinazotaka kukumbukwa.",
+    "subtitle": "Showcase ya Tripod Creative Agency ya production lanes, campaign formats, na media outputs tunazounda kwa brands, events, na artists.",
     "frameLabel": "Contact Sheet",
     "archiveStatus": "Hali ya Archive",
-    "archiveStatusValue": "Inaendelea / Placeholder Ready",
+    "archiveStatusValue": "Active / Service Showcase",
     "frameCount": "Frame 9 Zimeandikwa",
     "laneLabels": [
       "Design",
@@ -30,12 +30,12 @@
   },
   "grid": {
     "eyebrow": "Contact Sheet",
-    "title": "Ushahidi wa production uliopangwa kama archive safi ya studio.",
+    "title": "Service showcase iliyopangwa kama archive safi ya production.",
     "resultCount": "{count, plural, =0 {Hakuna kazi zinazoonekana} one {Kazi # inaonekana} other {Kazi # zinaonekana}}",
     "empty": "Bado hakuna kazi ya portfolio inayolingana na kichujio hiki.",
-    "cardCta": "Tazama maelezo ya placeholder",
-    "imagePlaceholder": "Placeholder ya Picha",
-    "videoPlaceholder": "Placeholder ya Video",
+    "cardCta": "Tazama maelezo ya frame",
+    "imagePlaceholder": "Image Frame",
+    "videoPlaceholder": "Motion Frame",
     "frameLabel": "Frame",
     "yearLabel": "Mwaka",
     "statusLabel": "Hali",
@@ -44,7 +44,7 @@
   "featured": {
     "eyebrow": "Archive Strip",
     "title": "Production lanes nne zinazojirudia kwenye kazi.",
-    "subtitle": "Strip hii inafanya kazi kama archive wall: labels wazi, media ya ushahidi, na nafasi ya kazi halisi kuchukua nafasi ya placeholders bila kubadili mfumo.",
+    "subtitle": "Strip hii inaonyesha production lanes ambazo zinaunda briefs nyingi za Tripod, kuanzia identity systems hadi event coverage na campaign rollout.",
     "items": [
       {
         "key": "brandIdentity",
@@ -81,7 +81,7 @@
   },
   "status": {
     "archiveReady": "Archive Ready",
-    "placeholder": "Placeholder"
+    "placeholder": "Service Showcase"
   },
   "tags": {
     "identity": "Utambulisho",
@@ -105,40 +105,40 @@
   },
   "projects": {
     "project1": {
-      "title": "Placeholder ya Mfumo wa Utambulisho wa Chapa",
-      "description": "Placeholder inayoweza kubadilishwa kwa rollout ya utambulisho, seti ya mwelekeo wa kuona, na touchpoints za chapa za baadaye."
+      "title": "Mwelekeo wa Brand Identity",
+      "description": "Logo systems, color language, typography, na branded touchpoints zilizoandaliwa kwa launch iliyo wazi."
     },
     "project2": {
-      "title": "Placeholder ya Fremu za Video ya Kampeni",
-      "description": "Nafasi safi ya kazi za baadaye za motion, reels, mfululizo wa edits, au usimulizi wa video ya uzinduzi."
+      "title": "Frame za Video ya Kampeni",
+      "description": "Launch videos, highlight cuts, na short-form edits zilizojengwa kubeba message kwenye digital screens."
     },
     "project3": {
-      "title": "Placeholder ya Kifurushi cha Kampeni ya Kidijitali",
-      "description": "Placeholder inayonyumbulika kwa visuals za uzinduzi wa kampeni, assets za paid social, na mifumo ya maudhui ya kidijitali."
+      "title": "Kifurushi cha Kampeni ya Kidijitali",
+      "description": "Social rollout assets, launch graphics, na content systems zinazoweka campaign iwe consistent online."
     },
     "project4": {
-      "title": "Placeholder ya Seti ya Print Production",
-      "description": "Placeholder ya print iliyo tayari kubadilishwa kwa posters, flyers, packaging layouts, au vifaa vya matukio."
+      "title": "Seti ya Print Production",
+      "description": "Posters, flyers, packaging layouts, na branded print pieces zilizoandaliwa kwa matumizi halisi ya production."
     },
     "project5": {
-      "title": "Placeholder ya Mfululizo wa Graphic Content",
-      "description": "Seti ya generic visuals kwa social graphics, paneli za kampeni, au creative layouts za chapa."
+      "title": "Mfululizo wa Graphic Content",
+      "description": "Creative layouts kwa social posts, campaign panels, announcements, na mawasiliano ya chapa."
     },
     "project6": {
-      "title": "Placeholder ya Mkusanyiko wa Picha",
-      "description": "Placeholder ya portfolio kwa brand shoots za baadaye, product stills, na uteuzi wa picha za editorial."
+      "title": "Mkusanyiko wa Picha",
+      "description": "Brand shoots, product stills, portraits, na editorial-style images zilizojengwa kwa campaigns na archives."
     },
     "project7": {
-      "title": "Placeholder ya Hadithi ya Event Coverage",
-      "description": "Kadi ya baadaye kwa event capture, highlight edits, na deliverables za recap content."
+      "title": "Hadithi ya Event Coverage",
+      "description": "Live coverage, highlight edits, na recap content zinazohifadhi pace na visibility ya event."
     },
     "project8": {
-      "title": "Placeholder ya Kifurushi cha Visuals za Muziki",
-      "description": "Placeholder ya generic kwa cover art, promo visuals, na maudhui ya studio session."
+      "title": "Kifurushi cha Visuals za Muziki",
+      "description": "Cover art, promo visuals, na studio session content zilizoundwa kwa artists na audio releases."
     },
     "project9": {
-      "title": "Placeholder ya Presentation ya Uzinduzi wa Chapa",
-      "description": "Placeholder kwa launch decks za baadaye, maonyesho ya chapa, na presentation assets za kampeni."
+      "title": "Presentation ya Uzinduzi wa Chapa",
+      "description": "Presentation assets, launch decks, na visual summaries zinazosaidia timu kuonyesha kazi kwa uwazi."
     }
   }
 }

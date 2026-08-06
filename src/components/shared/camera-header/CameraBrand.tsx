@@ -7,7 +7,7 @@ import { RecordingIndicator } from './RecordingIndicator';
 
 export function CameraBrand() {
   return (
-    <Link href="/" className="camera-brand focus-ring" aria-label="Tripod Creatives home">
+    <Link href="/" className="camera-brand focus-ring" aria-label="Tripod Creative Agency home">
       <div className="camera-brand__shell">
         <svg
           className="camera-brand__svg"
@@ -137,7 +137,7 @@ export function CameraBrand() {
             <div className="camera-brand__lens-logo">
               <Image
                 src="/branding/tripod-creative-icon.png"
-                alt="Tripod Creatives logo"
+                alt="Tripod Creative Agency logo"
                 fill
                 priority
                 sizes="220px"

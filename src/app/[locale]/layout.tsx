@@ -25,7 +25,7 @@ export async function generateMetadata({
   return {
     title: {
       default: titleText,
-      template: '%s | Tripod Creative',
+      template: '%s | Tripod Creative Agency',
     },
     description: descText,
     metadataBase: new URL(siteUrl),
@@ -40,7 +40,7 @@ export async function generateMetadata({
       title: titleText,
       description: descText,
       url: `${siteUrl}/${locale}`,
-      siteName: 'Tripod Creative',
+      siteName: 'Tripod Creative Agency',
       locale: locale === 'sw' ? 'sw_TZ' : 'en_US',
       type: 'website',
     },

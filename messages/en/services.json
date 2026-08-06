@@ -1,6 +1,6 @@
 {
   "metadataMessages": {
-    "hero": "Hello Tripod! I would like to discuss your creative services.",
+    "hero": "Hello Tripod Creative Agency. I would like to discuss your services.",
     "serviceMap": {
       "graphicDesign": "Hello Tripod! I would like to ask about graphic design services.",
       "branding": "Hello Tripod! I would like to ask about branding services.",
@@ -18,9 +18,9 @@
     }
   },
   "hero": {
-    "eyebrow": "Production Capability Wall",
+    "eyebrow": "Production Wall",
     "title": "SERVICES BUILT FOR BRANDS THAT NEED TO BE SEEN, HEARD, AND REMEMBERED.",
-    "subtitle": "From design and print to film, photography, audio, digital campaigns, and studio training, Tripod turns ideas into production-ready creative work.",
+    "subtitle": "From design and print to photography, video, audio, digital campaigns, and studio training, Tripod Creative Agency turns ideas into clear production-ready work.",
     "primary": "Start a Project",
     "secondary": "Open the Service Wall",
     "frameLabel": "SERVICE ROOM",
@@ -33,14 +33,14 @@
   },
   "intro": {
     "eyebrow": "Service Film Strip",
-    "title": "Twelve services arranged like one production wall.",
-    "body": "Each zone uses one strong media frame, numbered services, and a direct route into the brief without collapsing into tiny cards."
+    "title": "Twelve services arranged as one connected workflow.",
+    "body": "Each zone shows how Tripod groups creative direction, capture, sound, print, and rollout support without breaking the brief into disconnected pieces."
   },
   "zones": {
     "designBrand": {
       "eyebrow": "Zone 01",
       "title": "DESIGN & BRAND",
-      "body": "The front wall of the studio: identity, visual language, and print-ready execution.",
+      "body": "Identity systems, campaign design, and print-ready production surfaces.",
       "serviceCount": "3 SERVICES",
       "items": [
         "graphicDesign",
@@ -51,7 +51,7 @@
     "visualProduction": {
       "eyebrow": "Zone 02",
       "title": "VISUAL PRODUCTION",
-      "body": "Film, stills, aerial coverage, and live delivery arranged as one capture system.",
+      "body": "Photography, video, drone work, and livestream delivery handled as one capture unit.",
       "serviceCount": "4 SERVICES",
       "items": [
         "photography",
@@ -63,7 +63,7 @@
     "soundStudio": {
       "eyebrow": "Zone 03",
       "title": "SOUND & STUDIO",
-      "body": "Recording, production, podcast sessions, and training held on one studio desk.",
+      "body": "Recording, music production, podcast sessions, and practical training held in one studio environment.",
       "serviceCount": "4 SERVICES",
       "items": [
         "audioRecording",
@@ -75,7 +75,7 @@
     "digitalGrowth": {
       "eyebrow": "Zone 04",
       "title": "DIGITAL GROWTH",
-      "body": "Digital support stays connected to the campaign, not detached from the studio.",
+      "body": "Digital rollout stays tied to the campaign instead of becoming a separate afterthought.",
       "serviceCount": "1 SERVICE",
       "items": [
         "digitalMarketing"
@@ -86,32 +86,32 @@
     "graphicDesign": {
       "number": "01",
       "title": "Graphic Design",
-      "description": "Bold layouts, campaign graphics, and brand surfaces ready for rollout."
+      "description": "Campaign graphics, poster systems, and branded layouts ready for use."
     },
     "branding": {
       "number": "02",
       "title": "Branding",
-      "description": "Identity direction built to make the brand feel clear and memorable."
+      "description": "Logo, identity, and visual direction shaped to keep the brand recognizable."
     },
     "printing": {
       "number": "03",
       "title": "Printing",
-      "description": "Posters, packaging, and physical campaign pieces prepared for production."
+      "description": "Printed materials prepared for events, campaigns, shops, and launches."
     },
     "photography": {
       "number": "04",
       "title": "Photography",
-      "description": "Portrait, product, and event stills captured for campaigns and archives."
+      "description": "Portrait, product, and event stills captured for campaigns, content, and documentation."
     },
     "videography": {
       "number": "05",
       "title": "Videography",
-      "description": "Cinematic coverage, edits, and branded motion built for screens."
+      "description": "Event coverage, commercial edits, and branded motion built for digital screens."
     },
     "droneCoverage": {
       "number": "06",
       "title": "Drone Coverage",
-      "description": "Aerial coverage that expands the story and scale of the shoot."
+      "description": "Aerial coverage that adds scale, location context, and movement."
     },
     "liveStreaming": {
       "number": "07",
@@ -121,7 +121,7 @@
     "audioRecording": {
       "number": "08",
       "title": "Audio Recording",
-      "description": "Clean recording sessions for voice, music, and creative direction."
+      "description": "Voice, vocal, and studio recordings captured with clean signal and clear direction."
     },
     "musicProduction": {
       "number": "09",
@@ -136,54 +136,54 @@
     "digitalMarketing": {
       "number": "11",
       "title": "Digital Marketing",
-      "description": "Content systems and rollout strategy built to carry the campaign further."
+      "description": "Content planning and rollout support that help campaigns stay active after production."
     },
     "instrumentTraining": {
       "number": "12",
       "title": "Instrument Training",
-      "description": "Practical training that connects rehearsal, confidence, and studio discipline."
+      "description": "Hands-on training that builds confidence, repetition, and studio discipline."
     }
   },
   "process": {
     "eyebrow": "Production Board",
     "title": "From brief to delivery on one studio timeline.",
-    "body": "This section stays close to a Tripod production board: clear stages, disciplined numbering, and a handoff that keeps direction intact.",
+    "body": "This follows the way Tripod works in practice: clear stages, disciplined handoff, and a route from idea to delivery that stays understandable.",
     "steps": [
       {
         "number": "01",
         "title": "Brief Lock",
-        "description": "We set the message, audience, deliverables, and production priority."
+        "description": "We align the message, audience, deliverables, and the services needed."
       },
       {
         "number": "02",
         "title": "Creative Direction",
-        "description": "References, formats, timing, and visual or sound direction are aligned."
+        "description": "References, formats, timing, and creative direction are agreed before production starts."
       },
       {
         "number": "03",
         "title": "Production / Design / Record",
-        "description": "Cameras, layouts, print prep, or studio sessions move on one board."
+        "description": "Design, capture, printing, or studio sessions move with one shared direction."
       },
       {
         "number": "04",
         "title": "Edit / Print / Package",
-        "description": "Assets are refined, exported, printed, or prepared for campaign use."
+        "description": "Assets are edited, exported, printed, or packaged for rollout."
       },
       {
         "number": "05",
         "title": "Launch / Deliver",
-        "description": "The final work is handed over ready for posting, screening, printing, or rollout."
+        "description": "Final work is delivered ready for posting, screening, printing, or launch."
       }
     ]
   },
   "digitalSupport": {
     "eyebrow": "Optional Digital Support",
     "title": "DIGITAL SUPPORT CAN FOLLOW THE CAMPAIGN WITHOUT TAKING OVER THE PAGE.",
-    "body": "If the campaign needs a landing page, content system, or launch support, we can connect it after the core production path is clear.",
+    "body": "If the campaign needs rollout support, content structuring, or landing-page assistance, Tripod can extend the production plan after the main brief is clear.",
     "items": [
-      "Landing support",
+      "Landing-page support",
       "Campaign rollout assets",
-      "Content structure",
+      "Content planning",
       "Launch coordination"
     ],
     "cta": "Discuss digital support",
@@ -191,8 +191,8 @@
   },
   "cta": {
     "eyebrow": "Start the project",
-    "title": "BRING YOUR NEXT PROJECT INTO THE STUDIO.",
-    "body": "Start on WhatsApp with one service, one production zone, or the full brief. We will route it into the right studio path.",
+    "title": "BRING YOUR NEXT PROJECT TO TRIPOD.",
+    "body": "Start on WhatsApp with one service, one production zone, or a full brief and we will guide it into the right workflow.",
     "primary": "Start a Project",
     "secondary": "WhatsApp Direct",
     "contact": "Open full contact form"
@@ -201,7 +201,7 @@
   "featuredDevelopment": {
     "eyebrow": "Integrated Campaign Build",
     "title": "ONE BRIEF. MULTIPLE DISCIPLINES.",
-    "description": "One campaign can need design, stills, video, live coverage, audio assets, and rollout materials. This is where Tripod works as one connected production desk instead of separate vendors.",
+    "description": "One campaign can need design, stills, video, live coverage, audio, and rollout assets. This is where Tripod Creative Agency works as one production desk instead of fragmented suppliers.",
     "outputs": [
       "Brand key visuals",
       "Photo and video assets",

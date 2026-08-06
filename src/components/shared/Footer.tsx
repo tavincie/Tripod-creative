@@ -31,10 +31,10 @@ export function Footer() {
       <div className="tripod-shell--wide film-footer__container">
         <div className="film-footer__grid">
           <div className="film-footer-brand">
-            <Link href="/" className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creatives home">
+            <Link href="/" className="film-footer-logo focus-ring rounded-sm" aria-label="Tripod Creative Agency home">
               <Image
                 src="/branding/tripod-creative-footer-logo.png"
-                alt="Tripod Creatives logo"
+                alt="Tripod Creative Agency logo"
                 width={420}
                 height={233}
                 priority
@@ -97,7 +97,7 @@ export function Footer() {
       </div>
 
       <div className="tripod-shell--wide film-footer-bottom">
-        <span>© {new Date().getFullYear()} Tripod Creatives</span>
+        <span>© {new Date().getFullYear()} Tripod Creative Agency</span>
         <span>{tFooter('tagline')}</span>
       </div>
     </footer>
