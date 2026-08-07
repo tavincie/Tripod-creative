@@ -55,6 +55,10 @@ const productionPathFanPositions = [
   { x: 270, y: 55, rotate: 18, zIndex: 1 },
 ] as const;
 
+function wrapIndex(index: number, count: number) {
+  return ((index % count) + count) % count;
+}
+
 interface RapidImageCycleOptions {
   imageCount: number;
   interval: number;
@@ -550,7 +554,9 @@ export default function HomePage() {
   const serviceTapePositionRef = useRef(0);
   const portfolioTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const portfolioTapeResumeTimerRef = useRef<number | null>(null);
-  const portfolioTapePositionRef = useRef(0);
+  const portfolioTapeTransitionTimerRef = useRef<number | null>(null);
+  const portfolioTapeRenderIndexRef = useRef<number>(portfolioBlocks.length);
+  const portfolioTapeTrackRef = useRef<HTMLDivElement | null>(null);
   const capabilityTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const capabilityTapeResumeTimerRef = useRef<number | null>(null);
   const serviceTapeDragRef = useRef<{
@@ -562,7 +568,7 @@ export default function HomePage() {
   const portfolioTapeDragRef = useRef<{
     pointerId: number;
     startX: number;
-    startScrollLeft: number;
+    currentX: number;
     dragging: boolean;
   } | null>(null);
   const capabilityTapeDragRef = useRef<{
@@ -577,6 +583,23 @@ export default function HomePage() {
   const studioProcess = tHome.raw('studio.process') as string[];
   const capabilitiesCopy = tHome.raw('capabilities') as Record<string, string>;
   const archiveMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
+  const [portfolioTapeItemWidth, setPortfolioTapeItemWidth] = useState(240);
+  const [portfolioTapeRenderIndex, setPortfolioTapeRenderIndex] = useState<number>(portfolioBlocks.length);
+  const [portfolioTapeDragOffset, setPortfolioTapeDragOffset] = useState(0);
+  const [isPortfolioTapeTransitioning, setIsPortfolioTapeTransitioning] = useState(false);
+  const portfolioLoopItems = [0, 1, 2].flatMap((copyIndex) =>
+    portfolioBlocks.map((block, itemIndex) => ({
+      block,
+      copyIndex,
+      itemIndex,
+    })),
+  );
+  const portfolioCopyWidth = portfolioTapeItemWidth * portfolioBlocks.length;
+  const portfolioTranslateX = Math.round(
+    -portfolioCopyWidth -
+      (portfolioTapeRenderIndex - portfolioBlocks.length) * portfolioTapeItemWidth +
+      portfolioTapeDragOffset,
+  );
 
   useEffect(() => {
     if (!showreelOpen) {
@@ -630,6 +653,9 @@ export default function HomePage() {
     }
     if (portfolioTapeResumeTimerRef.current) {
       window.clearTimeout(portfolioTapeResumeTimerRef.current);
+    }
+    if (portfolioTapeTransitionTimerRef.current) {
+      window.clearTimeout(portfolioTapeTransitionTimerRef.current);
     }
     if (capabilityTapeResumeTimerRef.current) {
       window.clearTimeout(capabilityTapeResumeTimerRef.current);
@@ -686,53 +712,55 @@ export default function HomePage() {
   }, [isServiceTapePaused, prefersReducedMotion]);
 
   useEffect(() => {
-    if (isPortfolioTapePaused || prefersReducedMotion) {
+    if (isPortfolioTapePaused || prefersReducedMotion || isPortfolioTapeTransitioning) {
       return undefined;
     }
 
-    let intervalId: number | null = null;
-    const pixelsPerSecond = 18;
-    const tickMs = 32;
+    const timeoutId = window.setTimeout(() => {
+      const nextIndex = portfolioTapeRenderIndexRef.current + 1;
+      portfolioTapeRenderIndexRef.current = nextIndex;
+      setPortfolioTapeDragOffset(0);
+      setIsPortfolioTapeTransitioning(true);
+      setPortfolioTapeRenderIndex(nextIndex);
 
-    const normalizeScrollPosition = () => {
-      const viewport = portfolioTapeViewportRef.current;
-
-      if (!viewport) {
-        return;
+      if (portfolioTapeTransitionTimerRef.current) {
+        window.clearTimeout(portfolioTapeTransitionTimerRef.current);
       }
 
-      const loopWidth = viewport.scrollWidth / 2;
-
-      if (loopWidth <= 0) {
-        return;
-      }
-
-      if (portfolioTapePositionRef.current >= loopWidth) {
-        portfolioTapePositionRef.current -= loopWidth;
-      } else if (portfolioTapePositionRef.current < 0) {
-        portfolioTapePositionRef.current += loopWidth;
-      }
-
-      viewport.scrollLeft = portfolioTapePositionRef.current;
-    };
-
-    const tick = () => {
-      const viewport = portfolioTapeViewportRef.current;
-
-      if (viewport) {
-        portfolioTapePositionRef.current += pixelsPerSecond * (tickMs / 1000);
-        normalizeScrollPosition();
-      }
-    };
-
-    intervalId = window.setInterval(tick, tickMs);
+      portfolioTapeTransitionTimerRef.current = window.setTimeout(() => {
+        settlePortfolioTapeLoop();
+      }, 700);
+    }, 3800);
 
     return () => {
-      if (intervalId !== null) {
-        window.clearInterval(intervalId);
-      }
+      window.clearTimeout(timeoutId);
     };
-  }, [isPortfolioTapePaused, prefersReducedMotion]);
+  }, [isPortfolioTapePaused, prefersReducedMotion, isPortfolioTapeTransitioning]);
+
+  useEffect(() => {
+    const viewport = portfolioTapeViewportRef.current;
+    const card = viewport?.querySelector<HTMLElement>('.film-portfolio-card');
+
+    if (!viewport || !card) {
+      return undefined;
+    }
+
+    const updateItemWidth = () => {
+      setPortfolioTapeItemWidth(card.offsetWidth || 240);
+    };
+
+    updateItemWidth();
+
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', updateItemWidth);
+      return () => window.removeEventListener('resize', updateItemWidth);
+    }
+
+    const resizeObserver = new ResizeObserver(updateItemWidth);
+    resizeObserver.observe(card);
+
+    return () => resizeObserver.disconnect();
+  }, []);
 
   useEffect(() => {
     const fanElement = packageCardsRef.current;
@@ -969,51 +997,65 @@ export default function HomePage() {
     }, delay);
   };
 
-  const normalizePortfolioTapeScroll = () => {
-    const viewport = portfolioTapeViewportRef.current;
+  function settlePortfolioTapeLoop() {
+    const normalizedIndex =
+      portfolioBlocks.length +
+      wrapIndex(portfolioTapeRenderIndexRef.current - portfolioBlocks.length, portfolioBlocks.length);
 
-    if (!viewport) {
+    portfolioTapeRenderIndexRef.current = normalizedIndex;
+    setPortfolioTapeRenderIndex(normalizedIndex);
+    setPortfolioTapeDragOffset(0);
+    setIsPortfolioTapeTransitioning(false);
+
+    if (portfolioTapeTransitionTimerRef.current) {
+      window.clearTimeout(portfolioTapeTransitionTimerRef.current);
+      portfolioTapeTransitionTimerRef.current = null;
+    }
+  }
+
+  function movePortfolioTapeBySteps(steps: number, source: 'manual' | 'autoplay' = 'manual') {
+    if (steps === 0 || isPortfolioTapeTransitioning) {
       return;
     }
 
-    const loopWidth = viewport.scrollWidth / 2;
+    if (source === 'manual') {
+      pausePortfolioTape();
+    }
 
-    if (loopWidth <= 0) {
-      portfolioTapePositionRef.current = viewport.scrollLeft;
+    const nextIndex = portfolioTapeRenderIndexRef.current + steps;
+    portfolioTapeRenderIndexRef.current = nextIndex;
+    setPortfolioTapeDragOffset(0);
+    setIsPortfolioTapeTransitioning(true);
+    setPortfolioTapeRenderIndex(nextIndex);
+
+    if (portfolioTapeTransitionTimerRef.current) {
+      window.clearTimeout(portfolioTapeTransitionTimerRef.current);
+    }
+
+    portfolioTapeTransitionTimerRef.current = window.setTimeout(() => {
+      settlePortfolioTapeLoop();
+    }, 700);
+
+    if (source === 'manual') {
+      schedulePortfolioTapeResume(4500);
+    }
+  }
+
+  const handlePortfolioTapeTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
+    if (event.target !== event.currentTarget || event.propertyName !== 'transform') {
       return;
     }
 
-    portfolioTapePositionRef.current = viewport.scrollLeft;
-
-    if (portfolioTapePositionRef.current >= loopWidth) {
-      portfolioTapePositionRef.current -= loopWidth;
-    } else if (portfolioTapePositionRef.current < 0) {
-      portfolioTapePositionRef.current += loopWidth;
-    }
-
-    viewport.scrollLeft = portfolioTapePositionRef.current;
+    settlePortfolioTapeLoop();
   };
 
   const scrollPortfolioTapeBy = (distance: number) => {
-    const viewport = portfolioTapeViewportRef.current;
+    const steps = Math.sign(distance) || 1;
 
-    if (!viewport) {
-      return;
-    }
-
-    pausePortfolioTape();
-    portfolioTapePositionRef.current = viewport.scrollLeft + distance;
-    normalizePortfolioTapeScroll();
-    schedulePortfolioTapeResume(1600);
+    movePortfolioTapeBySteps(steps, 'manual');
   };
 
   const handlePortfolioTapeWheel = (event: React.WheelEvent<HTMLDivElement>) => {
-    const viewport = portfolioTapeViewportRef.current;
-
-    if (!viewport) {
-      return;
-    }
-
     pausePortfolioTape();
 
     const dominantDelta =
@@ -1024,39 +1066,30 @@ export default function HomePage() {
     }
 
     event.preventDefault();
-    portfolioTapePositionRef.current = viewport.scrollLeft + dominantDelta;
-    normalizePortfolioTapeScroll();
-    schedulePortfolioTapeResume(1400);
+    movePortfolioTapeBySteps(dominantDelta > 0 ? 1 : -1, 'manual');
   };
 
   const handlePortfolioTapeKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const viewport = portfolioTapeViewportRef.current;
-
-    if (!viewport) {
-      return;
-    }
-
-    const itemWidth =
-      viewport.querySelector<HTMLElement>('.film-portfolio-card')?.offsetWidth ?? 240;
-
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      scrollPortfolioTapeBy(itemWidth);
+      movePortfolioTapeBySteps(1, 'manual');
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault();
-      scrollPortfolioTapeBy(-itemWidth);
+      movePortfolioTapeBySteps(-1, 'manual');
     } else if (event.key === 'Home') {
       event.preventDefault();
       pausePortfolioTape();
-      portfolioTapePositionRef.current = 0;
-      viewport.scrollLeft = 0;
-      schedulePortfolioTapeResume(1600);
+      portfolioTapeRenderIndexRef.current = portfolioBlocks.length;
+      setPortfolioTapeRenderIndex(portfolioBlocks.length);
+      setPortfolioTapeDragOffset(0);
+      schedulePortfolioTapeResume(4500);
     } else if (event.key === 'End') {
       event.preventDefault();
       pausePortfolioTape();
-      portfolioTapePositionRef.current = Math.max(viewport.scrollWidth / 2 - viewport.clientWidth, 0);
-      viewport.scrollLeft = portfolioTapePositionRef.current;
-      schedulePortfolioTapeResume(1600);
+      portfolioTapeRenderIndexRef.current = portfolioBlocks.length * 2 - 1;
+      setPortfolioTapeRenderIndex(portfolioBlocks.length * 2 - 1);
+      setPortfolioTapeDragOffset(0);
+      schedulePortfolioTapeResume(4500);
     }
   };
 
@@ -1079,7 +1112,7 @@ export default function HomePage() {
     portfolioTapeDragRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
-      startScrollLeft: viewport.scrollLeft,
+      currentX: event.clientX,
       dragging: true,
     };
 
@@ -1094,10 +1127,8 @@ export default function HomePage() {
       return;
     }
 
-    const deltaX = event.clientX - dragState.startX;
-    portfolioTapePositionRef.current = dragState.startScrollLeft - deltaX;
-    viewport.scrollLeft = portfolioTapePositionRef.current;
-    normalizePortfolioTapeScroll();
+    dragState.currentX = event.clientX;
+    setPortfolioTapeDragOffset(event.clientX - dragState.startX);
   };
 
   const finishPortfolioTapeInteraction = (pointerId?: number) => {
@@ -1108,9 +1139,18 @@ export default function HomePage() {
       viewport.releasePointerCapture(pointerId!);
     }
 
+    const deltaX = dragState ? dragState.currentX - dragState.startX : 0;
+    const threshold = Math.max(48, portfolioTapeItemWidth * 0.18);
+
     portfolioTapeDragRef.current = null;
-    normalizePortfolioTapeScroll();
-    schedulePortfolioTapeResume();
+
+    if (Math.abs(deltaX) >= threshold) {
+      movePortfolioTapeBySteps(deltaX < 0 ? 1 : -1, 'manual');
+      return;
+    }
+
+    setPortfolioTapeDragOffset(0);
+    schedulePortfolioTapeResume(4500);
   };
 
   const clearCapabilityTapeResume = () => {
@@ -1610,22 +1650,30 @@ export default function HomePage() {
                 }
               }}
               onKeyDown={handlePortfolioTapeKeyDown}
-              onScroll={normalizePortfolioTapeScroll}
               onWheel={handlePortfolioTapeWheel}
             >
-              <div className="film-portfolio-track">
-                {[0, 1].map((setIndex) => (
-                  <div
-                    key={setIndex}
-                    className="film-portfolio-track__set"
-                    aria-hidden={setIndex === 1}
-                  >
-                    {portfolioBlocks.map((block, index) => {
+              <div
+                ref={portfolioTapeTrackRef}
+                className="film-portfolio-track"
+                style={{
+                  transform: `translate3d(${portfolioTranslateX}px, 0, 0)`,
+                  transition:
+                    isPortfolioTapeTransitioning && portfolioTapeDragOffset === 0
+                      ? 'transform 700ms cubic-bezier(0.76, 0, 0.24, 1)'
+                      : 'none',
+                }}
+                onTransitionEnd={handlePortfolioTapeTransitionEnd}
+              >
+                {portfolioLoopItems.map(({ block, copyIndex, itemIndex }) => {
                       const media = sampleMedia[block.mediaKey];
                       const labels = tHome.raw(`portfolio.labels.${block.key}`) as string[];
 
                       return (
-                        <article key={`${block.key}-${setIndex}`} className="film-portfolio-card">
+                        <article
+                          key={`${copyIndex}-${block.key}`}
+                          className="film-portfolio-card"
+                          aria-hidden={copyIndex !== 1}
+                        >
                           <Image
                             src={media.src}
                             alt={tCommon(`media.${media.key}`)}
@@ -1635,7 +1683,7 @@ export default function HomePage() {
                           />
                           <div className="film-portfolio-card__overlay">
                             <span className="film-portfolio-card__frame">
-                              FRAME {String(index + 1).padStart(2, '0')}
+                              FRAME {String(itemIndex + 1).padStart(2, '0')}
                             </span>
                             <p>{labels[0]}</p>
                             <h3>{labels[1]}</h3>
@@ -1643,8 +1691,6 @@ export default function HomePage() {
                         </article>
                       );
                     })}
-                  </div>
-                ))}
               </div>
             </div>
           </div>

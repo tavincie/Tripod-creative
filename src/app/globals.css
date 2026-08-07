@@ -1863,10 +1863,11 @@ body {
   }
 
   .featured-work-title {
-    max-width: 8ch;
-    font-size: clamp(3.1rem, 3.9vw, 4.8rem);
-    line-height: 0.9;
-    letter-spacing: -0.045em;
+    width: 100%;
+    max-width: 9ch;
+    font-size: clamp(3rem, 3.8vw, 4.75rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
     white-space: normal;
     word-break: normal;
     overflow-wrap: normal;

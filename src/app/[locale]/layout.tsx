@@ -85,6 +85,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${inter.variable} ${montserrat.variable} ${geistMono.variable} dark`}
     >
