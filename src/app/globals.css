@@ -3856,6 +3856,33 @@ body {
 }
 
 @media (max-width: 700px) {
+  .film-studio-section {
+    position: relative;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    transform: none;
+  }
+
+  .film-studio-section > .mx-auto {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    padding-top: clamp(5rem, 16vw, 7rem);
+    padding-bottom: clamp(4rem, 14vw, 6rem);
+    transform: none;
+  }
+
+  .film-studio-section > .mx-auto > div {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: auto;
+    transform: none !important;
+  }
+
   .film-capability-tape {
     margin-inline: 1rem;
   }

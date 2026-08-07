@@ -33,6 +33,10 @@ const portfolioBlocks = [
   { key: 'event', mediaKey: 'eventPhotography' },
 ] as const;
 
+const whatWeDoMinimumCopyCount = 4;
+const featuredWorkCopyCount = 5;
+const featuredWorkCenterCopyIndex = Math.floor(featuredWorkCopyCount / 2);
+
 const capabilities = [
   'graphic',
   'branding',
@@ -550,13 +554,17 @@ export default function HomePage() {
   const showreelModalVideoRef = useRef<HTMLVideoElement | null>(null);
   const packageCardsRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeViewportRef = useRef<HTMLDivElement | null>(null);
+  const whatWeDoTrackRef = useRef<HTMLDivElement | null>(null);
   const serviceTapeResumeTimerRef = useRef<number | null>(null);
   const serviceTapePositionRef = useRef(0);
+  const whatWeDoLoopWidthRef = useRef(0);
   const portfolioTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const portfolioTapeResumeTimerRef = useRef<number | null>(null);
   const portfolioTapeTransitionTimerRef = useRef<number | null>(null);
-  const portfolioTapeRenderIndexRef = useRef<number>(portfolioBlocks.length);
-  const portfolioTapeTrackRef = useRef<HTMLDivElement | null>(null);
+  const featuredWorkInitialRenderIndex = portfolioBlocks.length * featuredWorkCenterCopyIndex;
+  const portfolioTapeRenderIndexRef = useRef<number>(featuredWorkInitialRenderIndex);
+  const featuredWorkTrackRef = useRef<HTMLDivElement | null>(null);
+  const featuredWorkTransitionLockRef = useRef(false);
   const capabilityTapeViewportRef = useRef<HTMLDivElement | null>(null);
   const capabilityTapeResumeTimerRef = useRef<number | null>(null);
   const serviceTapeDragRef = useRef<{
@@ -583,21 +591,21 @@ export default function HomePage() {
   const studioProcess = tHome.raw('studio.process') as string[];
   const capabilitiesCopy = tHome.raw('capabilities') as Record<string, string>;
   const archiveMedia = homepageArchiveMediaKeys.map((key) => sampleMedia[key]);
+  const [whatWeDoCopyCount, setWhatWeDoCopyCount] = useState(whatWeDoMinimumCopyCount);
+  const [isWhatWeDoTapeInView, setIsWhatWeDoTapeInView] = useState(true);
   const [portfolioTapeItemWidth, setPortfolioTapeItemWidth] = useState(240);
-  const [portfolioTapeRenderIndex, setPortfolioTapeRenderIndex] = useState<number>(portfolioBlocks.length);
+  const [portfolioTapeRenderIndex, setPortfolioTapeRenderIndex] = useState<number>(featuredWorkInitialRenderIndex);
   const [portfolioTapeDragOffset, setPortfolioTapeDragOffset] = useState(0);
   const [isPortfolioTapeTransitioning, setIsPortfolioTapeTransitioning] = useState(false);
-  const portfolioLoopItems = [0, 1, 2].flatMap((copyIndex) =>
+  const portfolioLoopItems = Array.from({ length: featuredWorkCopyCount }, (_, copyIndex) =>
     portfolioBlocks.map((block, itemIndex) => ({
       block,
       copyIndex,
       itemIndex,
     })),
-  );
-  const portfolioCopyWidth = portfolioTapeItemWidth * portfolioBlocks.length;
+  ).flat();
   const portfolioTranslateX = Math.round(
-    -portfolioCopyWidth -
-      (portfolioTapeRenderIndex - portfolioBlocks.length) * portfolioTapeItemWidth +
+    -portfolioTapeRenderIndex * portfolioTapeItemWidth +
       portfolioTapeDragOffset,
   );
 
@@ -657,13 +665,80 @@ export default function HomePage() {
     if (portfolioTapeTransitionTimerRef.current) {
       window.clearTimeout(portfolioTapeTransitionTimerRef.current);
     }
+    featuredWorkTransitionLockRef.current = false;
     if (capabilityTapeResumeTimerRef.current) {
       window.clearTimeout(capabilityTapeResumeTimerRef.current);
     }
   }, []);
 
   useEffect(() => {
-    if (isServiceTapePaused || prefersReducedMotion) {
+    const viewport = serviceTapeViewportRef.current;
+    const track = whatWeDoTrackRef.current;
+
+    if (!viewport || !track) {
+      return undefined;
+    }
+
+    const updateWhatWeDoGeometry = () => {
+      const firstSet = track.querySelector<HTMLElement>('.film-service-tape__set');
+      const loopWidth = firstSet?.offsetWidth ?? 0;
+
+      if (loopWidth <= 0) {
+        return;
+      }
+
+      whatWeDoLoopWidthRef.current = loopWidth;
+      setWhatWeDoCopyCount((currentCopyCount) => {
+        const requiredCopyCount = Math.max(
+          whatWeDoMinimumCopyCount,
+          Math.ceil(viewport.clientWidth / loopWidth) + 3,
+        );
+
+        return currentCopyCount === requiredCopyCount ? currentCopyCount : requiredCopyCount;
+      });
+
+      if (serviceTapePositionRef.current < loopWidth || serviceTapePositionRef.current >= loopWidth * 2) {
+        serviceTapePositionRef.current =
+          loopWidth + wrapIndex(Math.round(serviceTapePositionRef.current), loopWidth);
+        viewport.scrollLeft = serviceTapePositionRef.current;
+      }
+    };
+
+    updateWhatWeDoGeometry();
+
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', updateWhatWeDoGeometry);
+      return () => window.removeEventListener('resize', updateWhatWeDoGeometry);
+    }
+
+    const resizeObserver = new ResizeObserver(updateWhatWeDoGeometry);
+    resizeObserver.observe(viewport);
+    resizeObserver.observe(track);
+
+    return () => resizeObserver.disconnect();
+  }, [whatWeDoCopyCount]);
+
+  useEffect(() => {
+    const viewport = serviceTapeViewportRef.current;
+
+    if (!viewport) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsWhatWeDoTapeInView(entry.isIntersecting);
+      },
+      { rootMargin: '240px 0px', threshold: 0.08 },
+    );
+
+    observer.observe(viewport);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isServiceTapePaused || prefersReducedMotion || !isWhatWeDoTapeInView) {
       return undefined;
     }
 
@@ -678,15 +753,15 @@ export default function HomePage() {
         return;
       }
 
-      const loopWidth = viewport.scrollWidth / 2;
+      const loopWidth = whatWeDoLoopWidthRef.current || viewport.scrollWidth / whatWeDoCopyCount;
 
       if (loopWidth <= 0) {
         return;
       }
 
-      if (serviceTapePositionRef.current >= loopWidth) {
+      if (serviceTapePositionRef.current >= loopWidth * 2) {
         serviceTapePositionRef.current -= loopWidth;
-      } else if (serviceTapePositionRef.current < 0) {
+      } else if (serviceTapePositionRef.current < loopWidth) {
         serviceTapePositionRef.current += loopWidth;
       }
 
@@ -709,7 +784,7 @@ export default function HomePage() {
         window.clearInterval(intervalId);
       }
     };
-  }, [isServiceTapePaused, prefersReducedMotion]);
+  }, [isServiceTapePaused, prefersReducedMotion, isWhatWeDoTapeInView, whatWeDoCopyCount]);
 
   useEffect(() => {
     if (isPortfolioTapePaused || prefersReducedMotion || isPortfolioTapeTransitioning) {
@@ -717,6 +792,11 @@ export default function HomePage() {
     }
 
     const timeoutId = window.setTimeout(() => {
+      if (featuredWorkTransitionLockRef.current) {
+        return;
+      }
+
+      featuredWorkTransitionLockRef.current = true;
       const nextIndex = portfolioTapeRenderIndexRef.current + 1;
       portfolioTapeRenderIndexRef.current = nextIndex;
       setPortfolioTapeDragOffset(0);
@@ -830,7 +910,7 @@ export default function HomePage() {
       return;
     }
 
-    const loopWidth = viewport.scrollWidth / 2;
+    const loopWidth = whatWeDoLoopWidthRef.current || viewport.scrollWidth / whatWeDoCopyCount;
 
     if (loopWidth <= 0) {
       serviceTapePositionRef.current = viewport.scrollLeft;
@@ -839,9 +919,9 @@ export default function HomePage() {
 
     serviceTapePositionRef.current = viewport.scrollLeft;
 
-    if (serviceTapePositionRef.current >= loopWidth) {
+    if (serviceTapePositionRef.current >= loopWidth * 2) {
       serviceTapePositionRef.current -= loopWidth;
-    } else if (serviceTapePositionRef.current < 0) {
+    } else if (serviceTapePositionRef.current < loopWidth) {
       serviceTapePositionRef.current += loopWidth;
     }
 
@@ -907,13 +987,14 @@ export default function HomePage() {
     } else if (event.key === 'Home') {
       event.preventDefault();
       pauseServiceTape();
-      serviceTapePositionRef.current = 0;
-      viewport.scrollLeft = 0;
+      serviceTapePositionRef.current = whatWeDoLoopWidthRef.current;
+      viewport.scrollLeft = serviceTapePositionRef.current;
       scheduleServiceTapeResume(1600);
     } else if (event.key === 'End') {
       event.preventDefault();
       pauseServiceTape();
-      serviceTapePositionRef.current = Math.max(viewport.scrollWidth / 2 - viewport.clientWidth, 0);
+      const loopWidth = whatWeDoLoopWidthRef.current || viewport.scrollWidth / whatWeDoCopyCount;
+      serviceTapePositionRef.current = loopWidth + Math.max(loopWidth - viewport.clientWidth, 0);
       viewport.scrollLeft = serviceTapePositionRef.current;
       scheduleServiceTapeResume(1600);
     }
@@ -999,13 +1080,14 @@ export default function HomePage() {
 
   function settlePortfolioTapeLoop() {
     const normalizedIndex =
-      portfolioBlocks.length +
-      wrapIndex(portfolioTapeRenderIndexRef.current - portfolioBlocks.length, portfolioBlocks.length);
+      portfolioBlocks.length * featuredWorkCenterCopyIndex +
+      wrapIndex(portfolioTapeRenderIndexRef.current, portfolioBlocks.length);
 
     portfolioTapeRenderIndexRef.current = normalizedIndex;
     setPortfolioTapeRenderIndex(normalizedIndex);
     setPortfolioTapeDragOffset(0);
     setIsPortfolioTapeTransitioning(false);
+    featuredWorkTransitionLockRef.current = false;
 
     if (portfolioTapeTransitionTimerRef.current) {
       window.clearTimeout(portfolioTapeTransitionTimerRef.current);
@@ -1014,7 +1096,7 @@ export default function HomePage() {
   }
 
   function movePortfolioTapeBySteps(steps: number, source: 'manual' | 'autoplay' = 'manual') {
-    if (steps === 0 || isPortfolioTapeTransitioning) {
+    if (steps === 0 || isPortfolioTapeTransitioning || featuredWorkTransitionLockRef.current) {
       return;
     }
 
@@ -1022,6 +1104,7 @@ export default function HomePage() {
       pausePortfolioTape();
     }
 
+    featuredWorkTransitionLockRef.current = true;
     const nextIndex = portfolioTapeRenderIndexRef.current + steps;
     portfolioTapeRenderIndexRef.current = nextIndex;
     setPortfolioTapeDragOffset(0);
@@ -1079,15 +1162,21 @@ export default function HomePage() {
     } else if (event.key === 'Home') {
       event.preventDefault();
       pausePortfolioTape();
-      portfolioTapeRenderIndexRef.current = portfolioBlocks.length;
-      setPortfolioTapeRenderIndex(portfolioBlocks.length);
+      const firstIndex = portfolioBlocks.length * featuredWorkCenterCopyIndex;
+      portfolioTapeRenderIndexRef.current = firstIndex;
+      featuredWorkTransitionLockRef.current = false;
+      setIsPortfolioTapeTransitioning(false);
+      setPortfolioTapeRenderIndex(firstIndex);
       setPortfolioTapeDragOffset(0);
       schedulePortfolioTapeResume(4500);
     } else if (event.key === 'End') {
       event.preventDefault();
       pausePortfolioTape();
-      portfolioTapeRenderIndexRef.current = portfolioBlocks.length * 2 - 1;
-      setPortfolioTapeRenderIndex(portfolioBlocks.length * 2 - 1);
+      const lastIndex = portfolioBlocks.length * featuredWorkCenterCopyIndex + portfolioBlocks.length - 1;
+      portfolioTapeRenderIndexRef.current = lastIndex;
+      featuredWorkTransitionLockRef.current = false;
+      setIsPortfolioTapeTransitioning(false);
+      setPortfolioTapeRenderIndex(lastIndex);
       setPortfolioTapeDragOffset(0);
       schedulePortfolioTapeResume(4500);
     }
@@ -1535,12 +1624,12 @@ export default function HomePage() {
               onScroll={normalizeServiceTapeScroll}
               onWheel={handleServiceTapeWheel}
             >
-              <div className="film-service-tape__track">
-                {[0, 1].map((setIndex) => (
+              <div ref={whatWeDoTrackRef} className="film-service-tape__track">
+                {Array.from({ length: whatWeDoCopyCount }, (_, setIndex) => (
                   <div
                     key={setIndex}
                     className="film-service-tape__set"
-                    aria-hidden={setIndex === 1}
+                    aria-hidden={setIndex !== 1}
                   >
                     {serviceBlocks.map((block, index) => {
                       const media = sampleMedia[block.mediaKey];
@@ -1653,7 +1742,7 @@ export default function HomePage() {
               onWheel={handlePortfolioTapeWheel}
             >
               <div
-                ref={portfolioTapeTrackRef}
+                ref={featuredWorkTrackRef}
                 className="film-portfolio-track"
                 style={{
                   transform: `translate3d(${portfolioTranslateX}px, 0, 0)`,
@@ -1672,7 +1761,7 @@ export default function HomePage() {
                         <article
                           key={`${copyIndex}-${block.key}`}
                           className="film-portfolio-card"
-                          aria-hidden={copyIndex !== 1}
+                          aria-hidden={copyIndex !== featuredWorkCenterCopyIndex}
                         >
                           <Image
                             src={media.src}
